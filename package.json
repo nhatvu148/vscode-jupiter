@@ -1,0 +1,54 @@
+{
+  "name": "jupiter",
+  "displayName": "JUPITER",
+  "description": "Jupiter Language Support",
+  "version": "1.0.0",
+  "publisher": "nhatvu148",
+  "license": "MIT",
+  "icon": "images/logo.png",
+  "engines": {
+    "vscode": "^1.51.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nhatvu148/vscode-jupiter"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "keywords": [
+    "jupiter"
+  ],
+  "devDependencies": {
+    "js-yaml": "^3.12.2"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "jupiter",
+        "aliases": [
+          "Jupiter",
+          "jpl"
+        ],
+        "extensions": [
+          ".jpl"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "jupiter",
+        "scopeName": "source.jupiter",
+        "path": "./syntaxes/jupiter.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "jupiter",
+        "path": "./snippets/jupiter.json"
+      }
+    ]
+  }
+}
