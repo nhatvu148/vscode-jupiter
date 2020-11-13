@@ -1,0 +1,949 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 
+//	#PSJ Utility calltips (119 API functions) 
+//  #Base class: DItem
+//  #Child classes: DFace, DBody, DEdge, DNode, DGroup, DElem...
+//  #List classes: DItemVector, BodyVector, NodeVector, ElemVector, 
+//  FaceVector, EdgeVector, GroupVector, DItemPairVector,... 
+//  #Param types: DTableType, EntityType (DItemType), UnitType, 
+//  ElemType, ElemKind, BoolType, PathType, AssociateType, ...
+//  #Debugger: JPT.Debugger() ,JPT.PrintAppPathInfo(), print()
+//  
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+@Base class: DItem 
+@Description: class object for all of kind entity can cast to DFace, DBody, DEdge, DGroup, DNode, DElem, ...
+@Properties:
+isValid : check entity is valid or not : return bool
+type : get type of entity : return EntityType 
+typeID : get id of entity type : return int 
+key : get key of entity (internal key) : return int 
+id : get id of entity (external key) : return int 
+name : get/set name of entity : return string 
+targets : get targets of entity (use for group, pressure, force,...) : return DItemVector 
+masters : get master targets of entity (use for RBE, MPC,...) : return DItemVector 
+slaves : get slave targets of entity (use for RBE, MPC,...) : return DItemVector 
+children : get childrens of entity (use for assembly tree): return DItemVector 
+parent : get parent of entity (use for assembly tree): return DItemVector 
+isHidden: check entity is show or hide in view
+info 
+@Example: 
+listEntityObject = JPT.GetAllByType(JPT.EntityType.BODY)
+listEntityObject[0].isValid // read only
+listEntityObject[0].type // read only
+listEntityObject[0].typeID // read only
+listEntityObject[0].name = "new name" // read/write
+#==========================================================================================================
+@Child classes: DFace
+@Description: class object for face entity can cast to DItem
+@Properties:
+typeID: get type of entity : return EntityType 
+key: get key of entity (internal key) : return int 
+id: get id of entity (external key) : return int 
+nodes: get list of node : return NodeVector 
+elems: get list of element: return ElemVector
+edges: get list of element: return EdgeVector
+color: set/get color of face 
+colorMesh: set/get color of mesh line 
+#==========================================================================================================
+@Child classes: DBody
+@Description: class object for body entity can cast to DItem
+@Properties: 
+typeID: get type of entity : return EntityType 
+key: get key of entity (internal key) : return int 
+id: get id of entity (external key) : return int 
+name: get/set name of entity : return string 
+faces: get list of face : return FaceVector 
+elems: get list of element: return ElemVector
+edges: get list of element: return EdgeVector
+nodes: get list of node : return NodeVector  
+vertexs: get list of vertex : return DItemVector 
+color: set/get color of body 
+transparance: set/get transparance of body 
+#==========================================================================================================
+@Child classes: DEdge
+@Description: class object for edge entity can cast to DItem
+@Properties: 
+typeID: get type of entity : return EntityType 
+key: get key of entity (internal key) : return int 
+id: get id of entity (external key) : return int 
+edges: get list of element: return EdgeVector
+nodes: get list of node : return NodeVector  
+color: set/get color of edge 
+#==========================================================================================================
+@Child classes: DElem
+@Description: class object for element entity can cast to DItem
+@Properties: 
+typeID: get type of entity : return EntityType 
+key: get key of entity (internal key) : return int 
+id: get id of entity (external key) : return int 
+type: get element type : return int
+kind: get element kind : return ElemKind
+nodes: get list of node : return NodeVector  
+color: set/get color of element  
+#==========================================================================================================
+@Child classes: DGroup
+@Description: class object for group entity can cast to DItem
+@Properties: 
+typeID: get type of entity : return EntityType 
+key: get key of entity (internal key) : return int 
+id: get id of entity (external key) : return int 
+name: get/set name of group : return string 
+targets : get targets of group : return DItemVector 
+#==========================================================================================================
+@Child classes: DNode
+@Description: class object for node entity can cast to Entity
+@Properties: 
+isFloating: check node is floating node or not : : return bool
+typeID: get type of entity : return EntityType 
+key: get key of entity (internal key) : return int 
+id: get id of entity (external key) : return int 
+pos: get x,y,z from node : return TVector3d
+#==========================================================================================================
+@Child classes: VersionInfo
+@Description: class object for version info file jtdb
+@Properties: 
+major
+minor
+sub
+build
+#==========================================================================================================
+@Child classes: TVector3d
+@Description: class object for vector3d use for node position, double list
+@Properties: 
+x
+y
+z
+#==========================================================================================================
+@List classes: DItemVector, BodyVector, FaceVector, ElemVector, GroupVector, NodeVector, EdgeVector
+@Description: list of entity objects
+@Methods: 
+sizeVec() : return size of list
+clearVec() : clear all list
+addObj(entityObject) : append an entity to list
+extendVec(listEntityObject) : insert another list entity to current list
+deleteObj(1) : delete a entity in list by index
+isContainObj(entityObject) : check if entityObject is exist in current list
+#==========================================================================================================
+Function: JPT.RemoveEntitiesByID
+Description: remove entities from model by id
+Input1: DItem type (JPT.EntityType)
+Input2: id of entity (int)
+Return: None
+Example: 
+listbody = JPT.GetEntitiesByName(JPT.DTableType.DTABLE_BODY, "Cube", JPT.BoolType.FALSE_VAL)
+idbody = listbody[0].id
+JPT.RemoveEntitiesByID(JPT.EntityType.BODY, idbody)
+--------------------------------------------------------------------------
+Function: JPT.RemoveEntitiesByName
+Description: remove entities from model by name
+Input1: DTable type (JPT.DTableType)
+Input2: name of entity (string)
+Input3: match with name option (1,0 or JPT.BoolType)
+Return: None
+Example: JPT.RemoveEntitiesByName(JPT.DTableType.DTABLE_BODY, "Cube_1", 1)
+--------------------------------------------------------------------------
+Function: JPT.RemoveAllLoadsBCs
+Description: Remove all Loads and Boundary Condition in model
+Input1: None
+Return: None
+Example: JPT.RemoveAllLoadsBCs ()
+--------------------------------------------------------------------------
+Function: JPT.RemoveAllContacts
+Description: Remove all of Contact in models
+Input1: None
+Return: None
+Example: JPT.RemoveAllContacts()
+--------------------------------------------------------------------------
+Function: JPT.RemoveAllConnections
+Description: Remove all of Connection in models
+Input1: None
+Return: None
+Example: JPT.RemoveAllConnections()
+--------------------------------------------------------------------------
+Function: JPT.RemoveAllLoadCases
+Description: Remove all load cases in models
+Input1: None
+Return: None
+Example: JPT.RemoveAllLoadCases()
+--------------------------------------------------------------------------
+Function: JPT.RemoveAllMaterials
+Description: Remove all of Material in User Data Base
+Input1: None
+Return: None
+Example: JPT.RemoveAllMaterials()
+
+Function: JPT.RemoveWSProperties
+Description: Remove all properties in models
+Input1: None
+Return: None
+Example: JPT.RemoveWSProperties()
+--------------------------------------------------------------------------
+Function: JPT.RemoveAllCoordinates
+Description: Remove all of created coordinates
+Input1: None
+Return: None
+Example: JPT.RemoveAllCoordinates()
+--------------------------------------------------------------------------
+Function: JPT.RemoveAllMeshSettings
+Description: Remove all local mesh settings
+Input1: None
+Return: None
+Example: JPT.RemoveAllMeshSettings()
+--------------------------------------------------------------------------
+Function: JPT.RemoveAllFieldTables
+Description: Remove all of Field Data table in models
+Input1: None
+Return: None
+Example: JPT.RemoveAllFieldTables()
+--------------------------------------------------------------------------
+Function: JPT.RemoveAllAbaqusStep
+Description: Remove all of Abaqus steps in Analysis
+Input1: None
+Return: None
+Example: JPT.RemoveAllAbaqusStep()
+--------------------------------------------------------------------------
+Function: JPT.RemoveAllSolverjob
+Description: Remove all analysis Jobs
+Input1: None
+Return: None
+Example: JPT.RemoveAllSolverjob()
+--------------------------------------------------------------------------
+Function: JPT.RemoveAllByTableType
+Description: remove all entities in models by table type 
+Input1: DTable type (JPT.DTableType)
+Return: None
+Example: JPT.RemoveAllByTableType(JPT.DTableType.DTABLE_BODY)
+--------------------------------------------------------------------------
+Function: JPT.CreateSubAssembly
+Description: Create a sub node under parent on assembly tree with name
+Input1: name of sub node (string)
+Input2: parent object (DItem class)
+Return: new sub node object (DItem class)
+Example: JPT.CreateSubAssembly("LocalSetting_1", parentObject)
+--------------------------------------------------------------------------
+Function: JPT.DeleteSubAssembly
+Description: Delete a sub node from assembly tree
+Input1: sub node object (DItem class)
+Return: None
+Example: JPT.DeleteSubAssembly(dentityObject)
+--------------------------------------------------------------------------
+Function: JPT.FindSubAssemblyByName
+Description: Find a sub node from assembly tree by name
+Input1: name of sub node (string)
+Return: list DItem object matched with input name (DItemVector)
+Example: JPT.FindSubAssemblyByName("LocalSetting_1")
+--------------------------------------------------------------------------
+Function: JPT.FindSubAssemblyByID
+Description: Find a sub node from assembly tree by id
+Input1: id of entity sub node (int) 
+Return: sub node object matched with input id (DItem) 
+Example: JPT.FindSubAssemblyByID(1)
+--------------------------------------------------------------------------
+Function: JPT.DeleteSubAssemblyRecursively
+Description: Delete a sub node and all childs from assembly tree
+Input1: sub node object (DItem class)
+Return: None
+Example: JPT.DeleteSubAssemblyRecursively(dentityObject)
+--------------------------------------------------------------------------
+Function: JPT.GetAllPartsInSubAssembly
+Description: get all parts in a sub node from assembly tree
+Input1: sub node object (DItem class)
+Return: list of DItem object matched with input name (DItemVector)
+Example: JPT.GetAllPartsInSubAssembly(DItem) 
+--------------------------------------------------------------------------
+Function: JPT.CastToDItem
+Description: cast a child object to entity object
+Input1: any kind of objects (Body, Face, Elem, Edge, Group, Node,...)
+Return: entity object (DItem class)
+Example: 
+listDbodyObject = JPT.GetAllParts() 
+dbodyObject = listDbodyObject[0]
+dentityObject = JPT.CastToDItem(dbodyObject)
+--------------------------------------------------------------------------
+Function: JPT.CastDItemToDBody
+Description: cast a DItem object to Body object
+Input1: DItem object (DItem class)
+Return: Body object (Body class)
+Example: 
+listEntityObject = JPT.GetAllByType(JPT.EntityType.BODY)
+dentityObject = listEntityObject[0]
+dbodyObject = JPT.CastDItemToDBody(dentityObject)
+--------------------------------------------------------------------------
+Function: JPT.CastDItemToDFace
+Description: cast a DItem object to Face object
+Input1: DItem object (DItem class)
+Return: Face object (Face class)
+Example: 
+listEntityObject = JPT.GetAllByType(JPT.EntityType.FACE)
+dentityObject = listEntityObject[0]
+JPT.CastDItemToDFace(dentityObject)
+--------------------------------------------------------------------------
+Function: JPT.CastDItemToDElem
+Description: cast a DItem object to Elem object
+Input1: DItem object (DItem class)
+Return: Elem object (Elem class)
+Example: 
+listEntityObject = JPT.GetAllByType(JPT.EntityType.ELEM)
+dentityObject = listEntityObject[0]
+JPT.CastDItemToDElem(dentityObject)
+--------------------------------------------------------------------------
+Function: JPT.CastDItemToDEdge
+Description: cast a DItem object to Edge object
+Input1: DItem object (DItem class)
+Return: Edge object (Edge class)
+Example: 
+listEntityObject = JPT.GetAllByType(JPT.EntityType.EDGE)
+dentityObject = listEntityObject[0]
+JPT.CastDItemToDEdge(dentityObject)
+--------------------------------------------------------------------------
+Function: JPT.CastDItemToDGroup
+Description: cast a DItem object to Group object
+Input1: DItem object (DItem class)
+Return: Group object (Group class)
+Example: 
+listEntityObject = JPT.GetAllByType(JPT.EntityType.GROUP)
+dentityObject = listEntityObject[0]
+JPT.CastDItemToDGroup(dentityObject)
+--------------------------------------------------------------------------
+Function: JPT.CastDItemToDNode
+Description: cast a DItem object to Node object
+Input1: DItem object (DItem class)
+Return: Node object (Node class)
+Example: 
+listEntityObject = JPT.GetAllByType(JPT.EntityType.NODE)
+dentityObject = listEntityObject[0]
+JPT.CastDItemToDNode(dentityObject)
+--------------------------------------------------------------------------
+Function: JPT.DItemToMacroTCursorPair
+Description: convert pair of DItem object to cursor pair macro string  
+Input1: DItem object 1 (DItem class)
+Input2: DItem object 2 (DItem class)
+Return: cursor pair macro string (string)
+Example: 
+listNodeObject = JPT.GetAllNodes()
+dentityObject1 = JPT.CastToDItem(listNodeObject[0])
+dentityObject2 = JPT.CastToDItem(listNodeObject[1])
+strElemEdge = JPT.DItemToMacroTCursorPair(dentityObject1, dentityObject2) // 10:1-10:2
+--------------------------------------------------------------------------
+Function: JPT.ListDoubleToMacroVector
+Description: convert list of double value to vector3d macro string  
+Input1: value1 (double) 
+Input2: value2 (double) 
+Input2: value3 (double) 
+Return: vector3d macro string (string) 
+Example: 
+JPT.ListDoubleToMacroVector(1.0, 1.0, 1.0) // [1.0,1.0,1.0]
+JPT.ListDoubleToMacroVector(1, 2, 3) // [1,2,3]
+--------------------------------------------------------------------------
+Function: JPT.DTVector3dToMacroVector
+Description: convert Vector3d object to vector3d macro string 
+Input1: Vector3d object (DTVector3d class)
+Return: vector3d macro string (string) 
+Example: 
+listNodeObject = JPT.GetAllNodes()
+posNode1 = listNodeObject[0].pos
+JPT.DTVector3dToMacroVector(posNode1)
+--------------------------------------------------------------------------
+Function: JPT.DItemToMacroTCursor
+Description: convert a DItem object to cursor macro string 
+Input1: DItem object (DItem class)
+Return: cursor macro string (string)
+Example: 
+listnode1 = JPT.GetEntitiesByID(JPT.EntityType.NODE, 435)
+listnode2 = JPT.GetEntitiesByID(JPT.EntityType.NODE, 434)
+node1 = JPT.DItemToMacroTCursor(listnode1[0]) // 10:1
+node2 = JPT.DItemToMacroTCursor(listnode2[0]) // 10:2
+JPT.Exec('Collapse({0}, {1})'.format(node1, node2))
+--------------------------------------------------------------------------
+Function: JPT.DItemListToMacroListTCursor
+Description: convert list of DItem objects to cursor list macro string 
+Input1: list of DItem objects (DItemVector) 
+Return: cursor list macro string (string)  
+Example: 
+listface1 = JPT.GetAllFaces()
+JPT.DItemListToMacroListTCursor(listface1) // [10:1, 10:1, ...]
+--------------------------------------------------------------------------
+Function: JPT.DItemToMacroListTCursor
+Description: convert a DItem object to cursor list macro string 
+Input1: DItem objects (DItem class)
+Return: cursor list macro string (string)  
+Example: 
+listnode = JPT.GetEntitiesByID(JPT.EntityType.NODE, 434)
+node = JPT.DItemToMacroTCursor(listnode[0]) // 10:1
+JPT.DItemToMacroListTCursor(node) [10:1]
+--------------------------------------------------------------------------
+Function: JPT.MacroResultParser
+Description: parse returned string from macro to list of string
+Input1: returned string from macro (string)  
+Input2: list of string pattern (string, cursor, cursor_pair, list_number
+list_cursor_pair, list_cursor, list_list_cursor, list_string, vector3d, number) 
+Return: list of result (list string)  
+Example: 
+result = JPT.Exec('MC_Mesh_Quality_Manual_Check_Tri([3:1], 0, 0, 0.1)')
+# result = 1, [6:100, 6:101]
+listString = JPT.MacroResultParser(result, ["number", "list_cursor"]) 
+--------------------------------------------------------------------------
+Function: JPT.MacroListTCursorToListDItem
+Description: convert a macro cursor list string to list of DItem objects
+Input1: macro cursor list string (string)
+Return: list of DItem objects (DItemVector)
+Example: listEntityObject = JPT.MacroListTCursorToListDItem('[10:1, 10:1, ...]')
+--------------------------------------------------------------------------
+Function: JPT.MacroTCursorToDItem
+Description: convert a macro cursor string to DItem object
+Input1: macro cursor string (string)
+Return: DItem object (DItem class)
+Example: dentityObject = JPT.MacroTCursorToDItem('3:1')
+--------------------------------------------------------------------------
+Function: JPT.ConvertRGBToJPTColor
+Description: convert a RGB (red,green,blue) value to JPT color number
+Input1: RGB (red,green,blue)
+Return: JPT color number (int)
+Example: 
+newcolor = JPT.ConvertRGBToJPTColor(255,0,0) # red color
+listbody = JPT.GetEntitiesByName(JPT.DTableType.DTABLE_BODY, "Cube_1", 1)
+JPT.CastDItemToDBody(listbody[0]).color = newcolor
+--------------------------------------------------------------------------
+Function: JPT.GetJTDBVersion
+Description: Get version of documents
+Input1: None
+Return: Version values of document (build, major, minor, sub)(VersionInfo)
+Example: JPT.GetJTDBVersion()
+--------------------------------------------------------------------------
+Function: JPT.CopyToClipBoard
+Description: put a text to clipboard buffer 
+Input1: text input (string)
+Return: None
+Example: JPT.CopyToClipBoard(text)
+--------------------------------------------------------------------------
+Function: JPT.CheckLicense
+Description: Check feature license whether active or not
+Input1: License name(string)
+        Jupiter feature license: Home > Preference > License
+Return: True / False
+Example: JPT.CheckLicense("JPT_BASE")
+--------------------------------------------------------------------------
+Function: JPT.IsDefaultDouble
+Description: check a double value is Default value or not 
+Input1: value (double) 
+Return: True / False
+Example: JPT.IsDefaultDouble(value)
+--------------------------------------------------------------------------
+Function: JPT.IsDefaultInt
+Description: check a int value is Default value or not 
+Input1: value (int) 
+Return: True / False
+Example: JPT.IsDefaultInt(value)
+--------------------------------------------------------------------------
+Function: JPT.ConvertFromDocUnit
+Description: Convert value from JPT user setup unit to SI unit system
+Input1: Conversion source value (double)
+Input2: Unit system conversion type (JPT.UnitType)
+Return: Converted Value (double)
+Example: JPT.ConvertFromDocUnit(1, JPT.UnitType.Unit_Length)
+--------------------------------------------------------------------------
+Function: JPT.ConvertValueToDocUnit
+Description: Convert value from SI unit system to JPT user setup unit
+Input1: Conversion source value (double)
+Input2: Unit system conversion type (JPT.UnitType)
+Return: Converted value (double)
+Example: JPT.ConvertValueToDocUnit(1, JPT.UnitType.Unit_Length)
+--------------------------------------------------------------------------
+Function: JPT.ConvertFromMacroUnit
+Description: Convert unit system from user input unit to macro SI unit
+Input1: Conversion source value (double)
+Input2: Unit system conversion type (JPT.UnitType)
+Input3: Unit abbreviation (string)
+Return: Converted value (double)
+Example: JPT.ConvertFromMacroUnit(1, JPT.UnitType.Unit_Length, 'mm')
+--------------------------------------------------------------------------
+Function: JPT.ConvertValueToMacroUnit
+Description: Convert unit system from macro SI unit to user input unit
+Input1: Conversion source value (double)
+Input2: Unit system conversion type (JPT.UnitType)
+Input3: Unit abbreviation (string)
+Return: Converted value(double)
+Example: convToMacr = JPT.ConvertValueToMacroUnit(1, JPT.UnitType.Unit_Length, 'mm')
+--------------------------------------------------------------------------
+Function: JPT.GetJPTTempPath
+Description: Get temp document path
+Input1: None
+Return: Temp Document Path(string)
+Example: JPT.GetJPTTempPath()
+--------------------------------------------------------------------------
+Function: JPT.GetProgramPath
+Description: Get application installation directory
+Input1: None
+Return: Program Path(string)
+Example: JPT.GetProgramPath()
+--------------------------------------------------------------------------
+Function: JPT.GetCurrentDocumentPath
+Description: Get current document path
+Input1: None
+Return: Current Document Path(string)
+Example: JPT.GetCurrentDocumentPath()
+--------------------------------------------------------------------------
+Function: JPT.QuitApplication
+Description: quit jupiter
+Input1: None
+Return: None
+Example: JPT.QuitApplication()
+--------------------------------------------------------------------------
+Function: JPT.GetAppPathInfo
+Description: get a JPT path string (Program, Temp, Appdata, Document)
+Input1: Path type (JPT.PathType)
+Return: path (string)
+Example: JPT.GetAppPathInfo()
+--------------------------------------------------------------------------
+Function: JPT.GetSelectedNodes
+Description: Get selected node information
+Input1: None
+Return: Selected node information (typeID, id, key, pos)(DNode)
+Example: JPT.GetSelectedNodes()
+--------------------------------------------------------------------------
+Function: JPT.GetSelectedElems
+Description: Get selected element information
+Input1: None
+Return: Selected element information (typeID, type, id, key, kind)(Elem)
+Example: JPT.GetSelectedElems()
+--------------------------------------------------------------------------
+Function: JPT.GetSelectedFaces
+Description: Get selected face information
+Input1: None
+Return: Selected face information (typeID, id, key)(DFace)
+Example: JPT.GetSelectedFaces()
+--------------------------------------------------------------------------
+Function: JPT.GetSelectedEdges
+Description: Get all of selected edge information
+Input1: None
+Return: Selected edge information (typeID, id, key)(DEdge)
+Example: JPT.GetSelectedEdges()
+--------------------------------------------------------------------------
+Function: JPT.GetSelectedParts
+Description: Get selected part information
+Input1: None
+Return: Selected part information (typeID, id, key, name)(DBody)
+Example: JPT.GetSelectedParts()
+--------------------------------------------------------------------------
+Function: JPT.GetSelectedGroups
+Description: Get selected group information (DItem information inside group)
+Input1: None
+Return: Selected group information ( id, key, name, targets, typeID)(DGroup)
+Example: JPT.GetSelectedGroups()
+--------------------------------------------------------------------------
+Function: JPT.GetAllParts
+Description: Get information of all parts
+Input1: None
+Return: Part information (typeID, id, key, name)(DItem) 
+Example: JPT.GetAllParts()
+--------------------------------------------------------------------------
+Function: JPT.GetAllFaces
+Description: Get information of faces
+Input1: None
+Return: Face information (id, key, typeID)(DFace)
+Example: JPT.GetAllFaces()
+--------------------------------------------------------------------------
+Function: JPT.GetAllEdges
+Description: Get information of edges
+Input1: None
+Return: Edge information (id, key, typeID)(DEdge)
+Example: JPT.GetAllEdges()
+--------------------------------------------------------------------------
+Function: JPT.GetAllElems
+Description: Get information of elements
+Input1: None
+Return: Element information (id, key, type, typeID)(Elem)
+Example: JPT.GetAllElems()
+--------------------------------------------------------------------------
+Function: JPT.GetAllNodes
+Description: Get information of all nodes
+Input1: None
+Return: Node information (typeID, id, key, pos)(DNode)
+Example: JPT.GetAllNodes()
+--------------------------------------------------------------------------
+Function: JPT.GetAllGroups
+Description: Get all entities' information inside groups
+Input1: None
+Return: Group information (id, key, name, targets, typeID)(DGroup)
+Example: JPT.GetAllGroups()
+--------------------------------------------------------------------------
+Function: JPT.GetAllByTableTypeID
+Description: Get the information about indicated entity by type ID.
+Input1: DItem type ID input(int)
+Return: Type ID(DItem) 
+Example: JPT.GetAllByTableTypeID(3)
+--------------------------------------------------------------------------
+Function: JPT.GetAllByTypeID
+Description: Get information of entities by inputing their typeIDs
+Input1: Type ID of entities(int)
+Return: Information of entities: id, name, info, isValid, key, masters, slaves, target, type, type ID, parent, children(DItem) 
+Example: JPT.GetAllByTypeID(3)
+--------------------------------------------------------------------------
+Function: JPT.GetAllByType
+Description: Get entities information by inputting their DItem type
+Input1: DItem type input (JPT.EntityType)
+Return: DItem information (DItem) 
+Example: JPT.GetAllByType(JPT.EntityType.INST)
+--------------------------------------------------------------------------
+Function: JPT.GetCountByType
+Description: Get count of entities by type
+Input1: DItem Type: BODY, VERTEX, EDGE, FACE, SOLID, ELEM,...(JPT.EntityType)
+Return: Number of entities(int)
+Example: JPT.GetCountByType(JPT.EntityType.BODY)
+--------------------------------------------------------------------------
+Function: JPT.GetAllSelected
+Description: Get entity information from the selected entity (Connections, Contacts, Parts, ...)
+Input1: None
+Return: DItem information (name, type, typeID, id, info, key, masters, slaves, targets, children, parent )(DItem) 
+Example: JPT.GetAllSelected()
+--------------------------------------------------------------------------
+Function: JPT.GetLastCreatedCursor
+Description: Get the latest id of created entity
+Input1: None
+Return: Last created Object(DItem) 
+Example: JPT.GetLastCreatedCursor()
+--------------------------------------------------------------------------
+Function: JPT.GetCenterOfEntities
+Description: Get center coordinate of selected entities
+Input1: list of DItem object (DItemVector)
+Return: Coordinate[x,y,z] of selected entities(double)
+Example: JPT.GetCenterOfEntities(entity)
+--------------------------------------------------------------------------
+Function: JPT.GetSharedFaces
+Description: Get shared face information
+Input1: list of DItem object (DItemVector)
+Return: Shared face information (typeID, id, key)(DItem) 
+Example: JPT.GetSharedFaces(shareFace)
+--------------------------------------------------------------------------
+Function: JPT.GetSharedElements
+Description: Get shared element information
+Input1: ist of DItem object (DItemVector)
+Return: Shared element information (type, typeID, id, info, key, masters, slave, targets, children, parent)(DItem) 
+Example: JPT.GetSharedElements(bodies)
+--------------------------------------------------------------------------
+Function: JPT.GetSharedNodes
+Description: Get shared node information
+Input1: ist of DItem object (DItemVector)
+Return: Shared node information (typeID, id, key)(DItem) 
+Example: JPT.GetSharedNodes(shareNodes)
+--------------------------------------------------------------------------
+Function: JPT.GetAllLoadsBCs
+Description: Get information of all loads and BCs
+Input1: None
+Return: Load information (type, type ID, id, key, name, info, targets, isValid, masters, slaves, parent, children)(DItem) 
+Example: JPT.GetAllLoadsBCs()
+--------------------------------------------------------------------------
+Function: JPT.GetMaterialXML
+Description: get matertial xml as string output
+Input1: None
+Return: XML matertial (string)
+Example: JPT.GetMaterialXML()
+--------------------------------------------------------------------------
+Function: JPT.GetMaterialOriginalXML
+Description: get original matertial xml as string output
+Input1: None
+Return: XML matertial (string)
+Example: JPT.GetMaterialOriginalXML()
+--------------------------------------------------------------------------
+Function: JPT.GetMaxMaterialID
+Description: get max database id of matertial
+Input1: None
+Return: max id of matertial (int)
+Example: JPT.GetMaxMaterialID()
+--------------------------------------------------------------------------
+Function: JPT.GetMaterialDBById
+Description: get matertial database id from id
+Input1: None
+Return: matertial database id (int)
+Example: JPT.GetMaterialDBById()
+--------------------------------------------------------------------------
+Function: JPT.GetSelectedNodesCr
+Description: get selected node as string output
+Input1: None
+Return: selected node (string)
+Example: JPT.GetSelectedNodesCr()
+--------------------------------------------------------------------------
+Function: JPT.GetSelectedElemsCr
+Description: get selected element as string output
+Input1: None
+Return: selected element (string)
+Example: JPT.GetSelectedElemsCr()
+--------------------------------------------------------------------------
+Function: JPT.GetSelectedFacesCr
+Description: get selected face as string output
+Input1: None
+Return: selected face (string)
+Example: JPT.GetSelectedFacesCr()
+--------------------------------------------------------------------------
+Function: JPT.GetSelectedEdgesCr
+Description: get selected edge as string output
+Input1: None
+Return: selected edge (string)
+Example: JPT.GetSelectedEdgesCr()
+--------------------------------------------------------------------------
+Function: JPT.GetSelectedPartsCr
+Description: get selected part as string output
+Input1: None
+Return: selected part (string)
+Example: JPT.GetSelectedPartsCr()
+--------------------------------------------------------------------------
+Function: JPT.GetSelectedGroupsCr
+Description: get selected group as string output
+Input1: None
+Return: selected group (string)
+Example: JPT.GetSelectedGroupsCr()
+--------------------------------------------------------------------------
+Function: JPT.GetUndoCount
+Description: Get number of undo action which is capable of running
+Input1: None
+Return: Number of undo action(int)
+Example: JPT.GetUndoCount()
+--------------------------------------------------------------------------
+Function: JPT.ClearUndo
+Description: Clear Undo list
+Input1: None
+Return: None
+Example: JPT.ClearUndo()
+--------------------------------------------------------------------------
+Function: JPT.GetRedoCount
+Description: Get number of redo action which is capable of running
+Input1: None
+Return: Number of redo action(int)
+Example: JPT.GetRedoCount()
+--------------------------------------------------------------------------
+Function: JPT.ClearRedo
+Description: Clear Redo list
+Input1: None
+Return: None
+Example: JPT.ClearRedo()
+--------------------------------------------------------------------------
+Function: JPT.GetOpnList
+Description: Get list of Launch Operation
+Input1: None
+Return: List of Launch Operation(string)
+Example: JPT.GetOpnList()
+--------------------------------------------------------------------------
+Function: JPT.GetMacroLog
+Description: Get all of the macro in Macro Window
+Input1: None
+Return: List of previous Macro in Macro Window (list string)
+Example: JPT.GetMacroLog()
+--------------------------------------------------------------------------
+Function: JPT.GetPythonAPILog
+Description: Get log string from python API window
+Input1: None
+Return: List of messages from python API window (list string)
+Example: JPT.GetPythonAPILog()
+--------------------------------------------------------------------------
+Function: JPT.ShowHideEntitiesByID
+Description: show or hide an entity by id in view
+Input1: DTable type (JPT.DTableType)
+Input2: entity id (int)
+Input3: show/hide option (1,0 or JPT.BoolType)
+Return: None
+Example: 
+// show a part
+JPT.ShowHideEntitiesByID(JPT.DTableType.DTABLE_BODY, 1, JPT.BoolType.TRUE_VAL)
+// hide a part
+JPT.ShowHideEntitiesByID(JPT.DTableType.DTABLE_BODY, 1, JPT.BoolType.FALSE_VAL)
+--------------------------------------------------------------------------
+Function: JPT.ShowHideAllParts
+Description: show or hide all parts in view
+Input1: show/hide option (1,0 or JPT.BoolType)
+Return: None
+Example: 
+// show all parts
+JPT.ShowHideAllParts(JPT.BoolType.TRUE_VAL)
+// hide all parts
+JPT.ShowHideAllParts(JPT.BoolType.FALSE_VAL)
+--------------------------------------------------------------------------
+Function: JPT.InverseHideBodies
+Description: inverse hide parts in view
+Input1: id of part (int)
+Return: None
+Example: 
+listbody = JPT.GetEntitiesByName(JPT.DTableType.DTABLE_BODY, "Cube1", 1)
+idbody = listbody[0].id
+JPT.InverseHideBodies(idbody)
+--------------------------------------------------------------------------
+Function: JPT.ViewFitToModel
+Description: fit models to current view
+Input1: idbody
+Return: None
+Example: JPT.ViewFitToModel()
+--------------------------------------------------------------------------
+Function: JPT.Exec
+Description: Run Jupiter macro
+Input1: Macro command (string)
+Return: Refer each macro command(string)
+Example: JPT.Exec('CreateCube([0, 0, 0], [0.01, 0.01, 0.01], [10, 10, 10], "Cube_1", 7105764, 0:0) ')
+--------------------------------------------------------------------------
+Function: JPT.GetMaxIDEntity
+Description: get max id entity from DItem type
+Input1: DItem type (JPT.EntityType)
+Return: max id entity (int) 
+Example: JPT.GetMaxIDEntity(JPT.EntityType.BODY)
+--------------------------------------------------------------------------
+Function: JPT.GetMinIDEntity
+Description: get min id entity from DItem type
+Input1: DItem type (JPT.EntityType)
+Return: min id entity (int) 
+Example: JPT.GetMinIDEntity(JPT.EntityType.BODY)
+--------------------------------------------------------------------------
+Function: JPT.GetEntitiesByName
+Description: get list of object entity by name
+Input1: DTableType type (JPT.DTableType)
+Input2: name of entity (string)
+Input3: match with name option (1,0 or JPT.BoolType)
+Return: list of object entity (DItemVector)
+Example: listbody = JPT.GetEntitiesByName(JPT.DTableType.DTABLE_BODY, "Cube1", 1)
+--------------------------------------------------------------------------
+Function: JPT.GetEntitiesByID
+Description: get list of object entity by id
+Input1: DItem type (JPT.EntityType)
+Input2: id entity (int) 
+Return: list of object entity (DItemVector)
+Example: listbody = JPT.GetEntitiesByID(JPT.EntityType.BODY, 1)
+--------------------------------------------------------------------------
+Function: JPT.GetEntitiesByPosition
+Description: get list of entity object by position
+Input1: AssociateType type (JPT.AssociateType)
+Input2: x (double)  
+Input3: y (double) 
+Input4: z (double) 
+Return: list of DItem object (DItemVector)
+Example: JPT.GetEntitiesByPosition(JPT.AssociateType.AS_BODY, 1, 2, 3)
+--------------------------------------------------------------------------
+Function: JPT.GetEntitiesByAssociation
+Description: get list of entity object by association
+Input1: DItem type of parent entity (JPT.EntityType)
+Input2: AssociateType type (JPT.AssociateType)
+Input3: id entity (int) 
+Return: list of DItem object (DItemVector)
+Example: JPT.GetEntitiesByAssociation(JPT.EntityType.BODY, JPT.AssociateType.AS_FACE, 1)
+--------------------------------------------------------------------------
+Function: JPT.GetEntitiesByAdjacent
+Description: get list of entity object by adjacency
+Input1: only DItem Face/Element type (JPT.EntityType)
+Input2: id entity (int)  
+Input3: stop angle (int)
+Return: list of DItem object (DItemVector)
+Example: JPT.GetEntitiesByAdjacent(JPT.EntityType.FACE, 1, 30)
+--------------------------------------------------------------------------
+Function: JPT.MsgOut
+Description: print out message to Python API window (~ print())
+Input1: message (string)
+Return: None
+Example: JPT.MsgOut("this is test message")
+--------------------------------------------------------------------------
+Function: JPT.PrintAppPathInfo
+Description: print all JPT path information (Program, Temp, Appdata, Document)
+Input1: None
+Return: None
+Example: JPT.PrintAppPathInfo()
+--------------------------------------------------------------------------
+Function: JPT.PrintPSJUtilityManual
+Description: Print PSJ Utility Manual Information
+Input1: None
+Return: None
+Example: JPT.PrintPSJUtilityManual()
+--------------------------------------------------------------------------
+Function: JPT.Debugger
+Description: console debugger for PSJ 
+Input1: any type, any argument number
+Return: None
+Example: 
+// debug list
+JPT.Debugger(JPT.EntityType.values) 
+// debug python standard type
+JPT.Debugger(1, "abcd", list, tuble, dict, ....)
+// debug Jupiter data type
+JPT.Debugger(JPT.GetAllNodes()[0].id)
+JPT.Debugger(JPT.GetAllNodes()[0])
+JPT.Debugger(JPT.GetAllNodes())
+--------------------------------------------------------------------------
+Function: JPT.GetElemsByKind
+Description: get list of element object by kind
+Input1: element kind (JPT.ElemKind)
+Return: list of Elem object (ElemVector)
+Example: listElemObject = JPT.GetElemsByKind(JPT.ElemKind.ELEMKIND_2D)
+--------------------------------------------------------------------------
+Function: JPT.GetRandomJPTColor
+Description: get a random color 
+Input1: None
+Return: random color number (int)
+Example: color = JPT.GetRandomJPTColor()
+--------------------------------------------------------------------------
+Function: JPT.ConvertJPTColorToRGB
+Description: convert JPT color to string RGB (red, green, blue)
+Input1: JPT color (int)
+Return: string RGB (string)
+Example: stringRGB = JPT.ConvertJPTColorToRGB(255)
+--------------------------------------------------------------------------
+Function: JPT.ClearLog
+Description: clear all log on Python API Window
+Input1: None
+Return: None
+Example: JPT.ClearLog()
+--------------------------------------------------------------------------
+Function: sizeVec
+Description: return size of list
+Input1: None
+Return: None
+Example: objectVector.sizeVec()
+--------------------------------------------------------------------------
+Function: clearVec
+Description: clear all element in list, size reset to zero
+Input1: None
+Return: None
+Example: objectVector.clearVec()
+--------------------------------------------------------------------------
+Function: addObj
+Description: append an entity to current list
+Input1: entity object
+Return: Node
+Example: objectVector.addObj(entityObject)
+--------------------------------------------------------------------------
+Function: extendVec
+Description: insert another list entity to current list
+Input1: list of object
+Return: None
+Example: objectVector1.extendVec(objectVector2)
+--------------------------------------------------------------------------
+Function: deleteObj
+Description: delete a entity in list by index
+Input1: None
+Return: None
+Example: objectVector.deleteObj(1)
+--------------------------------------------------------------------------
+Function: isContainObj
+Description: check if entityObject is exist in current list
+Input1: None
+Return: TRUE if existed/FALSE if not
+Example: objectVector.isContainObj(entityObject)
+--------------------------------------------------------------------------
+Function: JPT.SetSelectMethod
+Description: set select method on view 
+Input1: select method type (JPT.SelectMethodType)
+Return: None
+Example: JPT.SetSelector(JPT.SelectMethodType.SELMTD_BODY)
+--------------------------------------------------------------------------
+Function: JPT.MacroTCursorPairToDItemPair
+Description: convert a macro cursor pair list string to list of DItemPair objects
+Input1: macro cursor pair list string (string)
+Return: list of DItemPair objects (DItemPairVector)
+Example: listEntityObject = JPT.MacroTCursorPairToDItemPair('[10:210-10:202, 10:316-10:308]')
+--------------------------------------------------------------------------
+Function: JPT.MacroTCursorPairToDItemPair
+Description: convert a macro cursor pair string to DItemPair objects
+Input1: macro cursor pair string (string)
+Return: DItemPair objects (DItemPair)
+Example: listEntityObject = JPT.MacroTCursorPairToDItemPair('10:210-10:202')
+--------------------------------------------------------------------------
+Function: JPT.MessageBoxPSJ
+Description: display a message box
+Input1: message (string)
+Input2: message type (JPT.MsgBoxType)
+Return: anwser : YES, NO, OK, CANCEL (string)
+Example: anwser = JPT.MessageBoxPSJ("this is test message, JPT.MsgBoxType.MB_INFORMATION_OKCANCEL)
+--------------------------------------------------------------------------

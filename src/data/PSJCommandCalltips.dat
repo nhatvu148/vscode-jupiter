@@ -1,0 +1,3535 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 
+//	PSJ Command calltips (706 API functions) 
+//  
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+Function: Export.STL
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: FileMenu.AddJTDB
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: FileMenu.Save
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: FileMenu.LoadDB
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: HGTMufflerModeling.CreateBeadWeld
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: ImportCAD.Spatial
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: ImportCAD.TechnoStarGeometry
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: ImportCAD.CreoDirect
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: ImportCAD.Elysium
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: ImportMesh.NastranBdf
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: ImportMesh.AbaqusINP
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: ImportMesh.LSDYNA
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: ImportMesh.ADVCADX
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: ImportMesh.Universal
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: ImportMesh.AnsysDat
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: ImportMesh.TSVPre
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Utility.FindEntities
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Utility.MeasureDistanceBy2Edges
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: ACModeling.ACBoundary.Method1
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: ACModeling.Create.Convex
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: ACModeling.CloseHoleAuto
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: ACModeling.Cut
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.AbaqusStep.DynamicStep
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.AbaqusStep.TransientStep
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.AbaqusStep.DynamicCoupledTDExplicitStep
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.AbaqusStep.CoupledTDStep
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.AbaqusStep.DynamicExplicitStep
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.AbaqusStep.ModalStep
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.AbaqusStep.StaticRiskStep
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.AbaqusStep.SteadyStateStep
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.ACTRAN.ExportBdf
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.ACTRAN.Run
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.ACTRAN.CreateEdat
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.Analysis.Abaqus
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.Analysis.AbaqusSteadyStateStep
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.Analysis.AbaqusStaticRiskStep
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.Ansys.HeadTransferSteady
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.Ansys.LinearStatic
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.Ansys.NormalModes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.Ansys.Harmonic
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.Ansys.Steady
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.Nastran.ModalTransientResponse
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.Nastran.LinearBuckling
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.Nastran.Transient
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.Nastran.SteadyState
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.Nastran.ModalFrequencyResponse
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.Nastran.LinearStatic
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.Nastran.NormalModes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.Permas.Job
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.TSSolver.ExportDynamisBdf
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.TSSolver.Job
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.TSSolver.LinearBucking
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.TSSolver.LinearStatic
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.TSSolver.NonlinearStatic
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.TSSolver.NormalModes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.TSSolver.NonlinearFrequency
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.TSSolver.ModalTransientResponse
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.TSSolver.TransientHeatTransfer
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.TSSolver.ModalFrequencyResponse
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.TSSolver.SteadyStateHeatTransfer
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.TSSS.TransientHeatTransfer
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.TSSS.LinearStatic
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.TSSS.NonlinearStatic
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.TSSS.NormalModes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.TSSS.LinearBuckling
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.TSSS.ModalFrequencyResponse
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.TSSS.SteadyStateHeatTransfer
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.Abaqus
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.ExportAnsys
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.ExportAbaqus
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.ModifyLbcToStep
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.ExportAdx
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.ExportLsdyna
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.NastranJob
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.LSDYNAJob
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.ADVC.MakeProcess.Static
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.ADVC.MakeProcess.Creep
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.ADVC.MakeProcess.Dynamic
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.ADVC.MakeProcess.EigenValue
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.ADVC.MakeProcess.DynamicExplicit
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.ADVC.MakeProcess.ModalFreqResp
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.ADVC.MakeProcess.ResponseSpectrum
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.ADVC.MakeProcess.SteadyState
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.ADVC.MakeProcess.Transient
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.ADVC.MakeProcess.Fatigue
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.ADVC.MakeProcess.RandomResponse
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.ADVC.Structure
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Analysis.ADVC.HeatTransfer
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Assemble.SeparateFaces.AllSharedNodes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Assemble.SeparateFaces.Shell
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Assemble.SeparateFaces.Solid
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Assemble.Boolean
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Assemble.AssembleFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Assemble.FullLayer
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Assemble.CylinderLayer
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Assemble.SharedFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Assemble.AssembleFaces
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Assemble.GeneralLayer
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Assemble.AddRib
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Assemble.FindMatingFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Assemble.AddBoss
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Assembly.RightClick.AddToReference
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Assembly.RightClick.Suppress
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Assembly.RightClick.UnSuppress
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Assembly.RightClick.RestoreOriginalPart
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Assembly.RightClick.Rename
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Assembly.RightClick.ChangeEntityColor
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Assembly.RightClick.AddSubAssembly
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Assembly.RightClick.ChangeBodyColor
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Assembly.RightClick.ChangeMeshLineColor
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.BoundaryTemperature.Constant
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.BoundaryTemperature.SurfaceMapping
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.Convection.Constant
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.Convection.SurfaceMapping
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.EnforcedLoads.Acceleration
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.EnforcedLoads.Velocity
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.EnforcedLoads.Displacement
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.HeatFlux.SurfaceFlux
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.HeatFlux.SurfaceMapping
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.HeatFlux.ConcentrateFlux
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.InitialElementalValue.InitialStress
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.InitialTemperature.WholeMapping
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.InitialTemperature.Constant
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.InitialTemperature.ADVC
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.InitialTemperature.NastranPunch
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.LBCCopy.PropertiesCopyTranslate
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.LBCCopy.PropertiesCopyRotate
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.LBCCopy.PropertiesCopyMirror
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.LBCCopy.ConnectionCopyTranslate
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.LBCCopy.ConnectionCopyRotate
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.LBCCopy.ConnectionCopyMirror
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.LBCCopy.GroupCopyTranslate
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.LBCCopy.GroupCopyRotate
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.LBCCopy.GroupCopyMirror
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.LBCCopy.LBCCopyTranslate
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.LBCCopy.LBCCopyRotate
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.LBCCopy.LBCCopyMirror
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.Pressure.SurfaceLoads
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.Pressure.By2Nodes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.Pressure.General
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.Pressure.Quadratic
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.Pressure.FunctionLoadToCylinder_Sine
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.Pressure.SerfaceMapping
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.Pressure.Hydrostatic
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.Pressure.SurfaceMapping
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.Submodel.SubmodelForcedFlux
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.Submodel.ForcedTempertature
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.Submodel.ForcedDisplacement
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.TemperatureLoads.Constant
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.TemperatureLoads.ADVCFile
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.TemperatureLoads.NastranPunch
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.TemperatureLoads.WholeMapping
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.TemperatureLoads.LbcInitialTemperature
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.LoadCase
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.InsideHeatGeneration
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.LBCCopy
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.LbcContactConvert
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.FieldData
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.FixedConstraint
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.DofSet
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.BodyLoads.CentrifugalForce.CoordinateSystems
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.BodyLoads.CentrifugalForce.TwoPositions
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.BodyLoads.Gravity
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.Force.FunctionLoadCylinder.Quadratic
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.Force.FunctionLoadCylinder.Sine
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.Force.FunctionLoadCylinder.Vector
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.Force.NonlinearForce.NOLIN3
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.Force.NonlinearForce.NOLIN4
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.Force.NonlinearForce.NOLIN1
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.Force.General
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.Force.FunctionLoadToCylinder_Sine
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.Force.ForceNormalDirection
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.Force.FunctionLoadToCylinder_Quadratic
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.InitialNodalValue.InitialAngularVelocity.Abaqus
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.InitialNodalValue.InitialAngularVelocity.General
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.InitialNodalValue.Displacement
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.InitialNodalValue.Velocity
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: BoundaryConditions.InitialNodalValue.RotationAngle
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Pretension.General
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Pretension.Abaqus
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Pretension.Advc
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.MassElements
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.BarBeam
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Gaps
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Plot
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.CreateConnConm
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.RBE3
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.RigidWall
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Connector
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.BoltMeshing_SplitOnly
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.BoltMeshing_NotSplitOnly
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.BoltConnections.Edge.TypeC
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.BoltConnections.Edge.TypeB
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.BoltConnections.Edge.TypeD
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.BoltConnections.Edge.TypeA
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.BoltConnections.Face.TypeC
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.BoltConnections.Face.TypeB
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.BoltConnections.Face.TypeA
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.Abaqus.ContactTable
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.Abaqus.ManualGroup
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.Abaqus.ManualFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.Abaqus.ContactGroupByMatrix
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.Abaqus.ContactShareFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.ADVC.ContactClearance
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.ADVC.ManualGroup
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.ADVC.ManualFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.ADVC.Contact
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.ADVC.ContactShareFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.ADVC.ContactTable
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.ADVC.ContactGroupByMatrix
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.Ansys.ManualGroup
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.Ansys.ManualFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.Ansys.ContactGroupByMatrix
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.Ansys.ContactShareFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.Ansys.ContactTable
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.MSCNastran.ManualGroup
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.MSCNastran.ContactGroupByMatrix
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.MSCNastran.ManualFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.MSCNastran.ContactShareFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.MSCNastran.ContactTable
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.NXNastran.ManualFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.NXNastran.ContactShareFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.NXNastran.ContactTable
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.NXNastran.ManualGroup
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.NXNastran.ContactGroupByMatrix
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.TSSolver.ManualFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.TSSolver.Auto
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.TSSolver.ManualGroup
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.TSSS.ManualFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.TSSS.ManualGroup
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.TSSS.ContactTable
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.CheckPattern
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.Ansys
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.NXNastran
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Contacts.ExportCheckReport
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Gaps.TwoNodes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Gaps.TwoEdges
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.Gaps.TwoFaces
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.MPC.Equation.MultiNodes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.MPC.Equation.TwoFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.MPC.Equation.SemiAuto
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.MPC.General.NodeToNode
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.MPC.General.NodeToEdges
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.MPC.General.NodeToFaces
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.MPC.General.TwoEdges
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.MPC.General.FacesToFaces
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.MPC.General.NodesToNodes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.MPC.General.TwoFaces
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.MPC.General.NodeToAny
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.MPC.General.NodesWithTolerance
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.RigidElements.RBar.OneToOne
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.RigidElements.RBar.OneToMany
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.RigidElements.RBar.OneToOneNodesWithTolerance
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.RigidElements.RBE2.OneToMany
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.RigidElements.RBE2.OneToOne
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.RigidElements.RBE2.OneToOneNodesWithTolerance
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.RigidElements.RBE2.ToCenter
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.RigidElements.RBE2.ToCircleCenter
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.RigidElements.RBE3.OneToMany
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.RigidElements.RBE3.OneToOne
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.RigidElements.RBE3.ToCenter
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.RigidElements.RBE3.ToCircleCenter
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.RigidElements.RBar
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.RigidElements.RBE2
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.RigidElements.RBE3
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.SpringsDampers.Damper.AnyEntities11DoFS
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.SpringsDampers.Bush
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.SpringsDampers.Bush.TwoNodes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.SpringsDampers.Bush.AnyEntities
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.SpringsDampers.Bush.OnetoOne
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.SpringsDampers.Spring.GroundedSpring
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.SpringsDampers.Spring.Nodeswithtolerance.sameDoFs
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.SpringsDampers.Spring.Nodeswithtolerance.differentDoFs
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.SpringsDampers.Spring.OneToOne.sameDoFs
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Connections.SpringsDampers.Spring.OneToOne.differentDoFs
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Designer.LBC.Moment
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Designer.LBC.TemperatureLoad
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Designer.Load.Moment
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Designer.FindContact
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Designer.ContactMerge
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Designer.Material
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: EngReliability.SubModelBC
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: ExManifoldModeling.SZ.WeldLine2
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Bar.TwoNodes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Bar.Arc
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Bar.Spline
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.BodyCut.XXYYOnOnePoint
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.BodyCut.BySurface
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.BodyCut.By3Points
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.BreakEntity.StlPart
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.BreakEntity.Face
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.BreakEntity.Edge
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.BreakEntity.Part
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.DeleteEntity.Part
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.DeleteEntity.Edge
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.DeleteEntity.Face
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.DeleteEntity.Vertex
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Edge.Line
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Edge.Spline
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Edge.PlanarLine
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Edge.Circle
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Edge.PerpendicularLineOfEdge
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Edge.ExtendLine
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Edge.ElementEdges
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Edge.Angle
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Edge.NodeShortestPath
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Edge.OffsetLine
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Edge.Intersection_Line
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Edge.Projection_Line
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Edge.SplineFreeEdges
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Edge.ClosedLine
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Edge.PerpendicularCylinderLine
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Edge.IntersectionLine
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Edge.ProjectLine
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Edge.PerpendicularLineToEdge
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Extract.FindFeatureFillet
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.ExtractSurfaces.ExtractRefSurface
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.ExtractSurfaces.ExtractSurfaces
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Face.CreateFaceByElem
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Face.FourEdges
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Face.FromMesh
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Face.CreateFaceFromEdges
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Face.CreateSmoothFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Face.Edges
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Face.Elements
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.FindFeature.DelCircChamfer
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.FindFeature.Fillet
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.FindFeature.Faces
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.FindFeature.Edges
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.MergeEntities.Faces
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.MergeEntities.TinyFacesMerge
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.MergeEntities.CBarParts
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.MergeEntities.Edges
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.MergeEntities.Parts
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.MergeEntities.PartFaces
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Part.Cube
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Part.Wedge
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Part.Sphere
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Part.Torus
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Part.Elems
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Part.Cylinder
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Part.Tube
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Part.Trapezoid
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Part.Cone
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.ShowAdjacent.Faces
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.ShowAdjacent.Elements
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Transform.Rotation
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Transform.Scaling
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Transform.Mirror
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Transform.Position
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Transform.Translation
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Transform.MatingFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.Transform.CylinderFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.CADTrim
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.CreateBar
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.StitchEdge
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.LogoRemoval
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.ShellAsm
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.SquareUpFillet
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.MakeFillet
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.MakeFacePlanar
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.FCircleAdjustVertex
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.AdjustHalfCylinder
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.FCircVertexAdjust
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.ExtractSurfaces
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.RemoveRibBoss
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Geometry.AdvancedShellAssembly
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Groups.RightClick.PropertyGroup
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Groups.RightClick.Rename
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Groups.RightClick.DeleteGroup
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Groups.RightClick.CopyGroup
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Groups.RightClick.AddSupGroup
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Groups.RightClick.CreateMatGroup
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: HexModeling.Sweep.Circular
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: HexModeling.Sweep.FaceToFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: HexModeling.Sweep.Layer
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: HexModeling.Sweep.Linear
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: HexModeling.Sweep.Curve
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: HexModeling.Sweep.FromMidPlane
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: HexModeling.SolidElemInterface
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: HexModeling.BallHexa
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: HexModeling.BoxMesh
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: HexModeling.AutoSweep
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: HexModeling.Circular
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: HexModeling.FaceToFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: HexModeling.Layer
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: HexModeling.Linear
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: HexModeling.FromMidPlane
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: HexModeling.Curve
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Home.ImportCAD.Elysium
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Home.ImportCAD.Spatial
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Home.ImportCAD.Parasolid
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Home.ImportCAD.STL
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Home.ImportCAD.VRML
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Home.ImportCAD.ProECreoDirect
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Home.ImportMesh.ADVCADX
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Home.ImportMesh.AnsysDat
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Home.ImportMesh.NastranBdf
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Home.ImportMesh.AbaqusINP
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Home.ImportMesh.LSDYNA
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Home.ImportMesh.Universal
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Home.Export
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Home.ToImage
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Home.Find
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Home.RectangularCapture
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Home.CopyToClipboard
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Home.FullScreen
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Home.Synchronize
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MainWindow.RightClick.MergeFaces
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MainWindow.RightClick.SelectAllParts
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MainWindow.RightClick.AssociatedPick
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MainWindow.RightClick.FlipElement
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Element.SolidElement
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Element.SurfaceElement
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Face
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.CorrectModel
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.CloseHoles
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.CloseGap
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.AutoCheck
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.ManualCheck
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.ChangeTopology.Element.SurfaceElement
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Cleanup.CloseGap
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual2D.MergeElement.TwoQuadsToQuad
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual2D.MergeElement.TwoQuadsToQuad
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual2D.MergeElement.TwoTrisToQuad
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual2D.SplitElement.QuadTo4Quads
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual2D.SplitElement.QuadToTrans4Quads
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual2D.SplitElement.QuadToTrans3Quads
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual2D.SplitElement.QuadTo2Quads1Tri
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual2D.SplitElement.QuadTo3Tris
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual2D.SplitElement.QuadTo2Quads
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual2D.SplitElement.QuadTo2Tris
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual2D.SplitElement.QuadToQuadTri
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual2D.SplitElement.QuadTo4Tris
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual2D.Equivalence
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual2D.DeleteElement
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual2D.Split
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual2D.SplitElement
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual2D.Swap
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual2D.Collapse
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual2D.CreateElement
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual2D.RemeshElement
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual3D.Collapse.CenterFaceCollapse
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual3D.Collapse.HalfEdgeCollapse
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual3D.Collapse.EdgeCollapse
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual3D.DeleteNode
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual3D.Swap
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual3D.Equivalence
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual3D.Split
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual3D.CreateHex
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual3D.CreatePenta
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.Manual3D.CreateTetra
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshCleanup.ManualCheck.Tri
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.CreateElement.Hex
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.CreateElement.Penta
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.CreateElement.Tet
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.CreateElement.Tri3
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.CreateElement.Quad4
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.CreateNode.CircleCenter
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.CreateNode.SphereCenter
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.CreateNode.Absolute
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.CreateNode.Import
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.CreateNode.Point
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.CreateNode.Between2Nodes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.CreateNode.Between3Nodes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.CreateNode.ProjectToPlane
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.CreateNode.CreateNodeNodeOffset
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.CreateNode.CenterOfCylinder
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.CreateNode.CenterOfSphere
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.CreateNode.vecOffset
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.CreateNode.CenterOfGravity
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.CreateNode.ProjectToLine
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.CreateNode.IntersectionNode
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MoveNode.Point
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MoveNode.ProjectToLine
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MoveNode.ProjectToPlaneElem
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MoveNode.Equalize
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MoveNode.StraightenMidNodes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MoveNode.NormalOffset
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MoveNode.CoincidentNodes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MoveNode.AlongCylinder
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MoveNode.ProjectToPlane_3Nodes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MoveNode.MoveNodeOffset
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MoveNode.Absolute
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MoveNode.RefineQuality
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MoveNode.StraightenMidnodes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MoveNode.vecOffset
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MoveNode.Laplacian
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MoveNode.AlongEdge
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MoveNode.AlongDirection
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MoveNode.CADFollows
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MoveNode.Scale
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.Face
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.ElementConvert
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.Deform
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MirrorCopy
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.DeleteNode
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.FaceImprint
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.AdjustOrientation
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.OneNode
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.CreateElement
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.SeparateNodes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.RefineQuality
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.Import
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.RemoveSolidMesh
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MeshEditCMPMeshCopy
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MeshEditMorphingRibThickness
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MergeNodes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.MeshCopy
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.RibThickness
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.ChangePattern
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.SurfaceMesh
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MeshEdit.SolidMesh
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Meshing.CADProjection.Part
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Meshing.CADProjection.Face
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Meshing.CADProjection.FaceToFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Meshing.CADProjection.NodeToFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Meshing.CADProjection.NodeToEdge
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Meshing.LocalMeshing.FilletMapping
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Meshing.LocalMeshing.SelectFillet
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Meshing.LocalSetting.SearchTargetFaces
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Meshing.Templates.TemplateCopy
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Meshing.BarMeshing
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Meshing.GridMesh
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Meshing.SolidMeshing
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Meshing.SurfaceMeshing
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Meshing.SetAttib
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Meshing.LocalRemesh.Solid
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Meshing.LocalRemesh.Surfase
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Meshing.LocalSettings.Edge
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Meshing.LocalSettings.Face
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Meshing.LocalSettings.FaceElement
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Meshing.LocalSettings.Model
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Meshing.LocalSettings.Part
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Meshing.LocalSettings.Points
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MidPlane.AdjustThickness
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MidPlane.FaceCross
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MidPlane.CreateThickProps
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MidPlane.FindMidPlane
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MidPlaneEdit.Edge.Nodes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MidPlaneEdit.ExtendFace.CylinderFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MidPlaneEdit.ExtendFace.PlanarFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MidPlaneEdit.Face.FaceExtendtoFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MidPlaneEdit.Face.FaceExtendToIntersection
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MidPlaneEdit.Face.EdgesToEdges
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MidPlaneEdit.Manual.vecOffset
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MidPlaneEdit.Manual.MidByPair
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MidPlaneEdit.AddItems.Edge.ProjectEdgeToFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MidPlaneEdit.AddItems.Edge.FaceTwoFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MidPlaneEdit.AddItems.Face.EFExtendFreeEdge
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MidPlaneEdit.AddItems.Face.EFProject
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MMCCarACTools.ACModelCreationTools.MeshedFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MMCCarACTools.ClearanceElement.Connect
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MMCCarACTools.ClearanceElement.Edit
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MufflerHA.CreateEdge.PerpendicularLineToEdge
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MufflerHA.CreateEdgeClassic.ProjectLine
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MufflerHA.CopyMeshCount
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MufflerT.SpecialModeling.Rod.Rod
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MuxWeld.CreateWeld.Auto
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MuxWeld.DefineSequence.Single
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MuxWeld.MeshingPass
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: MuxWeld.Prop3DWeldBead
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: NSModeling.NSModeling_Close_Hole
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: OasisAWizard.LocalMeshing.FilletMapMeshing
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Post.ImportResults.ImportOp2Mesh
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Post.ImportResults.NastranOp2PostJob
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Post.ImportResults.ImportTsdbMesh
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Post.ImportResults.HDF5Mesh
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Post.ImportResults.ADVC
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Post.ImportResults.ADVC2PostJob
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Post.ImportResults.NastranHDF5
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.ElemRelatedInfo.Shell
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.ElemRelatedInfo.Conn
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.ElemRelatedInfo.Rod
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.ElemRelatedInfo.Beam
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.ElemRelatedInfo.Bar
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.ElemRelatedInfo.Gap
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.ElemRelatedInfo.Bush
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.Material.add
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.Material.modify
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.Material.delete
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.Section.Import
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.Section.SectionDeleteMulti
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.Section.Modify_General
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.Section.Modify_Library
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.Section.Modify_Sketcher
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.Section.Export
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.Section.Delete
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.Section.Add_General
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.Section.Add_Library
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.Section.Add_Sketcher
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.Cohesive
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.Gasket
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.Shell
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.PropertyTable
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.Beam
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.Rod
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.Property1DBeamSimple
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.Solid
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.Section1D
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.Composite
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.BAR
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.ThicknessDistribution
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Properties.RigidBody
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: SNOnePush.DropTest.CalcTimestep
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: SNOnePush.DropTest.UpdateFloor
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: SNOnePush.DropTest.DropRotation
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: SNOnePush.CADImport
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: SNOnePush.DropTest
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: SNOnePush.AutoSweepClosedLoopShaped
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: StiffCalc.Force
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: SZOnepushReliability.Assembly.CreateWeld
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: SZOnepushReliability.Assembly.ContactSurface
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: SZOnepushReliability.MeshEdit.FilletMapping
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: SZOnepushReliability.AlignMidNode
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Test.Connection.RRod
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Test.MeshQuality.MeshQualityCheck
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Test.Muffler.ProjectLineForWeld
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Test.ZGeometryTest.IntersectionCheck
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Test.ZGeometryTest.ShellAssy
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Test.FindFeatureFillet
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Test.FindFacesInPart
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Test.CreateElementForWelding
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Connections.Contact
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Connections.Spring
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Connections.RBE3
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Connections.Mass
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Coordinates.CylinderFace
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Coordinates.ThreeNode
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Coordinates.Align
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Coordinates.vecOffset
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Coordinates.Rotate
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Coordinates.AttachCircle
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Coordinates.AttachNode
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Coordinates.Face
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Group.CreateGroup
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Group.DeleteGroupEntity
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.ImprintEdges.Line
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.ImprintEdges.ClosedLine
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.ImprintEdges.ClosedLine2
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.ElementCS
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Measure.Angle.ProjectedNode
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Measure.Angle.TwoNodesAxis
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Measure.Angle.By2Axis
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Measure.Distance.Edge
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Measure.Distance.EdgeNode
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Measure.Distance.TwoPoints
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Measure.Distance.LineNode
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Measure.Distance.Plane3NodesToNode
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Measure.Distance.TwoEdges
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Measure.Distance.PlaneElemToNode
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Measure.Distance.TwoNodes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Measure.Distance.FaceNode
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Measure.Mass.ByMaterial
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Measure.Radius.ByThreeNodes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Measure.Radius.MeasureRadiusBy3Nodes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.Measure.Volume
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.MeshQuality.Manual.CleanTetCollapse
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tool.MeshQuality.Manual.CleaningVolumeMesh
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Toolbar.Undo
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Toolbar.Redo
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.BySelection.SelectionOrder
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.BySelection.Position
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.BySelection.OriginalID
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Group.DeleteGroupEntity
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Group.CreateGroup
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.TotalLoad.LBC
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.TotalLoad.Model
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.TotalLoad.Node
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.TotalLoad.Part
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.TotalLoad.Face
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.NodeCS
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.NodeCSGroup
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.DisplacementCS
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Connections
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.GroupByDCS
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Renumber
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.RenumberByConnection
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.RenumberByFile
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.ModelInfo
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Group
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Section
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Angle.TwoNodesAxis
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Angle.ThreeNodes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Angle.ProjectedNode
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Angle.TwoElemEdges
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Angle.ThreeNodes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Angle.TwoAxis
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Angle.TwoEdges
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Area.Element
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Area.Face
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Area.Body
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Distance.TwoEdges
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Distance.TwoNodes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Distance.FaceNode
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Distance.Edge
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Distance.TwoPoints
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Distance.EdgeNode
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Distance.LineNode
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Distance.PlaneElemToNode
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Distance.Plane3NodesToNode
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Mass.Property
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Mass.Material
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Radius.Edge
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Radius.ThreeNodes
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------
+Function: Tools.Measure.Volume
+Description:
+GUI/Ribbon:
+Return: None
+--------------------------------------------------------------------------

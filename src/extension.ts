@@ -1,10 +1,47 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+const fs = require("fs");
+const Papa = require("papaparse");
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
+let libKey: string[] = [];
+let psjUtilKeys: string[] = [];
+let psjGuiKeys: string[] = [];
+let funcs: string[] = [];
+
+const readKeywords = async () => {
+    if (fs.existsSync(`${__dirname}/data/Keywords.dat`)) {
+        const files = await fs.readFileSync(`${__dirname}/data/Keywords.dat`, "utf8");
+        Papa.parse(files, {
+            complete: function (results: any) {
+                libKey = results.data[6]
+                psjUtilKeys = results.data[9]
+                psjGuiKeys = results.data[12]
+                // console.log(libKey, psjUtilKeys, psjGuiKeys);
+                // console.log(results);
+            },
+        });
+    } else {
+        console.log(__dirname);
+    }
+}
+
+const readPsjCommands = async () => {
+    if (fs.existsSync(`${__dirname}/data/PSJCommandCalltips.dat`)) {
+        const files = await fs.readFileSync(`${__dirname}/data/PSJCommandCalltips.dat`, "utf8");
+        Papa.parse(files, {
+            complete: function (results: any) {
+                funcs = results.data.filter((a: string[]) => a[0].includes("Function:")).map((a: string[]) => a[0].substring(10));
+                console.log(funcs);
+            },
+        });
+    } else {
+        console.log(__dirname);
+    }
+}
+
 export function activate(context: vscode.ExtensionContext) {
+    readKeywords();
+    readPsjCommands();
+
     const provider1 = vscode.languages.registerCompletionItemProvider('*', {
 
         provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
@@ -22,7 +59,7 @@ export function activate(context: vscode.ExtensionContext) {
             // a completion item that can be accepted by a commit character,
             // the `commitCharacters`-property is set which means that the completion will
             // be inserted and then the character will be typed.
-            const commitCharacterCompletion = new vscode.CompletionItem('console');
+            const commitCharacterCompletion = new vscode.CompletionItem('Analysis');
             commitCharacterCompletion.commitCharacters = ['.'];
             commitCharacterCompletion.documentation = new vscode.MarkdownString('Press `.` to get `console.`');
 
@@ -45,7 +82,22 @@ export function activate(context: vscode.ExtensionContext) {
         }
     });
 
-    const provider2 = vscode.languages.registerCompletionItemProvider(
+    const hover = vscode.languages.registerHoverProvider('*', {
+        provideHover(document, position, token) {
+            return new vscode.Hover('I am a hover!');
+        }
+    });
+
+    const keywords = vscode.languages.registerCompletionItemProvider('*', {
+        provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken) {
+            const libKeyList = libKey.map((a) => new vscode.CompletionItem(a))
+            const psjUtilKeyList = psjUtilKeys.map((a) => new vscode.CompletionItem(a))
+            const psjGuiKeyList = psjGuiKeys.map((a) => new vscode.CompletionItem(a))
+            return [...libKeyList, ...psjUtilKeyList, ...psjGuiKeyList];
+        }
+    });
+
+    const psjCommands = vscode.languages.registerCompletionItemProvider(
         '*',
         {
             provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
@@ -53,14 +105,14 @@ export function activate(context: vscode.ExtensionContext) {
                 // get all text until the `position` and check if it reads `console.`
                 // and if so then complete if `log`, `warn`, and `error`
                 const linePrefix = document.lineAt(position).text.substr(0, position.character);
-                if (!linePrefix.endsWith('console.')) {
+                if (!linePrefix.endsWith('Analysis.')) {
                     return undefined;
                 }
 
                 return [
-                    new vscode.CompletionItem('log', vscode.CompletionItemKind.Method),
-                    new vscode.CompletionItem('warn', vscode.CompletionItemKind.Method),
-                    new vscode.CompletionItem('error', vscode.CompletionItemKind.Method),
+                    new vscode.CompletionItem('Abaqus', vscode.CompletionItemKind.Method),
+                    new vscode.CompletionItem('AbaqusStep', vscode.CompletionItemKind.Method),
+                    new vscode.CompletionItem('ACTRAN', vscode.CompletionItemKind.Method),
                 ];
             }
         },
@@ -72,7 +124,7 @@ export function activate(context: vscode.ExtensionContext) {
             return [new vscode.CompletionItem("Nhat Vu")];
         }
     }));
-    context.subscriptions.push(provider2);
+    context.subscriptions.push(keywords, psjCommands, hover);
 }
 
 // this method is called when your extension is deactivated
