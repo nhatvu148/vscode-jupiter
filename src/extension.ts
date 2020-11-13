@@ -30,7 +30,16 @@ const readPsjCommands = async () => {
         Papa.parse(files, {
             complete: function (results: any) {
                 funcs = results.data.filter((a: string[]) => a[0].includes("Function:")).map((a: string[]) => a[0].substring(10));
-                console.log(funcs);
+                console.log(funcs.forEach((a: string) => {
+                    if (a) {
+                        const arr = a.split(".");
+                        console.log(a);
+                        // for (let i = arr.length - 1; i > 0; i--) {
+                        //     console.log(a.slice(0, 1 * a.indexOf(arr[i])));
+                        //     console.log(arr[i])
+                        // }
+                    }
+                }));
             },
         });
     } else {
@@ -84,7 +93,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     const hover = vscode.languages.registerHoverProvider('*', {
         provideHover(document, position, token) {
-            return new vscode.Hover('I am a hover!');
+            return new vscode.Hover("Some comments");
         }
     });
 
@@ -97,35 +106,89 @@ export function activate(context: vscode.ExtensionContext) {
         }
     });
 
-    const psjCommands = vscode.languages.registerCompletionItemProvider(
-        '*',
-        {
-            provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
+    // const psjCommands = vscode.languages.registerCompletionItemProvider(
+    //     '*',
+    //     {
+    //         provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
 
-                // get all text until the `position` and check if it reads `console.`
-                // and if so then complete if `log`, `warn`, and `error`
-                const linePrefix = document.lineAt(position).text.substr(0, position.character);
-                if (!linePrefix.endsWith('Analysis.')) {
-                    return undefined;
-                }
+    //             // get all text until the `position` and check if it reads `console.`
+    //             // and if so then complete if `log`, `warn`, and `error`
+    //             const linePrefix = document.lineAt(position).text.substr(0, position.character);
+    //             if (!linePrefix.endsWith('Analysis.')) {
+    //                 return undefined;
+    //             }
 
-                return [
-                    new vscode.CompletionItem('Abaqus', vscode.CompletionItemKind.Method),
-                    new vscode.CompletionItem('AbaqusStep', vscode.CompletionItemKind.Method),
-                    new vscode.CompletionItem('ACTRAN', vscode.CompletionItemKind.Method),
-                ];
+    //             return [
+    //                 new vscode.CompletionItem('Abaqus', vscode.CompletionItemKind.Method),
+    //                 new vscode.CompletionItem('AbaqusStep', vscode.CompletionItemKind.Method),
+    //                 new vscode.CompletionItem('ACTRAN', vscode.CompletionItemKind.Method),
+    //             ];
+    //         }
+    //     },
+    //     '.' // triggered whenever a '.' is being typed
+    // );
+
+    const psjCommands2 = vscode.languages.registerCompletionItemProvider('*', {
+        provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken) {
+            const funcList = funcs.map((a) => new vscode.CompletionItem(a))
+            return funcList;
+        }
+    });
+
+    funcs.forEach((a: string) => {
+        const arr = a.split(".");
+        if (a) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                context.subscriptions.push(vscode.languages.registerCompletionItemProvider(
+                    '*',
+                    {
+                        provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
+                            const linePrefix = document.lineAt(position).text.substr(0, position.character);
+                            console.log(a.slice(0, 1 * a.indexOf(arr[i])))
+                            if (!linePrefix.endsWith(`${a.slice(0, -1 * a.indexOf(arr[i]))}`)) {
+                                return undefined;
+                            }
+
+                            return [
+                                new vscode.CompletionItem(`${arr[i]}`, vscode.CompletionItemKind.Method),
+                            ];
+                        }
+                    },
+                    '.'
+                ))
             }
-        },
-        '.' // triggered whenever a '.' is being typed
-    );
+        }
+
+    });
+
+    // const psjCommands3 = vscode.languages.registerCompletionItemProvider(
+    //     '*',
+    //     {
+    //         provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
+
+    //             // get all text until the `position` and check if it reads `console.`
+    //             // and if so then complete if `log`, `warn`, and `error`
+    //             const linePrefix = document.lineAt(position).text.substr(0, position.character);
+    //             if (!linePrefix.endsWith('Analysis.Abaqus.')) {
+    //                 return undefined;
+    //             }
+
+    //             return [
+    //                 new vscode.CompletionItem('heelo', vscode.CompletionItemKind.Method),
+    //                 new vscode.CompletionItem('heelo2', vscode.CompletionItemKind.Method),
+    //                 new vscode.CompletionItem('heeloACTRAN2', vscode.CompletionItemKind.Method),
+    //             ];
+    //         }
+    //     },
+    //     '.' // triggered whenever a '.' is being typed
+    // );
 
     context.subscriptions.push(vscode.languages.registerCompletionItemProvider('*', {
         provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken) {
             return [new vscode.CompletionItem("Nhat Vu")];
         }
     }));
-    context.subscriptions.push(keywords, psjCommands, hover);
+    context.subscriptions.push(keywords, psjCommands2, hover);
 }
 
-// this method is called when your extension is deactivated
 export function deactivate() { }
