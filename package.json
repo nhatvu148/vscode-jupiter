@@ -2,12 +2,12 @@
   "name": "jupiter",
   "displayName": "JUPITER",
   "description": "Jupiter Language Support",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "publisher": "nhatvu148",
   "license": "MIT",
   "icon": "images/logo.png",
   "engines": {
-    "vscode": "^1.51.2"
+    "vscode": "^1.51.1"
   },
   "repository": {
     "type": "git",
