@@ -26,11 +26,13 @@ export function activate(context: vscode.ExtensionContext) {
       position: vscode.Position,
       token: vscode.CancellationToken
     ) {
-      const libKeyList = libKey.map((a) => new vscode.CompletionItem(a));
+      const libKeyList = libKey.map((a) => new vscode.CompletionItem(a.trim()));
       const psjUtilKeyList = psjUtilKeys.map(
-        (a) => new vscode.CompletionItem(a)
+        (a) => new vscode.CompletionItem(a.trim())
       );
-      const psjGuiKeyList = psjGuiKeys.map((a) => new vscode.CompletionItem(a));
+      const psjGuiKeyList = psjGuiKeys.map(
+        (a) => new vscode.CompletionItem(a.trim())
+      );
       return [...libKeyList, ...psjUtilKeyList, ...psjGuiKeyList];
     },
   });
