@@ -92,23 +92,49 @@ const readPsjCommands = async () => {
           group2[o] = [...new Set(group2[o])];
         });
 
-        fs.writeFile(
-          `${__dirname}/data/root2.txt`,
-          JSON.stringify(Object.keys(group2)),
-          function (err: any) {
-            if (err) return console.log(err);
-            console.log("Hello World > root2.txt");
-          }
-        );
+        const group3 = funcs
+          .map((f: string) => f.split("."))
+          .reduce((group: any, itm: any, idx: number, arr: any) => {
+            group[itm[2]] = group[itm[2]]
+              ? [...group[itm[2]], itm[3]]
+              : [itm[3]];
+            return group;
+          }, {});
+
+        Object.keys(group3).forEach((o: any) => {
+          group3[o] = [...new Set(group3[o])];
+        });
+
+        const group4 = funcs
+          .map((f: string) => f.split("."))
+          .reduce((group: any, itm: any, idx: number, arr: any) => {
+            group[itm[3]] = group[itm[3]]
+              ? [...group[itm[3]], itm[4]]
+              : [itm[4]];
+            return group;
+          }, {});
+
+        Object.keys(group4).forEach((o: any) => {
+          group4[o] = [...new Set(group4[o])];
+        });
 
         // fs.writeFile(
-        //   `${__dirname}/data/map23.txt`,
-        //   JSON.stringify(group2),
+        //   `${__dirname}/data/root4.txt`,
+        //   JSON.stringify(Object.keys(group4)),
         //   function (err: any) {
         //     if (err) return console.log(err);
-        //     console.log("Hello World > map23.txt");
+        //     console.log("Hello World > root4.txt");
         //   }
         // );
+
+        fs.writeFile(
+          `${__dirname}/data/map45.txt`,
+          JSON.stringify(group4),
+          function (err: any) {
+            if (err) return console.log(err);
+            console.log("Hello World > map45.txt");
+          }
+        );
 
         console.log(Object.keys(group1));
       },
