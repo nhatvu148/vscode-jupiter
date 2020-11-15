@@ -24,14 +24,14 @@ export function activate(context: vscode.ExtensionContext) {
     provideCompletionItems(
       document: vscode.TextDocument,
       position: vscode.Position,
-      token: vscode.CancellationToken
+      token: vscode.CancellationToken,
     ) {
       const libKeyList = libKey.map((a) => new vscode.CompletionItem(a.trim()));
       const psjUtilKeyList = psjUtilKeys.map(
-        (a) => new vscode.CompletionItem(a.trim())
+        (a) => new vscode.CompletionItem(a.trim()),
       );
       const psjGuiKeyList = psjGuiKeys.map(
-        (a) => new vscode.CompletionItem(a.trim())
+        (a) => new vscode.CompletionItem(a.trim()),
       );
       return [...libKeyList, ...psjUtilKeyList, ...psjGuiKeyList];
     },
@@ -43,11 +43,11 @@ export function activate(context: vscode.ExtensionContext) {
         provideCompletionItems(
           document: vscode.TextDocument,
           position: vscode.Position,
-          token: vscode.CancellationToken
+          token: vscode.CancellationToken,
         ) {
           return [new vscode.CompletionItem(el)];
         },
-      })
+      }),
     );
   });
 
@@ -57,7 +57,7 @@ export function activate(context: vscode.ExtensionContext) {
       {
         provideCompletionItems(
           document: vscode.TextDocument,
-          position: vscode.Position
+          position: vscode.Position,
         ) {
           const linePrefix = document
             .lineAt(position)
@@ -71,12 +71,12 @@ export function activate(context: vscode.ExtensionContext) {
             (element: string) =>
               new vscode.CompletionItem(
                 element,
-                vscode.CompletionItemKind.Method
-              )
+                vscode.CompletionItemKind.Method,
+              ),
           );
         },
       },
-      "."
+      ".",
     );
   });
 
@@ -86,7 +86,7 @@ export function activate(context: vscode.ExtensionContext) {
       {
         provideCompletionItems(
           document: vscode.TextDocument,
-          position: vscode.Position
+          position: vscode.Position,
         ) {
           const linePrefix = document
             .lineAt(position)
@@ -105,12 +105,12 @@ export function activate(context: vscode.ExtensionContext) {
               (element: string) =>
                 new vscode.CompletionItem(
                   element,
-                  vscode.CompletionItemKind.Method
-                )
+                  vscode.CompletionItemKind.Method,
+                ),
             );
         },
       },
-      "."
+      ".",
     );
   });
 
@@ -120,7 +120,7 @@ export function activate(context: vscode.ExtensionContext) {
       {
         provideCompletionItems(
           document: vscode.TextDocument,
-          position: vscode.Position
+          position: vscode.Position,
         ) {
           const linePrefix = document
             .lineAt(position)
@@ -129,7 +129,7 @@ export function activate(context: vscode.ExtensionContext) {
           const prefix = root2.find((a: string) => map23[a].includes(el));
           const prePrefix = root1.find((a: string) =>
             // @ts-ignore
-            map12[a].includes(prefix)
+            map12[a].includes(prefix),
           );
 
           if (!linePrefix.endsWith(prePrefix + "." + prefix + "." + el + ".")) {
@@ -143,12 +143,12 @@ export function activate(context: vscode.ExtensionContext) {
               (element: string) =>
                 new vscode.CompletionItem(
                   element,
-                  vscode.CompletionItemKind.Method
-                )
+                  vscode.CompletionItemKind.Method,
+                ),
             );
         },
       },
-      "."
+      ".",
     );
   });
 
@@ -158,7 +158,7 @@ export function activate(context: vscode.ExtensionContext) {
       {
         provideCompletionItems(
           document: vscode.TextDocument,
-          position: vscode.Position
+          position: vscode.Position,
         ) {
           const linePrefix = document
             .lineAt(position)
@@ -167,16 +167,16 @@ export function activate(context: vscode.ExtensionContext) {
           const prefix = root3.find((a: string) => map34[a].includes(el));
           const prePrefix = root2.find((a: string) =>
             // @ts-ignore
-            map23[a].includes(prefix)
+            map23[a].includes(prefix),
           );
           const prePrePrefix = root1.find((a: string) =>
             // @ts-ignore
-            map12[a].includes(prePrefix)
+            map12[a].includes(prePrefix),
           );
 
           if (
             !linePrefix.endsWith(
-              prePrePrefix + "." + prePrefix + "." + prefix + "." + el + "."
+              prePrePrefix + "." + prePrefix + "." + prefix + "." + el + ".",
             )
           ) {
             return undefined;
@@ -189,12 +189,12 @@ export function activate(context: vscode.ExtensionContext) {
               (element: string) =>
                 new vscode.CompletionItem(
                   element,
-                  vscode.CompletionItemKind.Method
-                )
+                  vscode.CompletionItemKind.Method,
+                ),
             );
         },
       },
-      "."
+      ".",
     );
   });
 
