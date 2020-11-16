@@ -144,6 +144,48 @@ const readPsjCommands = async () => {
   }
 };
 
+const stringManipulate = (val: any, a: string, i: number[]) => {
+  if (val !== null) {
+    if (val[0].startsWith('"')) {
+      const content = val[0].match(/(?<=\").*(?=\")/);
+      if (content !== null) {
+        const mod = a.replace(`"${content[0]}"`, `"\${${i[0]}:${content[0]}}"`);
+        i[0]++;
+        return mod;
+      }
+    } else if (val[0].startsWith("[")) {
+      const content = val[0].match(/(?<=\[).*(?=\])/);
+      if (content !== null) {
+        if (content[0] !== "") {
+          const _content = content[0]
+            .split(",")
+            .map((c: string) => {
+              const _c = `\${${i[0]}:${c}}`;
+              i[0]++;
+              return _c;
+            })
+            .join(",");
+          const mod = a.replace(`[${content[0]}]`, `[${_content}]`);
+          return mod;
+        } else {
+          const mod = a.replace(
+            `[${content[0]}]`,
+            `[\${${i[0]}:${content[0]}}]`,
+          );
+          i[0]++;
+          return mod;
+        }
+      }
+    } else {
+      const mod = a.replace(val[0], `\${${i[0]}:${val[0]}}`);
+      i[0]++;
+      return mod;
+    }
+  } else {
+    return a;
+  }
+};
+
 const readPSJSnippets = async () => {
   if (fs.existsSync(`${__dirname}/data/PSJCommands.txt`)) {
     const files = await fs.readFileSync(
@@ -158,31 +200,20 @@ const readPSJSnippets = async () => {
           if (obj[fnName]) {
             return obj;
           } else {
-            let i = 1;
+            let i = [1];
             const modCur = cur
               .join()
               .split("=")
+              .map((a: string) => a.trim())
               .map((a: string, index: number, arr: string[]) => {
                 if (index === 0) {
                   return a;
                 } else if (index !== arr.length - 1) {
                   const val = a.match(/.*(?=\,)/);
-                  if (val !== null) {
-                    const mod = a.replace(val[0], `\${${i}:${val[0]}}`);
-                    i++;
-                    return mod;
-                  } else {
-                    return a;
-                  }
+                  return stringManipulate(val, a, i);
                 } else {
                   const val = a.match(/.*(?=\))/);
-                  if (val !== null) {
-                    const mod = a.replace(val[0], `\${${i}:${val[0]}}`);
-                    i++;
-                    return mod;
-                  } else {
-                    return a;
-                  }
+                  return stringManipulate(val, a, i);
                 }
               });
 
