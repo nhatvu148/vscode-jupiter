@@ -221,7 +221,7 @@
   "Geometry.Part.Cube": {
     "prefix": "Geometry.Part.Cube",
     "body": [
-      "Geometry.Part.Cube(${1:dlOrigin=[0, 0, 0]}, ${2:dlLength=[0.01, 0.01, 0.01]}, ${3:ilNodeCnt=[10, 10, 10]}, ${4:strPartName=\"Cube_1\"}, ${5:iColorPart=7105764}, ${6:crCoord=None})"
+      "Geometry.Part.Cube(dlOrigin=[${1:0}, ${2:0}, ${3:0}], dlLength=[${4:0.01}, ${5:0.01}, ${6:0.01}], ilNodeCnt=[${7:10}, ${8:10}, ${9:10}], strPartName=\"${10:Cube_1}\", iColorPart=${11:7105764}, crCoord=${12:None})"
     ],
     "description": "Code snippet for Geometry.Part.Cube"
   }
