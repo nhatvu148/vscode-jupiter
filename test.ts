@@ -167,7 +167,6 @@ const readPSJSnippets = async () => {
                   return a;
                 } else if (index !== arr.length - 1) {
                   const val = a.match(/.*(?=\,)/);
-                  console.log(val ? val[0] : "");
                   if (val !== null) {
                     const mod = a.replace(val[0], `\${${i}:${val[0]}}`);
                     i++;
@@ -177,7 +176,6 @@ const readPSJSnippets = async () => {
                   }
                 } else {
                   const val = a.match(/.*(?=\))/);
-                  console.log(val ? val[0] : "");
                   if (val !== null) {
                     const mod = a.replace(val[0], `\${${i}:${val[0]}}`);
                     i++;
