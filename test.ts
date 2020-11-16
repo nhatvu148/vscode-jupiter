@@ -10,7 +10,7 @@ const readKeywords = async () => {
   if (fs.existsSync(`${__dirname}/data/Keywords.dat`)) {
     const files = await fs.readFileSync(
       `${__dirname}/data/Keywords.dat`,
-      "utf8"
+      "utf8",
     );
     Papa.parse(files, {
       complete: function (results: any) {
@@ -22,21 +22,21 @@ const readKeywords = async () => {
           JSON.stringify(libKey),
           function (err: any) {
             if (err) return console.log(err);
-          }
+          },
         );
         fs.writeFile(
           `${__dirname}/data/psjUtilKeys.txt`,
           JSON.stringify(psjUtilKeys),
           function (err: any) {
             if (err) return console.log(err);
-          }
+          },
         );
         fs.writeFile(
           `${__dirname}/data/psjGuiKeys.txt`,
           JSON.stringify(psjGuiKeys),
           function (err: any) {
             if (err) return console.log(err);
-          }
+          },
         );
       },
     });
@@ -49,7 +49,7 @@ const readPsjCommands = async () => {
   if (fs.existsSync(`${__dirname}/data/PSJCommandCalltips.dat`)) {
     const files = await fs.readFileSync(
       `${__dirname}/data/PSJCommandCalltips.dat`,
-      "utf8"
+      "utf8",
     );
     Papa.parse(files, {
       complete: function (results: any) {
@@ -133,7 +133,7 @@ const readPsjCommands = async () => {
           function (err: any) {
             if (err) return console.log(err);
             console.log("Hello World > map45.txt");
-          }
+          },
         );
 
         console.log(Object.keys(group1));
@@ -144,5 +144,77 @@ const readPsjCommands = async () => {
   }
 };
 
-readKeywords();
-readPsjCommands();
+const readPSJSnippets = async () => {
+  if (fs.existsSync(`${__dirname}/data/PSJCommands.txt`)) {
+    const files = await fs.readFileSync(
+      `${__dirname}/data/PSJCommands.txt`,
+      "utf8",
+    );
+    Papa.parse(files, {
+      complete: function (results: any) {
+        const res = results.data;
+        const snippets = res.reduce((obj: any, cur: any, idx: number) => {
+          const fnName = cur[0].split("(")[0];
+          if (obj[fnName]) {
+            return obj;
+          } else {
+            let i = 1;
+            const modCur = cur
+              .join()
+              .split("=")
+              .map((a: string, index: number, arr: string[]) => {
+                if (index === 0) {
+                  return a;
+                } else if (index !== arr.length - 1) {
+                  const val = a.match(/.*(?=\,)/);
+                  console.log(val ? val[0] : "");
+                  if (val !== null) {
+                    const mod = a.replace(val[0], `\${${i}:${val[0]}}`);
+                    i++;
+                    return mod;
+                  } else {
+                    return a;
+                  }
+                } else {
+                  const val = a.match(/.*(?=\))/);
+                  console.log(val ? val[0] : "");
+                  if (val !== null) {
+                    const mod = a.replace(val[0], `\${${i}:${val[0]}}`);
+                    i++;
+                    return mod;
+                  } else {
+                    return a;
+                  }
+                }
+              });
+
+            return {
+              ...obj,
+              [fnName]: {
+                prefix: `${fnName}`,
+                body: modCur.join("="),
+                description: `Code snippet for ${fnName}`,
+              },
+            };
+          }
+        }, {});
+
+        console.log(snippets);
+
+        fs.writeFile(
+          `${__dirname}/data/psjSnippets.txt`,
+          JSON.stringify(snippets),
+          function (err: any) {
+            if (err) return console.log(err);
+          },
+        );
+      },
+    });
+  } else {
+    console.log(__dirname);
+  }
+};
+
+// readKeywords();
+// readPsjCommands();
+readPSJSnippets();
