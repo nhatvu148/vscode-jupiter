@@ -14,13 +14,13 @@ import {
 } from "./data";
 
 export function activate(context: vscode.ExtensionContext) {
-  const hover = vscode.languages.registerHoverProvider("*", {
+  const hover = vscode.languages.registerHoverProvider("python", {
     provideHover(document, position, token) {
       return new vscode.Hover("Some comments");
     },
   });
 
-  const keywords = vscode.languages.registerCompletionItemProvider("*", {
+  const keywords = vscode.languages.registerCompletionItemProvider("python", {
     provideCompletionItems(
       document: vscode.TextDocument,
       position: vscode.Position,
@@ -39,7 +39,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   root1.forEach((el: string) => {
     context.subscriptions.push(
-      vscode.languages.registerCompletionItemProvider("*", {
+      vscode.languages.registerCompletionItemProvider("python", {
         provideCompletionItems(
           document: vscode.TextDocument,
           position: vscode.Position,
@@ -53,7 +53,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   root1.forEach((el: string) => {
     vscode.languages.registerCompletionItemProvider(
-      "*",
+      "python",
       {
         provideCompletionItems(
           document: vscode.TextDocument,
@@ -82,7 +82,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   root2.forEach((el: string) => {
     vscode.languages.registerCompletionItemProvider(
-      "*",
+      "python",
       {
         provideCompletionItems(
           document: vscode.TextDocument,
@@ -116,7 +116,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   root3.forEach((el: string) => {
     vscode.languages.registerCompletionItemProvider(
-      "*",
+      "python",
       {
         provideCompletionItems(
           document: vscode.TextDocument,
@@ -154,7 +154,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   root4.forEach((el: string) => {
     vscode.languages.registerCompletionItemProvider(
-      "*",
+      "python",
       {
         provideCompletionItems(
           document: vscode.TextDocument,
