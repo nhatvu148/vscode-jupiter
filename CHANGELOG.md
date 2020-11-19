@@ -4,6 +4,10 @@ All notable changes to the "jupiter" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.0.8]
+
+- Restrict use to Python, adding Markdown string call tips
+
 ## [1.0.7]
 
 - Update README.md
