@@ -11,12 +11,21 @@ import {
   libKey,
   psjUtilKeys,
   psjGuiKeys,
+  callTips,
 } from "./data";
 
 export function activate(context: vscode.ExtensionContext) {
   const hover = vscode.languages.registerHoverProvider("python", {
     provideHover(document, position, token) {
-      return new vscode.Hover("Some comments");
+      const wordRange = document.getWordRangeAtPosition(position);
+      const word = document.getText(wordRange);
+      console.log(word);
+
+      const str = new vscode.MarkdownString(
+        "#### Purpose**Name**: FileMenu.AddJTDB**Desc**: add jtdb into model**JVer**: 5.0",
+      );
+      // @ts-ignore
+      return new vscode.Hover(callTips[word]);
     },
   });
 

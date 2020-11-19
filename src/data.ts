@@ -2730,3 +2730,26 @@ export const map45 = {
   Property: [null],
   Material: [null],
 };
+
+export const callTips = {
+  STL: `Name: Export.STL
+  Desc: export stl
+  JVer: 5.0
+  Arg1: strFile (string)
+  Arg2: crlPart (cursor list)
+  Arg3: dScale (double)
+  Arg4: bFilterIndex (bool)
+  Return: 1 success, 0 fail (int)`,
+  AddJTDB: `Name: FileMenu.AddJTDB
+  Desc: add jtdb into model
+  JVer: 5.0
+  Arg1: strFileName (string)
+  Arg2: strMethod (string)
+  Arg3: strTargetModel (string)
+  Arg4: strOption (string)
+  Arg5: iInputNode (integer)
+  Arg6: iInputElem (integer)
+  Arg7: iInputPart (integer)
+  ... please read PSJ Command document for other args ...
+  Return: 1 success, 0 fail (int)`,
+};

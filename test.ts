@@ -244,6 +244,37 @@ const readPSJSnippets = async () => {
   }
 };
 
+const readPSJCallTips = async () => {
+  if (fs.existsSync(`${__dirname}/data/PSJCommandCalltips.txt`)) {
+    const files = await fs.readFileSync(
+      `${__dirname}/data/PSJCommandCalltips.txt`,
+      "utf8",
+    );
+    Papa.parse(files, {
+      complete: function (results: any) {
+        const res = results.data;
+
+        const obj = {
+          "FileMenu.AddJTDB":
+            "Name: FileMenu.AddJTDB\nDesc: add jtdb into model\nJVer: 5.0",
+        };
+        console.log(obj);
+
+        // fs.writeFile(
+        //   `${__dirname}/data/psjSnippets.txt`,
+        //   JSON.stringify(snippets),
+        //   function (err: any) {
+        //     if (err) return console.log(err);
+        //   },
+        // );
+      },
+    });
+  } else {
+    console.log(__dirname);
+  }
+};
+
 // readKeywords();
 // readPsjCommands();
-readPSJSnippets();
+// readPSJSnippets();
+readPSJCallTips();
