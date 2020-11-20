@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import path = require('path');
+import path = require("path");
 import {
   root1,
   root2,
@@ -24,12 +24,13 @@ export function activate(context: vscode.ExtensionContext) {
       token: vscode.CancellationToken,
     ) {
       // vscode.workspace.getConfiguration()
-      return [
-        new vscode.Location(
-          vscode.Uri.file(`${path.dirname(document.fileName)}/test2.py`),
-          new vscode.Position(1, 1),
+      return new vscode.Location(
+        // vscode.Uri.file(`${path.dirname(document.fileName)}/test2.py`),
+        vscode.Uri.file(
+          `C:/Program Files/TechnoStar/Jupiter-Pre_5.0/macro/Analysis/AbaqusStep.py`,
         ),
-      ];
+        new vscode.Position(4, 4),
+      );
     },
   });
 

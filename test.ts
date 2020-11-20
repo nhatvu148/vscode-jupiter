@@ -313,4 +313,17 @@ const readPSJCallTips = async () => {
 // readKeywords();
 // readPsjCommands();
 // readPSJSnippets();
-readPSJCallTips();
+// readPSJCallTips();
+
+const searchText = () => {
+  fs.readFile(
+    "C:/Program Files/TechnoStar/Jupiter-Pre_5.0/Lib/_bootlocale.py",
+    function (err: any, data: any) {
+      if (err) throw err;
+      if (data.includes("getpreferredencoding")) {
+        console.log(data);
+      }
+    },
+  );
+};
+searchText();
