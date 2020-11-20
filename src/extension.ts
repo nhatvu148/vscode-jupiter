@@ -19,12 +19,19 @@ export function activate(context: vscode.ExtensionContext) {
     provideHover(document, position, token) {
       const wordRange = document.getWordRangeAtPosition(position);
       const word = document.getText(wordRange);
+      const linePrefix = document.lineAt(position).text;
+      const fnName = linePrefix.match(/^.*(?=\()/);
 
-      const mdStr = new vscode.MarkdownString(
-        // @ts-ignore
-        callTips[word],
-      );
-      return new vscode.Hover(mdStr);
+      // @ts-ignore
+      if (fnName !== null && callTips[fnName[0]].prefix === word) {
+        const mdStr = new vscode.MarkdownString(
+          // @ts-ignore
+          callTips[fnName[0]].text,
+        );
+        return new vscode.Hover(mdStr);
+      } else {
+        return undefined;
+      }
     },
   });
 

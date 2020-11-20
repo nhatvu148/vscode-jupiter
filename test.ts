@@ -266,15 +266,16 @@ const readPSJCallTips = async () => {
             }
             if (cur[0].startsWith("Name:")) {
               const match = cur[0].match(/(?<=\.)[A-Za-z]*$/);
-              if (match !== null && match[0] !== "") {
-                arr[0] = match[0];
+              const mod = cur[0].match(/^.*(?=:)/);
 
-                const mod = cur[0].match(/^.*(?=:)/);
-                let _newCur0 = cur[0];
-                if (mod !== null) {
-                  _newCur0 = cur[0].replace(mod[0] + ":", `*${mod[0]}:*`);
-                }
-                arr[1][arr[0]] = _newCur0 + "  \n";
+              if (match !== null && mod !== null && match[0] !== "") {
+                arr[0] = cur[0].replace(mod[0] + ": ", "");
+                const fnName = match[0];
+                const _newCur0 = cur[0].replace(mod[0] + ":", `*${mod[0]}:*`);
+                arr[1][arr[0]] = {
+                  prefix: fnName,
+                  text: _newCur0 + "  \n",
+                };
               }
               return arr;
             } else if (cur[0].startsWith("-----")) {
@@ -285,7 +286,9 @@ const readPSJCallTips = async () => {
               if (mod !== null) {
                 _newCur0 = cur[0].replace(mod[0] + ":", `*${mod[0]}:*`);
               }
-              arr[1][arr[0]] = arr[1][arr[0]].concat(_newCur0 + "  \n ");
+              arr[1][arr[0]].text = arr[1][arr[0]].text.concat(
+                _newCur0 + "  \n ",
+              );
               return arr;
             }
           },
