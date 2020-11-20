@@ -6,6 +6,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [1.0.8]
 
+- adding Markdown string to functions' call tips
+
+## [1.0.8]
+
 - Restrict use to Python, adding Markdown string call tips
 
 ## [1.0.7]

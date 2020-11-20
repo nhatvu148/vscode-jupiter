@@ -2732,24 +2732,954 @@ export const map45 = {
 };
 
 export const callTips = {
-  STL: `Name: Export.STL
-  Desc: export stl
-  JVer: 5.0
-  Arg1: strFile (string)
-  Arg2: crlPart (cursor list)
-  Arg3: dScale (double)
-  Arg4: bFilterIndex (bool)
-  Return: 1 success, 0 fail (int)`,
-  AddJTDB: `Name: FileMenu.AddJTDB
-  Desc: add jtdb into model
-  JVer: 5.0
-  Arg1: strFileName (string)
-  Arg2: strMethod (string)
-  Arg3: strTargetModel (string)
-  Arg4: strOption (string)
-  Arg5: iInputNode (integer)
-  Arg6: iInputElem (integer)
-  Arg7: iInputPart (integer)
-  ... please read PSJ Command document for other args ...
-  Return: 1 success, 0 fail (int)`,
+  STL:
+    "*Name:* Home.ImportCAD.STL  \n*Desc:* Import STL  \n *JVer:* 5.0  \n *Arg1:* strlFiles (string list)  \n *Arg2:* dChordHeightTolerance (double)  \n *Arg3:* dAngleToleranceDegree (double)  \n *Arg4:* iConvertIsolatedCurve (integer)  \n *Arg5:* dSurfacePlaneTolerance (double)  \n *Arg6:* dSufacePlaneAngle (double)  \n *Arg7:* dMaxFacetWidth (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AddJTDB:
+    "*Name:* FileMenu.AddJTDB  \n*Desc:* add jtdb into model  \n *JVer:* 5.0  \n *Arg1:* strFileName (string)  \n *Arg2:* strMethod (string)  \n *Arg3:* strTargetModel (string)  \n *Arg4:* strOption (string)  \n *Arg5:* iInputNode (integer)  \n *Arg6:* iInputElem (integer)  \n *Arg7:* iInputPart (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Save:
+    "*Name:* FileMenu.Save  \n*Desc:* Save file  \n *JVer:* 5.0  \n *Arg1:* strPath (string)  \n *Arg2:* strHistoryTree (string)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  LoadDB:
+    "*Name:* FileMenu.LoadDB  \n*Desc:* Load JTDB file  \n *JVer:* 5.0  \n *Arg1:* strPath (string)  \n *Arg2:* bUseTmpTable (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CreateBeadWeld:
+    "*Name:* HGTMufflerModeling.CreateBeadWeld  \n*Desc:* create bead weld  \n *JVer:* 5.0  \n *Arg1:* crlEdge (cursor list)  \n *Arg2:* crlPrjtedEdge (cursor list)  \n *Arg3:* crlPart (cursor list)  \n *Arg4:* dTol (double)  \n *Arg5:* dRatio (double)  \n *Arg6:* crRefElem (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Spatial:
+    "*Name:* Home.ImportCAD.Spatial  \n*Desc:* import CAD by Spatial  \n *JVer:* 5.0  \n *Arg1:* strlPath (string list)  \n *Arg2:* dSurfacePlaneTolerance (double)  \n *Arg3:* dSufacePlaneAngle (double)  \n *Arg4:* dMaxFacetWidth (double)  \n *Arg5:* bNXMultipart (bool)  \n *Arg6:* bHealing (bool)  \n *Arg7:* bIsNXDirect (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  TechnoStarGeometry:
+    "*Name:* ImportCAD.TechnoStarGeometry  \n*Desc:* Import Geometry bdf file  \n *JVer:* 5.0  \n *Arg1:* strlPath (string list)  \n *Arg2:* bUseUnit (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CreoDirect:
+    "*Name:* ImportCAD.CreoDirect  \n*Desc:* Command use for ImportCAD CreoDirect  \n *JVer:* 5.0  \n *Arg1:* vecPath (vector)  \n *Arg2:* cadProeParamData (CAD_PROE_PARAM_DATA)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Elysium:
+    "*Name:* Home.ImportCAD.Elysium  \n*Desc:* import elysium  \n *JVer:* 5.0  \n *Arg1:* strlPath (string list)  \n *Arg2:* dChordHeightTolerance (double)  \n *Arg3:* dAngleToleranceDegree (double)  \n *Arg4:* dPointCoincidentTolerance (double)  \n *Arg5:* iConvertIsolatedCurve (integer)  \n *Arg6:* iDekCleanselfintersectingloop (integer)  \n *Arg7:* iDekVolumetopart (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  NastranBdf:
+    "*Name:* Home.ImportMesh.NastranBdf  \n*Desc:* import Nastran bdf file  \n *JVer:* 5.0  \n *Arg1:* strlFilePaths (string list)  \n *Arg2:* iImportType (integer)  \n *Arg3:* dFaceAngle (double)  \n *Arg4:* dEdgeAngle (double)  \n *Arg5:* bReadNameComment (bool)  \n *Arg6:* iCreateDup1DElemAnswer (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AbaqusINP:
+    "*Name:* Home.ImportMesh.AbaqusINP  \n*Desc:* import Abaqus INP file  \n *JVer:* 5.0  \n *Arg1:* strlFilePaths (string list)  \n *Arg2:* dFaceAngle (double)  \n *Arg3:* dEdgeAngle (double)  \n *Arg4:* iImportType (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  LSDYNA:
+    "*Name:* Home.ImportMesh.LSDYNA  \n*Desc:* Import Ls-Dyna file  \n *JVer:* 5.0  \n *Arg1:* strlPath (string list)  \n *Arg2:* dFaceAngle (double)  \n *Arg3:* dEdgeAngle (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ADVCADX:
+    "*Name:* Home.ImportMesh.ADVCADX  \n*Desc:* import adx files  \n *JVer:* 5.0  \n *Arg1:* strPath (string)  \n *Arg2:* dFaceAngle (double)  \n *Arg3:* dEdgeAngle (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Universal:
+    "*Name:* Home.ImportMesh.Universal  \n*Desc:* Import Universal  \n *JVer:* 5.0  \n *Arg1:* strPath (string)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AnsysDat:
+    "*Name:* Home.ImportMesh.AnsysDat  \n*Desc:* Import Ansys file  \n *JVer:* 5.0  \n *Arg1:* strlPath (string list)  \n *Arg2:* dFaceAngle (double)  \n *Arg3:* dEdgeAngle (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  TSVPre:
+    "*Name:* ImportMesh.TSVPre  \n*Desc:* Convert a old TSV-Pre/Designer file into one or more jtdb files.  \n *JVer:* 5.0  \n *Arg1:* strImportPath (string)  \n *Arg2:* strExportPath (string)  \n *Arg3:* ilModelIndex (int list)  \n *Arg4:* iMerge (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FindEntities:
+    "*Name:* Utility.FindEntities  \n*Desc:* Search entity by ID, Name ...etc  \n *JVer:* 5.0  \n *Arg1:* strTarget (string)  \n *Arg2:* strFindType (string)  \n *Arg3:* bFindMatch (bool)  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Command use for Utility MeasureDistanceBy2Edges  \n *JVer:* 5.0  \n *Arg1:* crEdgeFirst (cursor)  \n *Arg2:* crEdgeLast (cursor)  \n *Arg3:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* AC boundary method 1  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* bIsMergePart (bool)  \n *Arg3:* bIsRenumber (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Convex:
+    "*Name:* ACModeling.Create.Convex  \n*Desc:* Create Convex In Boundary  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* dMeshSize (double)  \n *Arg3:* dOffset (double)  \n *Arg4:* dRadius (double)  \n *Arg5:* iDAxisGround (integer)  \n *Arg6:* dScale (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CloseHoleAuto:
+    "*Name:* ACModeling.CloseHoleAuto  \n*Desc:* ACModeling CloseHoleAuto  \n *JVer:* 5.0  \n *Arg1:* crlClosedHoleParts (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Cut:
+    "*Name:* ACModeling.Cut  \n*Desc:* cut for ACModeling  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  DynamicStep:
+    "*Name:* Analysis.AbaqusStep.DynamicStep  \n*Desc:* Command use for Analysis AbaqusStep DynamicStep  \n *JVer:* 5.0  \n *Arg1:* abaqusDynamic (ABAQUS_DYNAMIC)  \n *Arg2:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  TransientStep:
+    "*Name:* Analysis.AbaqusStep.TransientStep  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strDesp (string)  \n *Arg3:* iEnableAutomatic (integer)  \n *Arg4:* iMaxInc (integer)  \n *Arg5:* dInitSize (double)  \n *Arg6:* dMinSize (double)  \n *Arg7:* dMaxSize (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CoupledTDStep:
+    "*Name:* Analysis.AbaqusStep.CoupledTDStep  \n*Desc:* create abaqus step of coupled Temp-Displacement  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strDesp (string)  \n *Arg3:* iEnableAutomatic (integer)  \n *Arg4:* iMaxInc (integer)  \n *Arg5:* dInitSize (double)  \n *Arg6:* dMinSize (double)  \n *Arg7:* dMaxSize (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  DynamicExplicitStep:
+    "*Name:* Analysis.AbaqusStep.DynamicExplicitStep  \n*Desc:* create abaqus step of dynamic explicit  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strDesp (string)  \n *Arg3:* iEnableAutomatic (integer)  \n *Arg4:* iIncrmtEstimator (integer)  \n *Arg5:* abaqusPair1 (ABAQUS_PAIR)  \n *Arg6:* dTimeScalfactor (double)  \n *Arg7:* abaqusPair2 (ABAQUS_PAIR)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ModalStep:
+    "*Name:* Analysis.AbaqusStep.ModalStep  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strDesp (string)  \n *Arg3:* iEigenSolver (integer)  \n *Arg4:* iNFreqRequestbchecked (integer)  \n *Arg5:* ilNFreqRequestTList (int list)  \n *Arg6:* iFreqShiftbchecked (integer)  \n *Arg7:* ilFreqShiftTList (int list)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  StaticRiskStep:
+    "*Name:* Analysis.AbaqusStep.StaticRiskStep  \n*Desc:* Abaqus Static Risk Step  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strDesp (string)  \n *Arg3:* iEnableAutomatic (integer)  \n *Arg4:* iMaxInc (integer)  \n *Arg5:* dInitSize (double)  \n *Arg6:* dMinSize (double)  \n *Arg7:* dMaxSize (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SteadyStateStep:
+    "*Name:* Analysis.AbaqusStep.SteadyStateStep  \n*Desc:* Abaqus Steady State Step  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strDesp (string)  \n *Arg3:* iEnableAutomatic (integer)  \n *Arg4:* iMaxInc (integer)  \n *Arg5:* iNitSize (integer)  \n *Arg6:* dMinSize (double)  \n *Arg7:* dMaxSize (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ExportBdf:
+    "*Name:* Analysis.ACTRAN.ExportBdf  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* strPath (string)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Run:
+    "*Name:* Analysis.ACTRAN.Run  \n*Desc:* Command use for Analysis ACTRAN Run  \n *JVer:* 5.0  \n *Arg1:* actranAnalysis (ACTRAN_ANALYSIS)  \n *Arg2:* crlTarget (cursor list)  \n *Arg3:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CreateEdat:
+    "*Name:* Analysis.ACTRAN.CreateEdat  \n*Desc:* Command use for Analysis ACTRAN CreateEdat  \n *JVer:* 5.0  \n *Arg1:* actranAnalysis (ACTRAN_ANALYSIS)  \n *Arg2:* crlTarget (cursor list)  \n *Arg3:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Abaqus:
+    "*Name:* Connections.Pretension.Abaqus  \n*Desc:* Create Pretension Abaqus  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* bFixedLenght (bool)  \n *Arg3:* crTable (cursor)  \n *Arg4:* dValue (double)  \n *Arg5:* iLocalUnit (integer)  \n *Arg6:* strNormal (string)  \n *Arg7:* dlNodePos (double list)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AbaqusSteadyStateStep:
+    "*Name:* Analysis.Analysis.AbaqusSteadyStateStep  \n*Desc:* Command use for Analysis AbaqusSteadyStateStep  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strDesp (string)  \n *Arg3:* bAutomatic (bool)  \n *Arg4:* maxInc ([])  \n *Arg5:* initSize ([])  \n *Arg6:* minSize ([])  \n *Arg7:* maxSize ([])  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AbaqusStaticRiskStep:
+    "*Name:* Analysis.Analysis.AbaqusStaticRiskStep  \n*Desc:* Command use for Analysis AbaqusStaticRiskStep  \n *JVer:* 5.0  \n *Arg1:* m_strName ([])  \n *Arg2:* m_strDesp ([])  \n *Arg3:* m_bAutomatic ([])  \n *Arg4:* m_maxInc ([])  \n *Arg5:* m_initSize ([])  \n *Arg6:* m_minSize ([])  \n *Arg7:* m_maxSize ([])  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  HeadTransferSteady:
+    "*Name:* Analysis.Ansys.HeadTransferSteady  \n*Desc:* Set parameters  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iJobdataAnatype (integer)  \n *Arg3:* iJobdataSoltype (integer)  \n *Arg4:* strJobdataJobname (string)  \n *Arg5:* strJobdataJobdescription (string)  \n *Arg6:* bBasicdataBoutputdisplacements (bool)  \n *Arg7:* bBasicdataBoutputreactionload (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  LinearStatic:
+    "*Name:* Analysis.TSSS.LinearStatic  \n*Desc:* Export TS-SS Linear Static  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strDescription (string)  \n *Arg3:* crlTarget (cursor list)  \n *Arg4:* nastranAnalysis (NASTRAN_ANALYSIS)  \n *Arg5:* iRadialReturn (integer)  \n *Arg6:* listNastranNonlinear ([])  \n *Arg7:* crEdit (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  NormalModes:
+    "*Name:* Analysis.TSSS.NormalModes  \n*Desc:* Export TS-SS Normal Modes  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strDescription (string)  \n *Arg3:* crlTarget (cursor list)  \n *Arg4:* nastranAnalysis (NASTRAN_ANALYSIS)  \n *Arg5:* iRadialReturn (integer)  \n *Arg6:* listNastranNonlinear ([])  \n *Arg7:* crEdit (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Harmonic:
+    "*Name:* Analysis.Ansys.Harmonic  \n*Desc:* Create and export Ansys job for Harmonic Structural  \n *JVer:* 5.0  \n *Arg1:* strJobName (string)  \n *Arg2:* iJobdataAnatype (integer)  \n *Arg3:* iJobdataSoltype (integer)  \n *Arg4:* strJobdataJobname (string)  \n *Arg5:* strJobdataJobdescription (string)  \n *Arg6:* bBasicdataBoutputdisplacements (bool)  \n *Arg7:* bBasicdataBoutputreactionload (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Steady:
+    "*Name:* Analysis.Ansys.Steady  \n*Desc:* Create and export Ansys job for Steady Heat Transfer  \n *JVer:* 5.0  \n *Arg1:* strJobName (string)  \n *Arg2:* iJobdataAnatype (integer)  \n *Arg3:* iJobdataSoltype (integer)  \n *Arg4:* strJobdataJobname (string)  \n *Arg5:* strJobdataJobdescription (string)  \n *Arg6:* bBasicdataBoutputdisplacements (bool)  \n *Arg7:* bBasicdataBoutputreactionload (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ModalTransientResponse:
+    "*Name:* Analysis.TSSolver.ModalTransientResponse  \n*Desc:* Export TS-Solver Modal Transient Response  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strDescription (string)  \n *Arg3:* crlTarget (cursor list)  \n *Arg4:* nastranAnalysis (NASTRAN_ANALYSIS)  \n *Arg5:* crEdit (cursor)  \n *Arg6:* strPath (string)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  LinearBuckling:
+    "*Name:* Analysis.TSSS.LinearBuckling  \n*Desc:* Export TS-SS Linear Buckling  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strDescription (string)  \n *Arg3:* crlTarget (cursor list)  \n *Arg4:* nastranAnalysis (NASTRAN_ANALYSIS)  \n *Arg5:* iRadialReturn (integer)  \n *Arg6:* listNastranNonlinear ([])  \n *Arg7:* crEdit (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Transient:
+    "*Name:* Analysis.ADVC.MakeProcess.Transient  \n*Desc:* create advc heat transfer transient process  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iEndType (integer)  \n *Arg3:* dMaxTime (double)  \n *Arg4:* dSteadyRate (double)  \n *Arg5:* iFixedOrAuto (integer)  \n *Arg6:* dMaxChange (double)  \n *Arg7:* dInitDt (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SteadyState:
+    "*Name:* Analysis.ADVC.MakeProcess.SteadyState  \n*Desc:* create advc heat transfer steady state process  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iEndType (integer)  \n *Arg3:* dMaxTime (double)  \n *Arg4:* iFixedOrAuto (integer)  \n *Arg5:* dMaxChange (double)  \n *Arg6:* dInitDt (double)  \n *Arg7:* iDefineMaxDt (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ModalFrequencyResponse:
+    "*Name:* Analysis.TSSS.ModalFrequencyResponse  \n*Desc:* Export TS-SS Modal Frequency Response  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strDescription (string)  \n *Arg3:* crlTarget (cursor list)  \n *Arg4:* nastranAnalysis (NASTRAN_ANALYSIS)  \n *Arg5:* iRadialReturn (integer)  \n *Arg6:* listNastranNonlinear ([])  \n *Arg7:* crEdit (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Job:
+    "*Name:* Analysis.TSSolver.Job  \n*Desc:* Create TS-Solver Job  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strDescription (string)  \n *Arg3:* crlTarget (cursor list)  \n *Arg4:* nastranAnalysis (NASTRAN_ANALYSIS)  \n *Arg5:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ExportDynamisBdf:
+    "*Name:* Analysis.TSSolver.ExportDynamisBdf  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* strPath (string)  \n *Arg2:* crJob (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  LinearBucking:
+    "*Name:* Analysis.TSSolver.LinearBucking  \n*Desc:* Export TS-Solver Linear Bucking  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strDescription (string)  \n *Arg3:* crlTarget (cursor list)  \n *Arg4:* nastranAnalysis (NASTRAN_ANALYSIS)  \n *Arg5:* crEdit (cursor)  \n *Arg6:* strPath (string)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  NonlinearStatic:
+    "*Name:* Analysis.TSSS.NonlinearStatic  \n*Desc:* Export TS-SS Nonlinear Static  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strDescription (string)  \n *Arg3:* crlTarget (cursor list)  \n *Arg4:* nastranAnalysis (NASTRAN_ANALYSIS)  \n *Arg5:* iRadialReturn (integer)  \n *Arg6:* listNastranNonlinear ([])  \n *Arg7:* crEdit (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  NonlinearFrequency:
+    "*Name:* Analysis.TSSolver.NonlinearFrequency  \n*Desc:* Export TS-Solver Nonlinear Frequency  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strDescription (string)  \n *Arg3:* crlTarget (cursor list)  \n *Arg4:* nastranAnalysis (NASTRAN_ANALYSIS)  \n *Arg5:* crEdit (cursor)  \n *Arg6:* strPath (string)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  TransientHeatTransfer:
+    "*Name:* Analysis.TSSS.TransientHeatTransfer  \n*Desc:* Export TS-SS Transient Heat Transfer  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strDescription (string)  \n *Arg3:* crlTarget (cursor list)  \n *Arg4:* nastranAnalysis (NASTRAN_ANALYSIS)  \n *Arg5:* iRadialReturn (integer)  \n *Arg6:* listNastranNonlinear ([])  \n *Arg7:* crEdit (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SteadyStateHeatTransfer:
+    "*Name:* Analysis.TSSS.SteadyStateHeatTransfer  \n*Desc:* Export TS-SS Steady State Heat Transfer  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strDescription (string)  \n *Arg3:* crlTarget (cursor list)  \n *Arg4:* nastranAnalysis (NASTRAN_ANALYSIS)  \n *Arg5:* iRadialReturn (integer)  \n *Arg6:* listNastranNonlinear ([])  \n *Arg7:* crEdit (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ExportAnsys:
+    "*Name:* Analysis.ExportAnsys  \n*Desc:* Find faces in part by typical description  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crAnsysJob (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ExportAbaqus:
+    "*Name:* Analysis.ExportAbaqus  \n*Desc:* export inp file  \n *JVer:* 5.0  \n *Arg1:* crAbaJob (cursor)  \n *Arg2:* crlSelectPart (cursor list)  \n *Arg3:* strInpPath (string)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ModifyLbcToStep:
+    "*Name:* Analysis.ModifyLbcToStep  \n*Desc:* Abaqus analysis output data setting  \n *JVer:* 5.0  \n *Arg1:* listAbaqusLbcStepInfo ([])  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ExportAdx:
+    "*Name:* Analysis.ExportAdx  \n*Desc:* export adx file  \n *JVer:* 5.0  \n *Arg1:* crJob (cursor)  \n *Arg2:* strPath (string)  \n *Arg3:* iNumType (integer)  \n *Arg4:* iUiWidth (integer)  \n *Arg5:* iUiPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ExportLsdyna:
+    "*Name:* Analysis.ExportLsdyna  \n*Desc:* Analysis LSDYNA ExportLsdyna  \n *JVer:* 5.0  \n *Arg1:* strPath (string)  \n *Arg2:* crJob (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  NastranJob:
+    "*Name:* Analysis.NastranJob  \n*Desc:* Create nastran Job  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strDescription (string)  \n *Arg3:* crlTarget (cursor list)  \n *Arg4:* nastranAnalysis (NASTRAN_ANALYSIS)  \n *Arg5:* bDummyPropAutoAssign (bool)  \n *Arg6:* iDummyPropMaterialID (integer)  \n *Arg7:* crEdit (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  LSDYNAJob:
+    "*Name:* Analysis.LSDYNAJob  \n*Desc:* Create analysis LSDYNA job  \n *JVer:* 5.0  \n *Arg1:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Static:
+    "*Name:* Analysis.ADVC.MakeProcess.Static  \n*Desc:* create static process  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iGeomNonlinear (integer)  \n *Arg3:* advcStructTimeStep (ADVC_STRUCT_TIME_STEP)  \n *Arg4:* bConvergence (bool)  \n *Arg5:* advcConvergence (ADVC_CONVERGENCE)  \n *Arg6:* bContact (bool)  \n *Arg7:* advcContactIter (ADVC_CONTACT_ITER)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Creep:
+    "*Name:* Analysis.ADVC.MakeProcess.Creep  \n*Desc:* create creep process  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iGeomNonlinear (integer)  \n *Arg3:* advcStructTimeStep (ADVC_STRUCT_TIME_STEP)  \n *Arg4:* bConvergence (bool)  \n *Arg5:* advcConvergence (ADVC_CONVERGENCE)  \n *Arg6:* bContact (bool)  \n *Arg7:* advcContactIter (ADVC_CONTACT_ITER)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Dynamic:
+    "*Name:* Analysis.ADVC.MakeProcess.Dynamic  \n*Desc:* create dynamic process  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iGeomNonlinear (integer)  \n *Arg3:* advcStructTimeStep (ADVC_STRUCT_TIME_STEP)  \n *Arg4:* bConvergence (bool)  \n *Arg5:* advcConvergence (ADVC_CONVERGENCE)  \n *Arg6:* bContact (bool)  \n *Arg7:* advcContactIter (ADVC_CONTACT_ITER)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  EigenValue:
+    "*Name:* Analysis.ADVC.MakeProcess.EigenValue  \n*Desc:* create advc eigen value process  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* bEigenValue (bool)  \n *Arg3:* iNumberOfModes (integer)  \n *Arg4:* iEigenvecNorm (integer)  \n *Arg5:* dShift (double)  \n *Arg6:* dCgcgpiTol (double)  \n *Arg7:* dCgcgpiEigTol (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  DynamicExplicit:
+    "*Name:* Analysis.ADVC.MakeProcess.DynamicExplicit  \n*Desc:* create dynamic explicit process.  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iGeomNonlinear (integer)  \n *Arg3:* advcStructTimeStep (ADVC_STRUCT_TIME_STEP)  \n *Arg4:* bConvergence (bool)  \n *Arg5:* advcConvergence (ADVC_CONVERGENCE)  \n *Arg6:* bContact (bool)  \n *Arg7:* advcContactIter (ADVC_CONTACT_ITER)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ModalFreqResp:
+    "*Name:* Analysis.ADVC.MakeProcess.ModalFreqResp  \n*Desc:* create modal frequency response process of ADVC  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strRefEigenDir (string)  \n *Arg3:* dRefLowFreq (double)  \n *Arg4:* dRefHighFreq (double)  \n *Arg5:* crModalDampingRatio (cursor)  \n *Arg6:* crExcitationFreq (cursor)  \n *Arg7:* bAutoFreqInterval (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ResponseSpectrum:
+    "*Name:* Analysis.ADVC.MakeProcess.ResponseSpectrum  \n*Desc:* create advc response spectrum process  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strRefEigenDir (string)  \n *Arg3:* dRefLowFreq (double)  \n *Arg4:* dRefHighFreq (double)  \n *Arg5:* iPropMethod (integer)  \n *Arg6:* iSpttype (integer)  \n *Arg7:* dSptFactor0 (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Fatigue:
+    "*Name:* Analysis.ADVC.MakeProcess.Fatigue  \n*Desc:* create advc fatigue process  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* bFatigue (bool)  \n *Arg3:* iMethod (integer)  \n *Arg4:* iStressAxis (integer)  \n *Arg5:* iSafetyType (integer)  \n *Arg6:* dSearchResolution (double)  \n *Arg7:* dSafetyMax (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  RandomResponse:
+    "*Name:* Analysis.ADVC.MakeProcess.RandomResponse  \n*Desc:* create advc random response process  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strRefEigenDir (string)  \n *Arg3:* dRefLowFreq (double)  \n *Arg4:* dRefHighFreq (double)  \n *Arg5:* crModalDampingRatio (cursor)  \n *Arg6:* crExcitationFreq (cursor)  \n *Arg7:* bAutoFreqInterval (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Structure:
+    "*Name:* Analysis.ADVC.Structure  \n*Desc:* create advc job  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strDescription (string)  \n *Arg3:* iEJobType (integer)  \n *Arg4:* crlProcessSequence (cursor list)  \n *Arg5:* crlElemLocationGroup (cursor list)  \n *Arg6:* crlNodeLocationGroup (cursor list)  \n *Arg7:* bWriteGroup (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  HeatTransfer:
+    "*Name:* Analysis.ADVC.HeatTransfer  \n*Desc:* create advc job  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strDescription (string)  \n *Arg3:* iEJobType (integer)  \n *Arg4:* crlProcessSequence (cursor list)  \n *Arg5:* crlElemLocationGroup (cursor list)  \n *Arg6:* crlNodeLocationGroup (cursor list)  \n *Arg7:* bWriteGroup (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AllSharedNodes:
+    "*Name:* Assemble.SeparateFaces.AllSharedNodes  \n*Desc:* create by all shared nodes  \n *JVer:* 5.0  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Shell:
+    "*Name:* Properties.Shell  \n*Desc:* create shell property  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iPID (integer)  \n *Arg3:* crMatMembrane (cursor)  \n *Arg4:* crMatBend (cursor)  \n *Arg5:* crMatShear (cursor)  \n *Arg6:* crMatCoupl (cursor)  \n *Arg7:* dMatOrient1 (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Solid:
+    "*Name:* Properties.Solid  \n*Desc:* create property solid  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iPID (integer)  \n *Arg3:* crMaterial (cursor)  \n *Arg4:* iCordM (integer)  \n *Arg5:* iIN (integer)  \n *Arg6:* iOutLoc (integer)  \n *Arg7:* iISOP (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Create 1D Property Sketcher Section  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iSecType (integer)  \n *Arg3:* iSecGentype (integer)  \n *Arg4:* dSecGensizeA (double)  \n *Arg5:* dSecGensizeB (double)  \n *Arg6:* dSecGensizeH (double)  \n *Arg7:* dSecGensizeT1 (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Boolean:
+    "*Name:* Assemble.Boolean  \n*Desc:* Make Boolean between Parts  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* iBooleanType (integer)  \n *Arg3:* dToleranceAlignment (double)  \n *Arg4:* bLeaveOriginalBodies (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AssembleFace:
+    "*Name:* Assemble.AssembleFace  \n*Desc:* create assemble face  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* crlFace (cursor list)  \n *Arg3:* dTolerance (double)  \n *Arg4:* iFitEdge (integer)  \n *Arg5:* iMeshSetting (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FullLayer:
+    "*Name:* Assemble.FullLayer  \n*Desc:* assemble full layer  \n *JVer:* 5.0  \n *Arg1:* crPart (cursor)  \n *Arg2:* dLayerWidth (double)  \n *Arg3:* iLayer (integer)  \n *Arg4:* bUsePyramid (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CylinderLayer:
+    "*Name:* Assemble.CylinderLayer  \n*Desc:* Assemble cylinder layer  \n *JVer:* 5.0  \n *Arg1:* crFace (cursor)  \n *Arg2:* crNode (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SharedFace:
+    "*Name:* Assemble.SharedFace  \n*Desc:* Create assemble shared face  \n *JVer:* 5.0  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AssembleFaces:
+    "*Name:* Assemble.AssembleFaces  \n*Desc:* Assemble AssembleFaces  \n *JVer:* 5.0  \n *Arg1:* ilPairFaceToMakeShareFace (int list)  \n *Arg2:* dTolerance (double)  \n *Arg3:* iTypeConnectPos (integer)  \n *Arg4:* bUseSnapInput (bool)  \n *Arg5:* dSnapTolerance (double)  \n *Arg6:* bFitEdge (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  GeneralLayer:
+    "*Name:* Assemble.GeneralLayer  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Arg2:* dWidth (double)  \n *Arg3:* iLayer (integer)  \n *Arg4:* bSeparatePart (bool)  \n *Arg5:* bForceStitchToSide (bool)  \n *Arg6:* bSmoothingEdge (bool)  \n *Arg7:* bNoImprint (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AddRib:
+    "*Name:* Assemble.AddRib  \n*Desc:* create Rib  \n *JVer:* 5.0  \n *Arg1:* crPart (cursor)  \n *Arg2:* crlFace (cursor list)  \n *Arg3:* veclPoints (vector list)  \n *Arg4:* dWidth (double)  \n *Arg5:* dDepth (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FindMatingFace:
+    "*Name:* Assemble.FindMatingFace  \n*Desc:* Find Mating Face For Assemble Faces  \n *JVer:* 5.0  \n *Arg1:* crlMasterFaces (cursor list)  \n *Arg2:* crlSlaveFaces (cursor list)  \n *Arg3:* crlPart (cursor list)  \n *Arg4:* dTolerance (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AddBoss:
+    "*Name:* Assemble.AddBoss  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crPart (cursor)  \n *Arg2:* iType (integer)  \n *Arg3:* bMerge (bool)  \n *Arg4:* posOrgCenter (position)  \n *Arg5:* vecOrgDirection (vector)  \n *Arg6:* crCoord (cursor)  \n *Arg7:* iAxis (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AddToReference:
+    "*Name:* Assembly.RightClick.AddToReference  \n*Desc:* Add Reference to Body  \n *JVer:* 5.0  \n *Arg1:* crSrcPart (cursor)  \n *Arg2:* crDestPart (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Suppress:
+    "*Name:* Assembly.RightClick.Suppress  \n*Desc:* Suppress/ Unsuppress part on Tree Assembly  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  UnSuppress:
+    "*Name:* Assembly.RightClick.UnSuppress  \n*Desc:* Command use for Assembly RightClick UnSuppress  \n *JVer:* 5.0  \n *Arg1:* taParts ([])  \n *Return:* 1 success, 0 fail (int)  \n ",
+  RestoreOriginalPart:
+    "*Name:* Assembly.RightClick.RestoreOriginalPart  \n*Desc:* Restore body  \n *JVer:* 5.0  \n *Arg1:* crlBodies (cursor list)  \n *Arg2:* bKeepShareFace (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Rename:
+    "*Name:* Groups.RightClick.Rename  \n*Desc:* Command use for Groups RightClick Rename  \n *JVer:* 5.0  \n *Arg1:* strNewName (string)  \n *Arg2:* crItem (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ChangeEntityColor:
+    "*Name:* Assembly.RightClick.ChangeEntityColor  \n*Desc:* Command use for Assembly RightClick ChangeEntityColor  \n *JVer:* 5.0  \n *Arg1:* crlEntity (cursor list)  \n *Arg2:* iColor (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AddSubAssembly:
+    "*Name:* Assembly.RightClick.AddSubAssembly  \n*Desc:* Add sub assembly  \n *JVer:* 5.0  \n *Arg1:* crInst (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ChangeBodyColor:
+    "*Name:* Assembly.RightClick.ChangeBodyColor  \n*Desc:* Change Body Color  \n *JVer:* 5.0  \n *Arg1:* listPartColorPair ([])  \n *Arg2:* bResetFaceColor (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ChangeMeshLineColor:
+    "*Name:* Assembly.RightClick.ChangeMeshLineColor  \n*Desc:* Change Entity color  \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Arg2:* iColor (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Constant:
+    "*Name:* BoundaryConditions.TemperatureLoads.Constant  \n*Desc:* create temperature load constant  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* dTemperature (double)  \n *Arg3:* crTable (cursor)  \n *Arg4:* crlTarget (cursor list)  \n *Arg5:* crEdit (cursor)  \n *Arg6:* bUseDefaultTemp (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SurfaceMapping:
+    "*Name:* BoundaryConditions.Pressure.SurfaceMapping  \n*Desc:* Create mapping pressure  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crlTarget (cursor list)  \n *Arg3:* iMAPPos (integer)  \n *Arg4:* iViewCp (integer)  \n *Arg5:* iCp (integer)  \n *Arg6:* iSrcType (integer)  \n *Arg7:* iMappedCpIndexArr (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Acceleration:
+    "*Name:* BoundaryConditions.EnforcedLoads.Acceleration  \n*Desc:* Set enforced acceleration  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iDwDof (integer)  \n *Arg3:* dFVel1 (double)  \n *Arg4:* dFVel2 (double)  \n *Arg5:* dFVel3 (double)  \n *Arg6:* dFVel4 (double)  \n *Arg7:* dFVel5 (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Velocity:
+    "*Name:* BoundaryConditions.InitialNodalValue.Velocity  \n*Desc:* Command use for BoundaryConditions InitialNodalValue Velocity  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* stData (LBC_DYNAMIC_INITIAL_CONDITION_DATA)  \n *Arg3:* crlTarget (cursor list)  \n *Arg4:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Displacement:
+    "*Name:* BoundaryConditions.InitialNodalValue.Displacement  \n*Desc:* Create Initial Dynamic  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iType (integer)  \n *Arg3:* vecInit (vector)  \n *Arg4:* bSelNode (bool)  \n *Arg5:* crNodeSet (cursor)  \n *Arg6:* crTable (cursor)  \n *Arg7:* crCoord (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SurfaceFlux:
+    "*Name:* BoundaryConditions.HeatFlux.SurfaceFlux  \n*Desc:* create surface flux  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* dFflux (double)  \n *Arg3:* iDistributionMethod (integer)  \n *Arg4:* crTable (cursor)  \n *Arg5:* crlTarget (cursor list)  \n *Arg6:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ConcentrateFlux:
+    "*Name:* BoundaryConditions.HeatFlux.ConcentrateFlux  \n*Desc:* Command use for BoundaryConditions HeatFlux ConcentrateFlux  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* stData (LBC_CONCENTRATE_FLUX_DATA)  \n *Arg3:* crlTarget (cursor list)  \n *Arg4:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  InitialStress:
+    "*Name:* BoundaryConditions.InitialElementalValue.InitialStress  \n*Desc:* create mapping stress  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iDimension (integer)  \n *Arg3:* iElemCs (integer)  \n *Arg4:* dSXX (double)  \n *Arg5:* dSYY (double)  \n *Arg6:* dSXY (double)  \n *Arg7:* crTable (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  WholeMapping:
+    "*Name:* BoundaryConditions.TemperatureLoads.WholeMapping  \n*Desc:* Create mapping pressure  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crlTarget (cursor list)  \n *Arg3:* iMAPPos (integer)  \n *Arg4:* iViewCp (integer)  \n *Arg5:* iCp (integer)  \n *Arg6:* iSrcType (integer)  \n *Arg7:* iMappedCpIndexArr0 (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ADVC:
+    "*Name:* Post.ImportResults.ADVC  \n*Desc:* Command use for Post ImportResults ADVC  \n *JVer:* 5.0  \n *Arg1:* strlPath (string list)  \n *Arg2:* iImportType (integer)  \n *Arg3:* dFaceAngle (double)  \n *Arg4:* dEdgeAngle (double)  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Post ImportResults ADVC2PostJob  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strlResultFolderPaths (string list)  \n *Arg3:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Import Nastran HDF5PostJob file  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strlPaths (string list)  \n *Arg3:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  NastranPunch:
+    "*Name:* BoundaryConditions.TemperatureLoads.NastranPunch  \n*Desc:* create temperature load of nastran punch  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strFilePathName (string)  \n *Arg3:* crTable (cursor)  \n *Arg4:* crlTarget (cursor list)  \n *Arg5:* crEdit (cursor)  \n *Arg6:* bUseAsMaterialReferenceTemp (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  PropertiesCopyTranslate:
+    "*Name:* BoundaryConditions.LBCCopy.PropertiesCopyTranslate  \n*Desc:* Copy property translate  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* iMatchMethod (integer)  \n *Arg3:* posVecTrans (position)  \n *Arg4:* dMagnitude (double)  \n *Arg5:* dTrandataDoffset (double)  \n *Arg6:* dTol (double)  \n *Arg7:* crCoord (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  PropertiesCopyRotate:
+    "*Name:* BoundaryConditions.LBCCopy.PropertiesCopyRotate  \n*Desc:* Copy property rotate  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* iMatchMethod (integer)  \n *Arg3:* posAxis (position)  \n *Arg4:* posCenter (position)  \n *Arg5:* dAngle (double)  \n *Arg6:* dTol (double)  \n *Arg7:* crCoord (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  PropertiesCopyMirror:
+    "*Name:* BoundaryConditions.LBCCopy.PropertiesCopyMirror  \n*Desc:* Copy property mirror  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* iMatchMethod (integer)  \n *Arg3:* poslPoints (position list)  \n *Arg4:* dOffset (double)  \n *Arg5:* dTol (double)  \n *Arg6:* crlTarget (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ConnectionCopyTranslate:
+    "*Name:* BoundaryConditions.LBCCopy.ConnectionCopyTranslate  \n*Desc:* Copy connection translate  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* iMatchMethod (integer)  \n *Arg3:* posVecTrans (position)  \n *Arg4:* dMagnitude (double)  \n *Arg5:* dTrandataDoffset (double)  \n *Arg6:* dTol (double)  \n *Arg7:* crCoord (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ConnectionCopyRotate:
+    "*Name:* BoundaryConditions.LBCCopy.ConnectionCopyRotate  \n*Desc:* Copy Connection rotate  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* iMatchMethod (integer)  \n *Arg3:* posAxis (position)  \n *Arg4:* posCenter (position)  \n *Arg5:* dAngle (double)  \n *Arg6:* dTol (double)  \n *Arg7:* crCoord (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ConnectionCopyMirror:
+    "*Name:* BoundaryConditions.LBCCopy.ConnectionCopyMirror  \n*Desc:* Copy Connection mirror  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* iMatchMethod (integer)  \n *Arg3:* poslPoints (position list)  \n *Arg4:* dOffset (double)  \n *Arg5:* dTol (double)  \n *Arg6:* crlTarget (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  GroupCopyTranslate:
+    "*Name:* BoundaryConditions.LBCCopy.GroupCopyTranslate  \n*Desc:* Copy group translate  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* iMatchMethod (integer)  \n *Arg3:* posVecTrans (position)  \n *Arg4:* dMagnitude (double)  \n *Arg5:* dTrandataDoffset (double)  \n *Arg6:* dTol (double)  \n *Arg7:* crCoord (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  GroupCopyRotate:
+    "*Name:* BoundaryConditions.LBCCopy.GroupCopyRotate  \n*Desc:* Copy Group rotate  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* iMatchMethod (integer)  \n *Arg3:* posAxis (position)  \n *Arg4:* posCenter (position)  \n *Arg5:* dAngle (double)  \n *Arg6:* dTol (double)  \n *Arg7:* crCoord (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  GroupCopyMirror:
+    "*Name:* BoundaryConditions.LBCCopy.GroupCopyMirror  \n*Desc:* Copy Group mirror  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* iMatchMethod (integer)  \n *Arg3:* poslPoints (position list)  \n *Arg4:* dOffset (double)  \n *Arg5:* dTol (double)  \n *Arg6:* crlTarget (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  LBCCopyTranslate:
+    "*Name:* BoundaryConditions.LBCCopy.LBCCopyTranslate  \n*Desc:* Copy LBC translate  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* iMatchMethod (integer)  \n *Arg3:* posVecTrans (position)  \n *Arg4:* dMagnitude (double)  \n *Arg5:* dTrandataDoffset (double)  \n *Arg6:* dTol (double)  \n *Arg7:* crCoord (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  LBCCopyRotate:
+    "*Name:* BoundaryConditions.LBCCopy.LBCCopyRotate  \n*Desc:* Copy LBC rotate  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* iMatchMethod (integer)  \n *Arg3:* posAxis (position)  \n *Arg4:* posCenter (position)  \n *Arg5:* dAngle (double)  \n *Arg6:* dTol (double)  \n *Arg7:* crCoord (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  LBCCopyMirror:
+    "*Name:* BoundaryConditions.LBCCopy.LBCCopyMirror  \n*Desc:* Copy LBC mirror  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* iMatchMethod (integer)  \n *Arg3:* poslPoints (position list)  \n *Arg4:* dOffset (double)  \n *Arg5:* dTol (double)  \n *Arg6:* crlTarget (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SurfaceLoads:
+    "*Name:* BoundaryConditions.Pressure.SurfaceLoads  \n*Desc:* create distrubited pressure  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* dlPressure (double list)  \n *Arg3:* iArrowdir (integer)  \n *Arg4:* crCoordinate (cursor)  \n *Arg5:* crlTargetFace (cursor list)  \n *Arg6:* crEditCur (cursor)  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Create lbc of 2nodes pressure  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crNodeA (cursor)  \n *Arg3:* dPressureA (double)  \n *Arg4:* iNodeAUnit (integer)  \n *Arg5:* crNodeB (cursor)  \n *Arg6:* dPressureB (double)  \n *Arg7:* iNodeBUnit (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  General:
+    "*Name:* Connections.Pretension.General  \n*Desc:* Pretension general  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iDir (integer)  \n *Arg3:* dValue (double)  \n *Arg4:* bFixLength (bool)  \n *Arg5:* crTable (cursor)  \n *Arg6:* crCoord (cursor)  \n *Arg7:* iLocalUnit (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Quadratic:
+    "*Name:* BoundaryConditions.Force.FunctionLoadCylinder.Quadratic  \n*Desc:* Create Force (Quadratic) y = a*x^2 + b  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* dFTotalForce (double)  \n *Arg3:* dA (double)  \n *Arg4:* dB (double)  \n *Arg5:* crCoord (cursor)  \n *Arg6:* iAngleBase (integer)  \n *Arg7:* dAngleRange (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FunctionLoadToCylinderSine:
+    "*Name:* BoundaryConditions.Pressure.FunctionLoadToCylinderSine  \n*Desc:* Command use for BoundaryConditions Pressure FunctionLoadToCylinderSine  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* dA (double)  \n *Arg3:* crCoordinate (cursor)  \n *Arg4:* dAngleRange (double)  \n *Arg5:* bDistributionAxis (bool)  \n *Arg6:* iPressureDirectionMode (integer)  \n *Arg7:* bIsTotalForceAdjustment (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Hydrostatic:
+    "*Name:* BoundaryConditions.Pressure.Hydrostatic  \n*Desc:* Boundary Conditions HPressure  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* dFHPressure (double)  \n *Arg3:* dFDensity (double)  \n *Arg4:* iDensityUnit (integer)  \n *Arg5:* dFGravity (double)  \n *Arg6:* iGravityUnit (integer)  \n *Arg7:* iGravityDir (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SubmodelForcedFlux:
+    "*Name:* BoundaryConditions.Submodel.SubmodelForcedFlux  \n*Desc:* create submodel forced flux  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iSolver (integer)  \n *Arg3:* strFilePathName (string)  \n *Arg4:* iProcessNo (integer)  \n *Arg5:* iReferType (integer)  \n *Arg6:* dExtensionRange (double)  \n *Arg7:* dExtensionTol (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ForcedTempertature:
+    "*Name:* BoundaryConditions.Submodel.ForcedTempertature  \n*Desc:* create sub model forced temperature  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iSolver (integer)  \n *Arg3:* strFilePathName (string)  \n *Arg4:* iProcessNo (integer)  \n *Arg5:* iReferType (integer)  \n *Arg6:* dExtensionRange (double)  \n *Arg7:* dExtensionTol (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ForcedDisplacement:
+    "*Name:* BoundaryConditions.Submodel.ForcedDisplacement  \n*Desc:* Boundary Conditions Lbc Submodel Forced Disp  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iSolver (integer)  \n *Arg3:* strFilePathName (string)  \n *Arg4:* iProcessNo (integer)  \n *Arg5:* bTranslationX (bool)  \n *Arg6:* bTranslationY (bool)  \n *Arg7:* bTranslationZ (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ADVCFile:
+    "*Name:* BoundaryConditions.TemperatureLoads.ADVCFile  \n*Desc:* create temperature load by advc file  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strFilePathName (string)  \n *Arg3:* crTable (cursor)  \n *Arg4:* crlTarget (cursor list)  \n *Arg5:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  LbcInitialTemperature:
+    "*Name:* BoundaryConditions.TemperatureLoads.LbcInitialTemperature  \n*Desc:* Boundary Conditions Lbc Initial Temperature  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iType (integer)  \n *Arg3:* dFTemp (double)  \n *Arg4:* strFilePathName (string)  \n *Arg5:* bUseDefault (bool)  \n *Arg6:* crTable (cursor)  \n *Arg7:* crlTarget (cursor list)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  LoadCase:
+    "*Name:* BoundaryConditions.LoadCase  \n*Desc:* create load case  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* dFactor (double)  \n *Arg3:* crlTarget (cursor list)  \n *Arg4:* iExportId (integer)  \n *Arg5:* dlTargetFactor (double list)  \n *Arg6:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  InsideHeatGeneration:
+    "*Name:* BoundaryConditions.InsideHeatGeneration  \n*Desc:* Create lbc of inside heat generation  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* dInsideFlux (double)  \n *Arg3:* crTable (cursor)  \n *Arg4:* crlTarget (cursor list)  \n *Arg5:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  LBCCopyMisc:
+    "*Name:* BoundaryConditions.LBCCopyMisc  \n*Desc:* Command use for BoundaryConditions LBCCopyMisc  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* iMatchMethod (integer)  \n *Arg3:* dlTransVec (double list)  \n *Arg4:* dTransMag (double)  \n *Arg5:* dTransOffset (double)  \n *Arg6:* dTransTol (double)  \n *Arg7:* crTranscrCoord (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  LbcContactConvert:
+    "*Name:* BoundaryConditions.LbcContactConvert  \n*Desc:* BoundaryConditions LbcContactConvert  \n *JVer:* 5.0  \n *Arg1:* iConvertTo (integer)  \n *Arg2:* iTieConvType (integer)  \n *Arg3:* crlTarget (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FieldData:
+    "*Name:* BoundaryConditions.FieldData  \n*Desc:* create field data table  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iType (integer)  \n *Arg3:* ilSheet (int list)  \n *Arg4:* crEdit (cursor)  \n *Arg5:* bAbaqusAmp (bool)  \n *Arg6:* iAmpType (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FixedConstraint:
+    "*Name:* BoundaryConditions.FixedConstraint  \n*Desc:* create FixedConstraint  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iDwDof (integer)  \n *Arg3:* crCurCoord (cursor)  \n *Arg4:* iType (integer)  \n *Arg5:* iUsetType (integer)  \n *Arg6:* crTable (cursor)  \n *Arg7:* bAbaqusFixed (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  DofSet:
+    "*Name:* BoundaryConditions.DofSet  \n*Desc:* Lbc Dof Set  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iDwDof (integer)  \n *Arg3:* crCurCoord (cursor)  \n *Arg4:* crTable (cursor)  \n *Arg5:* crlTarget (cursor list)  \n *Arg6:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CoordinateSystems:
+    "*Name:* BoundaryConditions.BodyLoads.CentrifugalForce.CoordinateSystems  \n*Desc:* create centrifugal force by coordinate system  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* dFVelocity (double)  \n *Arg3:* dFAcceleration (double)  \n *Arg4:* iAxisDirection (integer)  \n *Arg5:* iVelocityUnit (integer)  \n *Arg6:* iAccelerationUnit (integer)  \n *Arg7:* crCurCoord (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  TwoPositions:
+    "*Name:* BoundaryConditions.BodyLoads.CentrifugalForce.TwoPositions  \n*Desc:* create centrifugal force  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* dFBasePoint1 (double)  \n *Arg3:* dFBasePoint2 (double)  \n *Arg4:* dFBasePoint3 (double)  \n *Arg5:* dFTipPoint1 (double)  \n *Arg6:* dFTipPoint2 (double)  \n *Arg7:* dFTipPoint3 (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Gravity:
+    "*Name:* BoundaryConditions.BodyLoads.Gravity  \n*Desc:* create gravity  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* dlGravity (double list)  \n *Arg3:* crCurCoord (cursor)  \n *Arg4:* crlTarget (cursor list)  \n *Arg5:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Sine:
+    "*Name:* BoundaryConditions.Force.FunctionLoadCylinder.Sine  \n*Desc:* Define the force load on selected entity based on the distribution of the sine function.  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* dFTotalForce (double)  \n *Arg3:* dA (double)  \n *Arg4:* crCoord (cursor)  \n *Arg5:* iAngleBase (integer)  \n *Arg6:* dAngleRange (double)  \n *Arg7:* iEnArrowDir (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Vector:
+    "*Name:* BoundaryConditions.Force.FunctionLoadCylinder.Vector  \n*Desc:* Define the force load on selected entity based on the distribution of the vector function.  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* dFTotalForce (double)  \n *Arg3:* dA (double)  \n *Arg4:* dX (double)  \n *Arg5:* dY (double)  \n *Arg6:* crCoord (cursor)  \n *Arg7:* iEnDirection (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* create nonlinear force NOLIN3  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* dForceScale (double)  \n *Arg3:* dMomentScale (double)  \n *Arg4:* dForcePowerA (double)  \n *Arg5:* dMomentPowerA (double)  \n *Arg6:* iForcDir (integer)  \n *Arg7:* iForceDepends (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* create NOLIN4 nonlinear force  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* dForceScale (double)  \n *Arg3:* dMomentScale (double)  \n *Arg4:* dForcePowerA (double)  \n *Arg5:* dMomentPowerA (double)  \n *Arg6:* iForcDir (integer)  \n *Arg7:* iForceDepends (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Create Nonlinear Force of NOLIN1(Table)  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* dForceScale (double)  \n *Arg3:* dMomentScale (double)  \n *Arg4:* iForcDir (integer)  \n *Arg5:* iForceDepends (integer)  \n *Arg6:* iMomentDir (integer)  \n *Arg7:* iMomentDepends (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ForceNormalDirection:
+    "*Name:* BoundaryConditions.Force.ForceNormalDirection  \n*Desc:* Create Force (normal direction)  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* vecForce (vector)  \n *Arg3:* DFLT_DBL ([])  \n *Arg4:* DFLT_DBL ([]])  \n *Arg5:* iEnArrowDir (integer)  \n *Arg6:* iDistributionMethod (integer)  \n *Arg7:* crCurCoord (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  RotationAngle:
+    "*Name:* BoundaryConditions.InitialNodalValue.RotationAngle  \n*Desc:* Command use for BoundaryConditions InitialNodalValue RotationAngle  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* stData (LBC_DYNAMIC_INITIAL_CONDITION_DATA)  \n *Arg3:* crlTarget (cursor list)  \n *Arg4:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Advc:
+    "*Name:* Connections.Pretension.Advc  \n*Desc:* Create ADVC pretension  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* bFixedLength (bool)  \n *Arg3:* crEnforcedVelocity (cursor)  \n *Arg4:* dDvalue (double)  \n *Arg5:* iDirUpdateType (integer)  \n *Arg6:* dlVnormal (double list)  \n *Arg7:* dlCtrolNodePos (double list)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  MassElements:
+    "*Name:* Connections.MassElements  \n*Desc:* Connection new mass  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crlTarget (cursor list)  \n *Arg3:* dMass (double)  \n *Arg4:* iDof (integer)  \n *Arg5:* bDesigner (bool)  \n *Arg6:* crCoordinate (cursor)  \n *Arg7:* dOffset0 (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  BarBeam:
+    "*Name:* Connections.BarBeam  \n*Desc:* create Connections Bar or Beam  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iEType (integer)  \n *Arg3:* iMethod (integer)  \n *Arg4:* crProp (cursor)  \n *Arg5:* dlOrient (double list)  \n *Arg6:* crlMasterTarget (cursor list)  \n *Arg7:* crlSlaveTarget (cursor list)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  GapsDetail:
+    "*Name:* Connections.GapsDetail  \n*Desc:* Command use for Connections GapsDetail  \n *JVer:* 5.0  \n *Arg1:* crlMaster (cursor list)  \n *Arg2:* crlSlave (cursor list)  \n *Arg3:* iMethod (integer)  \n *Arg4:* iOriMode (integer)  \n *Arg5:* crCoord (cursor)  \n *Arg6:* strName (string)  \n *Arg7:* dU0 (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Plot:
+    "*Name:* Connections.Plot  \n*Desc:* Create 1D plot connection  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iPID (integer)  \n *Arg3:* crlTarget (cursor list)  \n *Arg4:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CreateConnConm:
+    "*Name:* Connections.CreateConnConm  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iEType (integer)  \n *Arg3:* iMethod (integer)  \n *Arg4:* iCoordSys (integer)  \n *Arg5:* iConmId (integer)  \n *Arg6:* crMatCoord (cursor)  \n *Arg7:* dMass (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Command use for Connections RBE3  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* crlMasterTarget (cursor list)  \n *Arg3:* crlSlaveTarget (cursor list)  \n *Arg4:* listRbe3TermConnection ([])  \n *Arg5:* iTypeRBE3 (integer)  \n *Arg6:* strName (string)  \n *Arg7:* crCoordSys (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  RigidWall:
+    "*Name:* Connections.RigidWall  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iObject (integer)  \n *Arg3:* iType (integer)  \n *Arg4:* iMotion (integer)  \n *Arg5:* iFriction (integer)  \n *Arg6:* iOrtho (integer)  \n *Arg7:* iForces (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Connector:
+    "*Name:* Connections.Connector  \n*Desc:* create Connector  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iMethod (integer)  \n *Arg3:* iConnectType (integer)  \n *Arg4:* iRefNode (integer)  \n *Arg5:* iElemCs (integer)  \n *Arg6:* crLocalCS (cursor)  \n *Arg7:* crlElasticity (cursor list)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  BoltMeshingSplitOnly:
+    "*Name:* Connections.BoltMeshingSplitOnly  \n*Desc:* Command use for Connections BoltMeshingSplitOnly  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iPartcutparamImethod (integer)  \n *Arg3:* dPartcutparamDoffset (double)  \n *Arg4:* iPartcutparamBshareface (integer)  \n *Arg5:* iPartcutparamBseparateface (integer)  \n *Arg6:* iPartcutparamBsplitonly (integer)  \n *Arg7:* iPartcutparamBmakesectionface (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  BoltMeshingNotSplitOnly:
+    "*Name:* Connections.BoltMeshingNotSplitOnly  \n*Desc:* Command use for Connections BoltMeshingNotSplitOnly  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iPartcutparamImethod (integer)  \n *Arg3:* dPartcutparamDoffset (double)  \n *Arg4:* iPartcutparamBshareface (integer)  \n *Arg5:* iPartcutparamBseparateface (integer)  \n *Arg6:* iPartcutparamBsplitonly (integer)  \n *Arg7:* iPartcutparamBmakesectionface (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  TypeC:
+    "*Name:* Connections.BoltConnections.Face.TypeC  \n*Desc:* Create Lbc TypeC Bolt Face method  \n *JVer:* 5.0  \n *Arg1:* crlFaceCur1 (cursor list)  \n *Arg2:* crlFaceCur2 (cursor list)  \n *Arg3:* strRbeName (string)  \n *Arg4:* dPlaneTol (double)  \n *Arg5:* dMaxBoltHeight (double)  \n *Arg6:* dMaxDiameter (double)  \n *Arg7:* dMinDiameter (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  TypeB:
+    "*Name:* Connections.BoltConnections.Face.TypeB  \n*Desc:* Create Lbc TypeB Bolt Face method  \n *JVer:* 5.0  \n *Arg1:* crlFaceCur1 (cursor list)  \n *Arg2:* crlFaceCur2 (cursor list)  \n *Arg3:* strRbeName (string)  \n *Arg4:* strBarName (string)  \n *Arg5:* iShaftType (integer)  \n *Arg6:* crCurBarProperty (cursor)  \n *Arg7:* dPlaneTol (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  TypeD:
+    "*Name:* Connections.BoltConnections.Edge.TypeD  \n*Desc:* create bolt connection typeD  \n *JVer:* 5.0  \n *Arg1:* crlEdgeCur1 (cursor list)  \n *Arg2:* crlEdgeCur2 (cursor list)  \n *Arg3:* strMpcName (string)  \n *Arg4:* dConnRadius (double)  \n *Arg5:* dPlaneTol (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  TypeA:
+    "*Name:* Connections.BoltConnections.Face.TypeA  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crlFaceCur1 (cursor list)  \n *Arg2:* crlFaceCur2 (cursor list)  \n *Arg3:* strRbeName (string)  \n *Arg4:* strBarName (string)  \n *Arg5:* iShaftType (integer)  \n *Arg6:* crCurBarProperty (cursor)  \n *Arg7:* dPlaneTol (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ContactTable:
+    "*Name:* Connections.Contacts.TSSS.ContactTable  \n*Desc:* Create Contact TSSS Manual FaceGroup  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* nastranContact (SUNSHINE_CONTACT)  \n *Arg3:* crplTarget (cursor pair list)  \n *Arg4:* crEdit (cursor)  \n *Arg5:* iColor (integer)  \n *Arg6:* iMethod (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ManualGroup:
+    "*Name:* Connections.Contacts.TSSS.ManualGroup  \n*Desc:* Create Contact TSSS Manual FaceGroup  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* tssolverContact (SUNSHINE_CONTACT)  \n *Arg3:* crplTarget (cursor pair list)  \n *Arg4:* crEdit (cursor)  \n *Arg5:* iColor (integer)  \n *Arg6:* iMethod (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ManualFace:
+    "*Name:* Connections.Contacts.TSSS.ManualFace  \n*Desc:* Create Contact TSSS Manual Face  \n *JVer:* 5.0  \n *Arg1:* crlFaceMaster (cursor list)  \n *Arg2:* crlFaceSlave (cursor list)  \n *Arg3:* strName (string)  \n *Arg4:* nastranContact (SUNSHINE_CONTACT)  \n *Arg5:* crEdit (cursor)  \n *Arg6:* iColor (integer)  \n *Arg7:* iMethod (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ContactGroupByMatrix:
+    "*Name:* Connections.Contacts.NXNastran.ContactGroupByMatrix  \n*Desc:* Create Contact NXNastran Contact Group By Matrix  \n *JVer:* 5.0  \n *Arg1:* crFaceMaster (cursor)  \n *Arg2:* crFaceSlave (cursor)  \n *Arg3:* strName (string)  \n *Arg4:* iContactType (integer)  \n *Arg5:* iContactAlg (integer)  \n *Arg6:* dNorPenFactor (double)  \n *Arg7:* dTanPenFactor (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ContactShareFace:
+    "*Name:* Connections.Contacts.NXNastran.ContactShareFace  \n*Desc:* Create Contact NXNastran Contact Share Face  \n *JVer:* 5.0  \n *Arg1:* crlShareFace (cursor list)  \n *Arg2:* strName (string)  \n *Arg3:* iContactType (integer)  \n *Arg4:* iContactAlg (integer)  \n *Arg5:* dNorPenFactor (double)  \n *Arg6:* dTanPenFactor (double)  \n *Arg7:* dForceConTol (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ContactClearance:
+    "*Name:* Connections.Contacts.ADVC.ContactClearance  \n*Desc:* contact clearance for ADVC contact  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* dClearanceVal (double)  \n *Arg3:* iLocalUnit (integer)  \n *Arg4:* iSolverType (integer)  \n *Arg5:* crlTarget (cursor list)  \n *Arg6:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Contact:
+    "*Name:* Tool.Connections.Contact  \n*Desc:* create contacts  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iContactType (integer)  \n *Arg3:* dInterferenceClosure (double)  \n *Arg4:* dFrictionCoefficient (double)  \n *Arg5:* iShellOffset (integer)  \n *Arg6:* iMasterShellOrientation (integer)  \n *Arg7:* iSlaveShellOrientation (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Auto:
+    "*Name:* MuxWeld.CreateWeld.Auto  \n*Desc:* Auto create weld  \n *JVer:* 5.0  \n *Arg1:* iIconnectattributeMethod (integer)  \n *Arg2:* strStrconnectattributeName (string)  \n *Arg3:* crlMasterTarget (cursor list)  \n *Arg4:* crlSlaveTarget (cursor list)  \n *Arg5:* iIconnectattributeCoordsys (integer)  \n *Arg6:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CheckPattern:
+    "*Name:* Connections.Contacts.CheckPattern  \n*Desc:* check contact Pattern  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* bShowMismatch (bool)  \n *Arg3:* bShowMatch (bool)  \n *Arg4:* dTol (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  NXNastranGeneral:
+    "*Name:* Connections.Contacts.NXNastranGeneral  \n*Desc:* Command use for Connections Contacts NXNastranGeneral  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iPiType (integer)  \n *Arg3:* iPiAlg (integer)  \n *Arg4:* dPdNorPenFactor (double)  \n *Arg5:* dPdTanPenFactor (double)  \n *Arg6:* dPdForceConTol (double)  \n *Arg7:* dPdMaxForceIter (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ExportCheckReport:
+    "*Name:* Connections.Contacts.ExportCheckReport  \n*Desc:* Command use for Connections Contacts ExportCheckReport  \n *JVer:* 5.0  \n *Arg1:* strFullPath (string)  \n *Arg2:* dZoomFactor (double)  \n *Arg3:* iFitBy (integer)  \n *Arg4:* iListBy (integer)  \n *Arg5:* iListOrder (integer)  \n *Arg6:* iFormat (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  TwoNodes:
+    "*Name:* Tools.Measure.Distance.TwoNodes  \n*Desc:* Measure Distance Two Nodes  \n *JVer:* 5.0  \n *Arg1:* crNode1 (cursor)  \n *Arg2:* crNode2 (cursor)  \n *Arg3:* strTarget (string)  \n *Arg4:* iPrecision (integer)  \n *Arg5:* crCoordinateSystem (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  TwoEdges:
+    "*Name:* Tools.Measure.Distance.TwoEdges  \n*Desc:* measure the distance of two edges  \n *JVer:* 5.0  \n *Arg1:* crEdge1 (cursor)  \n *Arg2:* crEdge2 (cursor)  \n *Arg3:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  TwoFaces:
+    "*Name:* Connections.MPC.General.TwoFaces  \n*Desc:* Command use for Connections MPC General TwoFaces  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crlMaster (cursor list)  \n *Arg3:* crlSlave (cursor list)  \n *Arg4:* listMpcConnection ([])  \n *Arg5:* dSearchTol (double)  \n *Arg6:* dValue (double)  \n *Arg7:* iMPCType (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  MultiNodes:
+    "*Name:* Connections.MPC.Equation.MultiNodes  \n*Desc:* Command use for Connections MPC Equation MultiNodes  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crlMaster (cursor list)  \n *Arg3:* crlSlave (cursor list)  \n *Arg4:* listMpcConnection ([])  \n *Arg5:* dSearchTol (double)  \n *Arg6:* dValue (double)  \n *Arg7:* iMPCType (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  TwoFace:
+    "*Name:* Connections.MPC.Equation.TwoFace  \n*Desc:* Command use for Connections MPC Equation TwoFace  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crlMaster (cursor list)  \n *Arg3:* crlSlave (cursor list)  \n *Arg4:* listMpcConnection ([])  \n *Arg5:* dSearchTol (double)  \n *Arg6:* dValue (double)  \n *Arg7:* iMPCType (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SemiAuto:
+    "*Name:* Connections.MPC.Equation.SemiAuto  \n*Desc:* Command use for Connections MPC Equation SemiAuto  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crlMaster (cursor list)  \n *Arg3:* crlSlave (cursor list)  \n *Arg4:* listMpcConnection ([])  \n *Arg5:* dSearchTol (double)  \n *Arg6:* dValue (double)  \n *Arg7:* iMPCType (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  NodeToNode:
+    "*Name:* Connections.MPC.General.NodeToNode  \n*Desc:* Command use for Connections MPC General NodeToNode  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crlMaster (cursor list)  \n *Arg3:* crlSlave (cursor list)  \n *Arg4:* listMpcConnection ([])  \n *Arg5:* dSearchTol (double)  \n *Arg6:* dValue (double)  \n *Arg7:* iMPCType (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  NodeToEdges:
+    "*Name:* Connections.MPC.General.NodeToEdges  \n*Desc:* Command use for Connections MPC General NodeToEdges  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crlMaster (cursor list)  \n *Arg3:* crlSlave (cursor list)  \n *Arg4:* listMpcConnection ([])  \n *Arg5:* dSearchTol (double)  \n *Arg6:* dValue (double)  \n *Arg7:* iMPCType (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  NodeToFaces:
+    "*Name:* Connections.MPC.General.NodeToFaces  \n*Desc:* Command use for Connections MPC General NodeToFaces  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crlMaster (cursor list)  \n *Arg3:* crlSlave (cursor list)  \n *Arg4:* listMpcConnection ([])  \n *Arg5:* dSearchTol (double)  \n *Arg6:* dValue (double)  \n *Arg7:* iMPCType (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FacesToFaces:
+    "*Name:* Connections.MPC.General.FacesToFaces  \n*Desc:* Command use for Connections MPC General FacesToFaces  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crlMaster (cursor list)  \n *Arg3:* crlSlave (cursor list)  \n *Arg4:* listMpcConnection ([])  \n *Arg5:* dSearchTol (double)  \n *Arg6:* dValue (double)  \n *Arg7:* iMPCType (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  NodesToNodes:
+    "*Name:* Connections.MPC.General.NodesToNodes  \n*Desc:* Command use for Connections MPC General NodesToNodes  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crlMaster (cursor list)  \n *Arg3:* crlSlave (cursor list)  \n *Arg4:* listMpcConnection ([])  \n *Arg5:* dSearchTol (double)  \n *Arg6:* dValue (double)  \n *Arg7:* iMPCType (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  NodeToAny:
+    "*Name:* Connections.MPC.General.NodeToAny  \n*Desc:* Command use for Connections MPC General NodeToAny  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crlMaster (cursor list)  \n *Arg3:* crlSlave (cursor list)  \n *Arg4:* listMpcConnection ([])  \n *Arg5:* dSearchTol (double)  \n *Arg6:* dValue (double)  \n *Arg7:* iMPCType (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  NodesWithTolerance:
+    "*Name:* Connections.MPC.General.NodesWithTolerance  \n*Desc:* Command use for Connections MPC General NodesWithTolerance  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crlMaster (cursor list)  \n *Arg3:* crlSlave (cursor list)  \n *Arg4:* listMpcConnection ([])  \n *Arg5:* dSearchTol (double)  \n *Arg6:* dValue (double)  \n *Arg7:* iMPCType (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  OneToOne:
+    "*Name:* Connections.RigidElements.RBE3.OneToOne  \n*Desc:* Create RBE3  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* crlMasterTarget (cursor list)  \n *Arg3:* crlSlaveTarget (cursor list)  \n *Arg4:* listRbe3TermConnection ([])  \n *Arg5:* iTypeRBE3 (integer)  \n *Arg6:* strName (string)  \n *Arg7:* crCoordSys (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  OneToMany:
+    "*Name:* Connections.RigidElements.RBE3.OneToMany  \n*Desc:* Create RBE3  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* crlMasterTarget (cursor list)  \n *Arg3:* crlSlaveTarget (cursor list)  \n *Arg4:* listRbe3TermConnection ([])  \n *Arg5:* iTypeRBE3 (integer)  \n *Arg6:* strName (string)  \n *Arg7:* crCoordSys (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  OneToOneNodesWithTolerance:
+    "*Name:* Connections.RigidElements.RBE2.OneToOneNodesWithTolerance  \n*Desc:* create RBE2  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* crlMasterTarget (cursor list)  \n *Arg3:* crlSlaveTarget (cursor list)  \n *Arg4:* iEType (integer)  \n *Arg5:* strName (string)  \n *Arg6:* crCoordSys (cursor)  \n *Arg7:* dTolerance (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ToCenter:
+    "*Name:* Connections.RigidElements.RBE3.ToCenter  \n*Desc:* Create RBE3  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* crlMasterTarget (cursor list)  \n *Arg3:* crlSlaveTarget (cursor list)  \n *Arg4:* listRbe3TermConnection ([])  \n *Arg5:* iTypeRBE3 (integer)  \n *Arg6:* strName (string)  \n *Arg7:* crCoordSys (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ToCircleCenter:
+    "*Name:* Connections.RigidElements.RBE3.ToCircleCenter  \n*Desc:* Create RBE3  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* crlMasterTarget (cursor list)  \n *Arg3:* crlSlaveTarget (cursor list)  \n *Arg4:* listRbe3TermConnection ([])  \n *Arg5:* iTypeRBE3 (integer)  \n *Arg6:* strName (string)  \n *Arg7:* crCoordSys (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  RBarGeneral:
+    "*Name:* Connections.RigidElements.RBarGeneral  \n*Desc:* Command use for Connections RigidElements RBarGeneral  \n *JVer:* 5.0  \n *Arg1:* rbarConnection (RBAR_CONNECTION)  \n *Arg2:* crlMasterTarget (cursor list)  \n *Arg3:* crlSlaveTarget (cursor list)  \n *Arg4:* iUlDOFs (integer)  \n *Arg5:* dTol (double)  \n *Arg6:* crCoord (cursor)  \n *Arg7:* crEdit (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Command use for Connections RigidElements RBE2General  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* crlMasterTarget (cursor list)  \n *Arg3:* crlSlaveTarget (cursor list)  \n *Arg4:* iEType (integer)  \n *Arg5:* strName (string)  \n *Arg6:* crCoordSys (cursor)  \n *Arg7:* dTolerance (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Command use for Connections RigidElements RBE3General  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* crlMasterTarget (cursor list)  \n *Arg3:* crlSlaveTarget (cursor list)  \n *Arg4:* listRbe3TermConnection ([])  \n *Arg5:* iTypeRBE3 (integer)  \n *Arg6:* strName (string)  \n *Arg7:* crCoordSys (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Create Damper Connection  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* strName (string)  \n *Arg3:* crlMasterTarget (cursor list)  \n *Arg4:* crlSlaveTarget (cursor list)  \n *Arg5:* crCoordSys (cursor)  \n *Arg6:* iGround (integer)  \n *Arg7:* dTolerance (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  BushGeneral:
+    "*Name:* Connections.SpringsDampers.BushGeneral  \n*Desc:* Command use for Connections SpringsDampers BushGeneral  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* strName (string)  \n *Arg3:* crlMaster (cursor list)  \n *Arg4:* crlSlave (cursor list)  \n *Arg5:* crCoord (cursor)  \n *Arg6:* dTol (double)  \n *Arg7:* iGround (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AnyEntities:
+    "*Name:* Connections.SpringsDampers.Bush.AnyEntities  \n*Desc:* Create bush connection  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* strName (string)  \n *Arg3:* crlMaster (cursor list)  \n *Arg4:* crlSlave (cursor list)  \n *Arg5:* crCoord (cursor)  \n *Arg6:* dTol (double)  \n *Arg7:* iGround (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  OnetoOne:
+    "*Name:* Connections.SpringsDampers.Bush.OnetoOne  \n*Desc:* Create bush connection  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* strName (string)  \n *Arg3:* crlMaster (cursor list)  \n *Arg4:* crlSlave (cursor list)  \n *Arg5:* crCoord (cursor)  \n *Arg6:* dTol (double)  \n *Arg7:* iGround (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  GroundedSpring:
+    "*Name:* Connections.SpringsDampers.Spring.GroundedSpring  \n*Desc:* Grounded Spring connection  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* strName (string)  \n *Arg3:* crlMasterTarget (cursor list)  \n *Arg4:* crlSlaveTarget (cursor list)  \n *Arg5:* crCoordSys (cursor)  \n *Arg6:* iSpringType (integer)  \n *Arg7:* iGround (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  sameDoFs:
+    "*Name:* Connections.SpringsDampers.Spring.OneToOne.sameDoFs  \n*Desc:* Spring connection One to One same DOFs  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* strName (string)  \n *Arg3:* crlMasterTarget (cursor list)  \n *Arg4:* crlSlaveTarget (cursor list)  \n *Arg5:* crCoordSys (cursor)  \n *Arg6:* iSpringType (integer)  \n *Arg7:* iGround (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  differentDoFs:
+    "*Name:* Connections.SpringsDampers.Spring.OneToOne.differentDoFs  \n*Desc:* Spring connection One to One different DOFs  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* strName (string)  \n *Arg3:* crlMasterTarget (cursor list)  \n *Arg4:* crlSlaveTarget (cursor list)  \n *Arg5:* crCoordSys (cursor)  \n *Arg6:* iSpringType (integer)  \n *Arg7:* iGround (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  TemperatureLoad:
+    "*Name:* Designer.LBC.TemperatureLoad  \n*Desc:* create temperature load Desiner  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iDnType (integer)  \n *Arg3:* dFTemp (double)  \n *Arg4:* strDstrFilePathName (string)  \n *Arg5:* crDcrTable (cursor)  \n *Arg6:* crlTarget (cursor list)  \n *Arg7:* crEdit (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Moment:
+    "*Name:* Designer.Load.Moment  \n*Desc:* Create moment  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crlFace (cursor list)  \n *Arg3:* dlVecMomentXYZ (double list)  \n *Arg4:* crCoord (cursor)  \n *Arg5:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ContactMerge:
+    "*Name:* Designer.ContactMerge  \n*Desc:* Build contact for designer  \n *JVer:* 5.0  \n *Arg1:* crlTarget (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Material:
+    "*Name:* Tools.Measure.Mass.Material  \n*Desc:* measure mass by material  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* crlCondition (cursor list)  \n *Arg3:* strDensity (string)  \n *Arg4:* strTarget (string)  \n *Arg5:* bGravityCenter (bool)  \n *Arg6:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SubModelBC:
+    "*Name:* EngReliability.SubModelBC  \n*Desc:* create mapping forced displacement  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crlTarget (cursor list)  \n *Arg3:* iPos (integer)  \n *Arg4:* iViewCp (integer)  \n *Arg5:* iCp (integer)  \n *Arg6:* iSrcType (integer)  \n *Arg7:* iMappedCpIndexArr0 (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n *Desc:*   \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Arg2:* crlPart (cursor list)  \n *Arg3:* dLayerWidth (double)  \n *Arg4:* iLayerNumber (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Arc:
+    "*Name:* Geometry.Bar.Arc  \n*Desc:* Create Edge by spline  \n *JVer:* 5.0  \n *Arg1:* crlNode (cursor list)  \n *Arg2:* crPart (cursor)  \n *Arg3:* strBarName (string)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Spline:
+    "*Name:* Geometry.Edge.Spline  \n*Desc:* Imprint a Spline on a face  \n *JVer:* 5.0  \n *Arg1:* veclAprroxiPositions (vector list)  \n *Arg2:* crlTargetFace (cursor list)  \n *Arg3:* bBreakFace (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  XXYYOnOnePoint:
+    "*Name:* Geometry.BodyCut.XXYYOnOnePoint  \n*Desc:* Cut body by one point  \n *JVer:* 5.0  \n *Arg1:* crPart (cursor)  \n *Arg2:* posCutPos (position)  \n *Arg3:* iType (integer)  \n *Arg4:* dOffset (double)  \n *Arg5:* bSplit (bool)  \n *Arg6:* bSectionFace (bool)  \n *Arg7:* bShateFace (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  BySurface:
+    "*Name:* Geometry.BodyCut.BySurface  \n*Desc:* Cut body by surface  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* crCutter (cursor)  \n *Arg3:* bSplitOnly (bool)  \n *Arg4:* bMakeSectionFace (bool)  \n *Arg5:* bShareFace (bool)  \n *Arg6:* bSeparateFace (bool)  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Body Cut by 3 Points  \n *JVer:* 5.0  \n *Arg1:* crPart (cursor)  \n *Arg2:* poslPosition (position list)  \n *Arg3:* dOffset (double)  \n *Arg4:* bSplitonly (bool)  \n *Arg5:* bMakesectionface (bool)  \n *Arg6:* bShareface (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  StlPart:
+    "*Name:* Geometry.BreakEntity.StlPart  \n*Desc:* break STL part  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* iMinNoOfFaces (integer)  \n *Arg3:* iMethod (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Face:
+    "*Name:* Tools.Measure.Area.Face  \n*Desc:* Command use for Tools Measure Area Face  \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Arg2:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Edge:
+    "*Name:* Tools.Measure.Radius.Edge  \n*Desc:* Measure edge minimum radius  \n *JVer:* 5.0  \n *Arg1:* crEdge (cursor)  \n *Arg2:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Part:
+    "*Name:* Tools.TotalLoad.Part  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crlTarget (cursor list)  \n *Arg2:* crCoordinate (cursor)  \n *Arg3:* strOutput (string)  \n *Arg4:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Vertex:
+    "*Name:* Geometry.DeleteEntity.Vertex  \n*Desc:* delete vertex  \n *JVer:* 5.0  \n *Arg1:* crlVertex (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Line:
+    "*Name:* Tool.ImprintEdges.Line  \n*Desc:* imprint line edges  \n *JVer:* 5.0  \n *Arg1:* veclAvPoint (vector list)  \n *Arg2:* bDivideFace (bool)  \n *Arg3:* crlPart (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  PlanarLine:
+    "*Name:* Geometry.Edge.PlanarLine  \n*Desc:* Imprint Planar Line  \n *JVer:* 5.0  \n *Arg1:* veclPosition (vector list)  \n *Arg2:* crlTargetFace (cursor list)  \n *Arg3:* crLocalCoord (cursor)  \n *Arg4:* iType (integer)  \n *Arg5:* bBreakFace (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Circle:
+    "*Name:* Geometry.Edge.Circle  \n*Desc:* Imprint Cirlcle Line S  \n *JVer:* 5.0  \n *Arg1:* veclPositions (vector list)  \n *Arg2:* crlTargetFace (cursor list)  \n *Arg3:* dInRadius (double)  \n *Arg4:* dOutRadius (double)  \n *Arg5:* iNoOfLayer (integer)  \n *Arg6:* iNoOfDiv (integer)  \n *Arg7:* bBreakFace (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  PerpendicularLineOfEdge:
+    "*Name:* Geometry.Edge.PerpendicularLineOfEdge  \n*Desc:* Imprint the perpendicular line of edge  \n *JVer:* 5.0  \n *Arg1:* crlNode (cursor list)  \n *Arg2:* crlFace (cursor list)  \n *Arg3:* dOffset (double)  \n *Arg4:* bReakFace (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ExtendLine:
+    "*Name:* Geometry.Edge.ExtendLine  \n*Desc:* make edge by extend line  \n *JVer:* 5.0  \n *Arg1:* crlEdge (cursor list)  \n *Arg2:* iMethod (integer)  \n *Arg3:* iEnd (integer)  \n *Arg4:* iNoFittingPoints (integer)  \n *Arg5:* iDiv (integer)  \n *Arg6:* iEnableBreakFace (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ElementEdges:
+    "*Name:* Geometry.Edge.ElementEdges  \n*Desc:* Create Edge by element edges  \n *JVer:* 5.0  \n *Arg1:* crplElemEdge (cursor pair list)  \n *Arg2:* bBreakEdge (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Angle:
+    "*Name:* Geometry.Edge.Angle  \n*Desc:* create new adge by convert angle  \n *JVer:* 5.0  \n *Arg1:* crpPair (cursor pair)  \n *Arg2:* dAngle (double)  \n *Arg3:* bCurvature (bool)  \n *Arg4:* bBreakFace (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  NodeShortestPath:
+    "*Name:* Geometry.Edge.NodeShortestPath  \n*Desc:* create edge by 2 nodes shortest path  \n *JVer:* 5.0  \n *Arg1:* crFirstNode (cursor)  \n *Arg2:* crSecondNode (cursor)  \n *Arg3:* iEnableBreakFace (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  OffsetLine:
+    "*Name:* Geometry.Edge.OffsetLine  \n*Desc:* Imprint geometry edge offset line  \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Arg2:* crlEdge (cursor list)  \n *Arg3:* bBreakFace (bool)  \n *Arg4:* dOffsetDistance (double)  \n *Arg5:* iNumberLayer (integer)  \n *Arg6:* bMerge (bool)  \n *Arg7:* bExtend (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SplineFreeEdges:
+    "*Name:* Geometry.Edge.SplineFreeEdges  \n*Desc:* Create Edge by spline  \n *JVer:* 5.0  \n *Arg1:* crlNode (cursor list)  \n *Arg2:* iEnableArc (integer)  \n *Arg3:* crPart (cursor)  \n *Arg4:* strBarName (string)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ClosedLine:
+    "*Name:* Tool.ImprintEdges.ClosedLine  \n*Desc:* Command use for Tool ImprintEdges ClosedLine  \n *JVer:* 5.0  \n *Arg1:* veclPositions (vector list)  \n *Arg2:* crlTargetFace (cursor list)  \n *Arg3:* iEnableBreakFace (integer)  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Imprint edges  \n *JVer:* 5.0  \n *Arg1:* poslPoint (position list)  \n *Arg2:* bDivide (bool)  \n *Arg3:* crlPart (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  PerpendicularCylinderLine:
+    "*Name:* Geometry.Edge.PerpendicularCylinderLine  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crlNode (cursor list)  \n *Arg2:* crlFace (cursor list)  \n *Arg3:* iMethod (integer)  \n *Arg4:* dOffset (double)  \n *Arg5:* bOppositeSide (bool)  \n *Arg6:* bBreakFace (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  IntersectionLine:
+    "*Name:* Geometry.Edge.IntersectionLine  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crlFaces (cursor list)  \n *Arg2:* bBreakFace (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ProjectLine:
+    "*Name:* MufflerHA.CreateEdgeClassic.ProjectLine  \n*Desc:* create edge  \n *JVer:* 5.0  \n *Arg1:* ilAiedgeidForMacro (int list)  \n *Arg2:* ilAifaceidForMacro (int list)  \n *Arg3:* bDivideFace (bool)  \n *Arg4:* crlAiparttargetForMarco (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  PerpendicularLineToEdge:
+    "*Name:* MufflerHA.CreateEdge.PerpendicularLineToEdge  \n*Desc:* Command use for MufflerHA CreateEdge PerpendicularLineToEdge  \n *JVer:* 5.0  \n *Arg1:* crNode (cursor)  \n *Arg2:* crEdge (cursor)  \n *Arg3:* crlFace (cursor list)  \n *Arg4:* bBreakFace (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FindFeatureFillet:
+    "*Name:* Geometry.Extract.FindFeatureFillet  \n*Desc:* Command use for Geometry Extract FindFeatureFillet  \n *JVer:* 5.0  \n *Arg1:* body ([])  \n *Arg2:* face ([])  \n *Arg3:* minAngle ([])  \n *Arg4:* maxAngle ([])  \n *Arg5:* minFaceWidth ([])  \n *Arg6:* maxFaceWidth ([])  \n *Arg7:* minCurveRadius ([])  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ExtractRefSurface:
+    "*Name:* Geometry.ExtractRefSurface  \n*Desc:* Command use for Geometry ExtractRefSurface  \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Arg2:* dAngle (double)  \n *Arg3:* strName (string)  \n *Arg4:* bMergePart (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ExtractSurfaces:
+    "*Name:* Geometry.ExtractSurfaces  \n*Desc:* Extract Reference Surfaces  \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Arg2:* dAngle (double)  \n *Arg3:* strName (string)  \n *Arg4:* bMergePart (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FourEdges:
+    "*Name:* Geometry.Face.FourEdges  \n*Desc:* Create face by four edges  \n *JVer:* 5.0  \n *Arg1:* crlEdge (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FromMesh:
+    "*Name:* Geometry.Face.FromMesh  \n*Desc:* Create geometry face from mesh face  \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CreateSmoothFace:
+    "*Name:* Geometry.Face.CreateSmoothFace  \n*Desc:* Geometry Face CreateSmoothFace  \n *JVer:* 5.0  \n *Arg1:* bInterPoration (bool)  \n *Arg2:* crlTarget (cursor list)  \n *Arg3:* iElemGeneration (integer)  \n *Arg4:* dGradation (double)  \n *Arg5:* iEnableFaceSmooth (integer)  \n *Arg6:* crTargetPart (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Edges:
+    "*Name:* Geometry.MergeEntities.Edges  \n*Desc:* Merge Edge  \n *JVer:* 5.0  \n *Arg1:* crlEdge (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Elements:
+    "*Name:* Geometry.ShowAdjacent.Elements  \n*Desc:* Command use for Geometry ShowAdjacent Elements  \n *JVer:* 5.0  \n *Arg1:* Angle (0.0)  \n *Arg2:* IncludeStopElem (0)  \n *Arg3:* Layer (1,IsPreview)  \n *Arg4:* taStartElemCr ([] ,taStopElemCr)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  DelCircChamfer:
+    "*Name:* Geometry.FindFeature.DelCircChamfer  \n*Desc:* Delete Circ Chamfer  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* dMaxThick (double)  \n *Arg3:* dMinThick (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Fillet:
+    "*Name:* Geometry.FindFeature.Fillet  \n*Desc:* Find feature in part by typical description  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* crlFace (cursor list)  \n *Arg3:* dMinAngle (double)  \n *Arg4:* dMaxAngle (double)  \n *Arg5:* dMinFaceWidth (double)  \n *Arg6:* dMaxFaceWidth (double)  \n *Arg7:* dMinCurveRadius (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Faces:
+    "*Name:* Geometry.ShowAdjacent.Faces  \n*Desc:* Command use for Geometry ShowAdjacent Faces  \n *JVer:* 5.0  \n *Arg1:* Angle (0.0)  \n *Arg2:* IncludeStopFace (0)  \n *Arg3:* Layer (1,IsPreview)  \n *Arg4:* taStartFaceCr ([] ,taStopFaceCr)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  TinyFacesMerge:
+    "*Name:* Geometry.MergeEntities.TinyFacesMerge  \n*Desc:* merge tiny faces  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* crlFace (cursor list)  \n *Arg3:* dMinFaceWidth (double)  \n *Arg4:* dMaxFaceWidth (double)  \n *Arg5:* dFaceAngle (double)  \n *Arg6:* bReferLocalSetting (bool)  \n *Arg7:* bConnectFace (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CBarParts:
+    "*Name:* Geometry.MergeEntities.CBarParts  \n*Desc:* Merge CBar Parts  \n *JVer:* 5.0  \n *Arg1:* crlCBarPart (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Parts:
+    "*Name:* Geometry.MergeEntities.Parts  \n*Desc:* Merge Part  \n *JVer:* 5.0  \n *Arg1:* dTolerance (double)  \n *Arg2:* bRemovesharefaceflag (bool)  \n *Arg3:* crlPart (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  PartFaces:
+    "*Name:* Geometry.MergeEntities.PartFaces  \n*Desc:* Merge by Part Faces  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* crlFace (cursor list)  \n *Arg3:* bAngle (bool)  \n *Arg4:* dTolAngle (double)  \n *Arg5:* bWidth (bool)  \n *Arg6:* dTolWidth (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Cube:
+    "*Name:* Geometry.Part.Cube  \n*Desc:* create cube part  \n *JVer:* 5.0  \n *Arg1:* dlOrigin (double list)  \n *Arg2:* 0 ([])  \n *Arg3:* 0 ([]])  \n *Arg4:* dlLength (double list)  \n *Arg5:* 0 ([].0)  \n *Arg6:* 0 ([].0)  \n *Arg7:* ilNodeCnt (int list)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Wedge:
+    "*Name:* Geometry.Part.Wedge  \n*Desc:* Create Wedge Body  \n *JVer:* 5.0  \n *Arg1:* vecOrigin (vector)  \n *Arg2:* 0.0 ([])  \n *Arg3:* 0.0 ([]])  \n *Arg4:* vecLength (vector)  \n *Arg5:* 0.0 ([]1)  \n *Arg6:* 0.0 ([]1])  \n *Arg7:* vecNodeCount (vector)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Sphere:
+    "*Name:* Geometry.Part.Sphere  \n*Desc:* create Sphere part  \n *JVer:* 5.0  \n *Arg1:* dlOrigin (double list)  \n *Arg2:* 0 ([])  \n *Arg3:* 0 ([]])  \n *Arg4:* dRadius (double)  \n *Arg5:* iLatitudeNodeCnt (integer)  \n *Arg6:* iLongitudeNodeCnt (integer)  \n *Arg7:* strPartName (string)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Torus:
+    "*Name:* Geometry.Part.Torus  \n*Desc:* create Torus part  \n *JVer:* 5.0  \n *Arg1:* dlOrigin (double list)  \n *Arg2:* 0 ([])  \n *Arg3:* 0 ([]])  \n *Arg4:* dInnerRadius (double)  \n *Arg5:* dRingRadius (double)  \n *Arg6:* iLatitudeNodeCnt (integer)  \n *Arg7:* iLongitudeNodeCnt (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Elems:
+    "*Name:* Geometry.Part.Elems  \n*Desc:* create part from element  \n *JVer:* 5.0  \n *Arg1:* crlElem (cursor list)  \n *Arg2:* strPartName (string)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Cylinder:
+    "*Name:* Geometry.Part.Cylinder  \n*Desc:* create cylinder part  \n *JVer:* 5.0  \n *Arg1:* dlOrigin (double list)  \n *Arg2:* dTopRadius (double)  \n *Arg3:* dBotRadius (double)  \n *Arg4:* dHeight (double)  \n *Arg5:* iCircleNodeCnt (integer)  \n *Arg6:* iAxisNodeCnt (integer)  \n *Arg7:* strName (string)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Tube:
+    "*Name:* Geometry.Part.Tube  \n*Desc:* create tube part  \n *JVer:* 5.0  \n *Arg1:* dlOrigin (double list)  \n *Arg2:* dTopInnerRadius (double)  \n *Arg3:* dTopOuterRadius (double)  \n *Arg4:* dBotInnerRadius (double)  \n *Arg5:* dBotOuterRadius (double)  \n *Arg6:* dHeight (double)  \n *Arg7:* iCircleNodeCnt (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Trapezoid:
+    "*Name:* Geometry.Part.Trapezoid  \n*Desc:* Create trapezoid part  \n *JVer:* 5.0  \n *Arg1:* dlOrigin (double list)  \n *Arg2:* dlLength (double list)  \n *Arg3:* 0.01 ([])  \n *Arg4:* 0.01 ([]])  \n *Arg5:* dTopXLength (double)  \n *Arg6:* dRadius (double)  \n *Arg7:* ilNodeCnt (int list)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Cone:
+    "*Name:* Geometry.Part.Cone  \n*Desc:* Create Cone Body  \n *JVer:* 5.0  \n *Arg1:* dlOriginXyz (double list)  \n *Arg2:* dBottomRadius (double)  \n *Arg3:* dHeight (double)  \n *Arg4:* iCircleNodeCount (integer)  \n *Arg5:* iAxisNodeCnt (integer)  \n *Arg6:* strPartName (string)  \n *Arg7:* iPartColor (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Rotation:
+    "*Name:* Geometry.Transform.Rotation  \n*Desc:* Rotate the selected Part.  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* posCenter (position)  \n *Arg3:* vecAxis (vector)  \n *Arg4:* dAngle (double)  \n *Arg5:* bCreateNewPart (bool)  \n *Arg6:* bCopyLBC (bool)  \n *Arg7:* bCopyProperty (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Scaling:
+    "*Name:* Geometry.Transform.Scaling  \n*Desc:* Scale Body  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* dlScaleVector (double list)  \n *Arg3:* dlScaleCentre (double list)  \n *Arg4:* crCoordinate (cursor)  \n *Arg5:* bCreateNew (bool)  \n *Arg6:* bCopyLbc (bool)  \n *Arg7:* bCopyProperty (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Mirror:
+    "*Name:* Geometry.Transform.Mirror  \n*Desc:* mirror body  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* veclPoint (vector list)  \n *Arg3:* 0.0 ([])  \n *Arg4:* 0.0 ([]]])  \n *Arg5:* dOffset (double)  \n *Arg6:* bCreateNewPart (bool)  \n *Arg7:* bCopyLBC (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Position:
+    "*Name:* Tools.BySelection.Position  \n*Desc:* Renumber by position  \n *JVer:* 5.0  \n *Arg1:* crlTarget (cursor list)  \n *Arg2:* iType (integer)  \n *Arg3:* iMethod (integer)  \n *Arg4:* iStartID (integer)  \n *Arg5:* iIncrementStep (integer)  \n *Arg6:* bAscending1 (bool)  \n *Arg7:* bAscending2 (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Translation:
+    "*Name:* Geometry.Transform.Translation  \n*Desc:* Translate the selected Part.  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* poslTranslates (position list)  \n *Arg3:* crCoord (cursor)  \n *Arg4:* bCreateNewPart (bool)  \n *Arg5:* bCopyLBC (bool)  \n *Arg6:* bCopyProperty (bool)  \n *Arg7:* iCopyCount (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  MatingFace:
+    "*Name:* Geometry.Transform.MatingFace  \n*Desc:* Transform MatingFace  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* crSrcFace (cursor)  \n *Arg3:* crDstFace (cursor)  \n *Arg4:* crSrcEdge (cursor)  \n *Arg5:* crDstEdge (cursor)  \n *Arg6:* crSrcNode (cursor)  \n *Arg7:* crDstNode (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CylinderFace:
+    "*Name:* Tool.Coordinates.CylinderFace  \n*Desc:* create Coordinate by Cylinder Face  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iCoordType (integer)  \n *Arg3:* crFace (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CADTrim:
+    "*Name:* Geometry.CADTrim  \n*Desc:* CAD Trim  \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Arg2:* crlPart (cursor list)  \n *Arg3:* dTrimSize (double)  \n *Arg4:* dTrimAngle (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  StitchEdge:
+    "*Name:* Geometry.StitchEdge  \n*Desc:* Stitch Edges  \n *JVer:* 5.0  \n *Arg1:* dTolerance (double)  \n *Arg2:* bKeepSlave (bool)  \n *Arg3:* crlMaster (cursor list)  \n *Arg4:* crlSlave (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  LogoRemoval:
+    "*Name:* Geometry.LogoRemoval  \n*Desc:* Create Face From Edges  \n *JVer:* 5.0  \n *Arg1:* crlStartFaces (cursor list)  \n *Arg2:* crlStopFaces (cursor list)  \n *Arg3:* iLayers (integer)  \n *Arg4:* bMergeFaces (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ShellAsm:
+    "*Name:* Geometry.ShellAsm  \n*Desc:* assemble the separated parts  \n *JVer:* 5.0  \n *Arg1:* crlPartK (cursor list)  \n *Arg2:* crlFaceK (cursor list)  \n *Arg3:* dTol (double)  \n *Arg4:* iElemType (integer)  \n *Arg5:* bSkipTiny (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SquareUpFillet:
+    "*Name:* Geometry.SquareUpFillet  \n*Desc:* Square Up Fillet  \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  MakeFillet:
+    "*Name:* Geometry.MakeFillet  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crlEdge (cursor list)  \n *Arg2:* dRadius (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  MakeFacePlanar:
+    "*Name:* Geometry.MakeFacePlanar  \n*Desc:* Make planar faces by given plane points  \n *JVer:* 5.0  \n *Arg1:* dlPlanePt1 (double list)  \n *Arg2:* dlPlanePt2 (double list)  \n *Arg3:* dlPlanePt3 (double list)  \n *Arg4:* ilFaceIds (int list)  \n *Arg5:* iMergeFace (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FCircleAdjustVertex:
+    "*Name:* Geometry.FCircleAdjustVertex  \n*Desc:* adjust vertex in circle  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AdjustHalfCylinder:
+    "*Name:* Geometry.AdjustHalfCylinder  \n*Desc:* Adjust half cylinder  \n *JVer:* 5.0  \n *Arg1:* poslPoint (position list)  \n *Arg2:* crlFace (cursor list)  \n *Arg3:* crCoord (cursor)  \n *Arg4:* iAxisPlane (integer)  \n *Arg5:* bDivideFace (bool)  \n *Arg6:* crlPart (cursor list)  \n *Arg7:* bMergeEdge (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FCircVertexAdjust:
+    "*Name:* Geometry.FCircVertexAdjust  \n*Desc:* FCirc Vertex Adjust  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* dMinRadius (double)  \n *Arg3:* bFullCylinder (bool)  \n *Arg4:* bCylinderMorethan90 (bool)  \n *Arg5:* bSkipFaceHaveLocalSetting (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  RemoveRibBoss:
+    "*Name:* Geometry.RemoveRibBoss  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Arg2:* dGradiation (double)  \n *Arg3:* iContinuity (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AdvancedShellAssembly:
+    "*Name:* Geometry.AdvancedShellAssembly  \n*Desc:* Test shell assembly  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* crlFace (cursor list)  \n *Arg3:* iMeshType (integer)  \n *Arg4:* bSelfIntersection (bool)  \n *Arg5:* iMethod (integer)  \n *Arg6:* dGapTol (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  PropertyGroup:
+    "*Name:* Groups.RightClick.PropertyGroup  \n*Desc:* create group of properties  \n *JVer:* 5.0  \n *Arg1:* strTmp (string)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  DeleteGroup:
+    "*Name:* Groups.RightClick.DeleteGroup  \n*Desc:* Delete Group  \n *JVer:* 5.0  \n *Arg1:* crlDelGroup (cursor list)  \n *Arg2:* bRemoveAll (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CopyGroup:
+    "*Name:* Groups.RightClick.CopyGroup  \n*Desc:* Copy Group  \n *JVer:* 5.0  \n *Arg1:* crlSrc (cursor list)  \n *Arg2:* strlNames (string list)  \n *Arg3:* crDest (cursor)  \n *Arg4:* bKeep (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AddSupGroup:
+    "*Name:* Groups.RightClick.AddSupGroup  \n*Desc:* Add supper group  \n *JVer:* 5.0  \n *Arg1:* crSupGroupSelected (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CreateMatGroup:
+    "*Name:* Groups.RightClick.CreateMatGroup  \n*Desc:* Command use for Groups RightClick CreateMatGroup  \n *JVer:* 5.0  \n *Arg1:* strTmp (string)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Circular:
+    "*Name:* HexModeling.Circular  \n*Desc:* create Hexa mesh by revolving a surface  \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Arg2:* dAngle (double)  \n *Arg3:* dTol (double)  \n *Arg4:* iLayer (integer)  \n *Arg5:* vecAxisPt (vector)  \n *Arg6:* vecAxisVect (vector)  \n *Arg7:* bInterfaceElem (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FaceToFace:
+    "*Name:* Meshing.CADProjection.FaceToFace  \n*Desc:* CadProject for Fact to Face  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* crlCadFace (cursor list)  \n *Arg3:* crlMeshedFace (cursor list)  \n *Arg4:* bForceProject (bool)  \n *Arg5:* bProjectCornerNodes (bool)  \n *Arg6:* bProjectMidNodes (bool)  \n *Arg7:* bIDcheck (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Layer:
+    "*Name:* HexModeling.Layer  \n*Desc:* sweep by layer  \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Arg2:* dFrontWidth (double)  \n *Arg3:* dBackWidth (double)  \n *Arg4:* iFrontLayers (integer)  \n *Arg5:* iBackLayers (integer)  \n *Arg6:* iBaseFaceType (integer)  \n *Arg7:* iSeparate (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Linear:
+    "*Name:* HexModeling.Linear  \n*Desc:* Linear hex mesh creation  \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Arg2:* dLength (double)  \n *Arg3:* iLayer (integer)  \n *Arg4:* vecSweepDirection (vector)  \n *Arg5:* bInterfaceElemFlag (bool)  \n *Arg6:* iLinearMethod (integer)  \n *Arg7:* bDeleteOriginalParts (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Curve:
+    "*Name:* HexModeling.Curve  \n*Desc:* make hex by sweeping curve  \n *JVer:* 5.0  \n *Arg1:* crFace (cursor)  \n *Arg2:* crlEdge (cursor list)  \n *Arg3:* crlRefEdge (cursor list)  \n *Arg4:* dMeshSize (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FromMidPlane:
+    "*Name:* HexModeling.FromMidPlane  \n*Desc:* HexModeling From MidPlane  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* bRef (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SolidElemInterface:
+    "*Name:* HexModeling.SolidElemInterface  \n*Desc:* make solid elem interface  \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Arg2:* bFlip (bool)  \n *Arg3:* crlElms (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  BallHexa:
+    "*Name:* HexModeling.BallHexa  \n*Desc:* hexa modeling ball hexa  \n *JVer:* 5.0  \n *Arg1:* crPart (cursor)  \n *Arg2:* vecCenter (vector)  \n *Arg3:* dRadius (double)  \n *Arg4:* dMeshSize (double)  \n *Arg5:* iType (integer)  \n *Arg6:* iLayer (integer)  \n *Arg7:* bMakeCenterNode (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  BoxMesh:
+    "*Name:* HexModeling.BoxMesh  \n*Desc:* Box hex mesh creator for parts  \n *JVer:* 5.0  \n *Arg1:* ilPartIds (int list)  \n *Arg2:* dMeshSize (double)  \n *Arg3:* strMaterialName (string)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AutoSweep:
+    "*Name:* HexModeling.AutoSweep  \n*Desc:* Hex Modeling Auto Sweep  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* dMeshSize (double)  \n *Arg3:* bLayers (bool)  \n *Arg4:* iLayers (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Parasolid:
+    "*Name:* Home.ImportCAD.Parasolid  \n*Desc:* Import Parasolid  \n *JVer:* 5.0  \n *Arg1:* strlFiles (string list)  \n *Arg2:* dChordHeightTolerance (double)  \n *Arg3:* dAngleToleranceDegree (double)  \n *Arg4:* iConvertIsolatedCurve (integer)  \n *Arg5:* dSurfacePlaneTolerance (double)  \n *Arg6:* dSufacePlaneAngle (double)  \n *Arg7:* dMaxFacetWidth (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  VRML:
+    "*Name:* Home.ImportCAD.VRML  \n*Desc:* Import VRML  \n *JVer:* 5.0  \n *Arg1:* strlFiles (string list)  \n *Arg2:* dChordHeightTolerance (double)  \n *Arg3:* dAngleToleranceDegree (double)  \n *Arg4:* iConvertIsolatedCurve (integer)  \n *Arg5:* dSurfacePlaneTolerance (double)  \n *Arg6:* dSufacePlaneAngle (double)  \n *Arg7:* dMaxFacetWidth (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ProECreoDirect:
+    "*Name:* Home.ImportCAD.ProECreoDirect  \n*Desc:* import Creo by Direct  \n *JVer:* 5.0  \n *Arg1:* strlPath (string list)  \n *Arg2:* dChordHeightTolerance (double)  \n *Arg3:* dAngleToleranceDegree (double)  \n *Arg4:* dStepMaxSize (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Export:
+    "*Name:* Properties.Section.Export  \n*Desc:* export 1D section to xml file  \n *JVer:* 5.0  \n *Arg1:* strExportSavePath (string)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ToImage:
+    "*Name:* Home.ToImage  \n*Desc:* Command use for Home ToImage  \n *JVer:* 5.0  \n *Arg1:* strImgPath (string)  \n *Arg2:* bWhiteBG (bool)  \n *Arg3:* bTransparentBG (bool)  \n *Arg4:* bFixedSize (bool)  \n *Arg5:* iExportWidth (integer)  \n *Arg6:* iExportHeight (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Find:
+    "*Name:* Home.Find  \n*Desc:* Command use for Home Find  \n *JVer:* 5.0  \n *Arg1:* strSearch (string)  \n *Arg2:* strSeletedType (string)  \n *Arg3:* bFindMatch (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  RectangularCapture:
+    "*Name:* Home.RectangularCapture  \n*Desc:* Command use for Home RectangularCapture  \n *JVer:* 5.0  \n *Arg1:* iLeft (integer)  \n *Arg2:* iTop (integer)  \n *Arg3:* iRight (integer)  \n *Arg4:* iBottom (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CopyToClipboard:
+    "*Name:* Home.CopyToClipboard  \n*Desc:* Command use for Home CopyToClipboard  \n *JVer:* 5.0  \n *Arg1:* bWhiteBG (bool)  \n *Arg2:* bTransparentBG (bool)  \n *Arg3:* bFixedSize (bool)  \n *Arg4:* iWidth (integer)  \n *Arg5:* iHeight (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FullScreen:
+    "*Name:* Home.FullScreen  \n*Desc:* Command use for Home FullScreen  \n *JVer:* 5.0  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Synchronize:
+    "*Name:* Home.Synchronize  \n*Desc:* Command use for Home Synchronize  \n *JVer:* 5.0  \n *Return:* 1 success, 0 fail (int)  \n ",
+  MergeFaces:
+    "*Name:* MainWindow.RightClick.MergeFaces  \n*Desc:* Merge Faces  \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Arg2:* bIsMergeEdge (bool)  \n *Arg3:* bRemoveNonBoundEdge (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SelectAllParts:
+    "*Name:* MainWindow.RightClick.SelectAllParts  \n*Desc:* Select all of the parts in the model  \n *JVer:* 5.0  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AssociatedPick:
+    "*Name:* MainWindow.RightClick.AssociatedPick  \n*Desc:* pick associated entity  \n *JVer:* 5.0  \n *Arg1:* crlInput (cursor list)  \n *Arg2:* strTarget (string)  \n *Arg3:* strConnect (string)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FlipElement:
+    "*Name:* MainWindow.RightClick.FlipElement  \n*Desc:* flip element  \n *JVer:* 5.0  \n *Arg1:* crlTarget (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SolidElement:
+    "*Name:* MeshCleanup.Element.SolidElement  \n*Desc:* Change Topology for Solid Element  \n *JVer:* 5.0  \n *Arg1:* crlElem (cursor list)  \n *Arg2:* crPart (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SurfaceElement:
+    "*Name:* MeshCleanup.ChangeTopology.Element.SurfaceElement  \n*Desc:* Command use for MeshCleanup ChangeTopology Element SurfaceElement  \n *JVer:* 5.0  \n *Arg1:* ilElement (int list)  \n *Arg2:* ilFace (int list)  \n *Arg3:* ilPart (int list)  \n *Arg4:* iCreateNewPart (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CorrectModel:
+    "*Name:* MeshCleanup.CorrectModel  \n*Desc:* correct model  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* iEnableBreakEdge (integer)  \n *Arg3:* dEdgeAngle (double)  \n *Arg4:* iEnableMergeEdge (integer)  \n *Arg5:* dMergeEdgeAngle (double)  \n *Arg6:* iEnableMergePlanarFace (integer)  \n *Arg7:* iEnableRemoveExtraVertex (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CloseHoles:
+    "*Name:* MeshCleanup.CloseHoles  \n*Desc:* close holes  \n *JVer:* 5.0  \n *Arg1:* crlEdge (cursor list)  \n *Arg2:* dAreaMin (double)  \n *Arg3:* dAreaMax (double)  \n *Arg4:* bMergeFace (bool)  \n *Arg5:* bMergeEdge (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CloseGap:
+    "*Name:* MeshCleanup.Cleanup.CloseGap  \n*Desc:* Command use for MeshCleanup Cleanup CloseGap  \n *JVer:* 5.0  \n *Arg1:* crlPartCur (cursor list)  \n *Arg2:* dDistanceTol (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AutoCheck:
+    "*Name:* MeshCleanup.AutoCheck  \n*Desc:* check meshing quality  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* iElemType (integer)  \n *Arg3:* blCheckCondition (bool list)  \n *Arg4:* blElemQuality (bool list)  \n *Arg5:* dlLimitValue (double list)  \n *Arg6:* crlElem (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ManualCheck:
+    "*Name:* MeshCleanup.ManualCheck  \n*Desc:* MeshCleanup ManualCheck  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* iElemType (integer)  \n *Arg3:* iVeQuality (integer)  \n *Arg4:* iCheckCondition (integer)  \n *Arg5:* dLimitValue (double)  \n *Arg6:* dCFLValue (double)  \n *Arg7:* iNonManifold (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  TwoQuadsToQuad:
+    "*Name:* MeshCleanup.Manual2D.MergeElement.TwoQuadsToQuad  \n*Desc:* Merge two Quad elements into one Quad element  \n *JVer:* 5.0  \n *Arg1:* crlElements (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  TwoTrisToQuad:
+    "*Name:* MeshCleanup.Manual2D.MergeElement.TwoTrisToQuad  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crlElem (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Split element 2D  \n *JVer:* 5.0  \n *Arg1:* crlElem (cursor list)  \n *Arg2:* crDatumNode0 (cursor)  \n *Arg3:* crDatumNode1 (cursor)  \n *Arg4:* iMethod (integer)  \n *Arg5:* iAutoExecute (integer)  \n *Arg6:* iAutoTransition (integer)  \n *Arg7:* iCADProject (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Command use for MeshCleanup Manual2D SplitElement QuadToTrans4Quads  \n *JVer:* 5.0  \n *Arg1:* crlElem (cursor list)  \n *Arg2:* crDatumNode0 (cursor)  \n *Arg3:* crDatumNode1 (cursor)  \n *Arg4:* iMethod (integer)  \n *Arg5:* iAutoExecute (integer)  \n *Arg6:* iAutoTransition (integer)  \n *Arg7:* iCADProject (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Command use for MeshCleanup Manual2D SplitElement QuadToTrans3Quads  \n *JVer:* 5.0  \n *Arg1:* crlElem (cursor list)  \n *Arg2:* crDatumNode0 (cursor)  \n *Arg3:* crDatumNode1 (cursor)  \n *Arg4:* iMethod (integer)  \n *Arg5:* iAutoExecute (integer)  \n *Arg6:* iAutoTransition (integer)  \n *Arg7:* iCADProject (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Command use for MeshCleanup Manual2D SplitElement QuadTo2Quads1Tri  \n *JVer:* 5.0  \n *Arg1:* crlElem (cursor list)  \n *Arg2:* crDatumNode0 (cursor)  \n *Arg3:* crDatumNode1 (cursor)  \n *Arg4:* iMethod (integer)  \n *Arg5:* iAutoExecute (integer)  \n *Arg6:* iAutoTransition (integer)  \n *Arg7:* iCADProject (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Command use for MeshCleanup Manual2D SplitElement QuadTo3Tris  \n *JVer:* 5.0  \n *Arg1:* crlElem (cursor list)  \n *Arg2:* crDatumNode0 (cursor)  \n *Arg3:* crDatumNode1 (cursor)  \n *Arg4:* iMethod (integer)  \n *Arg5:* iAutoExecute (integer)  \n *Arg6:* iAutoTransition (integer)  \n *Arg7:* iCADProject (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Command use for MeshCleanup Manual2D SplitElement QuadTo2Quads  \n *JVer:* 5.0  \n *Arg1:* crlElem (cursor list)  \n *Arg2:* crDatumNode0 (cursor)  \n *Arg3:* crDatumNode1 (cursor)  \n *Arg4:* iMethod (integer)  \n *Arg5:* iAutoExecute (integer)  \n *Arg6:* iAutoTransition (integer)  \n *Arg7:* iCADProject (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Command use for MeshCleanup Manual2D SplitElement QuadTo2Tris  \n *JVer:* 5.0  \n *Arg1:* crlElem (cursor list)  \n *Arg2:* crDatumNode0 (cursor)  \n *Arg3:* crDatumNode1 (cursor)  \n *Arg4:* iMethod (integer)  \n *Arg5:* iAutoExecute (integer)  \n *Arg6:* iAutoTransition (integer)  \n *Arg7:* iCADProject (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  QuadToQuadTri:
+    "*Name:* MeshCleanup.Manual2D.SplitElement.QuadToQuadTri  \n*Desc:* Command use for MeshCleanup Manual2D SplitElement QuadToQuadTri  \n *JVer:* 5.0  \n *Arg1:* crlElem (cursor list)  \n *Arg2:* crDatumNode0 (cursor)  \n *Arg3:* crDatumNode1 (cursor)  \n *Arg4:* iMethod (integer)  \n *Arg5:* iAutoExecute (integer)  \n *Arg6:* iAutoTransition (integer)  \n *Arg7:* iCADProject (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Command use for MeshCleanup Manual2D SplitElement QuadTo4Tris  \n *JVer:* 5.0  \n *Arg1:* crlElem (cursor list)  \n *Arg2:* crDatumNode0 (cursor)  \n *Arg3:* crDatumNode1 (cursor)  \n *Arg4:* iMethod (integer)  \n *Arg5:* iAutoExecute (integer)  \n *Arg6:* iAutoTransition (integer)  \n *Arg7:* iCADProject (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Equivalence:
+    "*Name:* MeshCleanup.Manual3D.Equivalence  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crlNode (cursor list)  \n *Arg2:* iMergeTowards (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  DeleteElement:
+    "*Name:* MeshCleanup.Manual2D.DeleteElement  \n*Desc:* Delete Element  \n *JVer:* 5.0  \n *Arg1:* crlElem (cursor list)  \n *Arg2:* bKeepShareElem (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Split:
+    "*Name:* MeshCleanup.Manual3D.Split  \n*Desc:* Merge two Quad elements into one Quad element  \n *JVer:* 5.0  \n *Arg1:* crplElemEdge (cursor pair list)  \n *Arg2:* crlNode (cursor list)  \n *Arg3:* dRatioDistance (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Swap:
+    "*Name:* MeshCleanup.Manual3D.Swap  \n*Desc:* cleanup element edge by swap  \n *JVer:* 5.0  \n *Arg1:* crplElemEdge (cursor pair list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Collapse:
+    "*Name:* MeshCleanup.Manual2D.Collapse  \n*Desc:* Collapse for Mesh Cleanup  \n *JVer:* 5.0  \n *Arg1:* crNodeRef (cursor)  \n *Arg2:* crNodeEq (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CreateElement:
+    "*Name:* MeshCleanup.Manual2D.CreateElement  \n*Desc:* Create element  \n *JVer:* 5.0  \n *Arg1:* iElemType (integer)  \n *Arg2:* crParentEntity (cursor)  \n *Arg3:* crlNode (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  RemeshElement:
+    "*Name:* MeshCleanup.Manual2D.RemeshElement  \n*Desc:* local surface remesh  \n *JVer:* 5.0  \n *Arg1:* crlTarget (cursor list)  \n *Arg2:* surfaceMesh (SURFACE_MESH)  \n *Arg3:* bUseSetting (bool)  \n *Arg4:* bGrading (bool)  \n *Arg5:* bFMesher (bool)  \n *Arg6:* iOverrideType (integer)  \n *Arg7:* bKeepConnection (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CenterFaceCollapse:
+    "*Name:* MeshCleanup.Manual3D.Collapse.CenterFaceCollapse  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crlElem (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  HalfEdgeCollapse:
+    "*Name:* MeshCleanup.Manual3D.Collapse.HalfEdgeCollapse  \n*Desc:* mash cleanup by manual for half edge collapse  \n *JVer:* 5.0  \n *Arg1:* crplElemEdge (cursor pair list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  EdgeCollapse:
+    "*Name:* MeshCleanup.Manual3D.Collapse.EdgeCollapse  \n*Desc:* collapse  \n *JVer:* 5.0  \n *Arg1:* crplElemEdge (cursor pair list)  \n *Arg2:* crlNode (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  DeleteNode:
+    "*Name:* MeshEdit.DeleteNode  \n*Desc:* Delete floating nodes in db  \n *JVer:* 5.0  \n *Arg1:* crlNode (cursor list)  \n *Arg2:* bRemoveVertex (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CreateHex:
+    "*Name:* MeshCleanup.Manual3D.CreateHex  \n*Desc:* create hex8 elements  \n *JVer:* 5.0  \n *Arg1:* iParentEntityId (integer)  \n *Arg2:* crlElem (cursor list)  \n *Arg3:* iSeprateN (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CreatePenta:
+    "*Name:* MeshCleanup.Manual3D.CreatePenta  \n*Desc:* Create penta5 element  \n *JVer:* 5.0  \n *Arg1:* iParentEntityId (integer)  \n *Arg2:* crlElem (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CreateTetra:
+    "*Name:* MeshCleanup.Manual3D.CreateTetra  \n*Desc:* create element Tet  \n *JVer:* 5.0  \n *Arg1:* iParentEntityId (integer)  \n *Arg2:* crlNode (cursor list)  \n *Arg3:* crlElem (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Tri:
+    "*Name:* MeshCleanup.ManualCheck.Tri  \n*Desc:* Command use for MeshCleanup ManualCheck Tri  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* nElemType (0)  \n *Arg3:* veQuality (0)  \n *Arg4:* nCheckCondition (0)  \n *Arg5:* dLimitValue (double)  \n *Arg6:* CFLValue (0.0)  \n *Arg7:* nNonManifold (0)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Hex:
+    "*Name:* MeshEdit.CreateElement.Hex  \n*Desc:* create hex8 elements  \n *JVer:* 5.0  \n *Arg1:* iParentEntityId (integer)  \n *Arg2:* crlElem (cursor list)  \n *Arg3:* iSeprateN (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Penta:
+    "*Name:* MeshEdit.CreateElement.Penta  \n*Desc:* Create penta element  \n *JVer:* 5.0  \n *Arg1:* iParentEntityId (integer)  \n *Arg2:* crlElem (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Tet:
+    "*Name:* MeshEdit.CreateElement.Tet  \n*Desc:* create element Tet  \n *JVer:* 5.0  \n *Arg1:* iParentEntityId (integer)  \n *Arg2:* crlNode (cursor list)  \n *Arg3:* crlElem (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Create element  \n *JVer:* 5.0  \n *Arg1:* iElemType (integer)  \n *Arg2:* crParentEntity (cursor)  \n *Arg3:* crlNode (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Create element  \n *JVer:* 5.0  \n *Arg1:* iElemType (integer)  \n *Arg2:* crParentEntity (cursor)  \n *Arg3:* crlNode (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CircleCenter:
+    "*Name:* MeshEdit.CreateNode.CircleCenter  \n*Desc:* create node at center of circle  \n *JVer:* 5.0  \n *Arg1:* crlEdge (cursor list)  \n *Arg2:* iNodeID (integer)  \n *Arg3:* bImprint (bool)  \n *Arg4:* crFace (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Absolute:
+    "*Name:* MeshEdit.MoveNode.Absolute  \n*Desc:* move node absolute  \n *JVer:* 5.0  \n *Arg1:* dDeltaX (double)  \n *Arg2:* dDeltaY (double)  \n *Arg3:* dDeltaZ (double)  \n *Arg4:* b1stCoord (True)  \n *Arg5:* b2ndCoord (True)  \n *Arg6:* b3rdCoord (True)  \n *Arg7:* crlNode (cursor list)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Import:
+    "*Name:* Properties.Section.Import  \n*Desc:* import 1D Section  \n *JVer:* 5.0  \n *Arg1:* strImportPath (string)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Point:
+    "*Name:* MeshEdit.MoveNode.Point  \n*Desc:* Move node(s) to an Face(Edge) Point position  \n *JVer:* 5.0  \n *Arg1:* dX (double)  \n *Arg2:* dY (double)  \n *Arg3:* dZ (double)  \n *Arg4:* ilNodeList (int list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ProjectToPlane:
+    "*Name:* MeshEdit.CreateNode.ProjectToPlane  \n*Desc:* create node point  \n *JVer:* 5.0  \n *Arg1:* dX (double)  \n *Arg2:* dY (double)  \n *Arg3:* dZ (double)  \n *Arg4:* crlNode (cursor list)  \n *Arg5:* crlFace (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CenterOfCylinder:
+    "*Name:* MeshEdit.CreateNode.CenterOfCylinder  \n*Desc:* Create node of center cylinder  \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Arg2:* iNodeID (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CenterOfSphere:
+    "*Name:* MeshEdit.CreateNode.CenterOfSphere  \n*Desc:* Create node of center sphere  \n *JVer:* 5.0  \n *Arg1:* crlNodeOrFace (cursor list)  \n *Arg2:* iNodeID (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Offset:
+    "*Name:* MeshEdit.MoveNode.Offset  \n*Desc:* MeshEdit MoveNode MoveNodeOffset  \n *JVer:* 5.0  \n *Arg1:* dDeltaX (double)  \n *Arg2:* dDeltaY (double)  \n *Arg3:* dDeltaZ (double)  \n *Arg4:* crCoord (cursor)  \n *Arg5:* crlNode (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CenterOfGravity:
+    "*Name:* MeshEdit.CreateNode.CenterOfGravity  \n*Desc:* create node Center Of Gravity  \n *JVer:* 5.0  \n *Arg1:* iCreationType (integer)  \n *Arg2:* iNodeID (integer)  \n *Arg3:* dX (double)  \n *Arg4:* dY (double)  \n *Arg5:* dZ (double)  \n *Arg6:* crlPart (cursor list)  \n *Arg7:* crlBarPart (cursor list)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ProjectToLine:
+    "*Name:* MeshEdit.MoveNode.ProjectToLine  \n*Desc:* move node by project to line  \n *JVer:* 5.0  \n *Arg1:* crlRefNodes (cursor list)  \n *Arg2:* crlObjNodes (cursor list)  \n *Arg3:* iType (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  IntersectionNode:
+    "*Name:* MeshEdit.CreateNode.IntersectionNode  \n*Desc:* create node by intersection node  \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Arg2:* crlPart (cursor list)  \n *Arg3:* crlEdge (cursor list)  \n *Arg4:* crlNode (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ProjectToPlaneElem:
+    "*Name:* MeshEdit.MoveNode.ProjectToPlaneElem  \n*Desc:* Move Node by Project to Plane(Elem)  \n *JVer:* 5.0  \n *Arg1:* crlNode (cursor list)  \n *Arg2:* crlElem (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Equalize:
+    "*Name:* MeshEdit.MoveNode.Equalize  \n*Desc:* Move node by equalize  \n *JVer:* 5.0  \n *Arg1:* crlEdge (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  NormalOffset:
+    "*Name:* MeshEdit.MoveNode.NormalOffset  \n*Desc:* Move node(s) in Normal Direction of plane  \n *JVer:* 5.0  \n *Arg1:* dMagnitude (double)  \n *Arg2:* ilNodeList (int list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CoincidentNodes:
+    "*Name:* MeshEdit.MoveNode.CoincidentNodes  \n*Desc:* Coincident Nodes  \n *JVer:* 5.0  \n *Arg1:* crlNode (cursor list)  \n *Arg2:* dTol (double)  \n *Arg3:* bDesOrder (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AlongCylinder:
+    "*Name:* MeshEdit.MoveNode.AlongCylinder  \n*Desc:* Move node along cylinder surface  \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Arg2:* crlNode (cursor list)  \n *Arg3:* dIrX (double)  \n *Arg4:* dIrY (double)  \n *Arg5:* dIrZ (double)  \n *Arg6:* dCircleX (double)  \n *Arg7:* dCircleY (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Move Nodes from Node to 3 nodes created Plane  \n *JVer:* 5.0  \n *Arg1:* ilNodeList (int list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  MoveNodeOffset:
+    "*Name:* MeshEdit.MoveNode.MoveNodeOffset  \n*Desc:* Command use for MeshEdit MoveNode MoveNodeOffset  \n *JVer:* 5.0  \n *Arg1:* dDeltaX (double)  \n *Arg2:* dDeltaY (double)  \n *Arg3:* dDeltaZ (double)  \n *Arg4:* crlNode (cursor list)  \n *Arg5:* crCoord (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  RefineQuality:
+    "*Name:* MeshEdit.RefineQuality  \n*Desc:* Command use for MeshEdit RefineQuality  \n *JVer:* 5.0  \n *Arg1:* iMetric (integer)  \n *Arg2:* crlFace (cursor list)  \n *Arg3:* crlElem (cursor list)  \n *Arg4:* crlNode (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  StraightenMidnodes:
+    "*Name:* MeshEdit.MoveNode.StraightenMidnodes  \n*Desc:* move node by straighten_mid_nodes  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* crlFace (cursor list)  \n *Arg3:* crlEdge (cursor list)  \n *Arg4:* crlNode (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Laplacian:
+    "*Name:* MeshEdit.MoveNode.Laplacian  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crlTarget (cursor list)  \n *Arg2:* iType (integer)  \n *Arg3:* bWithCADFollow (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AlongEdge:
+    "*Name:* MeshEdit.MoveNode.AlongEdge  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crlNode (cursor list)  \n *Arg2:* bMoveX (bool)  \n *Arg3:* bMoveY (bool)  \n *Arg4:* bMoveZ (bool)  \n *Arg5:* dPosX (double)  \n *Arg6:* dPosY (double)  \n *Arg7:* dPosZ (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AlongDirection:
+    "*Name:* MeshEdit.MoveNode.AlongDirection  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crlNode (cursor list)  \n *Arg2:* crElem (cursor)  \n *Arg3:* crFace (cursor)  \n *Arg4:* vecDirection (vector)  \n *Arg5:* dMagnitude (double)  \n *Arg6:* bDestination (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CADFollows:
+    "*Name:* MeshEdit.MoveNode.CADFollows  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crlNode (cursor list)  \n *Arg2:* dMovedPosX (double)  \n *Arg3:* dMovedPosY (double)  \n *Arg4:* dMovedPosZ (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Scale:
+    "*Name:* MeshEdit.MoveNode.Scale  \n*Desc:* Move node scale  \n *JVer:* 5.0  \n *Arg1:* crlNode (cursor list)  \n *Arg2:* crlNodeOrigin (cursor list)  \n *Arg3:* crCoord (cursor)  \n *Arg4:* posDeltaXYZ (position)  \n *Arg5:* 10.0 ([])  \n *Arg6:* 10.0 ([]])  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ElementConvert:
+    "*Name:* MeshEdit.ElementConvert  \n*Desc:* Element Conversion  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* iType (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Deform:
+    "*Name:* MeshEdit.Deform  \n*Desc:* geometry deform  \n *JVer:* 5.0  \n *Arg1:* crlFacercObverse (cursor list)  \n *Arg2:* crlFaceDstReverse (cursor list)  \n *Arg3:* crlFacercReverse (cursor list)  \n *Arg4:* crlFaceDstObverse (cursor list)  \n *Arg5:* crlFaceFixed (cursor list)  \n *Arg6:* dDistEffect (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  MirrorCopy:
+    "*Name:* MeshEdit.MirrorCopy  \n*Desc:* mirror copy of surface mesh  \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FaceImprint:
+    "*Name:* MeshEdit.FaceImprint  \n*Desc:* import Nastran bdf file  \n *JVer:* 5.0  \n *Arg1:* crlFaces (cursor list)  \n *Arg2:* bMeshCopy (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AdjustOrientation:
+    "*Name:* MeshEdit.AdjustOrientation  \n*Desc:* Adjust Orientation  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* crlFace (cursor list)  \n *Arg3:* crlElem (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  OneNode:
+    "*Name:* MeshEdit.OneNode  \n*Desc:* morphing one node  \n *JVer:* 5.0  \n *Arg1:* crlNode (cursor list)  \n *Arg2:* crlFaceFixed (cursor list)  \n *Arg3:* bOffsetvector (bool)  \n *Arg4:* crCoord (cursor)  \n *Arg5:* dlOffset (double list)  \n *Arg6:* 1 ([])  \n *Arg7:* 0] ([])  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SeparateNodes:
+    "*Name:* MeshEdit.SeparateNodes  \n*Desc:* Separate nodes  \n *JVer:* 5.0  \n *Arg1:* crlShareNodes (cursor list)  \n *Arg2:* crlTarget (cursor list)  \n *Arg3:* iKeepNodeIDsOn (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  RemoveSolidMesh:
+    "*Name:* MeshEdit.RemoveSolidMesh  \n*Desc:* Remove Solid Mesh  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* bConvFirst (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  MergeNodes:
+    "*Name:* MeshEdit.MergeNodes  \n*Desc:* Merge nodes  \n *JVer:* 5.0  \n *Arg1:* dTolerance (double)  \n *Arg2:* iKeepType (integer)  \n *Arg3:* crlTarget (cursor list)  \n *Arg4:* bGroup (bool)  \n *Arg5:* bEquivalence (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  MeshCopy:
+    "*Name:* MeshEdit.MeshCopy  \n*Desc:* Mesh Copy Pattern  \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Arg2:* crlNode (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  RibThickness:
+    "*Name:* MeshEdit.RibThickness  \n*Desc:* Mesh Edit Morphing Rib Thickness  \n *JVer:* 5.0  \n *Arg1:* crlFaceMove (cursor list)  \n *Arg2:* crlFaceFixed (cursor list)  \n *Arg3:* dMove (double)  \n *Arg4:* dDistStrong (double)  \n *Arg5:* dDistWeak (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ChangePattern:
+    "*Name:* MeshEdit.ChangePattern  \n*Desc:* Element ChangePattern  \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Arg2:* iPatternType (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SurfaceMesh:
+    "*Name:* MeshEdit.SurfaceMesh  \n*Desc:* Element Conversion  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* iType (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SolidMesh:
+    "*Name:* MeshEdit.SolidMesh  \n*Desc:* Element Conversion  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* iType (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  DividePartByRegion:
+    "*Name:* MeshEdit.DividePartByRegion  \n*Desc:* Divide Part By Region  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* crlBoundaryParts (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  NodeToFace:
+    "*Name:* Meshing.CADProjection.NodeToFace  \n*Desc:* CadProject for Node to Face  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* crlCadFace (cursor list)  \n *Arg3:* crlMeshedNode (cursor list)  \n *Arg4:* iDirection (integer)  \n *Arg5:* iImproveQuality (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  NodeToEdge:
+    "*Name:* Meshing.CADProjection.NodeToEdge  \n*Desc:* CadProject for Node to Edge  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* crCadEdge (cursor)  \n *Arg3:* crlMeshedNode (cursor list)  \n *Arg4:* iDirection (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FilletMapping:
+    "*Name:* SZOnepushReliability.MeshEdit.FilletMapping  \n*Desc:* Fillet mapping  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* crlFace (cursor list)  \n *Arg3:* dMinRadius (double)  \n *Arg4:* dMaxRadius (double)  \n *Arg5:* dMinAngle (double)  \n *Arg6:* dMaxAngle (double)  \n *Arg7:* bConvex (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SelectFillet:
+    "*Name:* Meshing.LocalMeshing.SelectFillet  \n*Desc:* Command use for Meshing LocalMeshing SelectFillet  \n *JVer:* 5.0  \n *Arg1:* crlItems (cursor list)  \n *Arg2:* dSelectWidthMin (double)  \n *Arg3:* dSelectWidthMax (double)  \n *Arg4:* dSelectRMin (double)  \n *Arg5:* dSelectRMax (double)  \n *Arg6:* dAngleMin (double)  \n *Arg7:* dAngleMax (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SearchTargetFaces:
+    "*Name:* Meshing.LocalSetting.SearchTargetFaces  \n*Desc:* Search Target Faces for Local mesh setting  \n *JVer:* 5.0  \n *Arg1:* iPartType (integer)  \n *Arg2:* dlOrigin (double list)  \n *Arg3:* 0 ([])  \n *Arg4:* 0 ([]])  \n *Arg5:* dlLength (double list)  \n *Arg6:* 0 ([].1)  \n *Arg7:* 0 ([].1])  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  TemplateCopy:
+    "*Name:* Meshing.Templates.TemplateCopy  \n*Desc:* Template Copy local setting  \n *JVer:* 5.0  \n *Arg1:* crlReferent (cursor list)  \n *Arg2:* crlTarget (cursor list)  \n *Arg3:* iMethod (integer)  \n *Arg4:* iCopySub (integer)  \n *Arg5:* dTolerance (double)  \n *Arg6:* strSource (string)  \n *Arg7:* strTarget (string)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  BarMeshing:
+    "*Name:* Meshing.BarMeshing  \n*Desc:* meshing 1D edge/bar  \n *JVer:* 5.0  \n *Arg1:* crlCadEdge (cursor list)  \n *Arg2:* crlBarEdge (cursor list)  \n *Arg3:* crlBarPart (cursor list)  \n *Arg4:* dDocMeshSize (double)  \n *Arg5:* iDocNumofElem (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  GridMesh:
+    "*Name:* Meshing.GridMesh  \n*Desc:* Grid meshing  \n *JVer:* 5.0  \n *Arg1:* listGridMesh ([])  \n *Arg2:* bLocalsetting (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SolidMeshing:
+    "*Name:* Meshing.SolidMeshing  \n*Desc:* Solid Meshing  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* bTet10 (bool)  \n *Arg3:* dGradingFactor (double)  \n *Arg4:* bGravCenter (bool)  \n *Arg5:* dStretchLimit (double)  \n *Arg6:* iSpeedVsQual (integer)  \n *Arg7:* iSpeedVsMem (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SurfaceMeshing:
+    "*Name:* Meshing.SurfaceMeshing  \n*Desc:* Surface Meshing  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* surfaceMesh (SURFACE_MESH)  \n *Arg3:* bUseSetting (bool)  \n *Arg4:* bFMesher (bool)  \n *Arg5:* iThreadNum (integer)  \n *Arg6:* bRefData (bool)  \n *Arg7:* bMeshColor (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SetAttib:
+    "*Name:* Meshing.SetAttib  \n*Desc:* set attribute  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* surfaceMesh (SURFACE_MESH)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Surfase:
+    "*Name:* Meshing.LocalRemesh.Surfase  \n*Desc:* local surface remesh  \n *JVer:* 5.0  \n *Arg1:* crlTarget (cursor list)  \n *Arg2:* surfaceMesh (SURFACE_MESH)  \n *Arg3:* bUseSetting (bool)  \n *Arg4:* bGrading (bool)  \n *Arg5:* bFMesher (bool)  \n *Arg6:* iOverrideType (integer)  \n *Arg7:* bKeepConnection (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FaceElement:
+    "*Name:* Meshing.LocalSettings.FaceElement  \n*Desc:* LocalSettings.FaceElement  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* localMesh (LOCAL_MESH)  \n *Arg3:* crlTarget (cursor list)  \n *Arg4:* ilHardPointId (int list)  \n *Arg5:* veclHardPointXYZ (vector list)  \n *Arg6:* crlHardPointTarget (cursor list)  \n *Arg7:* crEditTarget (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Model:
+    "*Name:* Tools.TotalLoad.Model  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crlTarget (cursor list)  \n *Arg2:* crCoordinate (cursor)  \n *Arg3:* strOutput (string)  \n *Arg4:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Points:
+    "*Name:* Meshing.LocalSettings.Points  \n*Desc:* LocalSettings.Points  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* localMesh (LOCAL_MESH)  \n *Arg3:* crlTarget (cursor list)  \n *Arg4:* ilHardPointId (int list)  \n *Arg5:* veclHardPointXYZ (vector list)  \n *Arg6:* crlHardPointTarget (cursor list)  \n *Arg7:* crEditTarget (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AdjustThickness:
+    "*Name:* MidPlane.AdjustThickness  \n*Desc:* Adjust thickness of midplane  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* dRatio (double)  \n *Arg3:* bAdjustFaceThick (bool)  \n *Arg4:* bAdjustPropThick (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FaceCross:
+    "*Name:* MidPlane.FaceCross  \n*Desc:* Face Cross  \n *JVer:* 5.0  \n *Arg1:* crlBodies (cursor list)  \n *Arg2:* crlFaces (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CreateThickProps:
+    "*Name:* MidPlane.CreateThickProps  \n*Desc:* create thick properties for mid-plane  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* dThickDiff (double)  \n *Arg3:* dMaxThick (double)  \n *Arg4:* dMinThick (double)  \n *Arg5:* crMatMembrane (cursor)  \n *Arg6:* crMatBend (cursor)  \n *Arg7:* crMatShear (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FindMidPlane:
+    "*Name:* MidPlane.FindMidPlane  \n*Desc:* Command use for MidPlane FindMidPlane  \n *JVer:* 5.0  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Nodes:
+    "*Name:* MidPlaneEdit.Edge.Nodes  \n*Desc:* Edit mid-plane with edge nodes  \n *JVer:* 5.0  \n *Arg1:* crlNode (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  PlanarFace:
+    "*Name:* MidPlaneEdit.ExtendFace.PlanarFace  \n*Desc:* Extend Face  \n *JVer:* 5.0  \n *Arg1:* bIType (bool)  \n *Arg2:* crExtFace (cursor)  \n *Arg3:* crRefFace (cursor)  \n *Arg4:* crEdge (cursor)  \n *Arg5:* iFaceType (integer)  \n *Arg6:* iExtendType (integer)  \n *Arg7:* iMethod (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FaceExtendtoFace:
+    "*Name:* MidPlaneEdit.Face.FaceExtendtoFace  \n*Desc:* add face by face extend to face  \n *JVer:* 5.0  \n *Arg1:* crlExtFaces (cursor list)  \n *Arg2:* crlRefFaces (cursor list)  \n *Arg3:* bMergeFace (bool)  \n *Arg4:* bMergeEdge (bool)  \n *Arg5:* dMergeEdgeAngle (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FaceExtendToIntersection:
+    "*Name:* MidPlaneEdit.Face.FaceExtendToIntersection  \n*Desc:* Face Extend To Intersection  \n *JVer:* 5.0  \n *Arg1:* crEdge0 (cursor)  \n *Arg2:* crEdge1 (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  EdgesToEdges:
+    "*Name:* MidPlaneEdit.Face.EdgesToEdges  \n*Desc:* add face by edges  \n *JVer:* 5.0  \n *Arg1:* crlEdge (cursor list)  \n *Arg2:* bImprint (bool)  \n *Arg3:* bMultiEdges (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  vecOffset:
+    "*Name:* Tool.Coordinates.vecOffset  \n*Desc:* Command use for Tool Coordinates vecOffset  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iCoordType (integer)  \n *Arg3:* vTranslate ([0.0,0.0,0.0])  \n *Arg4:* bCreateNew (bool)  \n *Arg5:* crRefCoord (cursor)  \n *Arg6:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  MidByPair:
+    "*Name:* MidPlaneEdit.Manual.MidByPair  \n*Desc:* Midplane Manual MidByPair  \n *JVer:* 5.0  \n *Arg1:* crlBaseFaces (cursor list)  \n *Arg2:* crlPairFaces (cursor list)  \n *Arg3:* crlRefFaces (cursor list)  \n *Arg4:* crPart (cursor)  \n *Arg5:* bMergeFaces (bool)  \n *Arg6:* bExtendFaces (bool)  \n *Arg7:* bHideFaces (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ProjectEdgeToFace:
+    "*Name:* MidPlaneEdit.AddItems.Edge.ProjectEdgeToFace  \n*Desc:* project an edge to face to get a new edge  \n *JVer:* 5.0  \n *Arg1:* crlEdge (cursor list)  \n *Arg2:* crlFace (cursor list)  \n *Arg3:* bExtendEdge (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FaceTwoFace:
+    "*Name:* MidPlaneEdit.AddItems.Edge.FaceTwoFace  \n*Desc:* Exent face to face  \n *JVer:* 5.0  \n *Arg1:* crRefFace (cursor)  \n *Arg2:* crExtFace (cursor)  \n *Arg3:* iExtendType (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  EFExtendFreeEdge:
+    "*Name:* MidPlaneEdit.AddItems.Face.EFExtendFreeEdge  \n*Desc:* Create new face by extend free edge to a destination face  \n *JVer:* 5.0  \n *Arg1:* crlEdge (cursor list)  \n *Arg2:* crlFace (cursor list)  \n *Arg3:* bMergeFace (bool)  \n *Arg4:* bMergeEdge (bool)  \n *Arg5:* bUseNeighDir (bool)  \n *Arg6:* dMergeEdgeAngle (double)  \n *Arg7:* bMultiEF (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  EFProject:
+    "*Name:* MidPlaneEdit.AddItems.Face.EFProject  \n*Desc:* Creat new face by project edge to destination face  \n *JVer:* 5.0  \n *Arg1:* crlEdge (cursor list)  \n *Arg2:* crlFace (cursor list)  \n *Arg3:* bMergeFace (bool)  \n *Arg4:* bMergeEdge (bool)  \n *Arg5:* dMergeEdgeAngle (double)  \n *Arg6:* bMultiEF (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  MeshedFace:
+    "*Name:* MMCCarACTools.ACModelCreationTools.MeshedFace  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crlItem1 (cursor list)  \n *Arg2:* crlItem2 (cursor list)  \n *Arg3:* crlItem3 (cursor list)  \n *Arg4:* crlPart (cursor list)  \n *Arg5:* iType (integer)  \n *Arg6:* dMeshSise (double)  \n *Arg7:* bMergeTol (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Connect:
+    "*Name:* MMCCarACTools.ClearanceElement.Connect  \n*Desc:* MMCCarACTools ClearanceElement Connect  \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Arg2:* crlElem (cursor list)  \n *Arg3:* iConnectionMethod (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Edit:
+    "*Name:* MMCCarACTools.ClearanceElement.Edit  \n*Desc:* Edit clearance elment  \n *JVer:* 5.0  \n *Arg1:* dDx (double)  \n *Arg2:* dDy (double)  \n *Arg3:* dDz (double)  \n *Arg4:* dLx (double)  \n *Arg5:* dLy (double)  \n *Arg6:* dLz (double)  \n *Arg7:* crlTarget (cursor list)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CopyMeshCount:
+    "*Name:* MufflerHA.CopyMeshCount  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crlMasterEdge (cursor list)  \n *Arg2:* crlSlaveEdge (cursor list)  \n *Arg3:* strBaseName (string)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Rod:
+    "*Name:* Properties.Rod  \n*Desc:* create 1D rod property  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iId (integer)  \n *Arg3:* crSection (cursor)  \n *Arg4:* crMat (cursor)  \n *Arg5:* dArea (double)  \n *Arg6:* dTorConst (double)  \n *Arg7:* dTorStressCoeff (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n *Desc:*   \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iId (integer)  \n *Arg3:* crSection (cursor)  \n *Arg4:* crMat (cursor)  \n *Arg5:* vecOrient (vector)  \n *Arg6:* crlTarget (cursor list)  \n *Arg7:* crEdit (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Single:
+    "*Name:* MuxWeld.DefineSequence.Single  \n*Desc:* Define Sequence  \n *JVer:* 5.0  \n *Arg1:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  MeshingPass:
+    "*Name:* MuxWeld.MeshingPass  \n*Desc:* sweep cross section to create welding  \n *JVer:* 5.0  \n *Arg1:* crPart (cursor)  \n *Arg2:* crlEdge (cursor list)  \n *Arg3:* dMeshSize (double)  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* create Property 3D Weld Bead  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crMaterial (cursor)  \n *Arg3:* crlTarget (cursor list)  \n *Arg4:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* NSModeling NSModeling_Close_Hole  \n *JVer:* 5.0  \n *Arg1:* iType (integer)  \n *Arg2:* dMaxLength (double)  \n *Arg3:* bMergeFaces (bool)  \n *Arg4:* bSetCenterPoint (bool)  \n *Arg5:* crlNode (cursor list)  \n *Arg6:* crlPart (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FilletMapMeshing:
+    "*Name:* OasisAWizard.LocalMeshing.FilletMapMeshing  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* crlFace (cursor list)  \n *Arg3:* dMinLength (double)  \n *Arg4:* dMaxLength (double)  \n *Arg5:* dMinRadius (double)  \n *Arg6:* dMaxRadius (double)  \n *Arg7:* bConvex (bool)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* import Nastran op2 mesh  \n *JVer:* 5.0  \n *Arg1:* strlFilePaths (string list)  \n *Arg2:* iImportType (integer)  \n *Arg3:* dFaceAngle (double)  \n *Arg4:* dEdgeAngle (double)  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* import Nastran op2 post job  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* strlPaths (string list)  \n *Arg3:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ImportTsdbMesh:
+    "*Name:* Post.ImportResults.ImportTsdbMesh  \n*Desc:* import tsdb mesh  \n *JVer:* 5.0  \n *Arg1:* strTsdbFilePath (string)  \n *Arg2:* strBtxFilePath (string)  \n *Arg3:* iImportType (integer)  \n *Arg4:* dFaceAngle (double)  \n *Arg5:* dEdgeAngle (double)  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* import Nastran HDF5Mesh file  \n *JVer:* 5.0  \n *Arg1:* strlFilePaths (string list)  \n *Arg2:* iImportType (integer)  \n *Arg3:* dFaceAngle (double)  \n *Arg4:* dEdgeAngle (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Conn:
+    "*Name:* Properties.ElemRelatedInfo.Conn  \n*Desc:* Set Shell Parameter  \n *JVer:* 5.0  \n *Arg1:* listEricontEndProp ([])  \n *Arg2:* listEricontOriVecProp ([])  \n *Arg3:* listCidProp ([])  \n *Arg4:* listEricontDamperLocProp ([])  \n *Arg5:* listOcidProp ([])  \n *Arg6:* listDamperOffsetVecs ([])  \n *Arg7:* listEricontNodeidProp ([])  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Beam:
+    "*Name:* Properties.Beam  \n*Desc:* add property of 1D beam  \n *JVer:* 5.0  \n *Arg1:* strNewName (string)  \n *Arg2:* iPId (integer)  \n *Arg3:* crSection (cursor)  \n *Arg4:* iShapeDataType (integer)  \n *Arg5:* crMat (cursor)  \n *Arg6:* dArea (double)  \n *Arg7:* dlVecOrient (double list)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Bar:
+    "*Name:* Properties.ElemRelatedInfo.Bar  \n*Desc:* Set Bar Parameter  \n *JVer:* 5.0  \n *Arg1:* listEribeamEndProp ([])  \n *Arg2:* listEribeamOriVecProp ([])  \n *Arg3:* listEribeamOriNodeidProp ([])  \n *Arg4:* listEribeamOffsetVecA ([])  \n *Arg5:* listEribeamOffsetVecB ([])  \n *Arg6:* listEribeamPinAProp ([])  \n *Arg7:* listEribeamPinBProp ([])  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Gap:
+    "*Name:* Properties.ElemRelatedInfo.Gap  \n*Desc:* Set Shell Parameter  \n *JVer:* 5.0  \n *Arg1:* listEricontEndProp ([])  \n *Arg2:* listEricontOriVecProp ([])  \n *Arg3:* listCidProp ([])  \n *Arg4:* listEricontDamperLocProp ([])  \n *Arg5:* listOcidProp ([])  \n *Arg6:* listDamperOffsetVecs ([])  \n *Arg7:* listEricontNodeidProp ([])  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Bush:
+    "*Name:* Properties.ElemRelatedInfo.Bush  \n*Desc:* Set Shell Parameter  \n *JVer:* 5.0  \n *Arg1:* listEricontEndProp ([])  \n *Arg2:* listEricontOriVecProp ([])  \n *Arg3:* listCidProp ([])  \n *Arg4:* listEricontDamperLocProp ([])  \n *Arg5:* listOcidProp ([])  \n *Arg6:* listDamperOffsetVecs ([])  \n *Arg7:* listEricontNodeidProp ([])  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Add:
+    "*Name:* Properties.Material.Add  \n*Desc:* Command use for Properties Material Add  \n *JVer:* 5.0  \n *Arg1:* strMaterialName (string)  \n *Arg2:* listMaterialProperty ([])  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Modify:
+    "*Name:* Properties.Material.Modify  \n*Desc:* Command use for Properties Material Modify  \n *JVer:* 5.0  \n *Arg1:* strMaterialID (string)  \n *Arg2:* listMaterialProperty ([])  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Delete:
+    "*Name:* Properties.Section.Delete  \n*Desc:* Properties Section Delete  \n *JVer:* 5.0  \n *Arg1:* crlSection (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ModifyGeneral:
+    "*Name:* Properties.Section.ModifyGeneral  \n*Desc:* Command use for Properties Section ModifyGeneral  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crSection (cursor)  \n *Arg3:* iSecType (integer)  \n *Arg4:* iGeneralType (integer)  \n *Arg5:* dA (double)  \n *Arg6:* dB (double)  \n *Arg7:* dH (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ModifyLibrary:
+    "*Name:* Properties.Section.ModifyLibrary  \n*Desc:* Command use for Properties Section ModifyLibrary  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crSection (cursor)  \n *Arg3:* iType (integer)  \n *Arg4:* iLibType (integer)  \n *Arg5:* dDimSize0 (double)  \n *Arg6:* dDimSize1 (double)  \n *Arg7:* dDimSize2 (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ModifySketcher:
+    "*Name:* Properties.Section.ModifySketcher  \n*Desc:* Command use for Properties Section ModifySketcher  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crSection (cursor)  \n *Arg3:* iType (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AddGeneral:
+    "*Name:* Properties.Section.AddGeneral  \n*Desc:* Command use for Properties Section AddGeneral  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iSecType (integer)  \n *Arg3:* iSecGenType (integer)  \n *Arg4:* dDsecGensizeA (double)  \n *Arg5:* dDsecGensizeB (double)  \n *Arg6:* dDsecGensizeH (double)  \n *Arg7:* dDsecGensizeT1 (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AddLibrary:
+    "*Name:* Properties.Section.AddLibrary  \n*Desc:* Command use for Properties Section AddLibrary  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iSecType (integer)  \n *Arg3:* iLibType (integer)  \n *Arg4:* dDim1 (double)  \n *Arg5:* dDim2 (double)  \n *Arg6:* dDim3 (double)  \n *Arg7:* dDim4 (double)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AddSketcher:
+    "*Name:* Properties.Section.AddSketcher  \n*Desc:* Command use for Properties Section AddSketcher  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iSecType (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Cohesive:
+    "*Name:* Properties.Cohesive  \n*Desc:* create property 3d cohesive  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crMaterial (cursor)  \n *Arg3:* iResponse (integer)  \n *Arg4:* bSpecifyThick (bool)  \n *Arg5:* dInitialThick (double)  \n *Arg6:* crlTarget (cursor list)  \n *Arg7:* crEdit (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Gasket:
+    "*Name:* Properties.Gasket  \n*Desc:* create property 3d gasket  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crMaterial (cursor)  \n *Arg3:* dThickX (double)  \n *Arg4:* dThickY (double)  \n *Arg5:* dThickZ (double)  \n *Arg6:* crlTarget (cursor list)  \n *Arg7:* crEdit (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  PropertyTable:
+    "*Name:* Properties.PropertyTable  \n*Desc:* renumber property/material ID  \n *JVer:* 5.0  \n *Arg1:* listRenumberProp ([])  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Composite:
+    "*Name:* Properties.Composite  \n*Desc:* Create 2D Composite Material Shell Property  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iDFT (integer)  \n *Arg3:* dGE (double)  \n *Arg4:* iDLAM (integer)  \n *Arg5:* crMat (cursor)  \n *Arg6:* dNSM (double)  \n *Arg7:* iDPID (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  BAR:
+    "*Name:* Properties.BAR  \n*Desc:* create 1D bar property  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iId (integer)  \n *Arg3:* crSection (cursor)  \n *Arg4:* iShapeDataType (integer)  \n *Arg5:* crDatacrMat (cursor)  \n *Arg6:* dDatadArea (double)  \n *Arg7:* dlDataOrient (double list)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ThicknessDistribution:
+    "*Name:* Properties.ThicknessDistribution  \n*Desc:* Properties view Thickness Distribution  \n *JVer:* 5.0  \n *Arg1:* dMax (double)  \n *Arg2:* dMin (double)  \n *Arg3:* iByEach (integer)  \n *Arg4:* dlThicknessValueSet (double list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  RigidBody:
+    "*Name:* Properties.RigidBody  \n*Desc:* assign properties rigid body  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iId (integer)  \n *Arg3:* iRefNodeId (integer)  \n *Arg4:* crlTarget (cursor list)  \n *Arg5:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CalcTimestep:
+    "*Name:* SNOnePush.DropTest.CalcTimestep  \n*Desc:* Used to calculate time step for drop test function  \n *JVer:* 5.0  \n *Arg1:* dRelevantElemRate (double)  \n *Arg2:* dChangeMassRage (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  UpdateFloor:
+    "*Name:* SNOnePush.DropTest.UpdateFloor  \n*Desc:* Assemble cylinder layer  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iDir (integer)  \n *Arg3:* dRopHeight (double)  \n *Arg4:* dSolutionTime (double)  \n *Arg5:* iNumberOutput (integer)  \n *Arg6:* dContactFriction (double)  \n *Arg7:* iRotAxis (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  DropRotation:
+    "*Name:* SNOnePush.DropTest.DropRotation  \n*Desc:* Assemble cylinder layer  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iDir (integer)  \n *Arg3:* dRopHeight (double)  \n *Arg4:* dSolutionTime (double)  \n *Arg5:* iNumberOutput (integer)  \n *Arg6:* dContactFriction (double)  \n *Arg7:* iRotAxis (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CADImport:
+    "*Name:* SNOnePush.CADImport  \n*Desc:* import CAD model  \n *JVer:* 5.0  \n *Arg1:* dDsurfaceplaneTolerance (double)  \n *Arg2:* dDsurfaceplaneAngle (double)  \n *Arg3:* dMaxFacetWidth (double)  \n *Arg4:* bBnxMultipart (bool)  \n *Arg5:* dChordHeightTolerance (double)  \n *Arg6:* dAngleToleranceDegree (double)  \n *Arg7:* iConvertIsolatedCurve (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  DropTestSNOnePush:
+    "*Name:* SNOnePush.DropTestSNOnePush  \n*Desc:* Command use for SNOnePush DropTestSNOnePush  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iDir (integer)  \n *Arg3:* dRopHeight (double)  \n *Arg4:* dSolutionTime (double)  \n *Arg5:* iNumOutput (integer)  \n *Arg6:* dContactFriction (double)  \n *Arg7:* iRotAxis (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AutoSweepClosedLoopShaped:
+    "*Name:* SNOnePush.AutoSweepClosedLoopShaped  \n*Desc:* Make hexa for closed loop shaped  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* dMeshSize (double)  \n *Arg3:* dLengthSize (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Force:
+    "*Name:* StiffCalc.Force  \n*Desc:* create NormalUnityForce  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* poslForce (position list)  \n *Arg3:* poslMoment (position list)  \n *Arg4:* iEnArrowDir (integer)  \n *Arg5:* iDistributionMethod (integer)  \n *Arg6:* crCurCoord (cursor)  \n *Arg7:* crTable (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CreateWeld:
+    "*Name:* SZOnepushReliability.Assembly.CreateWeld  \n*Desc:* Create welding  \n *JVer:* 5.0  \n *Arg1:* crlWelds (cursor list)  \n *Arg2:* dMeshSize (double)  \n *Arg3:* iRrate (integer)  \n *Arg4:* dFilletRadius (double)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ContactSurface:
+    "*Name:* SZOnepushReliability.Assembly.ContactSurface  \n*Desc:* Contact surface  \n *JVer:* 5.0  \n *Arg1:* crlSrcFace (cursor list)  \n *Arg2:* crlTarPart (cursor list)  \n *Arg3:* dTolerance (double)  \n *Arg4:* iLayer (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AlignMidNode:
+    "*Name:* SZOnepushReliability.AlignMidNode  \n*Desc:* align mid-nodes  \n *JVer:* 5.0  \n *Arg1:* crlSource (cursor list)  \n *Arg2:* crlTarget (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  RRod:
+    "*Name:* Test.Connection.RRod  \n*Desc:* create RRod  \n *JVer:* 5.0  \n *Arg1:* rbarConnection (RBAR_CONNECTION)  \n *Arg2:* iUlDOFs (integer)  \n *Arg3:* dTol (double)  \n *Arg4:* crlMasterTarget (cursor list)  \n *Arg5:* crlSlaveTarget (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ProjectLineForWeld:
+    "*Name:* Test.Muffler.ProjectLineForWeld  \n*Desc:* Projec line for weld  \n *JVer:* 5.0  \n *Arg1:* crlEdge (cursor list)  \n *Arg2:* crlFace (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  IntersectionCheck:
+    "*Name:* Test.ZGeometryTest.IntersectionCheck  \n*Desc:* Intersection check  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* crlFace (cursor list)  \n *Arg3:* crlElem (cursor list)  \n *Arg4:* iType (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ShellAssy:
+    "*Name:* Test.ZGeometryTest.ShellAssy  \n*Desc:* Command use for Test ZGeometryTest ShellAssy  \n *JVer:* 5.0  \n *Arg1:* taPart ([])  \n *Arg2:* crlFace (cursor list)  \n *Arg3:* _iMeshType (0)  \n *Arg4:* _bSelfIntersection (False)  \n *Arg5:* _iMethod (3)  \n *Arg6:* _dGapTol (2.1)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FindFacesInPart:
+    "*Name:* Test.FindFacesInPart  \n*Desc:* Find faces in part by typical description  \n *JVer:* 5.0  \n *Arg1:* crPart (cursor)  \n *Arg2:* strIdentical (string)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CreateElementForWelding:
+    "*Name:* Test.CreateElementForWelding  \n*Desc:* Create weld elements  \n *JVer:* 5.0  \n *Arg1:* crlSrcElems (cursor list)  \n *Arg2:* crlDstElems (cursor list)  \n *Arg3:* crlSideElems (cursor list)  \n *Arg4:* crlPart (cursor list)  \n *Arg5:* crMaterial (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Spring:
+    "*Name:* Tool.Connections.Spring  \n*Desc:* Spring connection  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* strName (string)  \n *Arg3:* crlMasterTarget (cursor list)  \n *Arg4:* crlSlaveTarget (cursor list)  \n *Arg5:* crCoordSys (cursor)  \n *Arg6:* iSpringType (integer)  \n *Arg7:* iGround (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Command use for Tool Connections RBE3  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* crlMasterTarget (cursor list)  \n *Arg3:* crlSlaveTarget (cursor list)  \n *Arg4:* listRbe3TermConnection ([])  \n *Arg5:* iTypeRBE3 (integer)  \n *Arg6:* strName (string)  \n *Arg7:* crCoordSys (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Mass:
+    "*Name:* Tool.Connections.Mass  \n*Desc:* Properties Prop0D Mass  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crlTargetNodes (cursor list)  \n *Arg3:* dMass (double)  \n *Arg4:* iDof (integer)  \n *Arg5:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ThreeNode:
+    "*Name:* Tool.Coordinates.ThreeNode  \n*Desc:* create Coordinate by Cylinder Face  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iCoordType (integer)  \n *Arg3:* iOrder (integer)  \n *Arg4:* crlNode (cursor list)  \n *Arg5:* veclPoints (vector list)  \n *Arg6:* crRefCoord (cursor)  \n *Arg7:* crEdit (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Align:
+    "*Name:* Tool.Coordinates.Align  \n*Desc:* create Coordinate by Align  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iCoordType (integer)  \n *Arg3:* iCoordAxis (integer)  \n *Arg4:* bCreateNew (bool)  \n *Arg5:* crlNode (cursor list)  \n *Arg6:* crEdge (cursor)  \n *Arg7:* crEdit (cursor)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Rotate:
+    "*Name:* Tool.Coordinates.Rotate  \n*Desc:* create Coordinate by Rotate  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iCoordType (integer)  \n *Arg3:* vecRotate (vector)  \n *Arg4:* bCreateNew (bool)  \n *Arg5:* crRefCoord (cursor)  \n *Arg6:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AttachCircle:
+    "*Name:* Tool.Coordinates.AttachCircle  \n*Desc:* create Coordinate by AttachCircle  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iCoordType (integer)  \n *Arg3:* crEdge (cursor)  \n *Arg4:* bCreateNew (bool)  \n *Arg5:* crRefCoord (cursor)  \n *Arg6:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  AttachNode:
+    "*Name:* Tool.Coordinates.AttachNode  \n*Desc:* create Coordinate by AttachNode  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* iCoordType (integer)  \n *Arg3:* crNode (cursor)  \n *Arg4:* bCreateNew (bool)  \n *Arg5:* crRefCoord (cursor)  \n *Arg6:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CreateGroup:
+    "*Name:* Tools.Group.CreateGroup  \n*Desc:* Command use for Tools Group CreateGroup  \n *JVer:* 5.0  \n *Arg1:* strGroupName (string)  \n *Arg2:* crlTarget (cursor list)  \n *Arg3:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  DeleteGroupEntity:
+    "*Name:* Tools.Group.DeleteGroupEntity  \n*Desc:* Delete Entity in Group  \n *JVer:* 5.0  \n *Arg1:* crlDelGroup (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ElementCS:
+    "*Name:* Tool.ElementCS  \n*Desc:* create element coordinate system  \n *JVer:* 5.0  \n *Arg1:* iMethod (integer)  \n *Arg2:* iDispType (integer)  \n *Arg3:* bDispXDir (bool)  \n *Arg4:* bDispCoord (bool)  \n *Arg5:* dDispScale (double)  \n *Arg6:* crlTarget (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ProjectedNode:
+    "*Name:* Tools.Measure.Angle.ProjectedNode  \n*Desc:* measure angle on projected node  \n *JVer:* 5.0  \n *Arg1:* crNode (cursor)  \n *Arg2:* strTarget (string)  \n *Arg3:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  TwoNodesAxis:
+    "*Name:* Tools.Measure.Angle.TwoNodesAxis  \n*Desc:* Measure the angle created by 2 nodes and Axis.  \n *JVer:* 5.0  \n *Arg1:* crNode1 (cursor)  \n *Arg2:* crNode2 (cursor)  \n *Arg3:* dlAxis (double list)  \n *Arg4:* strTarget (string)  \n *Arg5:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  EdgeNode:
+    "*Name:* Tools.Measure.Distance.EdgeNode  \n*Desc:* Measure Distance From Node to Edge  \n *JVer:* 5.0  \n *Arg1:* crEdge (cursor)  \n *Arg2:* crNode (cursor)  \n *Arg3:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  TwoPoints:
+    "*Name:* Tools.Measure.Distance.TwoPoints  \n*Desc:* measure distance 2 points  \n *JVer:* 5.0  \n *Arg1:* posPoint1 (position)  \n *Arg2:* posPoint2 (position)  \n *Arg3:* strTarget (string)  \n *Arg4:* iPrecision (integer)  \n *Arg5:* crCoordinateSystem (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  LineNode:
+    "*Name:* Tools.Measure.Distance.LineNode  \n*Desc:* Measures the distance of a perpendicular line from a node toward the line defined by the two nodes.  \n *JVer:* 5.0  \n *Arg1:* crlTargetNode (cursor list)  \n *Arg2:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  PlaneElemToNode:
+    "*Name:* Tools.Measure.Distance.PlaneElemToNode  \n*Desc:* Measure Distance between Node and plane (created by element).  \n *JVer:* 5.0  \n *Arg1:* crNode (cursor)  \n *Arg2:* crElem (cursor)  \n *Arg3:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* measure the distance from node to plane(defined by 3 nodes)  \n *JVer:* 5.0  \n *Arg1:* crNode (cursor)  \n *Arg2:* crNode (cursor)  \n *Arg3:* crNode (cursor)  \n *Arg4:* crNode (cursor)  \n *Arg5:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  FaceNode:
+    "*Name:* Tools.Measure.Distance.FaceNode  \n*Desc:* Measure Distance By FaceNode  \n *JVer:* 5.0  \n *Arg1:* crlFace (cursor list)  \n *Arg2:* crlNode (cursor list)  \n *Arg3:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ByMaterial:
+    "*Name:* Tool.Measure.Mass.ByMaterial  \n*Desc:* Command use for Tool Measure Mass ByMaterial  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* strDensity (string)  \n *Arg3:* strTarget (string)  \n *Arg4:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ByThreeNodes:
+    "*Name:* Tool.Measure.Radius.ByThreeNodes  \n*Desc:* Command use for Tool Measure Radius ByThreeNodes  \n *JVer:* 5.0  \n *Arg1:* crNode1_3 (cursor)  \n *Arg2:* crNode2_3 (cursor)  \n *Arg3:* crNode3_3 (cursor)  \n *Arg4:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* Command use for Tool Measure Radius MeasureRadiusBy3Nodes  \n *JVer:* 5.0  \n *Arg1:* crNode1_3 (cursor)  \n *Arg2:* crNode2_3 (cursor)  \n *Arg3:* crNode3_3 (cursor)  \n *Arg4:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Volume:
+    "*Name:* Tools.Measure.Volume  \n*Desc:* measure volume of parts  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CleanTetCollapse:
+    "*Name:* Tool.MeshQuality.Manual.CleanTetCollapse  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crlElem (cursor list)  \n *Arg2:* iKeep (integer)  \n *Arg3:* iCheckCondition (integer)  \n *Arg4:* dLimitValue (double)  \n *Arg5:* iCleanupMode (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  CleaningVolumeMesh:
+    "*Name:* Tool.MeshQuality.Manual.CleaningVolumeMesh  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* crlElem (cursor list)  \n *Arg3:* dLimitVolume (double)  \n *Arg4:* iMode (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Undo:
+    "*Name:* Toolbar.Undo  \n*Desc:* Undo  \n *JVer:* 5.0  \n *Arg1:* iCntUndo (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Redo:
+    "*Name:* Toolbar.Redo  \n*Desc:* Redo  \n *JVer:* 5.0  \n *Arg1:* iCntRedo (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  SelectionOrder:
+    "*Name:* Tools.BySelection.SelectionOrder  \n*Desc:* Renumber by selection order  \n *JVer:* 5.0  \n *Arg1:* crlTarget (cursor list)  \n *Arg2:* iType (integer)  \n *Arg3:* iMethod (integer)  \n *Arg4:* iStartID (integer)  \n *Arg5:* iIncrementStep (integer)  \n *Arg6:* bAscending (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  OriginalID:
+    "*Name:* Tools.BySelection.OriginalID  \n*Desc:* Renumber by original ID  \n *JVer:* 5.0  \n *Arg1:* crlTarget (cursor list)  \n *Arg2:* iType (integer)  \n *Arg3:* iMethod (integer)  \n *Arg4:* iStartID (integer)  \n *Arg5:* iIncrementStep (integer)  \n *Arg6:* bAscending (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  LBC:
+    "*Name:* Tools.TotalLoad.LBC  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crlTarget (cursor list)  \n *Arg2:* crCoordinate (cursor)  \n *Arg3:* strOutput (string)  \n *Arg4:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Node:
+    "*Name:* Tools.TotalLoad.Node  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crlTarget (cursor list)  \n *Arg2:* crCoordinate (cursor)  \n *Arg3:* strOutput (string)  \n *Arg4:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  NodeCS:
+    "*Name:* Tools.NodeCS  \n*Desc:* create Node CS  \n *JVer:* 5.0  \n *Arg1:* crlInst (cursor list)  \n *Arg2:* crCoordSystem (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  NodeCSGroup:
+    "*Name:* Tools.NodeCSGroup  \n*Desc:* Command use for Tools NodeCSGroup  \n *JVer:* 5.0  \n *Return:* 1 success, 0 fail (int)  \n ",
+  DisplacementCS:
+    "*Name:* Tools.DisplacementCS  \n*Desc:* displace coordinate  \n *JVer:* 5.0  \n *Arg1:* crlInst (cursor list)  \n *Arg2:* crCoordSystem (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Connections:
+    "*Name:* Tools.Connections  \n*Desc:* renumber connection  \n *JVer:* 5.0  \n *Arg1:* listConnectRenumberTool ([])  \n *Return:* 1 success, 0 fail (int)  \n ",
+  GroupByDCS:
+    "*Name:* Tools.GroupByDCS  \n*Desc:* Command use for Tools GroupByDCS  \n *JVer:* 5.0  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Renumber:
+    "*Name:* Tools.Renumber  \n*Desc:* Set renumber data  \n *JVer:* 5.0  \n *Arg1:* listRenumberItem ([])  \n *Arg2:* bAssignProp (bool)  \n *Arg3:* bSurfCornerFirst (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  RenumberByConnection:
+    "*Name:* Tools.RenumberByConnection  \n*Desc:* Renumber by selection  \n *JVer:* 5.0  \n *Arg1:* connectRenumberTool (CONNECT_RENUMBER_TOOL)  \n *Arg2:* crlTarget (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  RenumberByFile:
+    "*Name:* Tools.RenumberByFile  \n*Desc:* Renumber By File  \n *JVer:* 5.0  \n *Arg1:* strCSVPath (string)  \n *Arg2:* iConfilctStrategy (integer)  \n *Arg3:* bNeedToUpdateCount (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ModelInfo:
+    "*Name:* Tools.ModelInfo  \n*Desc:* export model info file  \n *JVer:* 5.0  \n *Arg1:* strPath (string)  \n *Arg2:* strPath (string)  \n *Arg3:* listMeshPartInfoTool ([])  \n *Arg4:* bPropertyAssignedPart (bool)  \n *Arg5:* bPropertyAssignedSummary (bool)  \n *Arg6:* iModelNode (integer)  \n *Arg7:* iNmodelnodeWithprop (integer)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Section:
+    "*Name:* Tools.Section  \n*Desc:* Command use for Tools Section  \n *JVer:* 5.0  \n *Arg1:* bSection (bool)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  ThreeNodes:
+    "*Name:* Tools.Measure.Radius.ThreeNodes  \n*Desc:* Measure Radius MeasureRadiusBy3Nodes  \n *JVer:* 5.0  \n *Arg1:* crNode13 (cursor)  \n *Arg2:* crNode23 (cursor)  \n *Arg3:* crNode33 (cursor)  \n *Arg4:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  TwoElemEdges:
+    "*Name:* Tools.Measure.Angle.TwoElemEdges  \n*Desc:*   \n *JVer:* 5.0  \n *Arg1:* crpElemEdge1 (cursor pair)  \n *Arg2:* crpElemEdge2 (cursor pair)  \n *Arg3:* strTarget (string)  \n *Arg4:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  TwoAxis:
+    "*Name:* Tools.Measure.Angle.TwoAxis  \n*Desc:* Measure the angle created by 2 Axis.  \n *JVer:* 5.0  \n *Arg1:* dlXyz1 (double list)  \n *Arg2:* 0 ([])  \n *Arg3:* 0 ([])  \n *Arg4:* dlXyz2 (double list)  \n *Arg5:* 0 ([])  \n *Arg6:* 0 ([])  \n *Arg7:* strTarget (string)  \n ... please read PSJ Command document for other args ...  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Element:
+    "*Name:* Tools.Measure.Area.Element  \n*Desc:* Command use for Tools Measure Area Element  \n *JVer:* 5.0  \n *Arg1:* crlElem (cursor list)  \n *Arg2:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Body:
+    "*Name:* Tools.Measure.Area.Body  \n*Desc:* Command use for Tools Measure Area Body  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  Property:
+    "*Name:* Tools.Measure.Mass.Property  \n*Desc:* measure mass using applied property  \n *JVer:* 5.0  \n *Arg1:* crlPart (cursor list)  \n *Arg2:* crlCondition (cursor list)  \n *Arg3:* strTarget (string)  \n *Arg4:* bGravityCenter (bool)  \n *Arg5:* iPrecision (integer)  \n *Return:* 1 success, 0 fail (int)  \n ",
 };

@@ -19,13 +19,12 @@ export function activate(context: vscode.ExtensionContext) {
     provideHover(document, position, token) {
       const wordRange = document.getWordRangeAtPosition(position);
       const word = document.getText(wordRange);
-      console.log(word);
 
-      const str = new vscode.MarkdownString(
-        "#### Purpose**Name**: FileMenu.AddJTDB**Desc**: add jtdb into model**JVer**: 5.0",
+      const mdStr = new vscode.MarkdownString(
+        // @ts-ignore
+        callTips[word],
       );
-      // @ts-ignore
-      return new vscode.Hover(callTips[word]);
+      return new vscode.Hover(mdStr);
     },
   });
 

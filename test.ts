@@ -251,22 +251,55 @@ const readPSJCallTips = async () => {
       "utf8",
     );
     Papa.parse(files, {
+      delimiter: ":)))",
       complete: function (results: any) {
         const res = results.data;
 
-        const obj = {
-          "FileMenu.AddJTDB":
-            "Name: FileMenu.AddJTDB\nDesc: add jtdb into model\nJVer: 5.0",
-        };
+        // const obj = {
+        //   "FileMenu.AddJTDB":
+        //     "Name: FileMenu.AddJTDB\nDesc: add jtdb into model\nJVer: 5.0",
+        // };
+        const obj = res.reduce(
+          (arr: any, cur: string[], idx: number, bigArr: any) => {
+            if (idx === bigArr.length - 1) {
+              return arr[1];
+            }
+            if (cur[0].startsWith("Name:")) {
+              const match = cur[0].match(/(?<=\.)[A-Za-z]*$/);
+              if (match !== null && match[0] !== "") {
+                arr[0] = match[0];
+
+                const mod = cur[0].match(/^.*(?=:)/);
+                let _newCur0 = cur[0];
+                if (mod !== null) {
+                  _newCur0 = cur[0].replace(mod[0] + ":", `*${mod[0]}:*`);
+                }
+                arr[1][arr[0]] = _newCur0 + "  \n";
+              }
+              return arr;
+            } else if (cur[0].startsWith("-----")) {
+              return arr;
+            } else {
+              const mod = cur[0].match(/^.*(?=:)/);
+              let _newCur0 = cur[0];
+              if (mod !== null) {
+                _newCur0 = cur[0].replace(mod[0] + ":", `*${mod[0]}:*`);
+              }
+              arr[1][arr[0]] = arr[1][arr[0]].concat(_newCur0 + "  \n ");
+              return arr;
+            }
+          },
+          ["", {}],
+        );
         console.log(obj);
 
-        // fs.writeFile(
-        //   `${__dirname}/data/psjSnippets.txt`,
-        //   JSON.stringify(snippets),
-        //   function (err: any) {
-        //     if (err) return console.log(err);
-        //   },
-        // );
+        fs.writeFile(
+          `${__dirname}/data/psjCallTips.txt`,
+          JSON.stringify(obj),
+          function (err: any) {
+            if (err) return console.log(err);
+          },
+        );
       },
     });
   } else {
