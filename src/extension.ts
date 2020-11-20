@@ -23,14 +23,23 @@ export function activate(context: vscode.ExtensionContext) {
       position: vscode.Position,
       token: vscode.CancellationToken,
     ) {
-      // vscode.workspace.getConfiguration()
-      return new vscode.Location(
-        // vscode.Uri.file(`${path.dirname(document.fileName)}/test2.py`),
-        vscode.Uri.file(
-          `C:/Program Files/TechnoStar/Jupiter-Pre_5.0/macro/Analysis/AbaqusStep.py`,
-        ),
-        new vscode.Position(4, 4),
-      );
+      const wordRange = document.getWordRangeAtPosition(position);
+      const word = document.getText(wordRange);
+      const linePrefix = document.lineAt(position).text;
+      const fnName = linePrefix.match(/^.*(?=\()/);
+
+      // @ts-ignore
+      if (fnName !== null && callTips[fnName[0]].prefix === word) {
+        return new vscode.Location(
+          // vscode.Uri.file(`${path.dirname(document.fileName)}/out/Analysis/__init__.pyi`),
+          vscode.Uri.file(
+            `C:/Program Files/TechnoStar/Jupiter-Pre_5.0/macro/Analysis/AbaqusStep.py`,
+          ),
+          new vscode.Position(4, 1),
+        );
+      } else {
+        return undefined;
+      }
     },
   });
 
