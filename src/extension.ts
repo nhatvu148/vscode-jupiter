@@ -24,10 +24,16 @@ export function activate(context: vscode.ExtensionContext) {
 
       // @ts-ignore
       if (fnName !== null && callTips[fnName[0]].prefix === word) {
-        const mdStr = new vscode.MarkdownString(
-          // @ts-ignore
-          callTips[fnName[0]].text,
+        const mdStr = new vscode.MarkdownString();
+        mdStr.appendCodeblock("(method) " + fnName[0], "javascript");
+        mdStr.appendMarkdown("***  \n");
+        // @ts-ignore
+        mdStr.appendMarkdown(callTips[fnName[0]].text);
+        mdStr.appendMarkdown("***  \n");
+        mdStr.appendMarkdown(
+          "[See reference here](https://psjdoc.e-technostar.com/)",
         );
+
         return new vscode.Hover(mdStr);
       } else {
         return undefined;

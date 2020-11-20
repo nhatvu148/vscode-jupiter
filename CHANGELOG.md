@@ -4,9 +4,13 @@ All notable changes to the "jupiter" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.1.2]
+
+- add missing "\_" in call tip function names
+
 ## [1.1.1]
 
-- add missing "_" in call tip function names
+- add missing "\_" in call tip function names
 
 ## [1.1.0]
 
