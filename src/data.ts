@@ -5320,7 +5320,12 @@ export const callTips = {
   "MuxWeld.MeshingPass": {
     prefix: "MeshingPass",
     text:
-      "*Name:* MuxWeld.MeshingPass  \n*Desc:* sweep cross section to create welding  \n *JVer:* 5.0  \n *Arg1:* crPart (cursor)  \n *Arg2:* crlEdge (cursor list)  \n *Arg3:* dMeshSize (double)  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* create Property 3D Weld Bead  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crMaterial (cursor)  \n *Arg3:* crlTarget (cursor list)  \n *Arg4:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* NSModeling NSModeling_Close_Hole  \n *JVer:* 5.0  \n *Arg1:* iType (integer)  \n *Arg2:* dMaxLength (double)  \n *Arg3:* bMergeFaces (bool)  \n *Arg4:* bSetCenterPoint (bool)  \n *Arg5:* crlNode (cursor list)  \n *Arg6:* crlPart (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
+      "*Name:* MuxWeld.MeshingPass  \n*Desc:* sweep cross section to create welding  \n *JVer:* 5.0  \n *Arg1:* crPart (cursor)  \n *Arg2:* crlEdge (cursor list)  \n *Arg3:* dMeshSize (double)  \n *Return:* 1 success, 0 fail (int)  \n *Desc:* create Property 3D Weld Bead  \n *JVer:* 5.0  \n *Arg1:* strName (string)  \n *Arg2:* crMaterial (cursor)  \n *Arg3:* crlTarget (cursor list)  \n *Arg4:* crEdit (cursor)  \n *Return:* 1 success, 0 fail (int)  \n ",
+  },
+  "NSModeling.NSModeling_Close_Hole": {
+    prefix: "NSModeling_Close_Hole",
+    text:
+      "*Name:* NSModeling.NSModeling_Close_Hole  \n*Desc:* NSModeling NSModeling_Close_Hole  \n *JVer:* 5.0  \n *Arg1:* iType (integer)  \n *Arg2:* dMaxLength (double)  \n *Arg3:* bMergeFaces (bool)  \n *Arg4:* bSetCenterPoint (bool)  \n *Arg5:* crlNode (cursor list)  \n *Arg6:* crlPart (cursor list)  \n *Return:* 1 success, 0 fail (int)  \n ",
   },
   "OasisAWizard.LocalMeshing.FilletMapMeshing": {
     prefix: "FilletMapMeshing",

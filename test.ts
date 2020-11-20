@@ -265,7 +265,7 @@ const readPSJCallTips = async () => {
               return arr[1];
             }
             if (cur[0].startsWith("Name:")) {
-              const match = cur[0].match(/(?<=\.)[A-Za-z]*$/);
+              const match = cur[0].match(/(?<=\.)[A-Za-z_]*$/);
               const mod = cur[0].match(/^.*(?=:)/);
 
               if (match !== null && mod !== null && match[0] !== "") {
