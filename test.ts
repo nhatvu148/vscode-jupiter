@@ -315,15 +315,16 @@ const readPSJCallTips = async () => {
 // readPSJSnippets();
 // readPSJCallTips();
 
-const searchText = () => {
-  fs.readFile(
-    "C:/Program Files/TechnoStar/Jupiter-Pre_5.0/Lib/_bootlocale.py",
-    function (err: any, data: any) {
-      if (err) throw err;
-      if (data.includes("getpreferredencoding")) {
-        console.log(data);
-      }
-    },
-  );
-};
-searchText();
+function* getNames() {
+  console.log("2");
+  yield "John";
+  console.log("4");
+  let myVal = yield "Stephanie";
+  console.log(`6. Passed in value: ${myVal}`);
+}
+
+const nameGen = getNames();
+console.log("1");
+console.log(`3. ${nameGen.next().value}`);
+console.log(`5. ${nameGen.next().value}`);
+console.log(`7. Done?${nameGen.next(999).done}`);
