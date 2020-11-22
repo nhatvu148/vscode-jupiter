@@ -1,6 +1,6 @@
 ## Purpose
 
-Add language support for PSJ (Python Script in Jupiter) amd JPL (Jupiter Macro) to Visual Studio Code.
+Add language support for PSJ (Python Script in Jupiter) and JPL (Jupiter Macro) to Visual Studio Code.
 
 ## Overview
 
