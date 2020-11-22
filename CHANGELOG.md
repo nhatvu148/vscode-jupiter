@@ -4,6 +4,10 @@ All notable changes to the "jupiter" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.1.4]
+
+- narrow down definition to specific methods
+
 ## [1.1.3]
 
 - adding Go to definition
