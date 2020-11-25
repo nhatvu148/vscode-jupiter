@@ -315,16 +315,79 @@ const readPSJCallTips = async () => {
 // readPSJSnippets();
 // readPSJCallTips();
 
-function* getNames() {
-  console.log("2");
-  yield "John";
-  console.log("4");
-  let myVal = yield "Stephanie";
-  console.log(`6. Passed in value: ${myVal}`);
-}
+// function* getNames() {
+//   console.log("2");
+//   yield "John";
+//   console.log("4");
+//   let myVal = yield "Stephanie";
+//   console.log(`6. Passed in value: ${myVal}`);
+// }
 
-const nameGen = getNames();
-console.log("1");
-console.log(`3. ${nameGen.next().value}`);
-console.log(`5. ${nameGen.next().value}`);
-console.log(`7. Done?${nameGen.next(999).done}`);
+// const nameGen = getNames();
+// console.log("1");
+// console.log(`3. ${nameGen.next().value}`);
+// console.log(`5. ${nameGen.next().value}`);
+// console.log(`7. Done?${nameGen.next(999).done}`);
+
+const psjUtilityCalltips = async () => {
+  if (fs.existsSync(`${__dirname}/data/PSJUtilityCalltips.dat`)) {
+    const files = await fs.readFileSync(
+      `${__dirname}/data/PSJUtilityCalltips.dat`,
+      "utf8",
+    );
+    Papa.parse(files, {
+      delimiter: ":)))",
+      complete: function (results: any) {
+        const res = results.data;
+        const obj = res.reduce(
+          (arr: any, cur: string[], idx: number, bigArr: any) => {
+            if (idx === bigArr.length - 1) {
+              return arr[1];
+            }
+            if (cur[0].startsWith("Function:")) {
+              const match = cur[0].match(/(?<=\.)[A-Za-z_]*$/);
+              const mod = cur[0].match(/^.*(?=:)/);
+
+              if (match !== null && mod !== null && match[0] !== "") {
+                arr[0] = cur[0].replace(mod[0] + ": ", "");
+                const fnName = match[0];
+                const _newCur0 = cur[0].replace(mod[0] + ":", `*${mod[0]}:*`);
+                arr[1][arr[0]] = {
+                  prefix: fnName,
+                  text: _newCur0 + "  \n",
+                };
+              }
+              return arr;
+            } else if (cur[0].startsWith("-----")) {
+              return arr;
+            } else {
+              const mod = cur[0].match(/^.*(?=:)/);
+              let _newCur0 = cur[0];
+              if (mod !== null) {
+                _newCur0 = cur[0].replace(mod[0] + ":", `*${mod[0]}:*`);
+              }
+              arr[1][arr[0]].text = arr[1][arr[0]].text.concat(
+                _newCur0 + "  \n ",
+              );
+              return arr;
+            }
+          },
+          ["", {}],
+        );
+
+        console.log(obj);
+
+        fs.writeFile(
+          `${__dirname}/data/psjUtilityCallTips.txt`,
+          JSON.stringify(obj),
+          function (err: any) {
+            if (err) return console.log(err);
+          },
+        );
+      },
+    });
+  } else {
+    console.log(__dirname);
+  }
+};
+psjUtilityCalltips();
