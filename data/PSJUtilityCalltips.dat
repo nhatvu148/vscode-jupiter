@@ -461,7 +461,7 @@ Example: JPT.GetAllByType(JPT.EntityType.INST)
 --------------------------------------------------------------------------
 Function: JPT.GetCountByType
 Description: Get count of entities by type
-Input1: DItem Type: BODY, VERTEX, EDGE, FACE, SOLID, ELEM,...(JPT.EntityType)
+Input1: DItem Type BODY, VERTEX, EDGE, FACE, SOLID, ELEM,...(JPT.EntityType)
 Return: Number of entities(int)
 Example: JPT.GetCountByType(JPT.EntityType.BODY)
 --------------------------------------------------------------------------

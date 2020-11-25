@@ -6285,7 +6285,7 @@ export const callTips = {
   "JPT.GetCountByType": {
     prefix: "GetCountByType",
     text:
-      "*Function:* JPT.GetCountByType  \n*Description:* Get count of entities by type  \n *Input1: DItem Type:* BODY, VERTEX, EDGE, FACE, SOLID, ELEM,...(JPT.EntityType)  \n *Return:* Number of entities(int)  \n *Example:* JPT.GetCountByType(JPT.EntityType.BODY)  \n ",
+      "*Function:* JPT.GetCountByType  \n*Description:* Get count of entities by type  \n *Input1:* DItem Type BODY, VERTEX, EDGE, FACE, SOLID, ELEM,...(JPT.EntityType)  \n *Return:* Number of entities(int)  \n *Example:* JPT.GetCountByType(JPT.EntityType.BODY)  \n ",
   },
   "JPT.GetAllSelected": {
     prefix: "GetAllSelected",
