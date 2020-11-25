@@ -6095,7 +6095,12 @@ export const callTips = {
   "JPT.ListDoubleToMacroVector": {
     prefix: "ListDoubleToMacroVector",
     text:
-      "*Function:* JPT.ListDoubleToMacroVector  \n*Description:* convert list of double value to vector3d macro string    \n *Input1:* value1 (double)   \n *Input2:* value2 (double)   \n *Input2:* value3 (double)   \n *Return:* vector3d macro string (string)   \n *Example:*   \n JPT.ListDoubleToMacroVector(1.0, 1.0, 1.0) // [1.0,1.0,1.0]  \n JPT.ListDoubleToMacroVector(1, 2, 3) // [1,2,3]  \n *Description:* convert Vector3d object to vector3d macro string   \n *Input1:* Vector3d object (DTVector3d class)  \n *Return:* vector3d macro string (string)   \n *Example:*   \n listNodeObject = JPT.GetAllNodes()  \n posNode1 = listNodeObject[0].pos  \n JPT.DTVector3dToMacroVector(posNode1)  \n ",
+      "*Function:* JPT.ListDoubleToMacroVector  \n*Description:* convert list of double value to vector3d macro string    \n *Input1:* value1 (double)   \n *Input2:* value2 (double)   \n *Input3:* value3 (double)   \n *Return:* vector3d macro string (string)   \n *Example:*   \n JPT.ListDoubleToMacroVector(1.0, 1.0, 1.0) // [1.0,1.0,1.0]  \n JPT.ListDoubleToMacroVector(1, 2, 3) // [1,2,3]  \n ",
+  },
+  "JPT.DTVector3dToMacroVector": {
+    prefix: "DTVector3dToMacroVector",
+    text:
+      "*Function:* JPT.DTVector3dToMacroVector  \n*Description:* convert Vector3d object to vector3d macro string   \n *Input1:* Vector3d object (DTVector3d class)  \n *Return:* vector3d macro string (string)   \n *Example:*   \n listNodeObject = JPT.GetAllNodes()  \n posNode1 = listNodeObject[0].pos  \n JPT.DTVector3dToMacroVector(posNode1)  \n ",
   },
   "JPT.DItemToMacroTCursor": {
     prefix: "DItemToMacroTCursor",
