@@ -494,40 +494,29 @@ const readPSJCommandsPython = async () => {
     Papa.parse(files, {
       complete: function (results: any) {
         const res = results.data;
-        const snippets = res.reduce((obj: any, cur: any, idx: number) => {
-          const fnName = cur[0].split("(")[0];
-          if (obj[fnName]) {
-            return obj;
-          } else {
-            let i = [1];
-            const modCur = cur
-              .join()
-              .split("=")
-              .map((a: string) => a.trim())
-              .map((a: string, index: number, arr: string[]) => {
-                if (index === 0) {
-                  return a;
-                } else if (index !== arr.length - 1) {
-                  const val = a.match(/.*(?=\,)/);
-                  return stringManipulate(val, a, i);
-                } else {
-                  const val = a.match(/.*(?=\))/);
-                  return stringManipulate(val, a, i);
-                }
-              });
 
-            return {
-              ...obj,
-              [fnName]: {
-                prefix: `${fnName}`,
-                body: modCur.join("="),
-                description: `Code snippet for ${fnName}`,
-              },
-            };
-          }
-        }, {});
+        const res2 = res
+          .map((a: string[]) => {
+            return a.join(",").split(".");
+          })
+          .reduce((arr: string[][], cur: string[], idx: number) => {
+            const preArr: string[] = [];
+            const postArr: string[] = [];
 
-        console.log(snippets);
+            for (let i = 0; i < cur.length; i++) {
+              if (cur[i].includes("(")) {
+                postArr.push(cur.slice(i).join("."));
+                break;
+              } else {
+                preArr.push(cur[i]);
+              }
+            }
+
+            arr.push([...preArr, ...postArr]);
+            return arr;
+          }, []);
+
+        console.log(res2);
 
         // fs.writeFile(
         //   `${__dirname}/data/psjSnippets.txt`,
@@ -542,7 +531,8 @@ const readPSJCommandsPython = async () => {
     console.log(__dirname);
   }
 };
-// readPSJCommandsPython()
+readPSJCommandsPython();
+
 const readEntityType = async () => {
   if (fs.existsSync(`${__dirname}/data/EntityType.txt`)) {
     const files = await fs.readFileSync(
@@ -575,4 +565,4 @@ const readEntityType = async () => {
     console.log(__dirname);
   }
 };
-readEntityType();
+// readEntityType();
