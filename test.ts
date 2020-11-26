@@ -459,7 +459,9 @@ const psjUtilityCalltipsPython = async () => {
             `${__dirname}/data/Jupiter.py`,
             `def ${obj[a].prefix}(${obj[a].params}):\n    message = "${a}(${obj[
               a
-            ].params.map((b: string) => b.includes("_str") ? "'{}'" : "{}")})".format(${
+            ].params.map((b: string) =>
+              b.includes("_str") ? "'{}'" : "{}",
+            )})".format(${
               obj[a].params
             })\n    return JPT_RUN_LINE(message)\n\n`,
             function (err: any) {
@@ -481,7 +483,7 @@ const psjUtilityCalltipsPython = async () => {
     console.log(__dirname);
   }
 };
-psjUtilityCalltipsPython();
+// psjUtilityCalltipsPython();
 
 const readPSJCommandsPython = async () => {
   if (fs.existsSync(`${__dirname}/data/PSJCommands.txt`)) {
@@ -541,3 +543,36 @@ const readPSJCommandsPython = async () => {
   }
 };
 // readPSJCommandsPython()
+const readEntityType = async () => {
+  if (fs.existsSync(`${__dirname}/data/EntityType.txt`)) {
+    const files = await fs.readFileSync(
+      `${__dirname}/data/EntityType.txt`,
+      "utf8",
+    );
+    Papa.parse(files, {
+      complete: function (results: any) {
+        const res = results.data;
+
+        const res2 = res.map((a: string[]) => {
+          const [a1, a2] = a[0].split(":");
+          return a2.split(".")[2] + " = " + a1;
+        });
+
+        console.log(res2);
+
+        res2.forEach((element: any) => {
+          fs.appendFile(
+            `${__dirname}/data/EntityType2.txt`,
+            element + "\n",
+            function (err: any) {
+              if (err) throw err;
+            },
+          );
+        });
+      },
+    });
+  } else {
+    console.log(__dirname);
+  }
+};
+readEntityType();
