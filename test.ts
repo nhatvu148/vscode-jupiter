@@ -390,7 +390,7 @@ const psjUtilityCalltips = async () => {
     console.log(__dirname);
   }
 };
-psjUtilityCalltips();
+// psjUtilityCalltips();
 
 const psjUtilityCalltipsPython = async () => {
   if (fs.existsSync(`${__dirname}/data/PSJUtilityCalltips.dat`)) {
@@ -436,7 +436,11 @@ const psjUtilityCalltipsPython = async () => {
                 if (cur[0].startsWith("Input1: None")) {
                   arr[2] = [];
                 } else if (mod[0].startsWith("Input")) {
-                  arr[2].push(mod[0]);
+                  if (cur[0].includes("string")) {
+                    arr[2].push(mod[0] + "_str");
+                  } else {
+                    arr[2].push(mod[0]);
+                  }
                 }
               }
               arr[1][arr[0]].text = arr[1][arr[0]].text.concat(
@@ -455,9 +459,9 @@ const psjUtilityCalltipsPython = async () => {
             `${__dirname}/data/Jupiter.py`,
             `def ${obj[a].prefix}(${obj[a].params}):\n    message = "${a}(${obj[
               a
-            ].params.map((b: string) => "{}")})".format(${
+            ].params.map((b: string) => b.includes("_str") ? "'{}'" : "{}")})".format(${
               obj[a].params
-            })\n    return get_res_from_jupiter(message)\n\n`,
+            })\n    return JPT_RUN_LINE(message)\n\n`,
             function (err: any) {
               if (err) throw err;
             },
@@ -477,4 +481,63 @@ const psjUtilityCalltipsPython = async () => {
     console.log(__dirname);
   }
 };
-// psjUtilityCalltipsPython();
+psjUtilityCalltipsPython();
+
+const readPSJCommandsPython = async () => {
+  if (fs.existsSync(`${__dirname}/data/PSJCommands.txt`)) {
+    const files = await fs.readFileSync(
+      `${__dirname}/data/PSJCommands.txt`,
+      "utf8",
+    );
+    Papa.parse(files, {
+      complete: function (results: any) {
+        const res = results.data;
+        const snippets = res.reduce((obj: any, cur: any, idx: number) => {
+          const fnName = cur[0].split("(")[0];
+          if (obj[fnName]) {
+            return obj;
+          } else {
+            let i = [1];
+            const modCur = cur
+              .join()
+              .split("=")
+              .map((a: string) => a.trim())
+              .map((a: string, index: number, arr: string[]) => {
+                if (index === 0) {
+                  return a;
+                } else if (index !== arr.length - 1) {
+                  const val = a.match(/.*(?=\,)/);
+                  return stringManipulate(val, a, i);
+                } else {
+                  const val = a.match(/.*(?=\))/);
+                  return stringManipulate(val, a, i);
+                }
+              });
+
+            return {
+              ...obj,
+              [fnName]: {
+                prefix: `${fnName}`,
+                body: modCur.join("="),
+                description: `Code snippet for ${fnName}`,
+              },
+            };
+          }
+        }, {});
+
+        console.log(snippets);
+
+        // fs.writeFile(
+        //   `${__dirname}/data/psjSnippets.txt`,
+        //   JSON.stringify(snippets),
+        //   function (err: any) {
+        //     if (err) return console.log(err);
+        //   },
+        // );
+      },
+    });
+  } else {
+    console.log(__dirname);
+  }
+};
+// readPSJCommandsPython()
