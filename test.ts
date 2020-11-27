@@ -704,7 +704,7 @@ const readPSJCommandsPython = async () => {
                             `${__dirname}/data/Utility.py`,
                             `    def ${fnName}(self, ${params.map(
                               (p: string) => p.split("=")[0],
-                            )}):\n        message = "${el3}.${el4}.${el5}.${el6}.${fnName}(${params.map(
+                            )}):\n        message = "${el3}.${el4}.${el5}.${fnName}(${params.map(
                               (p: string) => {
                                 const varName = p.split("=")[0];
                                 return varName.includes("str") ? "'{}'" : "{}";
@@ -718,73 +718,93 @@ const readPSJCommandsPython = async () => {
                     }
                   }
                 }
+              }
+            }
 
-                // res3[el3][el4]["own"].forEach()
+            for (let i4 = 0; i4 < Object.keys(res3[el3]).length; i4++) {
+              const el4 = Object.keys(res3[el3])[i4];
 
-                // res3[el3][el4]
+              if (el4 !== "own") {
+                await appendFile(
+                  `${__dirname}/data/Utility.py`,
+                  `class ${el4}:\n`,
+                );
+
+                for (
+                  let i5 = 0;
+                  i5 < Object.keys(res3[el3][el4]).length;
+                  i5++
+                ) {
+                  const el5 = Object.keys(res3[el3][el4])[i5];
+
+                  if (el5 !== "own") {
+                    await appendFile(
+                      `${__dirname}/data/Utility.py`,
+                      `    ${el5} = ${el5}()\n\n`,
+                    );
+                  }
+
+                  if (el5 === "own") {
+                    for (let i6 = 0; i6 < res3[el3][el4][el5].length; i6++) {
+                      const [fnName, params] = getParams(
+                        res3[el3][el4][el5][i6],
+                      );
+                      await appendFile(
+                        `${__dirname}/data/Utility.py`,
+                        `    def ${fnName}(self, ${params.map(
+                          (p: string) => p.split("=")[0],
+                        )}):\n        message = "${el3}.${el4}.${fnName}(${params.map(
+                          (p: string) => {
+                            const varName = p.split("=")[0];
+                            return varName.includes("str") ? "'{}'" : "{}";
+                          },
+                        )})".format(${params.map(
+                          (p: string) => p.split("=")[0],
+                        )})\n        return JPT_RUN_LINE(message)\n\n`,
+                      );
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          for (let i3 = 0; i3 < Object.keys(res3).length; i3++) {
+            const el3 = Object.keys(res3)[i3];
+
+            await appendFile(`${__dirname}/data/Utility.py`, `class ${el3}:\n`);
+
+            for (let i4 = 0; i4 < Object.keys(res3[el3]).length; i4++) {
+              const el4 = Object.keys(res3[el3])[i4];
+
+              if (el4 !== "own") {
+                await appendFile(
+                  `${__dirname}/data/Utility.py`,
+                  `    ${el4} = ${el4}()\n\n`,
+                );
+              }
+
+              if (el4 === "own") {
+                for (let i5 = 0; i5 < res3[el3][el4].length; i5++) {
+                  const [fnName, params] = getParams(res3[el3][el4][i5]);
+                  await appendFile(
+                    `${__dirname}/data/Utility.py`,
+                    `    def ${fnName}(${params.map(
+                      (p: string) => p.split("=")[0],
+                    )}):\n        message = "${el3}.${fnName}(${params.map(
+                      (p: string) => {
+                        const varName = p.split("=")[0];
+                        return varName.includes("str") ? "'{}'" : "{}";
+                      },
+                    )})".format(${params.map(
+                      (p: string) => p.split("=")[0],
+                    )})\n        return JPT_RUN_LINE(message)\n\n`,
+                  );
+                }
               }
             }
           }
         })();
-
-        // res2.forEach((strArr: string[]) => {
-        //   for (let i = strArr.length - 1; i > 0; i--) {
-        //     if (strArr[i].includes("(")) {
-        //       const fnName = strArr[i].split("(")[0];
-        //       const inbracket = strArr[i].match(/(?<=\().*(?=\))/);
-        //       let params: string[] = [];
-        //       if (inbracket) {
-        //         params = inbracket[0].split(",").reduce(
-        //           (ib: any[], cur: string, idx: number, arr: any[]) => {
-        //             if (cur.includes("=")) {
-        //               ib[0]++;
-        //               ib[1].push(cur);
-        //             } else if (cur === "") {
-        //               ib[1].push(cur);
-        //             } else {
-        //               ib[1][ib[0]] = ib[1][ib[0]].concat("," + cur);
-        //             }
-        //             if (idx === arr.length - 1) {
-        //               return ib[1];
-        //             } else {
-        //               return ib;
-        //             }
-        //           },
-        //           [-1, []],
-        //         );
-        //       }
-        //       // console.log(params);
-        //       fs.appendFile(
-        //         `${__dirname}/data/Utility.py`,
-        //         `class ${strArr[i - 1]}:\n    def ${fnName}(${
-        //           i > 1 ? "self, " : ""
-        //         }${params.map(
-        //           (p: string) => p.split("=")[0],
-        //         )}):\n        message = "${strArr
-        //           .slice(0, i)
-        //           .join(".")}.${fnName}(${params.map((p: string) => {
-        //           const varName = p.split("=")[0];
-        //           return varName.includes("str") ? "'{}'" : "{}";
-        //         })})".format(${params.map(
-        //           (p: string) => p.split("=")[0],
-        //         )})\n        return JPT_RUN_LINE(message)\n\n`,
-        //         function (err: any) {
-        //           if (err) throw err;
-        //         },
-        //       );
-        //     } else {
-        //       fs.appendFile(
-        //         `${__dirname}/data/Utility.py`,
-        //         `class ${strArr[i - 1]}:\n    ${strArr[i]} = ${
-        //           strArr[i]
-        //         }()\n\n`,
-        //         function (err: any) {
-        //           if (err) throw err;
-        //         },
-        //       );
-        //     }
-        //   }
-        // });
 
         // res2.forEach((strArr: string[]) => {
         //   for (let i = strArr.length - 1; i > 0; i--) {
