@@ -516,7 +516,64 @@ const readPSJCommandsPython = async () => {
             return arr;
           }, []);
 
-        console.log(res2);
+        res2.forEach((strArr: string[]) => {
+          for (let i = strArr.length - 1; i > 0; i--) {
+            if (strArr[i].includes("(")) {
+              const fnName = strArr[i].split("(")[0];
+              const inbracket = strArr[i].match(/(?<=\().*(?=\))/);
+              let params: string[] = [];
+              if (inbracket) {
+                params = inbracket[0].split(",").reduce(
+                  (ib: any[], cur: string, idx: number, arr: any[]) => {
+                    if (cur.includes("=")) {
+                      ib[0]++;
+                      ib[1].push(cur);
+                    } else if (cur === "") {
+                      ib[1].push(cur);
+                    } else {
+                      ib[1][ib[0]] = ib[1][ib[0]].concat("," + cur);
+                    }
+                    if (idx === arr.length - 1) {
+                      return ib[1];
+                    } else {
+                      return ib;
+                    }
+                  },
+                  [-1, []],
+                );
+              }
+              console.log(params);
+              fs.appendFile(
+                `${__dirname}/data/Utility.py`,
+                `class ${strArr[i - 1]}:\n    def ${fnName}(${i > 1 ? "self, " : ""}${params.map(
+                  (p: string) => p.split("=")[0],
+                )}):\n        message = "${strArr
+                  .slice(0, i)
+                  .join(".")}.${fnName}(${params.map((p: string) => {
+                  const varName = p.split("=")[0];
+                  return varName.includes("str") ? "'{}'" : "{}";
+                })})".format(${params.map(
+                  (p: string) => p.split("=")[0],
+                )})\n        return JPT_RUN_LINE(message)\n\n`,
+                function (err: any) {
+                  if (err) throw err;
+                },
+              );
+            } else {
+              fs.appendFile(
+                `${__dirname}/data/Utility.py`,
+                `class ${strArr[i - 1]}:\n    ${strArr[i]} = ${
+                  strArr[i]
+                }()\n\n`,
+                function (err: any) {
+                  if (err) throw err;
+                },
+              );
+            }
+          }
+        });
+
+        // console.log(res2);
 
         // fs.writeFile(
         //   `${__dirname}/data/psjSnippets.txt`,

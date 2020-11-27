@@ -538,9 +538,6 @@ Properties.ElemRelatedInfo.Beam(listEnds=[], listOrientVecs=[], listOrientNodeId
 Properties.ElemRelatedInfo.Bar(listEnds=[], listOrientVecs=[], listOrientNodeIds=[], listOffsetVecsA=[], listOffsetVecsB=[], listAs=[], listBs=[], listWarps=[])
 Properties.ElemRelatedInfo.Gap(listEnds=[], listOrientVecs=[], listCids=[], listDamperLocs=[], listOcids=[], listDamperOffsetVecs=[], listNodeIds=[])
 Properties.ElemRelatedInfo.Bush(listEnds=[], listOrientVecs=[], listCids=[], listDamperLocs=[], listOcids=[], listDamperOffsetVecs=[], listNodeIds=[])
-Properties.Material.Add("Concrete", [Density([(DENSITY, 2.3e-09)]), Elastic([(YOUNGS_MODULUS, 30000.0), (POISSONS_RATIO, 0.18)])])
-Properties.Material.Modify("Concrete", [Density([(DENSITY, 2.3e-09)]), Elastic([(YOUNGS_MODULUS, 30000.0), (POISSONS_RATIO, 0.18)])])
-Properties.Material.Delete("Concrete")
 Properties.Section.Import(strImportPath="")
 Properties.Section.ModifyGeneral(strName="", crSection=None, iSecType=0, iGeneralType=0, dA=0, dB=0, dH=0, dT1=0, dT2=0, dT3=0, bTapered=False, dDaTap=0, dDbTap=0, dDhTap=0, dDt1Tap=0, dDt2Tap=0, dDt3Tap=0)
 Properties.Section.ModifyLibrary(strName="", crSection=None, iType=0, iLibType=0, dDimSize0=0, dDimSize1=0, dDimSize2=0, dDimSize3=0, dDimSize4=0, dDimSize5=0, dDimSize6=0, dDimSize7=0, dDimSize8=0, dDimSize9=0, dDimSize10=0, dDimSize11=0) #crash when crSection have null data
