@@ -146,7 +146,7 @@ const readPsjCommands = async () => {
     console.log(__dirname);
   }
 };
-readPsjCommands();
+// readPsjCommands();
 
 const stringManipulate = (val: any, a: string, i: number[]) => {
   if (val !== null) {
@@ -316,7 +316,7 @@ const readPSJCallTips = async () => {
     console.log(__dirname);
   }
 };
-readPSJCallTips();
+// readPSJCallTips();
 
 // readKeywords();
 
@@ -878,21 +878,22 @@ const readPSJCommandsPython = async () => {
         //     if (err) return console.log(err);
         //   },
         // );
-        (async function () {
-          for (let i = 0; i < Object.keys(res3).length; i++) {
-            await appendFile(
-              `${__dirname}/data/MainClassNames.txt`,
-              `${Object.keys(res3)[i]}, `,
-            );
-          }
-        })();
+
+        // (async function () {
+        //   for (let i = 0; i < Object.keys(res3).length; i++) {
+        //     await appendFile(
+        //       `${__dirname}/data/MainClassNames.txt`,
+        //       `${Object.keys(res3)[i]}, `,
+        //     );
+        //   }
+        // })();
       },
     });
   } else {
     console.log(__dirname);
   }
 };
-// readPSJCommandsPython();
+readPSJCommandsPython();
 
 // Read EntityType/UnitType
 const readEntityType = async () => {
