@@ -47,6 +47,7 @@ const readKeywords = async () => {
   }
 };
 
+// READ PSJ COMMANDS
 const readPsjCommands = async () => {
   if (fs.existsSync(`${__dirname}/data/PSJCommandCalltips.dat`)) {
     const files = await fs.readFileSync(
@@ -145,6 +146,7 @@ const readPsjCommands = async () => {
     console.log(__dirname);
   }
 };
+readPsjCommands();
 
 const stringManipulate = (val: any, a: string, i: number[]) => {
   if (val !== null) {
@@ -188,10 +190,11 @@ const stringManipulate = (val: any, a: string, i: number[]) => {
   }
 };
 
+// READ PSJ SNIPPETS
 const readPSJSnippets = async () => {
-  if (fs.existsSync(`${__dirname}/data/PSJCommands.txt`)) {
+  if (fs.existsSync(`${__dirname}/data/NewPSJCommands.py`)) {
     const files = await fs.readFileSync(
-      `${__dirname}/data/PSJCommands.txt`,
+      `${__dirname}/data/NewPSJCommands.py`,
       "utf8",
     );
     Papa.parse(files, {
@@ -245,7 +248,9 @@ const readPSJSnippets = async () => {
     console.log(__dirname);
   }
 };
+// readPSJSnippets();
 
+// READ PSJ CALL TIPS
 const readPSJCallTips = async () => {
   if (fs.existsSync(`${__dirname}/data/PSJCommandCalltips.txt`)) {
     const files = await fs.readFileSync(
@@ -311,11 +316,10 @@ const readPSJCallTips = async () => {
     console.log(__dirname);
   }
 };
+readPSJCallTips();
 
 // readKeywords();
-// readPsjCommands();
-// readPSJSnippets();
-// readPSJCallTips();
+
 
 // function* getNames() {
 //   console.log("2");
