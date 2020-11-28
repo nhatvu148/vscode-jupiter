@@ -1,3 +1,0 @@
-Properties.Material.Add("Concrete", [Density([(DENSITY, 2.3e-09)]), Elastic([(YOUNGS_MODULUS, 30000.0), (POISSONS_RATIO, 0.18)])])
-Properties.Material.Modify("Concrete", [Density([(DENSITY, 2.3e-09)]), Elastic([(YOUNGS_MODULUS, 30000.0), (POISSONS_RATIO, 0.18)])])
-Properties.Material.Delete("Concrete")

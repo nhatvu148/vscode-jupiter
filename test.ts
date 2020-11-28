@@ -499,7 +499,7 @@ const getParams = (str: string): [string, string[]] => {
           ib[1].push(cur);
         } else if (cur === "") {
           ib[1].push(cur);
-        } else if (ib[1][ib[0]]){
+        } else if (ib[1][ib[0]]) {
           ib[1][ib[0]] = ib[1][ib[0]].concat("," + cur);
         }
         if (idx === arr.length - 1) {
@@ -653,9 +653,11 @@ const readPSJCommandsPython = async () => {
                                 const varName = p.split("=")[0];
                                 return varName.includes("str") ? "'{}'" : "{}";
                               },
-                            )})".format(${(params.length === 1 && params[0] === "") ? "''" : params.map(
-                              (p: string) => p.split("=")[0],
-                            )})\n        return JPT_RUN_LINE(message)\n\n`,
+                            )})".format(${
+                              params.length === 1 && params[0] === ""
+                                ? "''"
+                                : params.map((p: string) => p.split("=")[0])
+                            })\n        return JPT_RUN_LINE(message)\n\n`,
                           );
                         }
                       }
@@ -705,9 +707,11 @@ const readPSJCommandsPython = async () => {
                                 const varName = p.split("=")[0];
                                 return varName.includes("str") ? "'{}'" : "{}";
                               },
-                            )})".format(${(params.length === 1 && params[0] === "") ? "''" : params.map(
-                              (p: string) => p.split("=")[0],
-                            )})\n        return JPT_RUN_LINE(message)\n\n`,
+                            )})".format(${
+                              params.length === 1 && params[0] === ""
+                                ? "''"
+                                : params.map((p: string) => p.split("=")[0])
+                            })\n        return JPT_RUN_LINE(message)\n\n`,
                           );
                         }
                       }
@@ -752,9 +756,11 @@ const readPSJCommandsPython = async () => {
                             const varName = p.split("=")[0];
                             return varName.includes("str") ? "'{}'" : "{}";
                           },
-                        )})".format(${(params.length === 1 && params[0] === "") ? "''" : params.map(
-                          (p: string) => p.split("=")[0],
-                        )})\n        return JPT_RUN_LINE(message)\n\n`,
+                        )})".format(${
+                          params.length === 1 && params[0] === ""
+                            ? "''"
+                            : params.map((p: string) => p.split("=")[0])
+                        })\n        return JPT_RUN_LINE(message)\n\n`,
                       );
                     }
                   }
@@ -788,9 +794,11 @@ const readPSJCommandsPython = async () => {
                         const varName = p.split("=")[0];
                         return varName.includes("str") ? "'{}'" : "{}";
                       },
-                    )})".format(${(params.length === 1 && params[0] === "") ? "''" : params.map(
-                      (p: string) => p.split("=")[0],
-                    )})\n        return JPT_RUN_LINE(message)\n\n`,
+                    )})".format(${
+                      params.length === 1 && params[0] === ""
+                        ? "''"
+                        : params.map((p: string) => p.split("=")[0])
+                    })\n        return JPT_RUN_LINE(message)\n\n`,
                   );
                 }
               }
@@ -866,18 +874,27 @@ const readPSJCommandsPython = async () => {
         //     if (err) return console.log(err);
         //   },
         // );
+        (async function () {
+          for (let i = 0; i < Object.keys(res3).length; i++) {
+            await appendFile(
+              `${__dirname}/data/MainClassNames.txt`,
+              `${Object.keys(res3)[i]}, `,
+            );
+          }
+        })();
       },
     });
   } else {
     console.log(__dirname);
   }
 };
-readPSJCommandsPython();
+// readPSJCommandsPython();
 
+// Read EntityType/UnitType
 const readEntityType = async () => {
-  if (fs.existsSync(`${__dirname}/data/EntityType.txt`)) {
+  if (fs.existsSync(`${__dirname}/data/UnitType.txt`)) {
     const files = await fs.readFileSync(
-      `${__dirname}/data/EntityType.txt`,
+      `${__dirname}/data/UnitType.txt`,
       "utf8",
     );
     Papa.parse(files, {
@@ -893,7 +910,7 @@ const readEntityType = async () => {
 
         res2.forEach((element: any) => {
           fs.appendFile(
-            `${__dirname}/data/EntityType2.txt`,
+            `${__dirname}/data/UnitType2.txt`,
             element + "\n",
             function (err: any) {
               if (err) throw err;
@@ -910,7 +927,9 @@ const readEntityType = async () => {
 
 //// READ PSJ FOLDER:
 const readPSJFolder = async () => {
-  const dir = await fs.promises.opendir(`${__dirname}/data/PSJCommand_TestCases`)
+  const dir = await fs.promises.opendir(
+    `${__dirname}/data/PSJCommand_TestCases`,
+  );
   for await (const dirent of dir) {
     console.log(dirent.name);
     const files = await fs.readFileSync(
@@ -928,9 +947,9 @@ const readPSJFolder = async () => {
             `${__dirname}/data/NewPSJCommands.py`,
             `${fn[0].join(",")}\n`,
           );
-        })()
+        })();
       },
     });
   }
-}
+};
 // readPSJFolder();
