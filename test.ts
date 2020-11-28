@@ -499,7 +499,7 @@ const getParams = (str: string): [string, string[]] => {
           ib[1].push(cur);
         } else if (cur === "") {
           ib[1].push(cur);
-        } else {
+        } else if (ib[1][ib[0]]){
           ib[1][ib[0]] = ib[1][ib[0]].concat("," + cur);
         }
         if (idx === arr.length - 1) {
@@ -515,9 +515,9 @@ const getParams = (str: string): [string, string[]] => {
 };
 
 const readPSJCommandsPython = async () => {
-  if (fs.existsSync(`${__dirname}/data/PSJCommands.txt`)) {
+  if (fs.existsSync(`${__dirname}/data/NewPSJCommands.py`)) {
     const files = await fs.readFileSync(
-      `${__dirname}/data/PSJCommands.txt`,
+      `${__dirname}/data/NewPSJCommands.py`,
       "utf8",
     );
     Papa.parse(files, {
@@ -648,14 +648,12 @@ const readPSJCommandsPython = async () => {
                           );
                           await appendFile(
                             `${__dirname}/data/Utility.py`,
-                            `    def ${fnName}(self, ${params.map(
-                              (p: string) => p.split("=")[0],
-                            )}):\n        message = "${el3}.${el4}.${el5}.${el6}.${fnName}(${params.map(
+                            `    def ${fnName}(self, ${params}):\n        message = "${el3}.${el4}.${el5}.${el6}.${fnName}(${params.map(
                               (p: string) => {
                                 const varName = p.split("=")[0];
                                 return varName.includes("str") ? "'{}'" : "{}";
                               },
-                            )})".format(${params.map(
+                            )})".format(${(params.length === 1 && params[0] === "") ? "''" : params.map(
                               (p: string) => p.split("=")[0],
                             )})\n        return JPT_RUN_LINE(message)\n\n`,
                           );
@@ -702,14 +700,12 @@ const readPSJCommandsPython = async () => {
                           );
                           await appendFile(
                             `${__dirname}/data/Utility.py`,
-                            `    def ${fnName}(self, ${params.map(
-                              (p: string) => p.split("=")[0],
-                            )}):\n        message = "${el3}.${el4}.${el5}.${fnName}(${params.map(
+                            `    def ${fnName}(self, ${params}):\n        message = "${el3}.${el4}.${el5}.${fnName}(${params.map(
                               (p: string) => {
                                 const varName = p.split("=")[0];
                                 return varName.includes("str") ? "'{}'" : "{}";
                               },
-                            )})".format(${params.map(
+                            )})".format(${(params.length === 1 && params[0] === "") ? "''" : params.map(
                               (p: string) => p.split("=")[0],
                             )})\n        return JPT_RUN_LINE(message)\n\n`,
                           );
@@ -751,14 +747,12 @@ const readPSJCommandsPython = async () => {
                       );
                       await appendFile(
                         `${__dirname}/data/Utility.py`,
-                        `    def ${fnName}(self, ${params.map(
-                          (p: string) => p.split("=")[0],
-                        )}):\n        message = "${el3}.${el4}.${fnName}(${params.map(
+                        `    def ${fnName}(self, ${params}):\n        message = "${el3}.${el4}.${fnName}(${params.map(
                           (p: string) => {
                             const varName = p.split("=")[0];
                             return varName.includes("str") ? "'{}'" : "{}";
                           },
-                        )})".format(${params.map(
+                        )})".format(${(params.length === 1 && params[0] === "") ? "''" : params.map(
                           (p: string) => p.split("=")[0],
                         )})\n        return JPT_RUN_LINE(message)\n\n`,
                       );
@@ -789,14 +783,12 @@ const readPSJCommandsPython = async () => {
                   const [fnName, params] = getParams(res3[el3][el4][i5]);
                   await appendFile(
                     `${__dirname}/data/Utility.py`,
-                    `    def ${fnName}(${params.map(
-                      (p: string) => p.split("=")[0],
-                    )}):\n        message = "${el3}.${fnName}(${params.map(
+                    `    def ${fnName}(${params}):\n        message = "${el3}.${fnName}(${params.map(
                       (p: string) => {
                         const varName = p.split("=")[0];
                         return varName.includes("str") ? "'{}'" : "{}";
                       },
-                    )})".format(${params.map(
+                    )})".format(${(params.length === 1 && params[0] === "") ? "''" : params.map(
                       (p: string) => p.split("=")[0],
                     )})\n        return JPT_RUN_LINE(message)\n\n`,
                   );
@@ -865,7 +857,7 @@ const readPSJCommandsPython = async () => {
         //   }
         // });
 
-        console.log(res3);
+        // console.log(res3);
 
         // fs.writeFile(
         //   `${__dirname}/data/res3.json`,
@@ -880,7 +872,7 @@ const readPSJCommandsPython = async () => {
     console.log(__dirname);
   }
 };
-// readPSJCommandsPython();
+readPSJCommandsPython();
 
 const readEntityType = async () => {
   if (fs.existsSync(`${__dirname}/data/EntityType.txt`)) {
