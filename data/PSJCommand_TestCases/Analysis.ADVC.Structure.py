@@ -1,0 +1,4 @@
+# Update more script for scenario test
+Analysis.ADVC.Structure(strName="", strDescription="", iEJobType=0, crlProcessSequence=[], crlElemLocationGroup=[], crlNodeLocationGroup=[], bWriteGroup=False, crEdit=None, bResultReference=False, iSeparateFile=0, bExportRelatedAllLBCs=False, bUseEntityName=False, bMatrixSloverParam=False, iPreconditionType=0, iMatrixStructure=0, crlTarget=[], iLoadType=1, bSameOutputOnAllProcess=True, bDeleteFloatingNode=True, bBC=True, bCheckBCDuplicate=False, bAutoAssignDummyProp=False, crDummyPropMaterial=None, bReferenceRestartData=False, strReferenceRestartDataPath="", iReferenceRestartDataProcessNum=DFLT_INT, iReferenceRestartDataStepNum=DFLT_INT, iReferenceRestartDataCoordType=0, iReferenceRestartDataUpdateContactSearch=1, listLoadNodeContact=[], iHeatConvection=1, iCreateProcessForBoltFixedLength=0, strPath="", iNumType=0, iUiWidth=10, iUiPrecision=1)
+# Exit Jupiter
+JPT.QuitApplication()

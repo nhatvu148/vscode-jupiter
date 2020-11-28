@@ -880,7 +880,7 @@ const readPSJCommandsPython = async () => {
     console.log(__dirname);
   }
 };
-readPSJCommandsPython();
+// readPSJCommandsPython();
 
 const readEntityType = async () => {
   if (fs.existsSync(`${__dirname}/data/EntityType.txt`)) {
@@ -915,3 +915,30 @@ const readEntityType = async () => {
   }
 };
 // readEntityType();
+
+//// READ PSJ FOLDER:
+const readPSJFolder = async () => {
+  const dir = await fs.promises.opendir(`${__dirname}/data/PSJCommand_TestCases`)
+  for await (const dirent of dir) {
+    console.log(dirent.name);
+    const files = await fs.readFileSync(
+      `${__dirname}/data/PSJCommand_TestCases/${dirent.name}`,
+      "utf8",
+    );
+    Papa.parse(files, {
+      complete: function (results: any) {
+        const res = results.data;
+        const fn = res.filter((r: string[]) => r[0].includes("("));
+
+        console.log(fn[0].join(","));
+        (async function () {
+          await appendFile(
+            `${__dirname}/data/NewPSJCommands.py`,
+            `${fn[0].join(",")}\n`,
+          );
+        })()
+      },
+    });
+  }
+}
+// readPSJFolder();

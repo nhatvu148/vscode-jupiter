@@ -1,0 +1,4 @@
+# Update more script for scenario test
+Analysis.ADVC.MakeProcess.Transient(strName="", iEndType=1, dMaxTime=1, dSteadyRate=0.0, iFixedOrAuto=0, dMaxChange=DFLT_DBL, dInitDt=DFLT_DBL, iDefineMaxDt=0, dMaxDt=DFLT_DBL, iDefineMinDt=0, dMinDt=DFLT_DBL, dFixedDt=DFLT_DBL, iOutputLast=-1, iOutputInterval=DFLT_INT, iRestartLast=-1, iRestartInterval=DFLT_INT, dOutputTimeInterval=DFLT_DBL, dRestartTimeInterval=DFLT_DBL, iOutputInit=-1, iListOutputInterval=DFLT_INT, bConvergence=False, dCgTol=DFLT_DBL, dCgNrTol=DFLT_DBL, dCgDispTol=DFLT_DBL, dCgNrDispTol=DFLT_DBL, dCgDispLimitTol=DFLT_DBL, dCgTotalDispLimitTol=DFLT_DBL, dNewtonTol=DFLT_DBL, dNewtonDispTol=DFLT_DBL, dNewtonDispLimitTol=DFLT_DBL, dNewtonTotalDispLimitTol=DFLT_DBL, iCgloopMax=DFLT_INT, iNewtonMax=DFLT_INT, dHtNlLoopTol=DFLT_DBL, iHtNlLoopMax=DFLT_INT, crEdit=None, listLoadNode=[], listLoadCaseNode=[], listLoadNodeContact=[], ilOutputParamList=[])
+# Exit Jupiter
+JPT.QuitApplication()
