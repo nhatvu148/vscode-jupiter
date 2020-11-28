@@ -1,14 +1,14 @@
-class ACBoundary:
+class ACModeling_ACBoundary:
     def Method1(self, crlPart=[], bIsMergePart=False, bIsRenumber=False):
         message = "ACModeling.ACBoundary.Method1({},{},{})".format(crlPart, bIsMergePart, bIsRenumber)
         return JPT_RUN_LINE(message)
 
-class Create:
+class ACModeling_Create:
     def Convex(self, crlPart=[], dMeshSize=0.005, dOffset=0.02, dRadius=0.02, iDAxisGround=0, dScale=0.001):
         message = "ACModeling.Create.Convex({},{},{},{},{},{})".format(crlPart, dMeshSize, dOffset, dRadius, iDAxisGround, dScale)
         return JPT_RUN_LINE(message)
 
-class MakeProcess:
+class ADVC_MakeProcess:
     def Dynamic(self, strName="", iGeomNonlinear=0, advcStructTimeStep=ADVC_STRUCT_TIME_STEP(), bConvergence=False, advcConvergence=ADVC_CONVERGENCE(), bContact=False, advcContactIter=ADVC_CONTACT_ITER(), bAutoIncrement=False, advcAutoIncrement=ADVC_AUTO_INCREMENT(), bDynamic=False, advcDynamic=ADVC_DYNAMIC(), crEdit=None, listLoadNode=[], listLoadCaseNode=[], listLoadNodeContact=[], ilOutputParamList=[], iRefType=-1, strRefPath="", listAdvcRefStressResult=[]):
         message = "Analysis.ADVC.MakeProcess.Dynamic('{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},'{}',{})".format(strName, iGeomNonlinear, advcStructTimeStep, bConvergence, advcConvergence, bContact, advcContactIter, bAutoIncrement, advcAutoIncrement, bDynamic, advcDynamic, crEdit, listLoadNode, listLoadCaseNode, listLoadNodeContact, ilOutputParamList, iRefType, strRefPath, listAdvcRefStressResult)
         return JPT_RUN_LINE(message)
@@ -53,7 +53,7 @@ class MakeProcess:
         message = "Analysis.ADVC.MakeProcess.SteadyState('{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(strName, iEndType, dMaxTime, iFixedOrAuto, dMaxChange, dInitDt, iDefineMaxDt, dMaxDt, iDefineMinDt, dMinDt, dFixedDt, iOutputLast, iOutputInterval, iRestartLast, iRestartInterval, dOutputTimeInterval, dRestartTimeInterval, iOutputInit, iListOutputInterval, bConvergence, dCgTol, dCgNrTol, dCgDispTol, dCgNrDispTol, dCgDispLimitTol, dCgTotalDispLimitTol, dNewtonTol, dNewtonDispTol, dNewtonDispLimitTol, dNewtonTotalDispLimitTol, iCgloopMax, iNewtonMax, dHtNlLoopTol, iHtNlLoopMax, crEdit, listLoadNode, listLoadCaseNode, listLoadNodeContact, ilOutputParamList)
         return JPT_RUN_LINE(message)
 
-class AbaqusStep:
+class Analysis_AbaqusStep:
     def CoupledTDStep(self, strName="", strDesp="", iEnableAutomatic=0, iMaxInc=100, dInitSize=1.0, dMinSize=1.0e-5, dMaxSize=1.0, abaqusPair1=ABAQUS_PAIR(), abaqusPair2=ABAQUS_PAIR(), iCSVIntegration=0, iMethod=0, iMatrixStorage=0, iSolutionTech=0, iAllowedIters=8, dAdjustFactor=1.0, iMaxContactIter=30, iType=0, iEnableUseAdaptive=1, dDampingfactor=0.0002, dMaxRationofStrainEnergy=0.05, iEnableNlgeom=0, dTimePeriod=1.0, iTransient=1, iConvertDscntIter=0, iRamp=1, iExtrapolateMethod=0, iEnableIncludeCSV=0, listAbaqusOutputRequest=[], crEdit=None):
         message = "Analysis.AbaqusStep.CoupledTDStep('{}','{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(strName, strDesp, iEnableAutomatic, iMaxInc, dInitSize, dMinSize, dMaxSize, abaqusPair1, abaqusPair2, iCSVIntegration, iMethod, iMatrixStorage, iSolutionTech, iAllowedIters, dAdjustFactor, iMaxContactIter, iType, iEnableUseAdaptive, dDampingfactor, dMaxRationofStrainEnergy, iEnableNlgeom, dTimePeriod, iTransient, iConvertDscntIter, iRamp, iExtrapolateMethod, iEnableIncludeCSV, listAbaqusOutputRequest, crEdit)
         return JPT_RUN_LINE(message)
@@ -82,7 +82,7 @@ class AbaqusStep:
         message = "Analysis.AbaqusStep.DynamicStep({},{})".format(abaqusDynamic, crEdit)
         return JPT_RUN_LINE(message)
 
-class ACTRAN:
+class Analysis_ACTRAN:
     def CreateEdat(self, actranAnalysis=ACTRAN_ANALYSIS(), crlTarget=[], crEdit=None):
         message = "Analysis.ACTRAN.CreateEdat({},{},{})".format(actranAnalysis, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
@@ -95,7 +95,7 @@ class ACTRAN:
         message = "Analysis.ACTRAN.ExportBdf('{}')".format(strPath)
         return JPT_RUN_LINE(message)
 
-class ADVC:
+class Analysis_ADVC:
     def HeatTransfer(self, strName="", strDescription="", iEJobType=0, crlProcessSequence=[], crlElemLocationGroup=[], crlNodeLocationGroup=[], bWriteGroup=False, crEdit=None, bResultReference=False, iSeparateFile=0, bExportRelatedAllLBCs=False, bUseEntityName=False, bMatrixSloverParam=False, iPreconditionType=0, iMatrixStructure=0, crlTarget=[], iLoadType=1, bSameOutputOnAllProcess=True, bDeleteFloatingNode=True, bBC=True, bCheckBCDuplicate=False, bAutoAssignDummyProp=False, crDummyPropMaterial=None, bReferenceRestartData=False, strReferenceRestartDataPath="", iReferenceRestartDataProcessNum=DFLT_INT, iReferenceRestartDataStepNum=DFLT_INT, iReferenceRestartDataCoordType=0, iReferenceRestartDataUpdateContactSearch=1, listLoadNodeContact=[], iHeatConvection=1, strPath="", iNumType=0, iUiWidth=10, iUiPrecision=1):
         message = "Analysis.ADVC.HeatTransfer('{}','{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},'{}',{},{},{},{},{},{},'{}',{},{},{})".format(strName, strDescription, iEJobType, crlProcessSequence, crlElemLocationGroup, crlNodeLocationGroup, bWriteGroup, crEdit, bResultReference, iSeparateFile, bExportRelatedAllLBCs, bUseEntityName, bMatrixSloverParam, iPreconditionType, iMatrixStructure, crlTarget, iLoadType, bSameOutputOnAllProcess, bDeleteFloatingNode, bBC, bCheckBCDuplicate, bAutoAssignDummyProp, crDummyPropMaterial, bReferenceRestartData, strReferenceRestartDataPath, iReferenceRestartDataProcessNum, iReferenceRestartDataStepNum, iReferenceRestartDataCoordType, iReferenceRestartDataUpdateContactSearch, listLoadNodeContact, iHeatConvection, strPath, iNumType, iUiWidth, iUiPrecision)
         return JPT_RUN_LINE(message)
@@ -104,9 +104,9 @@ class ADVC:
         message = "Analysis.ADVC.Structure('{}','{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},'{}',{},{},{},{},{},{},{},'{}',{},{},{})".format(strName, strDescription, iEJobType, crlProcessSequence, crlElemLocationGroup, crlNodeLocationGroup, bWriteGroup, crEdit, bResultReference, iSeparateFile, bExportRelatedAllLBCs, bUseEntityName, bMatrixSloverParam, iPreconditionType, iMatrixStructure, crlTarget, iLoadType, bSameOutputOnAllProcess, bDeleteFloatingNode, bBC, bCheckBCDuplicate, bAutoAssignDummyProp, crDummyPropMaterial, bReferenceRestartData, strReferenceRestartDataPath, iReferenceRestartDataProcessNum, iReferenceRestartDataStepNum, iReferenceRestartDataCoordType, iReferenceRestartDataUpdateContactSearch, listLoadNodeContact, iHeatConvection, iCreateProcessForBoltFixedLength, strPath, iNumType, iUiWidth, iUiPrecision)
         return JPT_RUN_LINE(message)
 
-    MakeProcess = MakeProcess()
+    MakeProcess = ADVC_MakeProcess()
 
-class Ansys:
+class Analysis_Ansys:
     def Harmonic(self, strJobName="", iJobdataAnatype=0, iJobdataSoltype=0, strJobdataJobname="Job1", strJobdataJobdescription="", bBasicdataBoutputdisplacements=False, bBasicdataBoutputreactionload=False, bBasicdataBoutputstrain=False, bBasicdataBoutputstress=False, iBasicdataIanalysisopt=0, bBasicdataBcalPressEffects=False, dBasicdataFunitem=0.0, dBasicdataFreftemp=0.0, dBasicdataFendloadtime=0.0, iBasicdataItimestep=0, iBasicdataIstepchosen=0, iBasicdataIsubstepnum=0, iBasicdataImaxsubstep=0, iBasicdataIminstepnum=0, dBasicdataFtimestepsize=0.0, dBasicdataFmintimestep=0.0, dBasicdataFmaxtimestep=0.0, iBasicdataIwritereslutfre=1, iBasicdataIn=1, bRunAPDL=False, bWriteResultDB=False, dFEndFreq=DFLT_DBL, dFStartFreq=DFLT_DBL, iFulltransdataIsolutionoption=0, dFulltransdataFpropchange=0.05, iFulltransdataIpointnum=64, dFulltransdataFmintemp=0.0, dFulltransdataFmaxtemp=0.0, iFulltransdataIequationsolv=0, dFulltransdataFtollevel=0.0, dFulltransdataFmultiplier=0.0, bFulltransdataBsignleprecision=False, bFulltransdataBmemorysave=False, dFulltransdataFtempdiff=1.1, dHarmonicdataFstartfreq=0.0, dHarmonicdataFendfreq=1.0, iHarmonicdataNsubsteps=0, dHarmonicdataFalphad=0.0, dHarmonicdataFbetad=0.0, dHarmonicdataFdmprat=0.0, bHarmonicdataBoutputdisplacements=False, bHarmonicdataBoutputstrain=False, bHarmonicdataBoutputstress=False, iLCId=0, iModeShape=0, iModaldataImodemethod=0, iModaldataIextractnum=1, bModaldataBexpandshape=True, iModaldataIexpandnum=0, bModaldataBuseapprox=False, bModaldataBinclprsseff=False, bModaldataBmemorysave=False, bModaldataBrsvec=False, bModaldataBoutputdisplacements=False, bModaldataBoutputstrain=False, bModaldataBoutputstress=False, iReduceddataIprintnum=0, bSsdataBmemorysave=False, bSsdataBoutputheatflux=False, bSsdataBoutputtemperature=False, bSsdataBpivotscheck=True, bSsdataBsignleprecision=False, dSsdataFmultiplier=0.0, dSsdataFtempdiff=0.0, dSsdataFtollevel=0.0, iSsdataIadaptivedes=0, iSsdataIequationsolv=0, iSsdataInpoption=0, strAnsysVersion="", strCommandLineOption="", bOutputSOLVE=False, iSubspacedataIrigidmode=0, iSubspacedataIworksize=8, iSubspacedataInpadnum=4, iSubspacedataIblocknum=5, iSubspacedataImaxiteratcnt=0, iSubspacedataIminnshift=0, iSubspacedataIseqcheck=0, bTransientdataBtraneffect=True, iTransientdataIloadingtype=0, dTransientdataFmassmatrixmult=0.0, dTransientdataFstiffmatrixmult=0.0, bTransientdataBmidstep=False, dTransientdataFtolerancebisection=0.0, dTransientdataFtolerancetimestep=0.0, iTransientdataItimeinteralgor=0, iTransientdataItimeinter=0, dTransientdataFgamma=0.005, dTransientdataFalpha=0.25250625, dTransientdataFdelta=0.505, dTransientdataFalphaf=0.005, dTransientdataFalpham=0.0, bTransientdataBoutputtemperature=False, bTransientdataBoutputheatflux=False, crEdit=None, strFileName="", crAnsysJob=None):
         message = "Analysis.Ansys.Harmonic('{}',{},{},'{}','{}',{},{},'{}','{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},'{}','{}',{},{},{},{},{},{},{},{},{},{},{},'{}','{}',{},{},{},{},{},{},{},{},{},{},{},{},'{}','{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},'{}',{})".format(strJobName, iJobdataAnatype, iJobdataSoltype, strJobdataJobname, strJobdataJobdescription, bBasicdataBoutputdisplacements, bBasicdataBoutputreactionload, bBasicdataBoutputstrain, bBasicdataBoutputstress, iBasicdataIanalysisopt, bBasicdataBcalPressEffects, dBasicdataFunitem, dBasicdataFreftemp, dBasicdataFendloadtime, iBasicdataItimestep, iBasicdataIstepchosen, iBasicdataIsubstepnum, iBasicdataImaxsubstep, iBasicdataIminstepnum, dBasicdataFtimestepsize, dBasicdataFmintimestep, dBasicdataFmaxtimestep, iBasicdataIwritereslutfre, iBasicdataIn, bRunAPDL, bWriteResultDB, dFEndFreq, dFStartFreq, iFulltransdataIsolutionoption, dFulltransdataFpropchange, iFulltransdataIpointnum, dFulltransdataFmintemp, dFulltransdataFmaxtemp, iFulltransdataIequationsolv, dFulltransdataFtollevel, dFulltransdataFmultiplier, bFulltransdataBsignleprecision, bFulltransdataBmemorysave, dFulltransdataFtempdiff, dHarmonicdataFstartfreq, dHarmonicdataFendfreq, iHarmonicdataNsubsteps, dHarmonicdataFalphad, dHarmonicdataFbetad, dHarmonicdataFdmprat, bHarmonicdataBoutputdisplacements, bHarmonicdataBoutputstrain, bHarmonicdataBoutputstress, iLCId, iModeShape, iModaldataImodemethod, iModaldataIextractnum, bModaldataBexpandshape, iModaldataIexpandnum, bModaldataBuseapprox, bModaldataBinclprsseff, bModaldataBmemorysave, bModaldataBrsvec, bModaldataBoutputdisplacements, bModaldataBoutputstrain, bModaldataBoutputstress, iReduceddataIprintnum, bSsdataBmemorysave, bSsdataBoutputheatflux, bSsdataBoutputtemperature, bSsdataBpivotscheck, bSsdataBsignleprecision, dSsdataFmultiplier, dSsdataFtempdiff, dSsdataFtollevel, iSsdataIadaptivedes, iSsdataIequationsolv, iSsdataInpoption, strAnsysVersion, strCommandLineOption, bOutputSOLVE, iSubspacedataIrigidmode, iSubspacedataIworksize, iSubspacedataInpadnum, iSubspacedataIblocknum, iSubspacedataImaxiteratcnt, iSubspacedataIminnshift, iSubspacedataIseqcheck, bTransientdataBtraneffect, iTransientdataIloadingtype, dTransientdataFmassmatrixmult, dTransientdataFstiffmatrixmult, bTransientdataBmidstep, dTransientdataFtolerancebisection, dTransientdataFtolerancetimestep, iTransientdataItimeinteralgor, iTransientdataItimeinter, dTransientdataFgamma, dTransientdataFalpha, dTransientdataFdelta, dTransientdataFalphaf, dTransientdataFalpham, bTransientdataBoutputtemperature, bTransientdataBoutputheatflux, crEdit, strFileName, crAnsysJob)
         return JPT_RUN_LINE(message)
@@ -127,12 +127,12 @@ class Ansys:
         message = "Analysis.Ansys.Steady('{}',{},{},'{}','{}',{},{},'{}','{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},'{}','{}',{},{},{},{},{},{},{},{},{},{},{},'{}','{}',{},{},{},{},{},{},{},{},{},{},{},{},'{}','{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},'{}',{})".format(strJobName, iJobdataAnatype, iJobdataSoltype, strJobdataJobname, strJobdataJobdescription, bBasicdataBoutputdisplacements, bBasicdataBoutputreactionload, bBasicdataBoutputstrain, bBasicdataBoutputstress, iBasicdataIanalysisopt, bBasicdataBcalPressEffects, dBasicdataFunitem, dBasicdataFreftemp, dBasicdataFendloadtime, iBasicdataItimestep, iBasicdataIstepchosen, iBasicdataIsubstepnum, iBasicdataImaxsubstep, iBasicdataIminstepnum, dBasicdataFtimestepsize, dBasicdataFmintimestep, dBasicdataFmaxtimestep, iBasicdataIwritereslutfre, iBasicdataIn, bRunAPDL, bWriteResultDB, dFEndFreq, dFStartFreq, iFulltransdataIsolutionoption, dFulltransdataFpropchange, iFulltransdataIpointnum, dFulltransdataFmintemp, dFulltransdataFmaxtemp, iFulltransdataIequationsolv, dFulltransdataFtollevel, dFulltransdataFmultiplier, bFulltransdataBsignleprecision, bFulltransdataBmemorysave, dFulltransdataFtempdiff, dHarmonicdataFstartfreq, dHarmonicdataFendfreq, iHarmonicdataNsubsteps, dHarmonicdataFalphad, dHarmonicdataFbetad, dHarmonicdataFdmprat, bHarmonicdataBoutputdisplacements, bHarmonicdataBoutputstrain, bHarmonicdataBoutputstress, iLCId, iModeShape, iModaldataImodemethod, iModaldataIextractnum, bModaldataBexpandshape, iModaldataIexpandnum, bModaldataBuseapprox, bModaldataBinclprsseff, bModaldataBmemorysave, bModaldataBrsvec, bModaldataBoutputdisplacements, bModaldataBoutputstrain, bModaldataBoutputstress, iReduceddataIprintnum, bSsdataBmemorysave, bSsdataBoutputheatflux, bSsdataBoutputtemperature, bSsdataBpivotscheck, bSsdataBsignleprecision, dSsdataFmultiplier, dSsdataFtempdiff, dSsdataFtollevel, iSsdataIadaptivedes, iSsdataIequationsolv, iSsdataInpoption, strAnsysVersion, strCommandLineOption, bOutputSOLVE, iSubspacedataIrigidmode, iSubspacedataIworksize, iSubspacedataInpadnum, iSubspacedataIblocknum, iSubspacedataImaxiteratcnt, iSubspacedataIminnshift, iSubspacedataIseqcheck, bTransientdataBtraneffect, iTransientdataIloadingtype, dTransientdataFmassmatrixmult, dTransientdataFstiffmatrixmult, bTransientdataBmidstep, dTransientdataFtolerancebisection, dTransientdataFtolerancetimestep, iTransientdataItimeinteralgor, iTransientdataItimeinter, dTransientdataFgamma, dTransientdataFalpha, dTransientdataFdelta, dTransientdataFalphaf, dTransientdataFalpham, bTransientdataBoutputtemperature, bTransientdataBoutputheatflux, crEdit, strFileName, crAnsysJob)
         return JPT_RUN_LINE(message)
 
-class Analysis:
+class Analysis_Analysis:
     def Abaqus(self, strName="", bRBE2toMPC=False, bRenameProcess=False, iCodeType=0, iSurfDefType=0, iUnit=0, iWriteType=0, strDescription="", crlStepSequence=[], crEdit=None, strlUserText=[], bExptNdEleGroups=False, bDeleteFloatingNodes=False, bExptFaceElemGroups2Surface=False, bLoadCase=False, bAutoAssignDummyProperty=False, crDummyMat=None):
         message = "Analysis.Analysis.Abaqus('{}',{},{},{},{},{},{},'{}',{},{},'{}',{},{},{},{},{},{})".format(strName, bRBE2toMPC, bRenameProcess, iCodeType, iSurfDefType, iUnit, iWriteType, strDescription, crlStepSequence, crEdit, strlUserText, bExptNdEleGroups, bDeleteFloatingNodes, bExptFaceElemGroups2Surface, bLoadCase, bAutoAssignDummyProperty, crDummyMat)
         return JPT_RUN_LINE(message)
 
-class Nastran:
+class Analysis_Nastran:
     def LinearStatic(self, strName="Job_1", strDescription="", crlTarget=[], nastranAnalysis=NASTRAN_ANALYSIS(), bDummyPropAutoAssign=False, iDummyPropMaterialID=0, crEdit=None, strPath="", iModelCheckAnswer=0, iDeleteSlaveNodesAnswer=0):
         message = "Analysis.Nastran.LinearStatic('{}','{}',{},'{}',{},{},{},'{}',{},{})".format(strName, strDescription, crlTarget, nastranAnalysis, bDummyPropAutoAssign, iDummyPropMaterialID, crEdit, strPath, iModelCheckAnswer, iDeleteSlaveNodesAnswer)
         return JPT_RUN_LINE(message)
@@ -161,12 +161,12 @@ class Nastran:
         message = "Analysis.Nastran.Transient('{}','{}',{},'{}',{},{},{},'{}',{},{})".format(strName, strDescription, crlTarget, nastranAnalysis, bDummyPropAutoAssign, iDummyPropMaterialID, crEdit, strPath, iModelCheckAnswer, iDeleteSlaveNodesAnswer)
         return JPT_RUN_LINE(message)
 
-class Permas:
+class Analysis_Permas:
     def Job(self, strName="", strDescription="", iType=0, crEdit=None, crlTarget=[], bElStress=False, bElStress=FalseMis, bElStrain=False, bNodeStess=False, bGZip=False, bIdeas=False, bNLResult=False, iNLStepType=0, dEquiStart=0.0, dEquiStep=0.0, dEquiEnd=0.0, strNLStepList="", bTimeStep=False, iTimeStepKind=0, dTimeStart=0.0, dTimeStep=0.0, dTimeEnd=0.0, iLCId=0):
         message = "Analysis.Permas.Job('{}','{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},'{}',{},{},{},{},{},{})".format(strName, strDescription, iType, crEdit, crlTarget, bElStress, bElStress, bElStrain, bNodeStess, bGZip, bIdeas, bNLResult, iNLStepType, dEquiStart, dEquiStep, dEquiEnd, strNLStepList, bTimeStep, iTimeStepKind, dTimeStart, dTimeStep, dTimeEnd, iLCId)
         return JPT_RUN_LINE(message)
 
-class TSSolver:
+class Analysis_TSSolver:
     def ExportDynamisBdf(self, strPath="", crJob=None):
         message = "Analysis.TSSolver.ExportDynamisBdf('{}',{})".format(strPath, crJob)
         return JPT_RUN_LINE(message)
@@ -211,7 +211,7 @@ class TSSolver:
         message = "Analysis.TSSolver.TransientHeatTransfer('{}','{}',{},'{}',{},'{}')".format(strName, strDescription, crlTarget, nastranAnalysis, crEdit, strPath)
         return JPT_RUN_LINE(message)
 
-class TSSS:
+class Analysis_TSSS:
     def LinearStatic(self, strName="Job_1", strDescription="", crlTarget=[], nastranAnalysis=NASTRAN_ANALYSIS(), iRadialReturn=0, listNastranNonlinear=[], crEdit=None, strPath="", iModelCheckAnswer=0, iDeleteSlaveNodesAnswer=0, iNitTempType=0):
         message = "Analysis.TSSS.LinearStatic('{}','{}',{},'{}',{},'{}',{},'{}',{},{},{})".format(strName, strDescription, crlTarget, nastranAnalysis, iRadialReturn, listNastranNonlinear, crEdit, strPath, iModelCheckAnswer, iDeleteSlaveNodesAnswer, iNitTempType)
         return JPT_RUN_LINE(message)
@@ -240,7 +240,7 @@ class TSSS:
         message = "Analysis.TSSS.TransientHeatTransfer('{}','{}',{},'{}',{},'{}',{},'{}',{},{})".format(strName, strDescription, crlTarget, nastranAnalysis, iRadialReturn, listNastranNonlinear, crEdit, strPath, iModelCheckAnswer, iDeleteSlaveNodesAnswer)
         return JPT_RUN_LINE(message)
 
-class SeparateFaces:
+class Assemble_SeparateFaces:
     def AllSharedNodes(self, ):
         message = "Assemble.SeparateFaces.AllSharedNodes({})".format('')
         return JPT_RUN_LINE(message)
@@ -253,7 +253,7 @@ class SeparateFaces:
         message = "Assemble.SeparateFaces.Solid({},{},{})".format(crlPart, crlFace, bCreateGroup)
         return JPT_RUN_LINE(message)
 
-class RightClick:
+class Assembly_RightClick:
     def AddSubAssembly(self, crInst=None):
         message = "Assembly.RightClick.AddSubAssembly({})".format(crInst)
         return JPT_RUN_LINE(message)
@@ -290,7 +290,7 @@ class RightClick:
         message = "Assembly.RightClick.Suppress({})".format(crlPart)
         return JPT_RUN_LINE(message)
 
-class CentrifugalForce:
+class BodyLoads_CentrifugalForce:
     def CoordinateSystems(self, strName="CentrifugalForce1", dFVelocity=DFLT_DBL, dFAcceleration=DFLT_DBL, iAxisDirection=0, iVelocityUnit=0, iAccelerationUnit=0, crCurCoord=None, crlTarget=[], crEdit=None):
         message = "BoundaryConditions.BodyLoads.CentrifugalForce.CoordinateSystems('{}',{},{},{},{},{},{},{},{})".format(strName, dFVelocity, dFAcceleration, iAxisDirection, iVelocityUnit, iAccelerationUnit, crCurCoord, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
@@ -299,7 +299,7 @@ class CentrifugalForce:
         message = "BoundaryConditions.BodyLoads.CentrifugalForce.TwoPositions('{}',{},{},{},{},{},{},{},{},{},{},{},{})".format(strName, dFBasePoint1, dFBasePoint2, dFBasePoint3, dFTipPoint1, dFTipPoint2, dFTipPoint3, dFVelocity, dFAcceleration, iVelocityUnit, iAccelerationUnit, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
 
-class FunctionLoadCylinder:
+class Force_FunctionLoadCylinder:
     def Quadratic(self, strName="ForceQuadratic1", dFTotalForce=0.0, dA=0.0, dB=0.0, crCoord=None, iAngleBase=0, dAngleRange=0.0, iEnArrowDir=0, crlTarget=[], crEdit=None):
         message = "BoundaryConditions.Force.FunctionLoadCylinder.Quadratic('{}',{},{},{},{},{},{},{},{},{})".format(strName, dFTotalForce, dA, dB, crCoord, iAngleBase, dAngleRange, iEnArrowDir, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
@@ -312,7 +312,7 @@ class FunctionLoadCylinder:
         message = "BoundaryConditions.Force.FunctionLoadCylinder.Sine('{}',{},{},{},{},{},{},'{}',{},{})".format(strName, dFTotalForce, dA, crCoord, iAngleBase, dAngleRange, iEnArrowDir, bDistributeInAxis, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
 
-class NonlinearForce:
+class Force_NonlinearForce:
     def NOLIN3(self, strName="", dForceScale=0.0, dMomentScale=0.0, dForcePowerA=0.0, dMomentPowerA=0.0, iForcDir=0, iForceDepends=0, iMomentDir=0, iMomentDepends=0, crCurCoord=None, crlMasterTarget=[], crlSlaveTarget=[], crEdit=None):
         message = "BoundaryConditions.Force.NonlinearForce.NOLIN3('{}',{},{},{},{},{},{},{},{},{},{},{},{})".format(strName, dForceScale, dMomentScale, dForcePowerA, dMomentPowerA, iForcDir, iForceDepends, iMomentDir, iMomentDepends, crCurCoord, crlMasterTarget, crlSlaveTarget, crEdit)
         return JPT_RUN_LINE(message)
@@ -325,7 +325,7 @@ class NonlinearForce:
         message = "BoundaryConditions.Force.NonlinearForce.NOLIN4('{}',{},{},{},{},{},{},{},{},{},{},{},{})".format(strName, dForceScale, dMomentScale, dForcePowerA, dMomentPowerA, iForcDir, iForceDepends, iMomentDir, iMomentDepends, crCurCoord, crlMasterTarget, crlSlaveTarget, crEdit)
         return JPT_RUN_LINE(message)
 
-class InitialAngularVelocity:
+class InitialNodalValue_InitialAngularVelocity:
     def Abaqus(self, strName="InitialAngularVelocityAbaqus1", dVelocity=DFLT_DBL, strFirstCoord="", strSecondCoord="", crlTarget=[], crEdit=None):
         message = "BoundaryConditions.InitialNodalValue.InitialAngularVelocity.Abaqus('{}',{},'{}','{}',{},{})".format(strName, dVelocity, strFirstCoord, strSecondCoord, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
@@ -334,14 +334,14 @@ class InitialAngularVelocity:
         message = "BoundaryConditions.InitialNodalValue.InitialAngularVelocity.General('{}',{},{},{})".format(strName, stData, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
 
-class BodyLoads:
-    CentrifugalForce = CentrifugalForce()
+class BoundaryConditions_BodyLoads:
+    CentrifugalForce = BodyLoads_CentrifugalForce()
 
     def Gravity(self, strName="", dlGravity=[], crCurCoord=None, crlTarget=[], crEdit=None):
         message = "BoundaryConditions.BodyLoads.Gravity('{}',{},{},{},{})".format(strName, dlGravity, crCurCoord, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
 
-class BoundaryTemperature:
+class BoundaryConditions_BoundaryTemperature:
     def Constant(self, strName="BoundaryTemperature_1", dFTemp=0.0, crTable=None, crlTarget=[], crEdit=None):
         message = "BoundaryConditions.BoundaryTemperature.Constant('{}',{},{},{},{})".format(strName, dFTemp, crTable, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
@@ -350,7 +350,7 @@ class BoundaryTemperature:
         message = "BoundaryConditions.BoundaryTemperature.SurfaceMapping('{}',{},{},{},{},{},{},{},{},{},{},{},{},{},'{}',{},{},{},{},{},'{}',{},{},{},'{}')".format(strName, crlTarget, iMAPPos, iViewCp, iCp, iSrcType, iMappedCpIndexArr0, iMappedCpIndexArr1, dScaleFactor, posOffset, posRotate, dCorScale, dSearchRange, iUnit, strPath, crEdit, iMappingMethod, iSubmodeLBCMappingType, iMappingFromStepNo, bSetADVCFile, strADVCResultFile, bSetDetATol, dDetATol, bSetElementSet, strElementSet)
         return JPT_RUN_LINE(message)
 
-class Convection:
+class BoundaryConditions_Convection:
     def Constant(self, strName="Convection_1", dExtTemp=DFLT_DBL, crTableTimeTemp=None, dDcoef=DFLT_DBL, crTableTimeCoeff=None, crTableTempCoeff=None, crlTarget=[], crEdit=None):
         message = "BoundaryConditions.Convection.Constant('{}',{},{},{},{},{},{},{})".format(strName, dExtTemp, crTableTimeTemp, dDcoef, crTableTimeCoeff, crTableTempCoeff, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
@@ -359,7 +359,7 @@ class Convection:
         message = "BoundaryConditions.Convection.SurfaceMapping('{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},'{}',{})".format(strName, crlTarget, iPos, iViewCp, iCp, iSrcType, iMappedCpIndex0, iMappedCpIndex1, dRScale, posOffset, posAxis, dTScale, dSearchRange, iHTCUnit, iTempUnit, strPath, crEdit)
         return JPT_RUN_LINE(message)
 
-class EnforcedLoads:
+class BoundaryConditions_EnforcedLoads:
     def Acceleration(self, strName="EnforcedAcceleration1", iDwDof=0, dFVel1=DFLT_DBL, dFVel2=DFLT_DBL, dFVel3=DFLT_DBL, dFVel4=DFLT_DBL, dFVel5=DFLT_DBL, dFVel6=DFLT_DBL, crCurCoord=None, iEnArrowDir=0, crTable=None, crNodeSet=None, dFPhase=DFLT_DBL, dFDelay=DFLT_DBL, crPhaseTable=None, bExport=False, crMEExport1=None, crMEExport2=None, crMEExport3=None, crMEExport4=None, crMEExport5=None, crMEExport6=None, iAcUnit=0, iRotUnit=0, crlTarget=[], crEdit=None):
         message = "BoundaryConditions.EnforcedLoads.Acceleration('{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(strName, iDwDof, dFVel1, dFVel2, dFVel3, dFVel4, dFVel5, dFVel6, crCurCoord, iEnArrowDir, crTable, crNodeSet, dFPhase, dFDelay, crPhaseTable, bExport, crMEExport1, crMEExport2, crMEExport3, crMEExport4, crMEExport5, crMEExport6, iAcUnit, iRotUnit, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
@@ -372,7 +372,7 @@ class EnforcedLoads:
         message = "BoundaryConditions.EnforcedLoads.Velocity('{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(strName, iDwDof, dFVel0, dFVel1, dFVel2, dFVel3, dFVel4, dFVel5, crCurCoord, iEnArrowDir, crTable, crNodeSet, dFPhase, dFDelay, crPhaseTable, iVelUnit, iRotUnit, bExport, crExportData0, crExportData1, crExportData2, crExportData3, crExportData4, crExportData5, crlTarget, crEdit, bADVCStatic)
         return JPT_RUN_LINE(message)
 
-class Force:
+class BoundaryConditions_Force:
     def ForceNormalDirection(self, strName="", vecForce=[DFLT_DBL, DFLT_DBL, DFLT_DBL], iEnArrowDir=0, iDistributionMethod=0, crCurCoord=None, crlTarget=[], crEdit=None):
         message = "BoundaryConditions.Force.ForceNormalDirection('{}',{},{},'{}',{},{},{})".format(strName, vecForce, iEnArrowDir, iDistributionMethod, crCurCoord, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
@@ -381,11 +381,11 @@ class Force:
         message = "BoundaryConditions.Force.General('{}',{},{},{},'{}',{},{},{},{},{},{},'{}','{}','{}','{}','{}','{}',{},{})".format(strName, vecForce, vecMoment, iEnArrowDir, iDistributionMethod, crCurCoord, crTable, crNodeSet, dFPhase, dFDelay, crPhaseTable, strFormula1, strFormula2, strFormula3, strFormula4, strFormula5, strFormula6, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
 
-    FunctionLoadCylinder = FunctionLoadCylinder()
+    FunctionLoadCylinder = Force_FunctionLoadCylinder()
 
-    NonlinearForce = NonlinearForce()
+    NonlinearForce = Force_NonlinearForce()
 
-class HeatFlux:
+class BoundaryConditions_HeatFlux:
     def ConcentrateFlux(self, strName = "ConcentrateHeatFlux1", stData=LBC_CONCENTRATE_FLUX_DATA(), crlTarget=[], crEdit=None):
         message = "BoundaryConditions.HeatFlux.ConcentrateFlux('{}',{},{},{})".format(strName , stData, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
@@ -398,7 +398,7 @@ class HeatFlux:
         message = "BoundaryConditions.HeatFlux.SurfaceFlux('{}',{},'{}',{},{},{})".format(strName, dFflux, iDistributionMethod, crTable, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
 
-class InitialNodalValue:
+class BoundaryConditions_InitialNodalValue:
     def Displacement(self, strName="InitialDisplacement1", iType=0, vecInit=[DFLT_DBL,DFLT_DBL,DFLT_DBL], bSelNode=False, crNodeSet=None, crTable=None, crCoord=None, crlTarget=[], crEdit=None):
         message = "BoundaryConditions.InitialNodalValue.Displacement('{}',{},{},{},{},{},{},{},{})".format(strName, iType, vecInit, bSelNode, crNodeSet, crTable, crCoord, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
@@ -411,14 +411,14 @@ class InitialNodalValue:
         message = "BoundaryConditions.InitialNodalValue.RotationAngle('{}',{},{},{})".format(strName, stData, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
 
-    InitialAngularVelocity = InitialAngularVelocity()
+    InitialAngularVelocity = InitialNodalValue_InitialAngularVelocity()
 
-class InitialElementalValue:
+class BoundaryConditions_InitialElementalValue:
     def InitialStress(self, strName="InitialStress1", iDimension=2, iElemCs=0, dSXX=DFLT_DBL, dSYY=DFLT_DBL, dSXY=DFLT_DBL, crTable=None, crlTarget=[], crEdit=None):
         message = "BoundaryConditions.InitialElementalValue.InitialStress('{}',{},{},{},{},{},{},{},{})".format(strName, iDimension, iElemCs, dSXX, dSYY, dSXY, crTable, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
 
-class InitialTemperature:
+class BoundaryConditions_InitialTemperature:
     def ADVC(self, strName="InitialTemperature1",dTemperatureValue=0.0, strFilePathName="", bUseDefault=False, crTable=None, crlTarget=[], crEdit=None):
         message = "BoundaryConditions.InitialTemperature.ADVC('{}',{},'{}',{},{},{},{})".format(strName,dTemperatureValue, strFilePathName, bUseDefault, crTable, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
@@ -435,7 +435,7 @@ class InitialTemperature:
         message = "BoundaryConditions.InitialTemperature.Constant('{}',{},'{}',{},{},{},{})".format(strName,dFTemp, strFilePathName, bUseDefault, crTable, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
 
-class LBCCopy:
+class BoundaryConditions_LBCCopy:
     def ConnectionCopyMirror(self, iMethod=2, iMatchMethod=0, poslPoints=[], dOffset=0, dTol=1, crlTarget=[]):
         message = "BoundaryConditions.LBCCopy.ConnectionCopyMirror({},{},{},{},{},{})".format(iMethod, iMatchMethod, poslPoints, dOffset, dTol, crlTarget)
         return JPT_RUN_LINE(message)
@@ -484,7 +484,7 @@ class LBCCopy:
         message = "BoundaryConditions.LBCCopy.PropertiesCopyTranslate({},{},{},{},{},{},{},{})".format(iMethod, iMatchMethod, posVecTrans, dMagnitude, dTrandataDoffset, dTol, crCoord, crlTarget)
         return JPT_RUN_LINE(message)
 
-class Pressure:
+class BoundaryConditions_Pressure:
     def By2Nodes(self, strName="PressureLinear1", crNodeA=None, dPressureA=0.0, iNodeAUnit=0, crNodeB=None, dPressureB=0.0, iNodeBUnit=0, iDirection=0, crlTarget=[], crEdit=None):
         message = "BoundaryConditions.Pressure.By2Nodes('{}',{},{},{},{},{},{},{},{},{})".format(strName, crNodeA, dPressureA, iNodeAUnit, crNodeB, dPressureB, iNodeBUnit, iDirection, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
@@ -513,7 +513,7 @@ class Pressure:
         message = "BoundaryConditions.Pressure.SurfaceLoads('{}',{},{},{},{},{})".format(strName, dlPressure, iArrowdir, crCoordinate, crlTargetFace, crEditCur)
         return JPT_RUN_LINE(message)
 
-class Submodel:
+class BoundaryConditions_Submodel:
     def ForcedDisplacement(self, strName="SubmodelForcedDisplacement1", iSolver=0, strFilePathName="/home/", iProcessNo=0, bTranslationX=True, bTranslationY=True, bTranslationZ=True, iReferType=-1, dExtensionRange=DFLT_DBL, dExtensionTol=DFLT_DBL, dExtensionLimitTol=DFLT_DBL, strGlobalElementSet="", iUseBucket=-1, iNumBucketMaxX=DFLT_INT, iNumBucketMaxY=DFLT_INT, iNumBucketMaxZ=DFLT_INT, iPrevBc=-1, crlTarget=[], crEdit=None):
         message = "BoundaryConditions.Submodel.ForcedDisplacement('{}',{},'{}',{},{},{},{},{},{},{},{},'{}',{},{},{},{},{},{},{})".format(strName, iSolver, strFilePathName, iProcessNo, bTranslationX, bTranslationY, bTranslationZ, iReferType, dExtensionRange, dExtensionTol, dExtensionLimitTol, strGlobalElementSet, iUseBucket, iNumBucketMaxX, iNumBucketMaxY, iNumBucketMaxZ, iPrevBc, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
@@ -526,7 +526,7 @@ class Submodel:
         message = "BoundaryConditions.Submodel.SubmodelForcedFlux('{}',{},'{}',{},{},{},{},{},'{}',{},{},{},{},{},{},{})".format(strName, iSolver, strFilePathName, iProcessNo, iReferType, dExtensionRange, dExtensionTol, dExtensionLimitTol, strGlobalElementSet, iUseBucket, iNumBucketMaxX, iNumBucketMaxY, iNumBucketMaxZ, iPrevBc, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
 
-class TemperatureLoads:
+class BoundaryConditions_TemperatureLoads:
     def ADVCFile(self, strName="TemperatureLoadsADVC1", strFilePathName="", crTable=None, crlTarget=[], crEdit=None):
         message = "BoundaryConditions.TemperatureLoads.ADVCFile('{}','{}',{},{},{})".format(strName, strFilePathName, crTable, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
@@ -547,7 +547,7 @@ class TemperatureLoads:
         message = "BoundaryConditions.TemperatureLoads.Constant('{}',{},{},{},{},{})".format(strName, dTemperature, crTable, crlTarget, crEdit, bUseDefaultTemp)
         return JPT_RUN_LINE(message)
 
-class Edge:
+class BoltConnections_Edge:
     def TypeB(self, crlEdgeCur1=[], crlEdgeCur2=[], strRbeName="RBE", strBarName="", iShaftType=0, crCurBarProperty=None, dPlaneTol=20.0, dMaxBoltHeight=100.0, bPretensionLoad=False, iSolverType=0, dForceValue=0.0, iPreTenDof=0, crCurCoord=None, iBoltFixLength=0, iTopSlot=0, dRBE1=0.0, dRBE2=0.0, dBotDtDia=0.0, dPitch=10.0, iBotRbeConnType=0, bIfCreate2ADVCStaticProcessForBoltFixLength=False):
         message = "Connections.BoltConnections.Edge.TypeB({},{},'{}','{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(crlEdgeCur1, crlEdgeCur2, strRbeName, strBarName, iShaftType, crCurBarProperty, dPlaneTol, dMaxBoltHeight, bPretensionLoad, iSolverType, dForceValue, iPreTenDof, crCurCoord, iBoltFixLength, iTopSlot, dRBE1, dRBE2, dBotDtDia, dPitch, iBotRbeConnType, bIfCreate2ADVCStaticProcessForBoltFixLength)
         return JPT_RUN_LINE(message)
@@ -564,7 +564,7 @@ class Edge:
         message = "Connections.BoltConnections.Edge.TypeC({},{},'{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(crlEdgeCur1, crlEdgeCur2, strRbeName, dPlaneTol, dMaxBoltHeight, iConnectionType, iCoincidentNodes, dTolerance, iGround, dStiffnessX, dStiffnessY, dStiffnessZ, iLocalStiffUnit, dRotateStiffX, dRotateStiffY, dRotateStiffZ, iLocalRotateStiffUnit, dDampCoef, dStressCoef, crCurCoord, iTopRbeType, dTopPitch, dTopRemoveDepth, iBotRbeType, dBotPitch, dBotRemoveDepth)
         return JPT_RUN_LINE(message)
 
-class Face:
+class BoltConnections_Face:
     def TypeA(self, crlFaceCur1=[], crlFaceCur2=[], strRbeName="RBE", strBarName="", iShaftType=0, crCurBarProperty=None, dPlaneTol=20.0, dMaxBoltHeight=100.0, dMaxDiameter=0.0, dMinDiameter=0.0, bPretensionLoad=False, iSolverType=0, dForceValue=0.0, iPreTenDof=0, crCurCoord=None, iBoltFixLength=0, iTopSlot=0, dRBE1=0.0, iBotSlot=0, dRBE2=0.0, dScale1=1.10, bIfCreate2ADVCStaticProcessForBoltFixLength=False):
         message = "Connections.BoltConnections.Face.TypeA({},{},'{}','{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(crlFaceCur1, crlFaceCur2, strRbeName, strBarName, iShaftType, crCurBarProperty, dPlaneTol, dMaxBoltHeight, dMaxDiameter, dMinDiameter, bPretensionLoad, iSolverType, dForceValue, iPreTenDof, crCurCoord, iBoltFixLength, iTopSlot, dRBE1, iBotSlot, dRBE2, dScale1, bIfCreate2ADVCStaticProcessForBoltFixLength)
         return JPT_RUN_LINE(message)
@@ -577,7 +577,7 @@ class Face:
         message = "Connections.BoltConnections.Face.TypeC({},{},'{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(crlFaceCur1, crlFaceCur2, strRbeName, dPlaneTol, dMaxBoltHeight, dMaxDiameter, dMinDiameter, iConnectionType, iCoincidentNodes, dTolerance, iGround, dStiffnessX, dStiffnessY, dStiffnessZ, iLocalStiffUnit, dRotateStiffX, dRotateStiffY, dRotateStiffZ, iLocalRotateStiffUnit, dDampCoef, dStressCoef, crCurCoord, iTopRbeType, dTopPitch, dTopRemoveDepth, iBotRbeType, dBotPitch, dBotRemoveDepth)
         return JPT_RUN_LINE(message)
 
-class Abaqus:
+class Contacts_Abaqus:
     def ContactGroupByMatrix(self, strName="", iContactMethod=1, iContactType=0, iAlg=0, dAdjustVal=0.0, dExtensionZone=0.0, dMaxPenetration=0.0, iSmallSliding=0, dSmooth=0.0, iFrictionType=0, dFrictionCoef1=0.0, dFrictionCoef2=0.0, dShearLimit=0.0, dSlipTol=0.0, dStaticFrictionCoef=0.0, dKineticFrictionCoef=0.0, dDecayCoef=0.0, iAdjust=0, dPositonTol=0.0, iFormula=0, iTie=0, iPOCType=0, iAllowSeparation=0, dSlope=0.0, tshPOCTsheet=[], iClearanceType=0, iClearanceTypeId=0, bTemperatureDependency=False, iDependencies=0, tshCDTsheet=[], iPrsTypeId=0, bPrsTemperatureDependency=False, iPrsDependencies=0, tshPrsDTsheet=[], crplTarget=[], crEdit=None, iColor=0):
         message = "Connections.Contacts.Abaqus.ContactGroupByMatrix('{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(strName, iContactMethod, iContactType, iAlg, dAdjustVal, dExtensionZone, dMaxPenetration, iSmallSliding, dSmooth, iFrictionType, dFrictionCoef1, dFrictionCoef2, dShearLimit, dSlipTol, dStaticFrictionCoef, dKineticFrictionCoef, dDecayCoef, iAdjust, dPositonTol, iFormula, iTie, iPOCType, iAllowSeparation, dSlope, tshPOCTsheet, iClearanceType, iClearanceTypeId, bTemperatureDependency, iDependencies, tshCDTsheet, iPrsTypeId, bPrsTemperatureDependency, iPrsDependencies, tshPrsDTsheet, crplTarget, crEdit, iColor)
         return JPT_RUN_LINE(message)
@@ -598,7 +598,7 @@ class Abaqus:
         message = "Connections.Contacts.Abaqus.ManualFace('{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(strName, iContactMethod, iContactType, iAlg, dAdjustVal, dExtensionZone, dMaxPenetration, iSmallSliding, dSmooth, iFrictionType, dFrictionCoef1, dFrictionCoef2, dShearLimit, dSlipTol, dStaticFrictionCoef, dKineticFrictionCoef, dDecayCoef, iAdjust, dPositonTol, iFormula, iTie, iPOCType, iAllowSeparation, dSlope, tshPOCTsheet, iClearanceType, iClearanceTypeId, bTemperatureDependency, iDependencies, tshCDTsheet, iPrsTypeId, bPrsTemperatureDependency, iPrsDependencies, tshPrsDTsheet, crplTarget, crEdit, iColor)
         return JPT_RUN_LINE(message)
 
-class ADVC:
+class Contacts_ADVC:
     def ContactClearance(self, strName="", dClearanceVal=0.0, iLocalUnit=0, iSolverType=0, crlTarget=[], crEdit=None):
         message = "Connections.Contacts.ADVC.ContactClearance('{}',{},{},{},{},{})".format(strName, dClearanceVal, iLocalUnit, iSolverType, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
@@ -623,7 +623,7 @@ class ADVC:
         message = "Connections.Contacts.ADVC.ContactShareFace({},'{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},'{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},'{}',{},{},{},{},{})".format(crlShareFace, strName, iContactType, iSlidingType, iInitialState, dInitialStateTol, dKineticFrictionCoef, dExponentialCoef, iBehavior, dClearance, iAdjust2Clearance, dInterference, iAdjust2Interference, iAutoShrink, iAdvAdjust, dAdjustValue, dFrictionCoef, dMaxShear, dElasticSlip, dSlipTolerance, dSearchWidth, dSearchGap, dSearchDepth, dCritialPenetration, iEstimationImpactTime, iFormula, iConstraintType, iDataType, iTypeId, bTemperatureDependency, iNumDependencies, tshTableClearance, bStabilized, iStabilizeType, dResidualFactor, dEffectiveDist, dCN, dCT, crlClearance, crEdit, dSearchAngle, iConstraintTypeExplicit, dPenaltyFact, dPenaltyFactExplicit, iColor, iAlg, iMethod)
         return JPT_RUN_LINE(message)
 
-class Ansys:
+class Contacts_Ansys:
     def ContactShareFace(self, crlShareFace=[], strName="ContactAnsys_1", iMethod=3, iType=0, iContactAlgorithm=0, ansysContact=ANSYS_CONTACT(), crEdit=None, iColor=16711680):
         message = "Connections.Contacts.Ansys.ContactShareFace({},'{}',{},{},{},{},{},{})".format(crlShareFace, strName, iMethod, iType, iContactAlgorithm, ansysContact, crEdit, iColor)
         return JPT_RUN_LINE(message)
@@ -644,7 +644,7 @@ class Ansys:
         message = "Connections.Contacts.Ansys.ContactTable('{}',{},{},{},{},{},{},{})".format(strName, iMethod, iType, iContactAlgorithm, ansysContact, crplTarget, crEdit, iColor)
         return JPT_RUN_LINE(message)
 
-class MSCNastran:
+class Contacts_MSCNastran:
     def ContactShareFace(self, crlShareFace=[], strName="", nastranContact=NASTRAN_CONTACT(), crEdit=None, iColor=65280, iMethod=3):
         message = "Connections.Contacts.MSCNastran.ContactShareFace({},'{}','{}',{},{},{})".format(crlShareFace, strName, nastranContact, crEdit, iColor, iMethod)
         return JPT_RUN_LINE(message)
@@ -665,7 +665,7 @@ class MSCNastran:
         message = "Connections.Contacts.MSCNastran.ManualGroup('{}',{},{},{},{},{})".format(strName, tssolverContact, crplTarget, crEdit, iColor, iMethod)
         return JPT_RUN_LINE(message)
 
-class NXNastran:
+class Contacts_NXNastran:
     def ContactGroupByMatrix(self, crFaceMaster=None, crFaceSlave=None, strName="ContactNXNastran_1", iContactType=0, iContactAlg=0, dNorPenFactor=10, dTanPenFactor=1, dForceConTol=0.01, dMaxForceIter=10, dMaxStaIter=20, dChangeNum=0.02, dMinContactPer=100, iShellThickness=0, iContactStatus=0, iInitGapPenetra=0, iRegionRefine=0, iEvaluPts=1, dMinSearDist=0, dMaxSearDist=0.01, dFricCoef=0, dSearchDist=0, dPenatlyFactor=0, iShellOffset=0, iColor=0, iMethod=0, crEdit=None):
         message = "Connections.Contacts.NXNastran.ContactGroupByMatrix({},{},'{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(crFaceMaster, crFaceSlave, strName, iContactType, iContactAlg, dNorPenFactor, dTanPenFactor, dForceConTol, dMaxForceIter, dMaxStaIter, dChangeNum, dMinContactPer, iShellThickness, iContactStatus, iInitGapPenetra, iRegionRefine, iEvaluPts, dMinSearDist, dMaxSearDist, dFricCoef, dSearchDist, dPenatlyFactor, iShellOffset, iColor, iMethod, crEdit)
         return JPT_RUN_LINE(message)
@@ -686,7 +686,7 @@ class NXNastran:
         message = "Connections.Contacts.NXNastran.ManualGroup({},{},'{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(crFaceMaster, crFaceSlave, strName, iContactType, iContactAlg, dNorPenFactor, dTanPenFactor, dForceConTol, dMaxForceIter, dMaxStaIter, dChangeNum, dMinContactPer, iShellThickness, iContactStatus, iInitGapPenetra, iRegionRefine, iEvaluPts, dMinSearDist, dMaxSearDist, dFricCoef, dSearchDist, dPenatlyFactor, iShellOffset, iColor, iMethod, crEdit)
         return JPT_RUN_LINE(message)
 
-class TSSolver:
+class Contacts_TSSolver:
     def ManualFace(self, strName="ContactTSSolver_1", nastranContact=TSSOLVER_CONTACT(), crplTarget=[], crEdit=None, iColor=16711680, iMethod=0):
         message = "Connections.Contacts.TSSolver.ManualFace('{}','{}',{},{},{},{})".format(strName, nastranContact, crplTarget, crEdit, iColor, iMethod)
         return JPT_RUN_LINE(message)
@@ -699,7 +699,7 @@ class TSSolver:
         message = "Connections.Contacts.TSSolver.ManualGroup('{}',{},{},{},{},{})".format(strName, tssolverContact, crplTarget, crEdit, iColor, iMethod)
         return JPT_RUN_LINE(message)
 
-class TSSS:
+class Contacts_TSSS:
     def ContactTable(self, strName="ContactTS_SS_1", nastranContact=SUNSHINE_CONTACT(), crplTarget=[], crEdit=None, iColor=0, iMethod=1):
         message = "Connections.Contacts.TSSS.ContactTable('{}','{}',{},{},{},{})".format(strName, nastranContact, crplTarget, crEdit, iColor, iMethod)
         return JPT_RUN_LINE(message)
@@ -712,7 +712,7 @@ class TSSS:
         message = "Connections.Contacts.TSSS.ManualGroup('{}',{},{},{},{},{})".format(strName, tssolverContact, crplTarget, crEdit, iColor, iMethod)
         return JPT_RUN_LINE(message)
 
-class Equation:
+class MPC_Equation:
     def MultiNodes(self, strName="MPC_1", crlMaster=[], crlSlave=[], listMpcConnection=[], dSearchTol=0.0, dValue=0.0, iMPCType=0, iSearchType=1, iCoordSys=0, bUpdateDispCS=True, crEdit=None):
         message = "Connections.MPC.Equation.MultiNodes('{}',{},{},{},{},{},{},{},{},{},{})".format(strName, crlMaster, crlSlave, listMpcConnection, dSearchTol, dValue, iMPCType, iSearchType, iCoordSys, bUpdateDispCS, crEdit)
         return JPT_RUN_LINE(message)
@@ -725,7 +725,7 @@ class Equation:
         message = "Connections.MPC.Equation.SemiAuto('{}',{},{},{},{},{},{},{},{},{},{})".format(strName, crlMaster, crlSlave, listMpcConnection, dSearchTol, dValue, iMPCType, iSearchType, iCoordSys, bUpdateDispCS, crEdit)
         return JPT_RUN_LINE(message)
 
-class General:
+class MPC_General:
     def FacesToFaces(self, strName="MPC_1", crlMaster=[], crlSlave=[], listMpcConnection=[], dSearchTol=0.0, dValue=0.0, iMPCType=0, iSearchType=1, iCoordSys=0, bUpdateDispCS=True, crEdit=None):
         message = "Connections.MPC.General.FacesToFaces('{}',{},{},{},{},{},{},{},{},{},{})".format(strName, crlMaster, crlSlave, listMpcConnection, dSearchTol, dValue, iMPCType, iSearchType, iCoordSys, bUpdateDispCS, crEdit)
         return JPT_RUN_LINE(message)
@@ -762,7 +762,7 @@ class General:
         message = "Connections.MPC.General.TwoFaces('{}',{},{},{},{},{},{},{},{},{},{})".format(strName, crlMaster, crlSlave, listMpcConnection, dSearchTol, dValue, iMPCType, iSearchType, iCoordSys, bUpdateDispCS, crEdit)
         return JPT_RUN_LINE(message)
 
-class RBar:
+class RigidElements_RBar:
     def OneToMany(self, strName="RBAR_1", crlMasterTarget=[], crlSlaveTarget=[], iMethod=16, iUlDOFs=0, dTol=DFLT_DBL, crCoord=None, crEdit=None):
         message = "Connections.RigidElements.RBar.OneToMany('{}',{},{},{},{},{},{},{})".format(strName, crlMasterTarget, crlSlaveTarget, iMethod, iUlDOFs, dTol, crCoord, crEdit)
         return JPT_RUN_LINE(message)
@@ -775,7 +775,7 @@ class RBar:
         message = "Connections.RigidElements.RBar.OneToOneNodesWithTolerance('{}',{},{},{},{},{},{},{})".format(strName, crlMasterTarget, crlSlaveTarget, iMethod, iUlDOFs, dTol, crCoord, crEdit)
         return JPT_RUN_LINE(message)
 
-class RBE2:
+class RigidElements_RBE2:
     def OneToMany(self, iMethod=16, crlMasterTarget=[], crlSlaveTarget=[], iEType=2, strName="RBE2_1", crCoordSys=None, dTolerance=0.0, iUlDOFs=63, dlVirtualNodePos=[0, 0, 0], iSurfaceDef=0, crEdit=None, iEnableUpdateDispCS=1, iEnableCornerOnly=0, iEnableCheckDulplicate=1, iDuplicateMode=0):
         message = "Connections.RigidElements.RBE2.OneToMany({},{},{},{},'{}',{},{},{},{},{},{},{},{},{},{})".format(iMethod, crlMasterTarget, crlSlaveTarget, iEType, strName, crCoordSys, dTolerance, iUlDOFs, dlVirtualNodePos, iSurfaceDef, crEdit, iEnableUpdateDispCS, iEnableCornerOnly, iEnableCheckDulplicate, iDuplicateMode)
         return JPT_RUN_LINE(message)
@@ -796,7 +796,7 @@ class RBE2:
         message = "Connections.RigidElements.RBE2.OneToOne({},{},{},{},'{}',{},{},{},{},{},{},{},{},{},{})".format(iMethod, crlMasterTarget, crlSlaveTarget, iEType, strName, crCoordSys, dTolerance, iUlDOFs, dlVirtualNodePos, iSurfaceDef, crEdit, iEnableUpdateDispCS, iEnableCornerOnly, iEnableCheckDulplicate, iDuplicateMode)
         return JPT_RUN_LINE(message)
 
-class RBE3:
+class RigidElements_RBE3:
     def OneToMany(self, iMethod=16, crlMasterTarget=[], crlSlaveTarget=[], listRbe3TermConnection=[], iTypeRBE3=3, strName="", crCoordSys=None, dTolerance=0.0, dlVirtualNodePos=[0, 0, 0], iSurfaceDef=0, crEdit=None, iEnableUpdateDispCS=True, iEnableCornerOnly=False):
         message = "Connections.RigidElements.RBE3.OneToMany({},{},{},{},{},'{}',{},{},{},{},{},{},{})".format(iMethod, crlMasterTarget, crlSlaveTarget, listRbe3TermConnection, iTypeRBE3, strName, crCoordSys, dTolerance, dlVirtualNodePos, iSurfaceDef, crEdit, iEnableUpdateDispCS, iEnableCornerOnly)
         return JPT_RUN_LINE(message)
@@ -813,7 +813,7 @@ class RBE3:
         message = "Connections.RigidElements.RBE3.ToCenter({},{},{},{},{},'{}',{},{},{},{},{},{},{})".format(iMethod, crlMasterTarget, crlSlaveTarget, listRbe3TermConnection, iTypeRBE3, strName, crCoordSys, dTolerance, dlVirtualNodePos, iSurfaceDef, crEdit, iEnableUpdateDispCS, iEnableCornerOnly)
         return JPT_RUN_LINE(message)
 
-class Nodeswithtolerance:
+class Spring_Nodeswithtolerance:
     def sameDoFs(self, iMethod=0, strName="SPRING", crlMasterTarget=[], crlSlaveTarget=[], crCoordSys=None, iSpringType=0, iGround=0, dTolerance=0.0, iDirection=0, iDistributeMode=0, iDof1=0, iDof2=0, dDampCoef=DFLT_DBL, dStressCoef=DFLT_DBL, posTStiffness=[0,0,0], posRStiffness=[0,0,0], bUpdateDispCS=True, crEdit=None):
         message = "Connections.SpringsDampers.Spring.Nodeswithtolerance.sameDoFs({},'{}',{},{},{},{},{},{},{},'{}',{},{},{},{},{},{},{},{})".format(iMethod, strName, crlMasterTarget, crlSlaveTarget, crCoordSys, iSpringType, iGround, dTolerance, iDirection, iDistributeMode, iDof1, iDof2, dDampCoef, dStressCoef, posTStiffness, posRStiffness, bUpdateDispCS, crEdit)
         return JPT_RUN_LINE(message)
@@ -822,7 +822,7 @@ class Nodeswithtolerance:
         message = "Connections.SpringsDampers.Spring.Nodeswithtolerance.differentDoFs({},'{}',{},{},{},{},{},{},{},'{}',{},{},{},{},{},{},{},{})".format(iMethod, strName, crlMasterTarget, crlSlaveTarget, crCoordSys, iSpringType, iGround, dTolerance, iDirection, iDistributeMode, iDof1, iDof2, dDampCoef, dStressCoef, posTStiffness, posRStiffness, bUpdateDispCS, crEdit)
         return JPT_RUN_LINE(message)
 
-class OneToOne:
+class Spring_OneToOne:
     def sameDoFs(self, iMethod=0, strName="SPRING", crlMasterTarget=[], crlSlaveTarget=[], crCoordSys=None, iSpringType=0, iGround=0, dTolerance=0.0, iDirection=0, iDistributeMode=0, iDof1=0, iDof2=0, dDampCoef=DFLT_DBL, dStressCoef=DFLT_DBL, posTStiffness=[0,0,0], posRStiffness=[0,0,0], bUpdateDispCS=True, crEdit=None):
         message = "Connections.SpringsDampers.Spring.OneToOne.sameDoFs({},'{}',{},{},{},{},{},{},{},'{}',{},{},{},{},{},{},{},{})".format(iMethod, strName, crlMasterTarget, crlSlaveTarget, crCoordSys, iSpringType, iGround, dTolerance, iDirection, iDistributeMode, iDof1, iDof2, dDampCoef, dStressCoef, posTStiffness, posRStiffness, bUpdateDispCS, crEdit)
         return JPT_RUN_LINE(message)
@@ -831,7 +831,7 @@ class OneToOne:
         message = "Connections.SpringsDampers.Spring.OneToOne.differentDoFs({},'{}',{},{},{},{},{},{},{},'{}',{},{},{},{},{},{},{},{})".format(iMethod, strName, crlMasterTarget, crlSlaveTarget, crCoordSys, iSpringType, iGround, dTolerance, iDirection, iDistributeMode, iDof1, iDof2, dDampCoef, dStressCoef, posTStiffness, posRStiffness, bUpdateDispCS, crEdit)
         return JPT_RUN_LINE(message)
 
-class Bush:
+class SpringsDampers_Bush:
     def AnyEntities(self, iMethod=16, strName="BUSH_1", crlMaster=[], crlSlave=[], crCoord=None, dTol=DFLT_DBL, iGround=0, iOriMode=0, iEqual=1, poslVector=[], dlStiffness=[], dlDampCoef=[], dlDampConst=[], dRotStrain=DFLT_DBL, dTransStrain=DFLT_DBL, dRotStress=DFLT_DBL, dTransStress=DFLT_DBL, crEditObj=None):
         message = "Connections.SpringsDampers.Bush.AnyEntities({},'{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(iMethod, strName, crlMaster, crlSlave, crCoord, dTol, iGround, iOriMode, iEqual, poslVector, dlStiffness, dlDampCoef, dlDampConst, dRotStrain, dTransStrain, dRotStress, dTransStress, crEditObj)
         return JPT_RUN_LINE(message)
@@ -844,31 +844,31 @@ class Bush:
         message = "Connections.SpringsDampers.Bush.TwoNodes({},'{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(iMethod, strName, crlMaster, crlSlave, crCoord, dTol, iGround, iOriMode, iEqual, poslVector, dlStiffness, dlDampCoef, dlDampConst, dRotStrain, dTransStrain, dRotStress, dTransStress, crEditObj)
         return JPT_RUN_LINE(message)
 
-class Spring:
+class SpringsDampers_Spring:
     def GroundedSpring(self, iMethod=0, strName="SPRING", crlMasterTarget=[], crlSlaveTarget=[], crCoordSys=None, iSpringType=0, iGround=0, dTolerance=0.0, iDirection=0, iDistributeMode=0, iDof1=0, iDof2=0, dDampCoef=DFLT_DBL, dStressCoef=DFLT_DBL, posTStiffness=[0,0,0], posRStiffness=[0,0,0], bUpdateDispCS=True, crEdit=None):
         message = "Connections.SpringsDampers.Spring.GroundedSpring({},'{}',{},{},{},{},{},{},{},'{}',{},{},{},{},{},{},{},{})".format(iMethod, strName, crlMasterTarget, crlSlaveTarget, crCoordSys, iSpringType, iGround, dTolerance, iDirection, iDistributeMode, iDof1, iDof2, dDampCoef, dStressCoef, posTStiffness, posRStiffness, bUpdateDispCS, crEdit)
         return JPT_RUN_LINE(message)
 
-    Nodeswithtolerance = Nodeswithtolerance()
+    Nodeswithtolerance = Spring_Nodeswithtolerance()
 
-    OneToOne = OneToOne()
+    OneToOne = Spring_OneToOne()
 
-class Damper:
+class SpringsDampers_Damper:
     def AnyEntities11DoFS(self, iMethod=0, strName="", crlMasterTarget=[], crlSlaveTarget=[], crCoordSys=None, iGround=0, dTolerance=0.0, vecTDamper=[0, 0, 0], vecRDamper=[0, 0, 0], crEdit=None, bUpdateDispCS=True):
         message = "Connections.SpringsDampers.Damper.AnyEntities11DoFS({},'{}',{},{},{},{},{},{},{},{},{})".format(iMethod, strName, crlMasterTarget, crlSlaveTarget, crCoordSys, iGround, dTolerance, vecTDamper, vecRDamper, crEdit, bUpdateDispCS)
         return JPT_RUN_LINE(message)
 
-class BoltConnections:
-    Edge = Edge()
+class Connections_BoltConnections:
+    Edge = BoltConnections_Edge()
 
-    Face = Face()
+    Face = BoltConnections_Face()
 
-class Contacts:
-    Abaqus = Abaqus()
+class Connections_Contacts:
+    Abaqus = Contacts_Abaqus()
 
-    ADVC = ADVC()
+    ADVC = Contacts_ADVC()
 
-    Ansys = Ansys()
+    Ansys = Contacts_Ansys()
 
     def CheckPattern(self, crlPart=[], bShowMismatch=False, bShowMatch=True, dTol=0.01):
         message = "Connections.Contacts.CheckPattern({},{},{},{})".format(crlPart, bShowMismatch, bShowMatch, dTol)
@@ -882,15 +882,15 @@ class Contacts:
         message = "Connections.Contacts.NXNastranGeneral('{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(strName, iPiType, iPiAlg, dPdNorPenFactor, dPdTanPenFactor, dPdForceConTol, dPdMaxForceIter, dPdMaxStaIter, dPdChangeNum, dPdMinContactPer, iPiShellThickness, iPiContactStatus, iPiInitGapPenetra, iPiRegionRefine, iPiEvaluPts, dPdMinSearDist, dPdMaxSearDist, dPdFricCoef, dPdSearchDist, dPdPenatlyFactor, iPiShellOffset, crlTarget, crEdit, iColor, iMethod)
         return JPT_RUN_LINE(message)
 
-    MSCNastran = MSCNastran()
+    MSCNastran = Contacts_MSCNastran()
 
-    NXNastran = NXNastran()
+    NXNastran = Contacts_NXNastran()
 
-    TSSolver = TSSolver()
+    TSSolver = Contacts_TSSolver()
 
-    TSSS = TSSS()
+    TSSS = Contacts_TSSS()
 
-class Gaps:
+class Connections_Gaps:
     def TwoEdges(self, crlMaster=[], crlSlave=[], iMethod=2, iOriMode=0, crCoord=None, strName="", dU0=DFLT_DBL, dF0=DFLT_DBL, dKa=DFLT_DBL, dKb=DFLT_DBL, dKt=DFLT_DBL, dMar=DFLT_DBL, dMu1=DFLT_DBL, dMu2=DFLT_DBL, dlOriVec=[], dTmax=DFLT_DBL, dTol=DFLT_DBL, dTrmin=DFLT_DBL, crEditCur=None):
         message = "Connections.Gaps.TwoEdges({},{},{},{},{},'{}',{},{},{},{},{},{},{},{},{},{},{},{},{})".format(crlMaster, crlSlave, iMethod, iOriMode, crCoord, strName, dU0, dF0, dKa, dKb, dKt, dMar, dMu1, dMu2, dlOriVec, dTmax, dTol, dTrmin, crEditCur)
         return JPT_RUN_LINE(message)
@@ -903,12 +903,12 @@ class Gaps:
         message = "Connections.Gaps.TwoNodes({},{},{},{},{},'{}',{},{},{},{},{},{},{},{},{},{},{},{},{})".format(crlMaster, crlSlave, iMethod, iOriMode, crCoord, strName, dU0, dF0, dKa, dKb, dKt, dMar, dMu1, dMu2, dlOriVec, dTmax, dTol, dTrmin, crEditCur)
         return JPT_RUN_LINE(message)
 
-class MPC:
-    Equation = Equation()
+class Connections_MPC:
+    Equation = MPC_Equation()
 
-    General = General()
+    General = MPC_General()
 
-class Pretension:
+class Connections_Pretension:
     def Advc(self, strName="PreTensionAdvc1", bFixedLength=False, crEnforcedVelocity=None, dDvalue=0.0, iDirUpdateType=0, dlVnormal=[0,0,0], dlCtrolNodePos=[0,0,0], iRefNodeId=0, crEdit=None, crlTarget=[]):
         message = "Connections.Pretension.Advc('{}',{},{},{},{},{},{},{},{},{})".format(strName, bFixedLength, crEnforcedVelocity, dDvalue, iDirUpdateType, dlVnormal, dlCtrolNodePos, iRefNodeId, crEdit, crlTarget)
         return JPT_RUN_LINE(message)
@@ -921,8 +921,8 @@ class Pretension:
         message = "Connections.Pretension.General('{}',{},{},{},{},{},{},{},{},{})".format(strName, iDir, dValue, bFixLength, crTable, crCoord, iLocalUnit, crlTarget, crEdit, bCreate2ADVCStatic)
         return JPT_RUN_LINE(message)
 
-class RigidElements:
-    RBar = RBar()
+class Connections_RigidElements:
+    RBar = RigidElements_RBar()
 
     def RBarGeneral(self, rbarConnection=RBAR_CONNECTION(), crlMasterTarget=[], crlSlaveTarget=[], iUlDOFs=0, dTol=DFLT_DBL, crCoord=None, crEdit=None):
         message = "Connections.RigidElements.RBarGeneral({},{},{},{},{},{},{})".format(rbarConnection, crlMasterTarget, crlSlaveTarget, iUlDOFs, dTol, crCoord, crEdit)
@@ -936,37 +936,37 @@ class RigidElements:
         message = "Connections.RigidElements.RBE3General({},{},{},{},{},'{}',{},{},{},{},{},{},{})".format(iMethod, crlMasterTarget, crlSlaveTarget, listRbe3TermConnection, iTypeRBE3, strName, crCoordSys, dTolerance, posVirtualNodePos, iSurfaceDef, crEdit, bUpdateDispCS, bCornerOnly)
         return JPT_RUN_LINE(message)
 
-    RBE2 = RBE2()
+    RBE2 = RigidElements_RBE2()
 
-    RBE3 = RBE3()
+    RBE3 = RigidElements_RBE3()
 
-class SpringsDampers:
-    Bush = Bush()
+class Connections_SpringsDampers:
+    Bush = SpringsDampers_Bush()
 
     def BushGeneral(self, iMethod=0, strName="", crlMaster=[], crlSlave=[], crCoord=None, dTol=0.0, iGround=0, iOriMode=0, iEqual=0, poslVector=[[]], dlStiffness=[], dlDampCoef=[], dlDampConst=[], dRotStrain=0.0, dTransStrain=0.0, dRotStress=0.0, dTransStress=0.0, crEditObj=None):
         message = "Connections.SpringsDampers.BushGeneral({},'{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(iMethod, strName, crlMaster, crlSlave, crCoord, dTol, iGround, iOriMode, iEqual, poslVector, dlStiffness, dlDampCoef, dlDampConst, dRotStrain, dTransStrain, dRotStress, dTransStress, crEditObj)
         return JPT_RUN_LINE(message)
 
-    Spring = Spring()
+    Spring = SpringsDampers_Spring()
 
-    Damper = Damper()
+    Damper = SpringsDampers_Damper()
 
-class Load:
+class Designer_Load:
     def Moment(self, strName="", crlFace=[], dlVecMomentXYZ=[0.0,0.0,0.0], crCoord=None, crEdit=None):
         message = "Designer.Load.Moment('{}',{},{},{},{})".format(strName, crlFace, dlVecMomentXYZ, crCoord, crEdit)
         return JPT_RUN_LINE(message)
 
-class LBC:
+class Designer_LBC:
     def TemperatureLoad(self, strName="", iDnType=0, dFTemp=0, strDstrFilePathName="", crDcrTable=None, crlTarget=[], crEdit=None, bDbUseAsMaterialReferenceTemp=False):
         message = "Designer.LBC.TemperatureLoad('{}',{},{},'{}',{},{},{},{})".format(strName, iDnType, dFTemp, strDstrFilePathName, crDcrTable, crlTarget, crEdit, bDbUseAsMaterialReferenceTemp)
         return JPT_RUN_LINE(message)
 
-class SZ:
+class ExManifoldModeling_SZ:
     def WeldLine2(self, crlFace=[], crlPart=[], dLayerWidth=0.0, iLayerNumber=0):
         message = "ExManifoldModeling.SZ.WeldLine2({},{},{},{})".format(crlFace, crlPart, dLayerWidth, iLayerNumber)
         return JPT_RUN_LINE(message)
 
-class Bar:
+class Geometry_Bar:
     def Arc(self, crlNode=[], crPart=None, strBarName=""):
         message = "Geometry.Bar.Arc({},{},'{}')".format(crlNode, crPart, strBarName)
         return JPT_RUN_LINE(message)
@@ -979,7 +979,7 @@ class Bar:
         message = "Geometry.Bar.TwoNodes('{}',{},{},{})".format(strPartName, iMeshCount, crStartNode, crEndNode)
         return JPT_RUN_LINE(message)
 
-class BodyCut:
+class Geometry_BodyCut:
     def BySurface(self, crlPart=[], crCutter=None, bSplitOnly=False, bMakeSectionFace=True, bShareFace=False, bSeparateFace=False):
         message = "Geometry.BodyCut.BySurface({},{},{},{},{},{})".format(crlPart, crCutter, bSplitOnly, bMakeSectionFace, bShareFace, bSeparateFace)
         return JPT_RUN_LINE(message)
@@ -992,7 +992,7 @@ class BodyCut:
         message = "Geometry.BodyCut.XXYYOnOnePoint({},{},{},{},{},{},{},{})".format(crPart, posCutPos, iType, dOffset, bSplit, bSectionFace, bShateFace, crLocalCoor)
         return JPT_RUN_LINE(message)
 
-class BreakEntity:
+class Geometry_BreakEntity:
     def Face(self, crlFace=[]):
         message = "Geometry.BreakEntity.Face({})".format(crlFace)
         return JPT_RUN_LINE(message)
@@ -1009,7 +1009,7 @@ class BreakEntity:
         message = "Geometry.BreakEntity.StlPart({},{},{})".format(crlPart, iMinNoOfFaces, iMethod)
         return JPT_RUN_LINE(message)
 
-class DeleteEntity:
+class Geometry_DeleteEntity:
     def Edge(self, crlEdge=[]):
         message = "Geometry.DeleteEntity.Edge({})".format(crlEdge)
         return JPT_RUN_LINE(message)
@@ -1026,7 +1026,7 @@ class DeleteEntity:
         message = "Geometry.DeleteEntity.Part({})".format(crlPart)
         return JPT_RUN_LINE(message)
 
-class Edge:
+class Geometry_Edge:
     def Angle(self, crpPair=[], dAngle=135.0, bCurvature=False, bBreakFace=True):
         message = "Geometry.Edge.Angle({},{},{},{})".format(crpPair, dAngle, bCurvature, bBreakFace)
         return JPT_RUN_LINE(message)
@@ -1091,12 +1091,7 @@ class Edge:
         message = "Geometry.Edge.SplineFreeEdges({},{},{},'{}')".format(crlNode, iEnableArc, crPart, strBarName)
         return JPT_RUN_LINE(message)
 
-class Extract:
-    def FindFeatureFillet(self, ):
-        message = "Geometry.Extract.FindFeatureFillet()".format()
-        return JPT_RUN_LINE(message)
-
-class ExtractSurfaces:
+class Geometry_ExtractSurfaces:
     def ExtractRefSurface(self, listFace=[], dAngle=60.0, strName="ExtractFace_1", isMergePart=False):
         message = "Geometry.ExtractSurfaces.ExtractRefSurface({},{},'{}',{})".format(listFace, dAngle, strName, isMergePart)
         return JPT_RUN_LINE(message)
@@ -1105,7 +1100,7 @@ class ExtractSurfaces:
         message = "Geometry.ExtractSurfaces.ExtractSurfaces({},{},'{}',{})".format(crlFace, dAngle, strName, bMergePart)
         return JPT_RUN_LINE(message)
 
-class Face:
+class Geometry_Face:
     def CreateSmoothFace(self, bInterPoration=False, crlTarget=[], iElemGeneration=0, dGradation=0.0, iEnableFaceSmooth=0, crTargetPart=None):
         message = "Geometry.Face.CreateSmoothFace({},{},{},{},{},{})".format(bInterPoration, crlTarget, iElemGeneration, dGradation, iEnableFaceSmooth, crTargetPart)
         return JPT_RUN_LINE(message)
@@ -1126,7 +1121,7 @@ class Face:
         message = "Geometry.Face.FromMesh({})".format(crlFace)
         return JPT_RUN_LINE(message)
 
-class FindFeature:
+class Geometry_FindFeature:
     def DelCircChamfer(self, crlPart=[], dMaxThick=0.1, dMinThick=2):
         message = "Geometry.FindFeature.DelCircChamfer({},{},{})".format(crlPart, dMaxThick, dMinThick)
         return JPT_RUN_LINE(message)
@@ -1143,7 +1138,7 @@ class FindFeature:
         message = "Geometry.FindFeature.Edges({},{},{},{},{},{},{},{},{},{},{})".format(crlPart,iOption, crlEdge, bCylinder, bDisc, bFourCorners, dMinThickness, dMaxThickness, dDiameterMin, dDiameterMax, crlFace)
         return JPT_RUN_LINE(message)
 
-class MergeEntities:
+class Geometry_MergeEntities:
     def Edges(self, crlEdge=[]):
         message = "Geometry.MergeEntities.Edges({})".format(crlEdge)
         return JPT_RUN_LINE(message)
@@ -1168,7 +1163,7 @@ class MergeEntities:
         message = "Geometry.MergeEntities.Parts({},{},{})".format(dTolerance, bRemovesharefaceflag, crlPart)
         return JPT_RUN_LINE(message)
 
-class Part:
+class Geometry_Part:
     def Cube(self, dlOrigin=[0, 0, 0], dlLength=[0.01, 0.01, 0.01], ilNodeCnt=[10, 10, 10], strPartName="Cube_1", iColorPart=7105764, crCoord=None):
         message = "Geometry.Part.Cube({},{},{},'{}',{},{})".format(dlOrigin, dlLength, ilNodeCnt, strPartName, iColorPart, crCoord)
         return JPT_RUN_LINE(message)
@@ -1205,7 +1200,7 @@ class Part:
         message = "Geometry.Part.Wedge({},{},{},'{}',{},{})".format(vecOrigin, vecLength, vecNodeCount, strPartName, iPartColor, crCoordinate)
         return JPT_RUN_LINE(message)
 
-class ShowAdjacent:
+class Geometry_ShowAdjacent:
     def Elements(self, Angle=0.0, IncludeStopElem=0, Layer=1,IsPreview=0, taStartElemCr=[] ,taStopElemCr=[]):
         message = "Geometry.ShowAdjacent.Elements({},{},{},{},{},{})".format(Angle, IncludeStopElem, Layer,IsPreview, taStartElemCr,taStopElemCr)
         return JPT_RUN_LINE(message)
@@ -1214,7 +1209,7 @@ class ShowAdjacent:
         message = "Geometry.ShowAdjacent.Faces({},{},{},{},{},{})".format(Angle, IncludeStopFace, Layer,IsPreview, taStartFaceCr,taStopFaceCr)
         return JPT_RUN_LINE(message)
 
-class Transform:
+class Geometry_Transform:
     def MatingFace(self, crlPart=[], crSrcFace=None, crDstFace=None, crSrcEdge=None, crDstEdge=None, crSrcNode=None, crDstNode=None, iFaceOpposite=0, dEdgeAngle=0, iEdgeOpposite=0, iAlignMethodType=0, iAdjustPointType=0, iAdjustProjectionType=0, dlAlignVector=[0, 0, 0], dlAdjustPoint=[0, 0, 0], dlAdjustVector=[0, 0, 0], bCreateNewPart=False, bCopyLBC=False, bCopyProperty=False, bIsPreview=False, crlCoordSyss=[]):
         message = "Geometry.Transform.MatingFace({},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(crlPart, crSrcFace, crDstFace, crSrcEdge, crDstEdge, crSrcNode, crDstNode, iFaceOpposite, dEdgeAngle, iEdgeOpposite, iAlignMethodType, iAdjustPointType, iAdjustProjectionType, dlAlignVector, dlAdjustPoint, dlAdjustVector, bCreateNewPart, bCopyLBC, bCopyProperty, bIsPreview, crlCoordSyss)
         return JPT_RUN_LINE(message)
@@ -1243,7 +1238,7 @@ class Transform:
         message = "Geometry.Transform.Scaling({},{},{},{},{},{},{},{})".format(crlPart, dlScaleVector, dlScaleCentre, crCoordinate, bCreateNew, bCopyLbc, bCopyProperty, bUsepartcenter)
         return JPT_RUN_LINE(message)
 
-class RightClick:
+class Groups_RightClick:
     def AddSupGroup(self, crSupGroupSelected=None):
         message = "Groups.RightClick.AddSupGroup({})".format(crSupGroupSelected)
         return JPT_RUN_LINE(message)
@@ -1268,7 +1263,7 @@ class RightClick:
         message = "Groups.RightClick.Rename('{}',{})".format(strNewName, crItem)
         return JPT_RUN_LINE(message)
 
-class Sweep:
+class HexModeling_Sweep:
     def Circular(self, crlFace=[], dAngle=360, dTol=0.0000001, iLayer=36, vecAxisPt=[0.0,0.0,0.0], vecAxisVect=[1.0,0.0,0.0], bInterfaceElem=False, bExtrusion=False, dTranslationExtrusion=0.0, dBDeleteOriginalParts=0.0):
         message = "HexModeling.Sweep.Circular({},{},{},{},{},{},{},{},{},{})".format(crlFace, dAngle, dTol, iLayer, vecAxisPt, vecAxisVect, bInterfaceElem, bExtrusion, dTranslationExtrusion, dBDeleteOriginalParts)
         return JPT_RUN_LINE(message)
@@ -1293,7 +1288,7 @@ class Sweep:
         message = "HexModeling.Sweep.Layer({},{},{},{},{},{},{})".format(crlFace, dFrontWidth, dBackWidth, iFrontLayers, iBackLayers, iBaseFaceType, iSeparate)
         return JPT_RUN_LINE(message)
 
-class ImportCAD:
+class Home_ImportCAD:
     def Elysium(self, strlPath=[], dChordHeightTolerance=1.0, dAngleToleranceDegree=5.0, dPointCoincidentTolerance=0.01, iConvertIsolatedCurve=0, iDekCleanselfintersectingloop=2, iDekVolumetopart=4, iIgesFixedcurevepreference=0, iIgesAutostitch=1, dIgesStitchtolerance=0.1, iCatiaConvertnotshowedelement=0, iCatiaConvertnotshowedinstance=0, iCatiaConvertaxis=1, iStepCreateseam=1, dStepPointtolerance=0.0, iAcisHealacisbeforeversion=0, iJtConvertgeometrytype=2, bFaceColor=False, iJtConvertgeneralpart=1, iJtConvertaxis=1, iJtConvertcenterline=0):
         message = "Home.ImportCAD.Elysium('{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(strlPath, dChordHeightTolerance, dAngleToleranceDegree, dPointCoincidentTolerance, iConvertIsolatedCurve, iDekCleanselfintersectingloop, iDekVolumetopart, iIgesFixedcurevepreference, iIgesAutostitch, dIgesStitchtolerance, iCatiaConvertnotshowedelement, iCatiaConvertnotshowedinstance, iCatiaConvertaxis, iStepCreateseam, dStepPointtolerance, iAcisHealacisbeforeversion, iJtConvertgeometrytype, bFaceColor, iJtConvertgeneralpart, iJtConvertaxis, iJtConvertcenterline)
         return JPT_RUN_LINE(message)
@@ -1318,7 +1313,7 @@ class ImportCAD:
         message = "Home.ImportCAD.VRML('{}',{},{},{},{},{},{},{},{},{},{})".format(strlFiles, dChordHeightTolerance, dAngleToleranceDegree, iConvertIsolatedCurve, dSurfacePlaneTolerance, dSufacePlaneAngle, dMaxFacetWidth, dMinFacetWidth, bICAD, iVRMLColorGroups, dScale)
         return JPT_RUN_LINE(message)
 
-class ImportMesh:
+class Home_ImportMesh:
     def AbaqusINP(self, strlFilePaths=[], dFaceAngle=60.0, dEdgeAngle=60.0, iImportType=1):
         message = "Home.ImportMesh.AbaqusINP('{}',{},{},{})".format(strlFilePaths, dFaceAngle, dEdgeAngle, iImportType)
         return JPT_RUN_LINE(message)
@@ -1343,7 +1338,7 @@ class ImportMesh:
         message = "Home.ImportMesh.Universal('{}')".format(strPath)
         return JPT_RUN_LINE(message)
 
-class RightClick:
+class MainWindow_RightClick:
     def AssociatedPick(self, crlInput=[], strTarget="", strConnect="UNKNOWN"):
         message = "MainWindow.RightClick.AssociatedPick({},'{}','{}')".format(crlInput, strTarget, strConnect)
         return JPT_RUN_LINE(message)
@@ -1360,12 +1355,12 @@ class RightClick:
         message = "MainWindow.RightClick.FlipElement({})".format(crlTarget)
         return JPT_RUN_LINE(message)
 
-class Element:
+class ChangeTopology_Element:
     def SurfaceElement(self, ilElement=[], ilFace=[], ilPart=[], iCreateNewPart=0):
         message = "MeshCleanup.ChangeTopology.Element.SurfaceElement({},{},{},{})".format(ilElement, ilFace, ilPart, iCreateNewPart)
         return JPT_RUN_LINE(message)
 
-class MergeElement:
+class Manual2D_MergeElement:
     def TwoTrisToQuad(self, crlElem=[]):
         message = "MeshCleanup.Manual2D.MergeElement.TwoTrisToQuad({})".format(crlElem)
         return JPT_RUN_LINE(message)
@@ -1374,7 +1369,7 @@ class MergeElement:
         message = "MeshCleanup.Manual2D.MergeElement.TwoQuadsToQuad({})".format(crlElem)
         return JPT_RUN_LINE(message)
 
-class SplitElement:
+class Manual2D_SplitElement:
     def QuadTo2Quads(self, crlElem=[], crDatumNode0=None, crDatumNode1=None, iMethod=0, iAutoExecute=0, iAutoTransition=0, iCADProject=0, iMergeNode=0):
         message = "MeshCleanup.Manual2D.SplitElement.QuadTo2Quads({},{},{},{},{},{},{},{})".format(crlElem, crDatumNode0, crDatumNode1, iMethod, iAutoExecute, iAutoTransition, iCADProject, iMergeNode)
         return JPT_RUN_LINE(message)
@@ -1411,7 +1406,7 @@ class SplitElement:
         message = "MeshCleanup.Manual2D.SplitElement.QuadTo4Tris({},{},{},{},{},{},{},{})".format(crlElem, crDatumNode0, crDatumNode1, iMethod, iAutoExecute, iAutoTransition, iCADProject, iMergeNode)
         return JPT_RUN_LINE(message)
 
-class Collapse:
+class Manual3D_Collapse:
     def CenterFaceCollapse(self, crlElem=[]):
         message = "MeshCleanup.Manual3D.Collapse.CenterFaceCollapse({})".format(crlElem)
         return JPT_RUN_LINE(message)
@@ -1424,15 +1419,15 @@ class Collapse:
         message = "MeshCleanup.Manual3D.Collapse.EdgeCollapse({},{})".format(crplElemEdge, crlNode)
         return JPT_RUN_LINE(message)
 
-class Cleanup:
+class MeshCleanup_Cleanup:
     def CloseGap(self, crlPartCur=[], dDistanceTol=0.0):
         message = "MeshCleanup.Cleanup.CloseGap({},{})".format(crlPartCur, dDistanceTol)
         return JPT_RUN_LINE(message)
 
-class ChangeTopology:
-    Element = Element()
+class MeshCleanup_ChangeTopology:
+    Element = ChangeTopology_Element()
 
-class Element:
+class MeshCleanup_Element:
     def SolidElement(self, crlElem=[], crPart=None):
         message = "MeshCleanup.Element.SolidElement({},{})".format(crlElem, crPart)
         return JPT_RUN_LINE(message)
@@ -1441,7 +1436,7 @@ class Element:
         message = "MeshCleanup.Element.SurfaceElement({},{},{},{})".format(ilElement, ilFace, ilPart, iCreateNewPart)
         return JPT_RUN_LINE(message)
 
-class Manual2D:
+class MeshCleanup_Manual2D:
     def Collapse(self, crNodeRef=None, crNodeEq=None):
         message = "MeshCleanup.Manual2D.Collapse({},{})".format(crNodeRef, crNodeEq)
         return JPT_RUN_LINE(message)
@@ -1470,12 +1465,12 @@ class Manual2D:
         message = "MeshCleanup.Manual2D.Swap({})".format(crplElemEdge)
         return JPT_RUN_LINE(message)
 
-    MergeElement = MergeElement()
+    MergeElement = Manual2D_MergeElement()
 
-    SplitElement = SplitElement()
+    SplitElement = Manual2D_SplitElement()
 
-class Manual3D:
-    Collapse = Collapse()
+class MeshCleanup_Manual3D:
+    Collapse = Manual3D_Collapse()
 
     def CreateHex(self, iParentEntityId=0, crlElem=[], iSeprateN=1):
         message = "MeshCleanup.Manual3D.CreateHex({},{},{})".format(iParentEntityId, crlElem, iSeprateN)
@@ -1505,12 +1500,12 @@ class Manual3D:
         message = "MeshCleanup.Manual3D.DeleteNode({})".format(crlNode)
         return JPT_RUN_LINE(message)
 
-class ManualCheck:
+class MeshCleanup_ManualCheck:
     def Tri(self, crlPart=[], nElemType=0, veQuality=0, nCheckCondition=0, dLimitValue=0.0, CFLValue=0.0, nNonManifold=0, nCleanupMode=0, crlElem=[]):
         message = "MeshCleanup.ManualCheck.Tri({},{},{},{},{},{},{},{},{})".format(crlPart, nElemType, veQuality, nCheckCondition, dLimitValue, CFLValue, nNonManifold, nCleanupMode, crlElem)
         return JPT_RUN_LINE(message)
 
-class CreateElement:
+class MeshEdit_CreateElement:
     def Hex(self, iParentEntityId=0, crlElem=[], iSeprateN=1):
         message = "MeshEdit.CreateElement.Hex({},{},{})".format(iParentEntityId, crlElem, iSeprateN)
         return JPT_RUN_LINE(message)
@@ -1531,7 +1526,7 @@ class CreateElement:
         message = "MeshEdit.CreateElement.Tri3({},{},{})".format(iElemType, crParentEntity, crlNode)
         return JPT_RUN_LINE(message)
 
-class CreateNode:
+class MeshEdit_CreateNode:
     def Absolute(self, veclNodeCoord=[], ilNewNodeID=[]):
         message = "MeshEdit.CreateNode.Absolute({},{})".format(veclNodeCoord, ilNewNodeID)
         return JPT_RUN_LINE(message)
@@ -1584,7 +1579,7 @@ class CreateNode:
         message = "MeshEdit.CreateNode.ProjectToLine({})".format(crlTa)
         return JPT_RUN_LINE(message)
 
-class MoveNode:
+class MeshEdit_MoveNode:
     def Absolute(self, dDeltaX=0.0, dDeltaY=0.0, dDeltaZ=0.0, b1stCoord=True, b2ndCoord=True, b3rdCoord=True, crlNode=[], crCoord=None):
         message = "MeshEdit.MoveNode.Absolute({},{},{},{},{},{},{},{})".format(dDeltaX, dDeltaY, dDeltaZ, b1stCoord, b2ndCoord, b3rdCoord, crlNode, crCoord)
         return JPT_RUN_LINE(message)
@@ -1657,7 +1652,7 @@ class MoveNode:
         message = "MeshEdit.MoveNode.StraightenMidnodes({},{},{},{})".format(crlPart, crlFace, crlEdge, crlNode)
         return JPT_RUN_LINE(message)
 
-class CADProjection:
+class Meshing_CADProjection:
     def Face(self, iMethod=2, crCadPart=None, crlMeshedFace=[], bForceProject=False, bProjectCornerNodes=True, bProjectMidNodes=False, bIDcheck=False):
         message = "Meshing.CADProjection.Face({},{},{},{},{},{},{})".format(iMethod, crCadPart, crlMeshedFace, bForceProject, bProjectCornerNodes, bProjectMidNodes, bIDcheck)
         return JPT_RUN_LINE(message)
@@ -1678,7 +1673,7 @@ class CADProjection:
         message = "Meshing.CADProjection.NodeToEdge({},{},{},{})".format(iMethod, crCadEdge, crlMeshedNode, iDirection)
         return JPT_RUN_LINE(message)
 
-class LocalMeshing:
+class Meshing_LocalMeshing:
     def FilletMapping(self, crlFace=[], iIsoDiv=4, dIsoSize=5, dIsoError=0.5):
         message = "Meshing.LocalMeshing.FilletMapping({},{},{},{})".format(crlFace, iIsoDiv, dIsoSize, dIsoError)
         return JPT_RUN_LINE(message)
@@ -1687,7 +1682,7 @@ class LocalMeshing:
         message = "Meshing.LocalMeshing.SelectFillet({},{},{},{},{},{},{},{},{})".format(crlItems, dSelectWidthMin, dSelectWidthMax, dSelectRMin, dSelectRMax, dAngleMin, dAngleMax, bConvex, bConcave)
         return JPT_RUN_LINE(message)
 
-class LocalRemesh:
+class Meshing_LocalRemesh:
     def Surfase(self, crlTarget=[], surfaceMesh = SURFACE_MESH(), bUseSetting=True, bGrading=False, bFMesher=False, iOverrideType=1, bKeepConnection=False, bProjCAD=True, bTinyFaceMerge=False, dMinFaceWidth=0, dMaxFaceWidth=0.001,bIDchcek = False, bKeepRemeshEdge = False):
         message = "Meshing.LocalRemesh.Surfase({},{},{},{},{},{},{},{},{},{},{},{},{})".format(crlTarget, surfaceMesh , bUseSetting, bGrading, bFMesher, iOverrideType, bKeepConnection, bProjCAD, bTinyFaceMerge, dMinFaceWidth, dMaxFaceWidth,bIDchcek , bKeepRemeshEdge )
         return JPT_RUN_LINE(message)
@@ -1696,12 +1691,12 @@ class LocalRemesh:
         message = "Meshing.LocalRemesh.Solid({},{},{},{},{})".format(crlPart, dlCenter, dRadius, dGradFactor, dStrechLimit)
         return JPT_RUN_LINE(message)
 
-class LocalSetting:
+class Meshing_LocalSetting:
     def SearchTargetFaces(self, iPartType=0, dlOrigin=[0, 0, 0], dlLength=[0.1, 0.1, 0.1], dlCenterPt=[0.0,0.0,0.0], dlAxisPt1=[0.0,0.0,0.1], dlAxisPt2=[0.0,0.0,0.0], bEnclosed=False):
         message = "Meshing.LocalSetting.SearchTargetFaces({},{},{},{},{},{},{})".format(iPartType, dlOrigin, dlLength, dlCenterPt, dlAxisPt1, dlAxisPt2, bEnclosed)
         return JPT_RUN_LINE(message)
 
-class LocalSettings:
+class Meshing_LocalSettings:
     def Face(self, strName="", localMesh, crlTarget=[], ilHardPointId=[], veclHardPointXYZ=[], crlHardPointTarget=[], crEditTarget=None):
         message = "Meshing.LocalSettings.Face('{}',{},{},{},{},{})".format(strName, crlTarget, ilHardPointId, veclHardPointXYZ, crlHardPointTarget, crEditTarget)
         return JPT_RUN_LINE(message)
@@ -1726,12 +1721,12 @@ class LocalSettings:
         message = "Meshing.LocalSettings.Part('{}',{},{},{},{},{})".format(strName, crlTarget, ilHardPointId, veclHardPointXYZ, crlHardPointTarget, crEditTarget)
         return JPT_RUN_LINE(message)
 
-class Templates:
+class Meshing_Templates:
     def TemplateCopy(self, crlReferent=[], crlTarget=[], iMethod=0, iCopySub=1, dTolerance=0.001, strSource="", strTarget=""):
         message = "Meshing.Templates.TemplateCopy({},{},{},{},{},'{}','{}')".format(crlReferent, crlTarget, iMethod, iCopySub, dTolerance, strSource, strTarget)
         return JPT_RUN_LINE(message)
 
-class Edge:
+class AddItems_Edge:
     def FaceTwoFace(self, crRefFace=None, crExtFace=None, iExtendType=0):
         message = "MidPlaneEdit.AddItems.Edge.FaceTwoFace({},{},{})".format(crRefFace, crExtFace, iExtendType)
         return JPT_RUN_LINE(message)
@@ -1740,7 +1735,7 @@ class Edge:
         message = "MidPlaneEdit.AddItems.Edge.ProjectEdgeToFace({},{},{})".format(crlEdge, crlFace, bExtendEdge)
         return JPT_RUN_LINE(message)
 
-class Face:
+class AddItems_Face:
     def EFProject(self, crlEdge=[], crlFace=[], bMergeFace=False, bMergeEdge=False, dMergeEdgeAngle=0.0, bMultiEF=False):
         message = "MidPlaneEdit.AddItems.Face.EFProject({},{},{},{},{},{})".format(crlEdge, crlFace, bMergeFace, bMergeEdge, dMergeEdgeAngle, bMultiEF)
         return JPT_RUN_LINE(message)
@@ -1749,12 +1744,12 @@ class Face:
         message = "MidPlaneEdit.AddItems.Face.EFExtendFreeEdge({},{},{},{},{},{},{})".format(crlEdge, crlFace, bMergeFace, bMergeEdge, bUseNeighDir, dMergeEdgeAngle, bMultiEF)
         return JPT_RUN_LINE(message)
 
-class AddItems:
-    Edge = Edge()
+class MidPlaneEdit_AddItems:
+    Edge = AddItems_Edge()
 
-    Face = Face()
+    Face = AddItems_Face()
 
-class ExtendFace:
+class MidPlaneEdit_ExtendFace:
     def CylinderFace(self, crlExtFace=[], crRefFace=None, crEdge=None, iExtendType=1, iFaceType=0, iMethod=0, dParaAngleOffset=0.0, dParaArcLength=0.0, dParaZxy=0.0, iAxisPlane=0, iParaArcNodesNum=0, dOffLength=0.0, crlSelExtendedFace=[], crlSelRefFace=[], dCoMag=0.0, iAxisSystem=0, iCoorSystem=0, iCoX=0, iCoY=0, iCoZ=0, bOtherSameAsFaceNormal=False, dOtherArcNodesNum=0.0, dOtherArcRadius=0.0):
         message = "MidPlaneEdit.ExtendFace.CylinderFace({},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(crlExtFace, crRefFace, crEdge, iExtendType, iFaceType, iMethod, dParaAngleOffset, dParaArcLength, dParaZxy, iAxisPlane, iParaArcNodesNum, dOffLength, crlSelExtendedFace, crlSelRefFace, dCoMag, iAxisSystem, iCoorSystem, iCoX, iCoY, iCoZ, bOtherSameAsFaceNormal, dOtherArcNodesNum, dOtherArcRadius)
         return JPT_RUN_LINE(message)
@@ -1763,7 +1758,7 @@ class ExtendFace:
         message = "MidPlaneEdit.ExtendFace.PlanarFace({},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(bIType, crExtFace, crRefFace, crEdge, iFaceType, iExtendType, iMethod, dParaZxy, iAxisPlane, iParaArcNodesNum, dOffLength, dCoMag, iAxisSystem, iCoorSystem, crCoord, iCoX, iCoY, iCoZ, bOtherSameAsFaceNormal, dOtherArcNodesNum, dOtherArcRadius)
         return JPT_RUN_LINE(message)
 
-class Face:
+class MidPlaneEdit_Face:
     def EdgesToEdges(self, crlEdge=[], bImprint=False, bMultiEdges=False):
         message = "MidPlaneEdit.Face.EdgesToEdges({},{},{})".format(crlEdge, bImprint, bMultiEdges)
         return JPT_RUN_LINE(message)
@@ -1776,7 +1771,7 @@ class Face:
         message = "MidPlaneEdit.Face.FaceExtendToIntersection({},{})".format(crEdge0, crEdge1)
         return JPT_RUN_LINE(message)
 
-class Manual:
+class MidPlaneEdit_Manual:
     def MidByPair(self, crlBaseFaces=[], crlPairFaces=[], crlRefFaces=[], crPart=None, bMergeFaces=False, bExtendFaces=False, bHideFaces=False, dExtendTol=0.0, dMergeEdgesAngle=0.0, dStitchFaces=0.0):
         message = "MidPlaneEdit.Manual.MidByPair({},{},{},{},{},{},{},{},{},{})".format(crlBaseFaces, crlPairFaces, crlRefFaces, crPart, bMergeFaces, bExtendFaces, bHideFaces, dExtendTol, dMergeEdgesAngle, dStitchFaces)
         return JPT_RUN_LINE(message)
@@ -1785,17 +1780,17 @@ class Manual:
         message = "MidPlaneEdit.Manual.vecOffset({},{},{},{},'{}')".format(crlFace, crPart, dOffset, bCyl, strNewPartName)
         return JPT_RUN_LINE(message)
 
-class Edge:
+class MidPlaneEdit_Edge:
     def Nodes(self, crlNode=[]):
         message = "MidPlaneEdit.Edge.Nodes({})".format(crlNode)
         return JPT_RUN_LINE(message)
 
-class ACModelCreationTools:
+class MMCCarACTools_ACModelCreationTools:
     def MeshedFace(self, crlItem1=[], crlItem2=[], crlItem3=[], crlPart=[], iType=0, dMeshSise=0.0, bMergeTol=False, dTol=0.0, bCreatePart=False):
         message = "MMCCarACTools.ACModelCreationTools.MeshedFace({},{},{},{},{},{},{},{},{})".format(crlItem1, crlItem2, crlItem3, crlPart, iType, dMeshSise, bMergeTol, dTol, bCreatePart)
         return JPT_RUN_LINE(message)
 
-class ClearanceElement:
+class MMCCarACTools_ClearanceElement:
     def Edit(self, dDx=0.0, dDy=0.0, dDz=0.0, dLx=0.0, dLy=0.0, dLz=0.0, crlTarget=[], crlDestNode=[], poslDestPoint=[[]]):
         message = "MMCCarACTools.ClearanceElement.Edit({},{},{},{},{},{},{},{},{})".format(dDx, dDy, dDz, dLx, dLy, dLz, crlTarget, crlDestNode, poslDestPoint)
         return JPT_RUN_LINE(message)
@@ -1804,40 +1799,40 @@ class ClearanceElement:
         message = "MMCCarACTools.ClearanceElement.Connect({},{},{})".format(crlFace, crlElem, iConnectionMethod)
         return JPT_RUN_LINE(message)
 
-class CreateEdge:
+class MufflerHA_CreateEdge:
     def PerpendicularLineToEdge(self, crNode=None, crEdge=None, crlFace=[], bBreakFace=False):
         message = "MufflerHA.CreateEdge.PerpendicularLineToEdge({},{},{},{})".format(crNode, crEdge, crlFace, bBreakFace)
         return JPT_RUN_LINE(message)
 
-class CreateEdgeClassic:
+class MufflerHA_CreateEdgeClassic:
     def ProjectLine(self, ilAiedgeidForMacro=[], ilAifaceidForMacro=[], bDivideFace=False, crlAiparttargetForMarco=[]):
         message = "MufflerHA.CreateEdgeClassic.ProjectLine({},{},{},{})".format(ilAiedgeidForMacro, ilAifaceidForMacro, bDivideFace, crlAiparttargetForMarco)
         return JPT_RUN_LINE(message)
 
-class Rod:
+class SpecialModeling_Rod:
     def Rod(self, crlNode=[], dRadius=0.0, iType=0, dMeshSize=0.0, dStartDist=0.0, dWeldDist=0.0, iDivNumber=0, dDeformWidth=0.0, iTransitionElem=0, dlPosDir=[]):
         message = "MufflerT.SpecialModeling.Rod.Rod({},{},{},{},{},{},{},{},{},{})".format(crlNode, dRadius, iType, dMeshSize, dStartDist, dWeldDist, iDivNumber, dDeformWidth, iTransitionElem, dlPosDir)
         return JPT_RUN_LINE(message)
 
-class SpecialModeling:
-    Rod = Rod()
+class MufflerT_SpecialModeling:
+    Rod = SpecialModeling_Rod()
 
-class DefineSequence:
+class MuxWeld_DefineSequence:
     def Single(self, crEdit=None):
         message = "MuxWeld.DefineSequence.Single({})".format(crEdit)
         return JPT_RUN_LINE(message)
 
-class CreateWeld:
+class MuxWeld_CreateWeld:
     def Auto(self, iIconnectattributeMethod=0, strStrconnectattributeName="", crlMasterTarget=[], crlSlaveTarget=[], iIconnectattributeCoordsys=0, crEdit=None):
         message = "MuxWeld.CreateWeld.Auto({},'{}',{},{},{},{})".format(iIconnectattributeMethod, strStrconnectattributeName, crlMasterTarget, crlSlaveTarget, iIconnectattributeCoordsys, crEdit)
         return JPT_RUN_LINE(message)
 
-class LocalMeshing:
+class OasisAWizard_LocalMeshing:
     def FilletMapMeshing(self, crlPart=[], crlFace=[], dMinLength=0.0, dMaxLength=1.0, dMinRadius=0.0, dMaxRadius=9e-3, bConvex=True, bConcave=True, iTmp=0, dLengthSingleLayer=0, dBMinLengthForSingleLayer=0, dRadiusSingleLayer=0, dBMinRadiusForSingleLayer=0, iMinlayer=0, bMinLayer=False):
         message = "OasisAWizard.LocalMeshing.FilletMapMeshing({},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(crlPart, crlFace, dMinLength, dMaxLength, dMinRadius, dMaxRadius, bConvex, bConcave, iTmp, dLengthSingleLayer, dBMinLengthForSingleLayer, dRadiusSingleLayer, dBMinRadiusForSingleLayer, iMinlayer, bMinLayer)
         return JPT_RUN_LINE(message)
 
-class ImportResults:
+class Post_ImportResults:
     def HDF5Mesh(self, strlFilePaths=[], iImportType=2, dFaceAngle=60.0, dEdgeAngle=60.0):
         message = "Post.ImportResults.HDF5Mesh('{}',{},{},{})".format(strlFilePaths, iImportType, dFaceAngle, dEdgeAngle)
         return JPT_RUN_LINE(message)
@@ -1866,7 +1861,7 @@ class ImportResults:
         message = "Post.ImportResults.NastranOp2PostJob('{}','{}',{})".format(strName, strlPaths, crEdit)
         return JPT_RUN_LINE(message)
 
-class ElemRelatedInfo:
+class Properties_ElemRelatedInfo:
     def Bar(self, listEribeamEndProp=[], listEribeamOriVecProp=[], listEribeamOriNodeidProp=[], listEribeamOffsetVecA=[], listEribeamOffsetVecB=[], listEribeamPinAProp=[], listEribeamPinBProp=[], listEribeamWarpProp=[]):
         message = "Properties.ElemRelatedInfo.Bar({},{},{},{},{},{},{},{})".format(listEribeamEndProp, listEribeamOriVecProp, listEribeamOriNodeidProp, listEribeamOffsetVecA, listEribeamOffsetVecB, listEribeamPinAProp, listEribeamPinBProp, listEribeamWarpProp)
         return JPT_RUN_LINE(message)
@@ -1895,7 +1890,7 @@ class ElemRelatedInfo:
         message = "Properties.ElemRelatedInfo.Shell({},{},{})".format(listErishellThetaProp, listErishellCsProp, listErishellZoffsProp)
         return JPT_RUN_LINE(message)
 
-class Material:
+class Properties_Material:
     def Modify(self, strMaterialID="", listMaterialProperty=[]):
         message = "Properties.Material.Modify('{}',{})".format(strMaterialID, listMaterialProperty)
         return JPT_RUN_LINE(message)
@@ -1908,7 +1903,7 @@ class Material:
         message = "Properties.Material.Add('{}',{})".format(strMaterialName, listMaterialProperty)
         return JPT_RUN_LINE(message)
 
-class Section:
+class Properties_Section:
     def AddGeneral(self, strName="", iSecType=0, iSecGenType=0, dDsecGensizeA=0, dDsecGensizeB=0, dDsecGensizeH=0, dDsecGensizeT1=0, dDsecGensizeT2=0, dDsecGensizeT3=0, bBsecTapered=False, dDsecGensizeATap=0, dDsecGensizeBTap=0, dDsecGensizeHTap=0, dDsecGensizeT1Tap=0, dDsecGensizeT2Tap=0, dDsecGensizeT3Tap=0):
         message = "Properties.Section.AddGeneral('{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(strName, iSecType, iSecGenType, dDsecGensizeA, dDsecGensizeB, dDsecGensizeH, dDsecGensizeT1, dDsecGensizeT2, dDsecGensizeT3, bBsecTapered, dDsecGensizeATap, dDsecGensizeBTap, dDsecGensizeHTap, dDsecGensizeT1Tap, dDsecGensizeT2Tap, dDsecGensizeT3Tap)
         return JPT_RUN_LINE(message)
@@ -1945,7 +1940,7 @@ class Section:
         message = "Properties.Section.ModifySketcher('{}',{},{})".format(strName, crSection, iType)
         return JPT_RUN_LINE(message)
 
-class DropTest:
+class SNOnePush_DropTest:
     def CalcTimestep(self, dRelevantElemRate=0.0, dChangeMassRage=0.0):
         message = "SNOnePush.DropTest.CalcTimestep({},{})".format(dRelevantElemRate, dChangeMassRage)
         return JPT_RUN_LINE(message)
@@ -1958,7 +1953,7 @@ class DropTest:
         message = "SNOnePush.DropTest.UpdateFloor('{}',{},{},{},{},{},{},{},{},{},{},'{}',{},{},{})".format(strName, iDir, dRopHeight, dSolutionTime, iNumberOutput, dContactFriction, iRotAxis, dRotAngle, dRelevantElemRate, dChangeMassRate, dMinTimeStep, strSolverFile, dFloorSize, bRename, crMat)
         return JPT_RUN_LINE(message)
 
-class Assembly:
+class SZOnepushReliability_Assembly:
     def ContactSurface(self, crlSrcFace=[], crlTarPart=[], dTolerance=0.0, iLayer=0):
         message = "SZOnepushReliability.Assembly.ContactSurface({},{},{},{})".format(crlSrcFace, crlTarPart, dTolerance, iLayer)
         return JPT_RUN_LINE(message)
@@ -1967,22 +1962,22 @@ class Assembly:
         message = "SZOnepushReliability.Assembly.CreateWeld({},{},{},{})".format(crlWelds, dMeshSize, iRrate, dFilletRadius)
         return JPT_RUN_LINE(message)
 
-class MeshEdit:
+class SZOnepushReliability_MeshEdit:
     def FilletMapping(self, crlPart=[], crlFace=[], dMinRadius=0.0, dMaxRadius=0.0, dMinAngle=0.0, dMaxAngle=0.0, bConvex=False, bConcave=False):
         message = "SZOnepushReliability.MeshEdit.FilletMapping({},{},{},{},{},{},{},{})".format(crlPart, crlFace, dMinRadius, dMaxRadius, dMinAngle, dMaxAngle, bConvex, bConcave)
         return JPT_RUN_LINE(message)
 
-class Connection:
+class Test_Connection:
     def RRod(self, rbarConnection=RBAR_CONNECTION(), iUlDOFs=1, dTol=0.0, crlMasterTarget=[], crlSlaveTarget=[]):
         message = "Test.Connection.RRod({},{},{},{},{})".format(rbarConnection, iUlDOFs, dTol, crlMasterTarget, crlSlaveTarget)
         return JPT_RUN_LINE(message)
 
-class Muffler:
+class Test_Muffler:
     def ProjectLineForWeld(self, crlEdge=[], crlFace=[]):
         message = "Test.Muffler.ProjectLineForWeld({},{})".format(crlEdge, crlFace)
         return JPT_RUN_LINE(message)
 
-class ZGeometryTest:
+class Test_ZGeometryTest:
     def IntersectionCheck(self, crlPart=[], crlFace=[], crlElem=[], iType=0):
         message = "Test.ZGeometryTest.IntersectionCheck({},{},{},{})".format(crlPart, crlFace, crlElem, iType)
         return JPT_RUN_LINE(message)
@@ -1991,7 +1986,7 @@ class ZGeometryTest:
         message = "Test.ZGeometryTest.ShellAssy({},{},{},{},{},{})".format(taPart, crlFace, _iMeshType, _bSelfIntersection, _iMethod, _dGapTol)
         return JPT_RUN_LINE(message)
 
-class Angle:
+class Measure_Angle:
     def By2Axis(self, xyz1=[0, 0, 0], xyz2=[0, 0, 0], target="Angle", Precision=6):
         message = "Tool.Measure.Angle.By2Axis({},{},{},{})".format(xyz1, xyz2, target, Precision)
         return JPT_RUN_LINE(message)
@@ -2004,7 +1999,7 @@ class Angle:
         message = "Tool.Measure.Angle.TwoNodesAxis({},{},{},'{}',{})".format(crNode1, crNode2, dlAxis, strTarget, iPrecision)
         return JPT_RUN_LINE(message)
 
-class Distance:
+class Measure_Distance:
     def Edge(self, crEdge=None, iOption=0, iPrecision=6):
         message = "Tool.Measure.Distance.Edge({},{},{})".format(crEdge, iOption, iPrecision)
         return JPT_RUN_LINE(message)
@@ -2041,12 +2036,12 @@ class Distance:
         message = "Tool.Measure.Distance.TwoPoints({},{},{})".format(posPoint1, posPoint2, iPrecision)
         return JPT_RUN_LINE(message)
 
-class Mass:
+class Measure_Mass:
     def ByMaterial(self, crlPart=[], strDensity="", strTarget="", iPrecision=0):
         message = "Tool.Measure.Mass.ByMaterial({},'{}','{}',{})".format(crlPart, strDensity, strTarget, iPrecision)
         return JPT_RUN_LINE(message)
 
-class Radius:
+class Measure_Radius:
     def ByThreeNodes(self, crNode1_3=None, crNode2_3=None, crNode3_3=None, iPrecision=0):
         message = "Tool.Measure.Radius.ByThreeNodes({},{},{},{})".format(crNode1_3, crNode2_3, crNode3_3, iPrecision)
         return JPT_RUN_LINE(message)
@@ -2055,7 +2050,7 @@ class Radius:
         message = "Tool.Measure.Radius.MeasureRadiusBy3Nodes({},{},{},{})".format(crNode1_3, crNode2_3, crNode3_3, iPrecision)
         return JPT_RUN_LINE(message)
 
-class Manual:
+class MeshQuality_Manual:
     def CleaningVolumeMesh(self, crlPart=[], crlElem=[], dLimitVolume=0.0, iMode=0):
         message = "Tool.MeshQuality.Manual.CleaningVolumeMesh({},{},{},{})".format(crlPart, crlElem, dLimitVolume, iMode)
         return JPT_RUN_LINE(message)
@@ -2064,7 +2059,7 @@ class Manual:
         message = "Tool.MeshQuality.Manual.CleanTetCollapse({},{},{},{},{})".format(crlElem, iKeep, iCheckCondition, dLimitValue, iCleanupMode)
         return JPT_RUN_LINE(message)
 
-class Connections:
+class Tool_Connections:
     def Contact(self, strName="", iContactType=1, dInterferenceClosure=0.5, dFrictionCoefficient=0, iShellOffset=0, iMasterShellOrientation=0, iSlaveShellOrientation=0, iMarkerColor=65280, bInitialAdjustment=0, crlMaster=[], crlSlave=[], crMasterGroup=None, crSlaveGroup=None, crEdit=None):
         message = "Tool.Connections.Contact('{}',{},{},{},{},{},{},{},{},{},{},{},{},{})".format(strName, iContactType, dInterferenceClosure, dFrictionCoefficient, iShellOffset, iMasterShellOrientation, iSlaveShellOrientation, iMarkerColor, bInitialAdjustment, crlMaster, crlSlave, crMasterGroup, crSlaveGroup, crEdit)
         return JPT_RUN_LINE(message)
@@ -2081,7 +2076,7 @@ class Connections:
         message = "Tool.Connections.Spring({},'{}',{},{},{},{},{},{},{},'{}',{},{},{},{},{},{},{},{})".format(iMethod, strName, crlMasterTarget, crlSlaveTarget, crCoordSys, iSpringType, iGround, dTolerance, iDirection, iDistributeMode, iDof1, iDof2, dDampCoef, dStressCoef, posTStiffness, posRStiffness, bUpdateDispCS, crEdit)
         return JPT_RUN_LINE(message)
 
-class Coordinates:
+class Tool_Coordinates:
     def AttachCircle(self, strName="CRect1", iCoordType=0, crEdge=None, bCreateNew=True, crRefCoord=None, crEdit=None):
         message = "Tool.Coordinates.AttachCircle('{}',{},{},{},{},{})".format(strName, iCoordType, crEdge, bCreateNew, crRefCoord, crEdit)
         return JPT_RUN_LINE(message)
@@ -2114,7 +2109,7 @@ class Coordinates:
         message = "Tool.Coordinates.vecOffset('{}',{},{},{},{},{})".format(strName, iCoordType, vTranslate, bCreateNew, crRefCoord, crEdit)
         return JPT_RUN_LINE(message)
 
-class Group:
+class Tool_Group:
     def CreateGroup(self, strGroupName="", crlTarget=[], crEdit=None):
         message = "Tool.Group.CreateGroup('{}',{},{})".format(strGroupName, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
@@ -2123,7 +2118,7 @@ class Group:
         message = "Tool.Group.DeleteGroupEntity({})".format(crlDelGroup)
         return JPT_RUN_LINE(message)
 
-class ImprintEdges:
+class Tool_ImprintEdges:
     def ClosedLine(self, veclPositions=[[]], crlTargetFace=[], iEnableBreakFace=0):
         message = "Tool.ImprintEdges.ClosedLine({},{},{})".format(veclPositions, crlTargetFace, iEnableBreakFace)
         return JPT_RUN_LINE(message)
@@ -2136,23 +2131,23 @@ class ImprintEdges:
         message = "Tool.ImprintEdges.Line({},{},{})".format(veclAvPoint, bDivideFace, crlPart)
         return JPT_RUN_LINE(message)
 
-class Measure:
-    Angle = Angle()
+class Tool_Measure:
+    Angle = Measure_Angle()
 
-    Distance = Distance()
+    Distance = Measure_Distance()
 
-    Mass = Mass()
+    Mass = Measure_Mass()
 
-    Radius = Radius()
+    Radius = Measure_Radius()
 
     def Volume(self, crlPart=[], iPrecision=6):
         message = "Tool.Measure.Volume({},{})".format(crlPart, iPrecision)
         return JPT_RUN_LINE(message)
 
-class MeshQuality:
-    Manual = Manual()
+class Tool_MeshQuality:
+    Manual = MeshQuality_Manual()
 
-class Angle:
+class Measure_Angle:
     def ProjectedNode(self, crNode=None, strTarget="All", iPrecision=6):
         message = "Tools.Measure.Angle.ProjectedNode({},'{}',{})".format(crNode, strTarget, iPrecision)
         return JPT_RUN_LINE(message)
@@ -2177,7 +2172,7 @@ class Angle:
         message = "Tools.Measure.Angle.ThreeNodes({},{},{},'{}',{})".format(crNode1, crNode2, crNode3, strTarget, iPrecision)
         return JPT_RUN_LINE(message)
 
-class Area:
+class Measure_Area:
     def Body(self, crlPart = [], iPrecision = 6):
         message = "Tools.Measure.Area.Body({},{})".format(crlPart , iPrecision )
         return JPT_RUN_LINE(message)
@@ -2190,7 +2185,7 @@ class Area:
         message = "Tools.Measure.Area.Element({},{})".format(crlElem , iPrecision )
         return JPT_RUN_LINE(message)
 
-class Distance:
+class Measure_Distance:
     def EdgeNode(self, crEdge=None, crNode=None, iPrecision=6):
         message = "Tools.Measure.Distance.EdgeNode({},{},{})".format(crEdge, crNode, iPrecision)
         return JPT_RUN_LINE(message)
@@ -2227,7 +2222,7 @@ class Distance:
         message = "Tools.Measure.Distance.LineNode({},{})".format(crlTargetNode, iPrecision)
         return JPT_RUN_LINE(message)
 
-class Mass:
+class Measure_Mass:
     def Property(self, crlPart=[], crlCondition=[], strTarget="Mass", bGravityCenter=False, iPrecision=6):
         message = "Tools.Measure.Mass.Property({},{},'{}',{},{})".format(crlPart, crlCondition, strTarget, bGravityCenter, iPrecision)
         return JPT_RUN_LINE(message)
@@ -2236,7 +2231,7 @@ class Mass:
         message = "Tools.Measure.Mass.Material({},{},'{}','{}',{},{})".format(crlPart, crlCondition, strDensity, strTarget, bGravityCenter, iPrecision)
         return JPT_RUN_LINE(message)
 
-class Radius:
+class Measure_Radius:
     def Edge(self, crEdge=None, iPrecision=6):
         message = "Tools.Measure.Radius.Edge({},{})".format(crEdge, iPrecision)
         return JPT_RUN_LINE(message)
@@ -2245,7 +2240,7 @@ class Radius:
         message = "Tools.Measure.Radius.ThreeNodes({},{},{},{})".format(crNode13, crNode23, crNode33, iPrecision)
         return JPT_RUN_LINE(message)
 
-class BySelection:
+class Tools_BySelection:
     def OriginalID(self, crlTarget=[], iType=0, iMethod=0, iStartID=1, iIncrementStep=1, bAscending=True):
         message = "Tools.BySelection.OriginalID({},{},{},{},{},{})".format(crlTarget, iType, iMethod, iStartID, iIncrementStep, bAscending)
         return JPT_RUN_LINE(message)
@@ -2258,7 +2253,7 @@ class BySelection:
         message = "Tools.BySelection.SelectionOrder({},{},{},{},{},{})".format(crlTarget, iType, iMethod, iStartID, iIncrementStep, bAscending)
         return JPT_RUN_LINE(message)
 
-class Group:
+class Tools_Group:
     def CreateGroup(self, strGroupName="", crlTarget=[], crEdit=None):
         message = "Tools.Group.CreateGroup('{}',{},{})".format(strGroupName, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
@@ -2267,22 +2262,22 @@ class Group:
         message = "Tools.Group.DeleteGroupEntity({})".format(crlDelGroup)
         return JPT_RUN_LINE(message)
 
-class Measure:
-    Angle = Angle()
+class Tools_Measure:
+    Angle = Measure_Angle()
 
-    Area = Area()
+    Area = Measure_Area()
 
-    Distance = Distance()
+    Distance = Measure_Distance()
 
-    Mass = Mass()
+    Mass = Measure_Mass()
 
-    Radius = Radius()
+    Radius = Measure_Radius()
 
     def Volume(self, crlPart=[], iPrecision=6):
         message = "Tools.Measure.Volume({},{})".format(crlPart, iPrecision)
         return JPT_RUN_LINE(message)
 
-class TotalLoad:
+class Tools_TotalLoad:
     def Face(self, crlTarget=[], crCoordinate=None, strOutput="Total", iPrecision=6):
         message = "Tools.TotalLoad.Face({},{},'{}',{})".format(crlTarget, crCoordinate, strOutput, iPrecision)
         return JPT_RUN_LINE(message)
@@ -2304,7 +2299,7 @@ class TotalLoad:
         return JPT_RUN_LINE(message)
 
 class ACModeling:
-    ACBoundary = ACBoundary()
+    ACBoundary = ACModeling_ACBoundary()
 
     def CloseHoleAuto(crlClosedHoleParts=[]):
         message = "ACModeling.CloseHoleAuto({})".format(crlClosedHoleParts)
@@ -2314,7 +2309,7 @@ class ACModeling:
         message = "ACModeling.Cut({})".format(crlPart)
         return JPT_RUN_LINE(message)
 
-    Create = Create()
+    Create = ACModeling_Create()
 
 class Analysis:
     def Abaqus(strName="", bRBE2toMPC=False, bRenameProcess=False, iCodeType=0, iSurfDefType=0, iUnit=0, iWriteType=0, strDescription="", crlStepSequence=[], crEdit=None, strlUserText=[], bExptNdEleGroups=False, bDeleteFloatingNodes=False, bExptFaceElemGroups2Surface=False, bLoadCase=False, bAutoAssignDummyProperty=True, crDummyMat=None, bOutputGeometryId=True):
@@ -2349,23 +2344,23 @@ class Analysis:
         message = "Analysis.NastranJob('{}','{}',{},'{}',{},{},{})".format(strName, strDescription, crlTarget, nastranAnalysis, bDummyPropAutoAssign, iDummyPropMaterialID, crEdit)
         return JPT_RUN_LINE(message)
 
-    AbaqusStep = AbaqusStep()
+    AbaqusStep = Analysis_AbaqusStep()
 
-    ACTRAN = ACTRAN()
+    ACTRAN = Analysis_ACTRAN()
 
-    ADVC = ADVC()
+    ADVC = Analysis_ADVC()
 
-    Ansys = Ansys()
+    Ansys = Analysis_Ansys()
 
-    Analysis = Analysis()
+    Analysis = Analysis_Analysis()
 
-    Nastran = Nastran()
+    Nastran = Analysis_Nastran()
 
-    Permas = Permas()
+    Permas = Analysis_Permas()
 
-    TSSolver = TSSolver()
+    TSSolver = Analysis_TSSolver()
 
-    TSSS = TSSS()
+    TSSS = Analysis_TSSS()
 
 class Assemble:
     def AddBoss(crPart=None, iType=0, bMerge=True, posOrgCenter=[0,0,0], vecOrgDirection=[0,0,0], crCoord=None, iAxis=0, dAngle=0.0, bHollow=False, dInnerRadius=0.0, dOrgOuterRadius=1.0, dTaperAngle=0.0, iNodeOnCircle=12, iNodeOnAxis=2, dOriginalHeight=5.0):
@@ -2408,17 +2403,17 @@ class Assemble:
         message = "Assemble.SharedFace({})".format('')
         return JPT_RUN_LINE(message)
 
-    SeparateFaces = SeparateFaces()
+    SeparateFaces = Assemble_SeparateFaces()
 
 class Assembly:
-    RightClick = RightClick()
+    RightClick = Assembly_RightClick()
 
 class BoundaryConditions:
-    BodyLoads = BodyLoads()
+    BodyLoads = BoundaryConditions_BodyLoads()
 
-    BoundaryTemperature = BoundaryTemperature()
+    BoundaryTemperature = BoundaryConditions_BoundaryTemperature()
 
-    Convection = Convection()
+    Convection = BoundaryConditions_Convection()
 
     def DofSet(strName="", iDwDof=0, crCurCoord=None, crTable=None, crlTarget=[], crEdit=None):
         message = "BoundaryConditions.DofSet('{}',{},{},{},{},{})".format(strName, iDwDof, crCurCoord, crTable, crlTarget, crEdit)
@@ -2448,25 +2443,25 @@ class BoundaryConditions:
         message = "BoundaryConditions.LoadCase('{}',{},{},{},{},{})".format(strName, dFactor, crlTarget, iExportId, dlTargetFactor, crEdit)
         return JPT_RUN_LINE(message)
 
-    EnforcedLoads = EnforcedLoads()
+    EnforcedLoads = BoundaryConditions_EnforcedLoads()
 
-    Force = Force()
+    Force = BoundaryConditions_Force()
 
-    HeatFlux = HeatFlux()
+    HeatFlux = BoundaryConditions_HeatFlux()
 
-    InitialNodalValue = InitialNodalValue()
+    InitialNodalValue = BoundaryConditions_InitialNodalValue()
 
-    InitialElementalValue = InitialElementalValue()
+    InitialElementalValue = BoundaryConditions_InitialElementalValue()
 
-    InitialTemperature = InitialTemperature()
+    InitialTemperature = BoundaryConditions_InitialTemperature()
 
-    LBCCopy = LBCCopy()
+    LBCCopy = BoundaryConditions_LBCCopy()
 
-    Pressure = Pressure()
+    Pressure = BoundaryConditions_Pressure()
 
-    Submodel = Submodel()
+    Submodel = BoundaryConditions_Submodel()
 
-    TemperatureLoads = TemperatureLoads()
+    TemperatureLoads = BoundaryConditions_TemperatureLoads()
 
 class Connections:
     def BarBeam(strName="", iEType=10, iMethod=1, crProp=None, dlOrient=[], crlMasterTarget=[], crlSlaveTarget=[]):
@@ -2509,22 +2504,22 @@ class Connections:
         message = "Connections.RigidWall('{}',{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(strName, iObject, iType, iMotion, iFriction, iOrtho, iForces, dFinite1, dFinite2, dMotionMass, dMotionInitVelo, dFricCoulombCoeff, dFricWeldVelo, iForcesCirclesNum, dOrthoStaticCoeff1, dOrthoStaticCoeff2, dOrthoDynamicCoeff1, dOrthoDynamicCoeff2, dOrthoDecayConst1, dOrthoDecayConst2, dOrthoFricVector1, dOrthoFricVector2, dOrthoFricVector3, bAllNodeSlave, crCoord, crAreaFaceSet, crVisualNodeSet, crlTarget, crEdit)
         return JPT_RUN_LINE(message)
 
-    BoltConnections = BoltConnections()
+    BoltConnections = Connections_BoltConnections()
 
-    Contacts = Contacts()
+    Contacts = Connections_Contacts()
 
-    Gaps = Gaps()
+    Gaps = Connections_Gaps()
 
-    MPC = MPC()
+    MPC = Connections_MPC()
 
-    Pretension = Pretension()
+    Pretension = Connections_Pretension()
 
-    RigidElements = RigidElements()
+    RigidElements = Connections_RigidElements()
 
-    SpringsDampers = SpringsDampers()
+    SpringsDampers = Connections_SpringsDampers()
 
 class Designer:
-    Load = Load()
+    Load = Designer_Load()
 
     def ContactMerge(crlTarget=[]):
         message = "Designer.ContactMerge({})".format(crlTarget)
@@ -2534,7 +2529,7 @@ class Designer:
         message = "Designer.Material('{}','{}',{},{})".format(strMatName, strPropName, dThickness, crlTarget)
         return JPT_RUN_LINE(message)
 
-    LBC = LBC()
+    LBC = Designer_LBC()
 
 class EngReliability:
     def SubModelBC(strName="", crlTarget=[], iPos=0, iViewCp=0, iCp=0, iSrcType=0, iMappedCpIndexArr0=0, dScaleR=0.0, vecOffset=[], vecRotate=[], dScaleT=0.0, strPath="", crEdit=None, iMappingMethod=0, iSubmodelBCMappingType=0, iMappingFromStepNo=0, bSetADVCFile=False, strADVCResultFile="", bSetDetATol=False, dDetATol=0.0, bSetElementSet=False, strElementSet=""):
@@ -2542,7 +2537,7 @@ class EngReliability:
         return JPT_RUN_LINE(message)
 
 class ExManifoldModeling:
-    SZ = SZ()
+    SZ = ExManifoldModeling_SZ()
 
 class Export:
     def STL(strFile="", crlPart=[], dScale=1, bFilterIndex=False):
@@ -2619,34 +2614,32 @@ class Geometry:
         message = "Geometry.SquareUpFillet({})".format(crlFace)
         return JPT_RUN_LINE(message)
 
-    Bar = Bar()
+    Bar = Geometry_Bar()
 
-    BodyCut = BodyCut()
+    BodyCut = Geometry_BodyCut()
 
-    BreakEntity = BreakEntity()
+    BreakEntity = Geometry_BreakEntity()
 
-    DeleteEntity = DeleteEntity()
+    DeleteEntity = Geometry_DeleteEntity()
 
-    Edge = Edge()
+    Edge = Geometry_Edge()
 
-    Extract = Extract()
+    ExtractSurfaces = Geometry_ExtractSurfaces()
 
-    ExtractSurfaces = ExtractSurfaces()
+    Face = Geometry_Face()
 
-    Face = Face()
+    FindFeature = Geometry_FindFeature()
 
-    FindFeature = FindFeature()
+    MergeEntities = Geometry_MergeEntities()
 
-    MergeEntities = MergeEntities()
+    Part = Geometry_Part()
 
-    Part = Part()
+    ShowAdjacent = Geometry_ShowAdjacent()
 
-    ShowAdjacent = ShowAdjacent()
-
-    Transform = Transform()
+    Transform = Geometry_Transform()
 
 class Groups:
-    RightClick = RightClick()
+    RightClick = Groups_RightClick()
 
 class HexModeling:
     def BallHexa(crPart=None, vecCenter=[0.0,0.0,0.0], dRadius=5.0, dMeshSize=0.5, iType=0, iLayer=3, bMakeCenterNode=True, strPartName="HexBall_1"):
@@ -2689,7 +2682,7 @@ class HexModeling:
         message = "HexModeling.Linear({},{},{},{},{},{},{},{},{},{},{})".format(crlFace, dLength, iLayer, vecSweepDirection, bInterfaceElemFlag, iLinearMethod, bDeleteOriginalParts, bDeleteTargetParts, iMethodBias, dFactor, iProgression)
         return JPT_RUN_LINE(message)
 
-    Sweep = Sweep()
+    Sweep = HexModeling_Sweep()
 
 class Home:
     def Export(strFileName="", crlPart=[], bBigID=False, bUseUnit=True, bVert=True, bEdge=True, bFace=True, bSolid=True):
@@ -2720,9 +2713,9 @@ class Home:
         message = "Home.Synchronize({})".format('')
         return JPT_RUN_LINE(message)
 
-    ImportCAD = ImportCAD()
+    ImportCAD = Home_ImportCAD()
 
-    ImportMesh = ImportMesh()
+    ImportMesh = Home_ImportMesh()
 
 class HGTMufflerModeling:
     def CreateBeadWeld(crlEdge=[], crlPrjtedEdge=[], crlPart=[], dTol=0.0, dRatio=0.0, crRefElem=None):
@@ -2776,7 +2769,7 @@ class ImportMesh:
         return JPT_RUN_LINE(message)
 
 class MainWindow:
-    RightClick = RightClick()
+    RightClick = MainWindow_RightClick()
 
 class MeshCleanup:
     def AutoCheck(crlPart=[], iElemType=0, blCheckCondition=[], blElemQuality=[], dlLimitValue=[], crlElem=[]):
@@ -2803,17 +2796,17 @@ class MeshCleanup:
         message = "MeshCleanup.ManualCheck({},{},{},{},{},{},{},{},{})".format(crlPart, iElemType, iVeQuality, iCheckCondition, dLimitValue, dCFLValue, iNonManifold, iCleanupMode, crlElem)
         return JPT_RUN_LINE(message)
 
-    Cleanup = Cleanup()
+    Cleanup = MeshCleanup_Cleanup()
 
-    ChangeTopology = ChangeTopology()
+    ChangeTopology = MeshCleanup_ChangeTopology()
 
-    Element = Element()
+    Element = MeshCleanup_Element()
 
-    Manual2D = Manual2D()
+    Manual2D = MeshCleanup_Manual2D()
 
-    Manual3D = Manual3D()
+    Manual3D = MeshCleanup_Manual3D()
 
-    ManualCheck = ManualCheck()
+    ManualCheck = MeshCleanup_ManualCheck()
 
 class MeshEdit:
     def AdjustOrientation(crlPart=[], crlFace=[], crlElem=[]):
@@ -2892,14 +2885,14 @@ class MeshEdit:
         message = "MeshEdit.SurfaceMesh({},{})".format(crlPart, iType)
         return JPT_RUN_LINE(message)
 
-    CreateElement = CreateElement()
+    CreateElement = MeshEdit_CreateElement()
 
-    CreateNode = CreateNode()
+    CreateNode = MeshEdit_CreateNode()
 
-    MoveNode = MoveNode()
+    MoveNode = MeshEdit_MoveNode()
 
 class Meshing:
-    CADProjection = CADProjection()
+    CADProjection = Meshing_CADProjection()
 
     def BarMeshing(crlCadEdge=[], crlBarEdge=[], crlBarPart=[], dDocMeshSize=0, iDocNumofElem=4):
         message = "Meshing.BarMeshing({},{},{},{},{})".format(crlCadEdge, crlBarEdge, crlBarPart, dDocMeshSize, iDocNumofElem)
@@ -2921,15 +2914,15 @@ class Meshing:
         message = "Meshing.SurfaceMeshing({},{},{},{},{},{},{},{})".format(crlPart, surfaceMesh, bUseSetting, bFMesher, iThreadNum, bRefData, bMeshColor, iPartColor)
         return JPT_RUN_LINE(message)
 
-    LocalMeshing = LocalMeshing()
+    LocalMeshing = Meshing_LocalMeshing()
 
-    LocalRemesh = LocalRemesh()
+    LocalRemesh = Meshing_LocalRemesh()
 
-    LocalSetting = LocalSetting()
+    LocalSetting = Meshing_LocalSetting()
 
-    LocalSettings = LocalSettings()
+    LocalSettings = Meshing_LocalSettings()
 
-    Templates = Templates()
+    Templates = Meshing_Templates()
 
 class MidPlane:
     def AdjustThickness(crlPart=[], dRatio=1.0, bAdjustFaceThick=False, bAdjustPropThick=False):
@@ -2949,37 +2942,37 @@ class MidPlane:
         return JPT_RUN_LINE(message)
 
 class MidPlaneEdit:
-    AddItems = AddItems()
+    AddItems = MidPlaneEdit_AddItems()
 
-    ExtendFace = ExtendFace()
+    ExtendFace = MidPlaneEdit_ExtendFace()
 
-    Face = Face()
+    Face = MidPlaneEdit_Face()
 
-    Manual = Manual()
+    Manual = MidPlaneEdit_Manual()
 
-    Edge = Edge()
+    Edge = MidPlaneEdit_Edge()
 
 class MMCCarACTools:
-    ACModelCreationTools = ACModelCreationTools()
+    ACModelCreationTools = MMCCarACTools_ACModelCreationTools()
 
-    ClearanceElement = ClearanceElement()
+    ClearanceElement = MMCCarACTools_ClearanceElement()
 
 class MufflerHA:
     def CopyMeshCount(crlMasterEdge=[], crlSlaveEdge=[], strBaseName=""):
         message = "MufflerHA.CopyMeshCount({},{},'{}')".format(crlMasterEdge, crlSlaveEdge, strBaseName)
         return JPT_RUN_LINE(message)
 
-    CreateEdge = CreateEdge()
+    CreateEdge = MufflerHA_CreateEdge()
 
-    CreateEdgeClassic = CreateEdgeClassic()
+    CreateEdgeClassic = MufflerHA_CreateEdgeClassic()
 
 class MufflerT:
-    SpecialModeling = SpecialModeling()
+    SpecialModeling = MufflerT_SpecialModeling()
 
 class MuxWeld:
-    DefineSequence = DefineSequence()
+    DefineSequence = MuxWeld_DefineSequence()
 
-    CreateWeld = CreateWeld()
+    CreateWeld = MuxWeld_CreateWeld()
 
     def MeshingPass(crPart=None, crlEdge=[], dMeshSize=0.0):
         message = "MuxWeld.MeshingPass({},{},{})".format(crPart, crlEdge, dMeshSize)
@@ -2995,10 +2988,10 @@ class NSModeling:
         return JPT_RUN_LINE(message)
 
 class OasisAWizard:
-    LocalMeshing = LocalMeshing()
+    LocalMeshing = OasisAWizard_LocalMeshing()
 
 class Post:
-    ImportResults = ImportResults()
+    ImportResults = Post_ImportResults()
 
 class Properties:
     def BAR(strName="", iId=1, crSection=None, iShapeDataType=0, crDatacrMat=None, dDatadArea=DFLT_DBL, dlDataOrient=[0, 0, 0], dlDataInertia=[0, 0, 0], dDatadTorConst=DFLT_DBL, dDatadNSM=DFLT_DBL, dDataShearAreaFactor0=DFLT_DBL, dDataShearAreaFactor1=DFLT_DBL, dDataStressRecoveryCoeff0=DFLT_DBL, dDataStressRecoveryCoeff1=DFLT_DBL, dDataStressRecoveryCoeff2=DFLT_DBL, dDataStressRecoveryCoeff3=DFLT_DBL, dDataStressRecoveryCoeff4=DFLT_DBL, dDataStressRecoveryCoeff5=DFLT_DBL, dDataStressRecoveryCoeff6=DFLT_DBL, dDataStressRecoveryCoeff7=DFLT_DBL, bDataPinA0=False, bDataPinA1=False, bDataPinA2=False, bDataPinA3=False, bDataPinA4=False, bDataPinA5=False, bDataPinB0=False, bDataPinB1=False, bDataPinB2=False, bDataPinB3=False, bDataPinB4=False, bDataPinB5=False, dlDataOffset0=[DFLT_DBL, DFLT_DBL, DFLT_DBL], dlDataOffset1=[DFLT_DBL, DFLT_DBL, DFLT_DBL], iLocalLengthUnit=0, iLocalMassUnit=0, crlTarget=[], crEdit=None):
@@ -3053,11 +3046,11 @@ class Properties:
         message = "Properties.ThicknessDistribution({},{},{},{})".format(dMax, dMin, iByEach, dlThicknessValueSet)
         return JPT_RUN_LINE(message)
 
-    ElemRelatedInfo = ElemRelatedInfo()
+    ElemRelatedInfo = Properties_ElemRelatedInfo()
 
-    Material = Material()
+    Material = Properties_Material()
 
-    Section = Section()
+    Section = Properties_Section()
 
 class SNOnePush:
     def AutoSweepClosedLoopShaped(crlPart=[], dMeshSize=0.0, dLengthSize=0.0):
@@ -3072,7 +3065,7 @@ class SNOnePush:
         message = "SNOnePush.DropTestSNOnePush('{}',{},{},{},{},{},{},{},{},{},{},'{}',{},{},{})".format(strName, iDir, dRopHeight, dSolutionTime, iNumOutput, dContactFriction, iRotAxis, dRotAngle, dRelevantElemRate, dChangeMassRate, dMinTimeStep, strSolverFile, dFloorSize, bRename, crMat)
         return JPT_RUN_LINE(message)
 
-    DropTest = DropTest()
+    DropTest = SNOnePush_DropTest()
 
 class StiffCalc:
     def Force(strName="", poslForce=[[]], poslMoment=[[]], iEnArrowDir=0, iDistributionMethod=0, crCurCoord=None, crTable=None, crNodeSet=None, dFPhase=0.0, dFDelay=0.0, crPhaseTable=None, strFormula0="", strFormula1="", strFormula2="", strFormula3="", strFormula4="", strFormula5="", crlTarget=[], crEdit=None):
@@ -3080,13 +3073,13 @@ class StiffCalc:
         return JPT_RUN_LINE(message)
 
 class SZOnepushReliability:
-    Assembly = Assembly()
+    Assembly = SZOnepushReliability_Assembly()
 
     def AlignMidNode(crlSource=[], crlTarget=[]):
         message = "SZOnepushReliability.AlignMidNode({},{})".format(crlSource, crlTarget)
         return JPT_RUN_LINE(message)
 
-    MeshEdit = MeshEdit()
+    MeshEdit = SZOnepushReliability_MeshEdit()
 
 class Test:
     def CreateElementForWelding(crlSrcElems=[], crlDstElems=[], crlSideElems=[], crlPart=[], crMaterial=None):
@@ -3097,28 +3090,28 @@ class Test:
         message = "Test.FindFacesInPart({},'{}')".format(crPart, strIdentical)
         return JPT_RUN_LINE(message)
 
-    Connection = Connection()
+    Connection = Test_Connection()
 
-    Muffler = Muffler()
+    Muffler = Test_Muffler()
 
-    ZGeometryTest = ZGeometryTest()
+    ZGeometryTest = Test_ZGeometryTest()
 
 class Tool:
-    Connections = Connections()
+    Connections = Tool_Connections()
 
-    Coordinates = Coordinates()
+    Coordinates = Tool_Coordinates()
 
     def ElementCS(iMethod=0, iDispType=0, bDispXDir=False, bDispCoord=False, dDispScale=1, crlTarget=[]):
         message = "Tool.ElementCS({},{},{},{},{},{})".format(iMethod, iDispType, bDispXDir, bDispCoord, dDispScale, crlTarget)
         return JPT_RUN_LINE(message)
 
-    Group = Group()
+    Group = Tool_Group()
 
-    ImprintEdges = ImprintEdges()
+    ImprintEdges = Tool_ImprintEdges()
 
-    Measure = Measure()
+    Measure = Tool_Measure()
 
-    MeshQuality = MeshQuality()
+    MeshQuality = Tool_MeshQuality()
 
 class Toolbar:
     def Redo(iCntRedo=1):
@@ -3130,7 +3123,7 @@ class Toolbar:
         return JPT_RUN_LINE(message)
 
 class Tools:
-    BySelection = BySelection()
+    BySelection = Tools_BySelection()
 
     def Connections(listConnectRenumberTool=[]):
         message = "Tools.Connections({})".format(listConnectRenumberTool)
@@ -3172,11 +3165,11 @@ class Tools:
         message = "Tools.Section({})".format(bSection)
         return JPT_RUN_LINE(message)
 
-    Group = Group()
+    Group = Tools_Group()
 
-    Measure = Measure()
+    Measure = Tools_Measure()
 
-    TotalLoad = TotalLoad()
+    TotalLoad = Tools_TotalLoad()
 
 class Utility:
     def FindEntities(strTarget="", strFindType="", bFindMatch=False):

@@ -635,7 +635,7 @@ const readPSJCommandsPython = async () => {
                       if (el6 !== "own") {
                         await appendFile(
                           `${__dirname}/data/Utility.py`,
-                          `class ${el6}:\n`,
+                          `class ${el5}_${el6}:\n`,
                         );
 
                         for (
@@ -673,7 +673,7 @@ const readPSJCommandsPython = async () => {
                   if (el5 !== "own") {
                     await appendFile(
                       `${__dirname}/data/Utility.py`,
-                      `class ${el5}:\n`,
+                      `class ${el4}_${el5}:\n`,
                     );
 
                     for (
@@ -686,7 +686,7 @@ const readPSJCommandsPython = async () => {
                       if (el6 !== "own") {
                         await appendFile(
                           `${__dirname}/data/Utility.py`,
-                          `    ${el6} = ${el6}()\n\n`,
+                          `    ${el6} = ${el5}_${el6}()\n\n`,
                         );
                       }
                       if (el6 === "own") {
@@ -723,7 +723,7 @@ const readPSJCommandsPython = async () => {
               if (el4 !== "own") {
                 await appendFile(
                   `${__dirname}/data/Utility.py`,
-                  `class ${el4}:\n`,
+                  `class ${el3}_${el4}:\n`,
                 );
 
                 for (
@@ -736,7 +736,7 @@ const readPSJCommandsPython = async () => {
                   if (el5 !== "own") {
                     await appendFile(
                       `${__dirname}/data/Utility.py`,
-                      `    ${el5} = ${el5}()\n\n`,
+                      `    ${el5} = ${el4}_${el5}()\n\n`,
                     );
                   }
 
@@ -774,7 +774,7 @@ const readPSJCommandsPython = async () => {
               if (el4 !== "own") {
                 await appendFile(
                   `${__dirname}/data/Utility.py`,
-                  `    ${el4} = ${el4}()\n\n`,
+                  `    ${el4} = ${el3}_${el4}()\n\n`,
                 );
               }
 

@@ -290,7 +290,6 @@ Geometry.Edge.PlanarLine(veclPosition=[[]], crlTargetFace=[], crLocalCoord=None,
 Geometry.Edge.ProjectLine(crlEdge=[], crlFaces=[], crlNode=[], bBreakFace=True, iType=0, bCheckGap=False, dGap=0.0)
 Geometry.Edge.Spline(veclAprroxiPositions=[[]], crlTargetFace=[], bBreakFace=True)
 Geometry.Edge.SplineFreeEdges(crlNode=[], iEnableArc=0, crPart=None, strBarName="")
-Geometry.Extract.FindFeatureFillet(body, face, minAngle, maxAngle, minFaceWidth, maxFaceWidth, minCurveRadius, maxCurveRadius, scale)
 Geometry.ExtractRefSurface(crlFace=[], dAngle=60.0, strName="ExtractFace_1", bMergePart=False)
 Geometry.ExtractSurfaces.ExtractRefSurface(listFace=[], dAngle=60.0, strName="ExtractFace_1", isMergePart=False)
 Geometry.ExtractSurfaces(crlFace=[], dAngle=60.0, strName="ExtractFace_1", bMergePart=False)
