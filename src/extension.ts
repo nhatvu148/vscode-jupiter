@@ -1,5 +1,18 @@
 import * as vscode from "vscode";
 import {
+  deactivate as requestDeactivate,
+  initBinary,
+} from "./binary/requests/requests";
+import { COMPLETION_IMPORTS, selectionHandler } from "./selectionHandler";
+import {
+  Capability,
+  fetchCapabilitiesOnFocus,
+  isCapabilityEnabled,
+} from "./capabilities";
+import provideCompletionItems from "./provideCompletionItems";
+import { COMPLETION_TRIGGERS } from "./consts";
+import handleErrorState from "./binary/errorState";
+import {
   root1,
   root2,
   root3,
@@ -15,6 +28,9 @@ import {
 } from "./data";
 
 export function activate(context: vscode.ExtensionContext) {
+  initBinary();
+  handleSelection(context);
+
   const hover = vscode.languages.registerHoverProvider("python", {
     provideHover(document, position, token) {
       const wordRange = document.getWordRangeAtPosition(position);
@@ -220,6 +236,37 @@ export function activate(context: vscode.ExtensionContext) {
   // });
 
   context.subscriptions.push(keywords, hover);
+
+  void backgroundInit(context);
+  return Promise.resolve();
 }
 
-export function deactivate() {}
+async function backgroundInit(context: vscode.ExtensionContext) {
+  // Goes to the binary to fetch what capabilities enabled:
+  await fetchCapabilitiesOnFocus();
+
+  vscode.languages.registerCompletionItemProvider(
+    { pattern: "**" },
+    {
+      provideCompletionItems,
+    },
+    ...COMPLETION_TRIGGERS
+  );
+
+  if (isCapabilityEnabled(Capability.ON_BOARDING_CAPABILITY)) {
+    handleErrorState();
+  }
+}
+
+export async function deactivate(): Promise<unknown> {
+  return requestDeactivate();
+}
+
+function handleSelection(context: vscode.ExtensionContext) {
+  context.subscriptions.push(
+    vscode.commands.registerTextEditorCommand(
+      COMPLETION_IMPORTS,
+      selectionHandler
+    )
+  );
+}
