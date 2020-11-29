@@ -1,0 +1,12 @@
+0: JPT.AssociateType.AS_BARBODY
+1: JPT.AssociateType.AS_BODY
+2: JPT.AssociateType.AS_FACE
+3: JPT.AssociateType.AS_EDGE
+4: JPT.AssociateType.AS_ELEM
+5: JPT.AssociateType.AS_ELEM1D
+6: JPT.AssociateType.AS_SOLIDELEM
+7: JPT.AssociateType.AS_NODE
+8: JPT.AssociateType.AS_CONNECTION
+9: JPT.AssociateType.AS_MASS
+10: JPT.AssociateType.AS_CONTTACT
+11: JPT.AssociateType.AS_GROUP
