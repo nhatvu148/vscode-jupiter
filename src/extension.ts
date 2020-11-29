@@ -72,152 +72,152 @@ export function activate(context: vscode.ExtensionContext) {
     );
   });
 
-  root1.forEach((el: string) => {
-    vscode.languages.registerCompletionItemProvider(
-      "python",
-      {
-        provideCompletionItems(
-          document: vscode.TextDocument,
-          position: vscode.Position,
-        ) {
-          const linePrefix = document
-            .lineAt(position)
-            .text.substr(0, position.character);
-          if (!linePrefix.endsWith(el + ".")) {
-            return undefined;
-          }
+  // root1.forEach((el: string) => {
+  //   vscode.languages.registerCompletionItemProvider(
+  //     "python",
+  //     {
+  //       provideCompletionItems(
+  //         document: vscode.TextDocument,
+  //         position: vscode.Position,
+  //       ) {
+  //         const linePrefix = document
+  //           .lineAt(position)
+  //           .text.substr(0, position.character);
+  //         if (!linePrefix.endsWith(el + ".")) {
+  //           return undefined;
+  //         }
 
-          // @ts-ignore
-          return map12[el].map(
-            (element: string) =>
-              new vscode.CompletionItem(
-                element,
-                vscode.CompletionItemKind.Method,
-              ),
-          );
-        },
-      },
-      ".",
-    );
-  });
+  //         // @ts-ignore
+  //         return map12[el].map(
+  //           (element: string) =>
+  //             new vscode.CompletionItem(
+  //               element,
+  //               vscode.CompletionItemKind.Method,
+  //             ),
+  //         );
+  //       },
+  //     },
+  //     ".",
+  //   );
+  // });
 
-  root2.forEach((el: string) => {
-    vscode.languages.registerCompletionItemProvider(
-      "python",
-      {
-        provideCompletionItems(
-          document: vscode.TextDocument,
-          position: vscode.Position,
-        ) {
-          const linePrefix = document
-            .lineAt(position)
-            .text.substr(0, position.character);
-          // @ts-ignore
-          const prefix = root1.find((a: string) => map12[a].includes(el));
+  // root2.forEach((el: string) => {
+  //   vscode.languages.registerCompletionItemProvider(
+  //     "python",
+  //     {
+  //       provideCompletionItems(
+  //         document: vscode.TextDocument,
+  //         position: vscode.Position,
+  //       ) {
+  //         const linePrefix = document
+  //           .lineAt(position)
+  //           .text.substr(0, position.character);
+  //         // @ts-ignore
+  //         const prefix = root1.find((a: string) => map12[a].includes(el));
 
-          if (!linePrefix.endsWith(prefix + "." + el + ".")) {
-            return undefined;
-          }
+  //         if (!linePrefix.endsWith(prefix + "." + el + ".")) {
+  //           return undefined;
+  //         }
 
-          // @ts-ignore
-          return map23[el]
-            .filter((a: string | null) => a !== null)
-            .map(
-              (element: string) =>
-                new vscode.CompletionItem(
-                  element,
-                  vscode.CompletionItemKind.Method,
-                ),
-            );
-        },
-      },
-      ".",
-    );
-  });
+  //         // @ts-ignore
+  //         return map23[el]
+  //           .filter((a: string | null) => a !== null)
+  //           .map(
+  //             (element: string) =>
+  //               new vscode.CompletionItem(
+  //                 element,
+  //                 vscode.CompletionItemKind.Method,
+  //               ),
+  //           );
+  //       },
+  //     },
+  //     ".",
+  //   );
+  // });
 
-  root3.forEach((el: string) => {
-    vscode.languages.registerCompletionItemProvider(
-      "python",
-      {
-        provideCompletionItems(
-          document: vscode.TextDocument,
-          position: vscode.Position,
-        ) {
-          const linePrefix = document
-            .lineAt(position)
-            .text.substr(0, position.character);
-          // @ts-ignore
-          const prefix = root2.find((a: string) => map23[a].includes(el));
-          const prePrefix = root1.find((a: string) =>
-            // @ts-ignore
-            map12[a].includes(prefix),
-          );
+  // root3.forEach((el: string) => {
+  //   vscode.languages.registerCompletionItemProvider(
+  //     "python",
+  //     {
+  //       provideCompletionItems(
+  //         document: vscode.TextDocument,
+  //         position: vscode.Position,
+  //       ) {
+  //         const linePrefix = document
+  //           .lineAt(position)
+  //           .text.substr(0, position.character);
+  //         // @ts-ignore
+  //         const prefix = root2.find((a: string) => map23[a].includes(el));
+  //         const prePrefix = root1.find((a: string) =>
+  //           // @ts-ignore
+  //           map12[a].includes(prefix),
+  //         );
 
-          if (!linePrefix.endsWith(prePrefix + "." + prefix + "." + el + ".")) {
-            return undefined;
-          }
+  //         if (!linePrefix.endsWith(prePrefix + "." + prefix + "." + el + ".")) {
+  //           return undefined;
+  //         }
 
-          // @ts-ignore
-          return map34[el]
-            .filter((a: string | null) => a !== null)
-            .map(
-              (element: string) =>
-                new vscode.CompletionItem(
-                  element,
-                  vscode.CompletionItemKind.Method,
-                ),
-            );
-        },
-      },
-      ".",
-    );
-  });
+  //         // @ts-ignore
+  //         return map34[el]
+  //           .filter((a: string | null) => a !== null)
+  //           .map(
+  //             (element: string) =>
+  //               new vscode.CompletionItem(
+  //                 element,
+  //                 vscode.CompletionItemKind.Method,
+  //               ),
+  //           );
+  //       },
+  //     },
+  //     ".",
+  //   );
+  // });
 
-  root4.forEach((el: string) => {
-    vscode.languages.registerCompletionItemProvider(
-      "python",
-      {
-        provideCompletionItems(
-          document: vscode.TextDocument,
-          position: vscode.Position,
-        ) {
-          const linePrefix = document
-            .lineAt(position)
-            .text.substr(0, position.character);
-          // @ts-ignore
-          const prefix = root3.find((a: string) => map34[a].includes(el));
-          const prePrefix = root2.find((a: string) =>
-            // @ts-ignore
-            map23[a].includes(prefix),
-          );
-          const prePrePrefix = root1.find((a: string) =>
-            // @ts-ignore
-            map12[a].includes(prePrefix),
-          );
+  // root4.forEach((el: string) => {
+  //   vscode.languages.registerCompletionItemProvider(
+  //     "python",
+  //     {
+  //       provideCompletionItems(
+  //         document: vscode.TextDocument,
+  //         position: vscode.Position,
+  //       ) {
+  //         const linePrefix = document
+  //           .lineAt(position)
+  //           .text.substr(0, position.character);
+  //         // @ts-ignore
+  //         const prefix = root3.find((a: string) => map34[a].includes(el));
+  //         const prePrefix = root2.find((a: string) =>
+  //           // @ts-ignore
+  //           map23[a].includes(prefix),
+  //         );
+  //         const prePrePrefix = root1.find((a: string) =>
+  //           // @ts-ignore
+  //           map12[a].includes(prePrefix),
+  //         );
 
-          if (
-            !linePrefix.endsWith(
-              prePrePrefix + "." + prePrefix + "." + prefix + "." + el + ".",
-            )
-          ) {
-            return undefined;
-          }
+  //         if (
+  //           !linePrefix.endsWith(
+  //             prePrePrefix + "." + prePrefix + "." + prefix + "." + el + ".",
+  //           )
+  //         ) {
+  //           return undefined;
+  //         }
 
-          // @ts-ignore
-          return map45[el]
-            .filter((a: string | null) => a !== null)
-            .map(
-              (element: string) =>
-                new vscode.CompletionItem(
-                  element,
-                  vscode.CompletionItemKind.Method,
-                ),
-            );
-        },
-      },
-      ".",
-    );
-  });
+  //         // @ts-ignore
+  //         return map45[el]
+  //           .filter((a: string | null) => a !== null)
+  //           .map(
+  //             (element: string) =>
+  //               new vscode.CompletionItem(
+  //                 element,
+  //                 vscode.CompletionItemKind.Method,
+  //               ),
+  //           );
+  //       },
+  //     },
+  //     ".",
+  //   );
+  // });
 
   context.subscriptions.push(keywords, hover);
 }

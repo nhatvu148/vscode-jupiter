@@ -4,6 +4,10 @@ All notable changes to the "jupiter" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.1.8]
+
+- remove snippets, pass to jupiterutils for intellisense
+
 ## [1.1.7]
 
 - update latest PSJ commands and snippets
