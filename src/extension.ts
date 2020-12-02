@@ -12,9 +12,7 @@ import {
 import provideCompletionItems from "./provideCompletionItems";
 import { COMPLETION_TRIGGERS } from "./consts";
 import handleErrorState from "./binary/errorState";
-import {
-  callTips,
-} from "./data";
+import { callTips } from "./data";
 
 export function activate(context: vscode.ExtensionContext) {
   initBinary();
@@ -35,9 +33,28 @@ export function activate(context: vscode.ExtensionContext) {
         // @ts-ignore
         mdStr.appendMarkdown(callTips[fnName[0]].text);
         mdStr.appendMarkdown("***  \n");
-        mdStr.appendMarkdown(
-          "[See reference here](https://psjdoc.e-technostar.com/)",
-        );
+
+        let link = "https://psjdoc.e-technostar.com/";
+        if (fnName[0].includes("JPT.")) {
+          link =
+            link +
+            "psj-utility/PSJ-Utility_" +
+            fnName[0].split(".")[1] +
+            ".html";
+        } else {
+          link =
+            link +
+            "psj-command/" +
+            fnName[0]
+              .split(".")[0]
+              .split(/(?=[A-Z][a-z])/)
+              .map((s: string) => s.toLowerCase())
+              .join("-") +
+            "/" +
+            fnName[0] +
+            ".html";
+        }
+        mdStr.appendMarkdown(`[See reference here](${link})`);
 
         return new vscode.Hover(mdStr);
       } else {
@@ -61,7 +78,7 @@ async function backgroundInit(context: vscode.ExtensionContext) {
     {
       provideCompletionItems,
     },
-    ...COMPLETION_TRIGGERS
+    ...COMPLETION_TRIGGERS,
   );
 
   if (isCapabilityEnabled(Capability.ON_BOARDING_CAPABILITY)) {
@@ -77,7 +94,7 @@ function handleSelection(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     vscode.commands.registerTextEditorCommand(
       COMPLETION_IMPORTS,
-      selectionHandler
-    )
+      selectionHandler,
+    ),
   );
 }
