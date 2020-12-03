@@ -6245,7 +6245,7 @@ export const callTips = {
   "JPT.ViewFitToModel": {
     prefix: "ViewFitToModel",
     text:
-      "*Function:* JPT.ViewFitToModel  \n*Description:* fit models to current view  \n *Input1:* idbody  \n *Return:* None  \n *Example:* JPT.ViewFitToModel()  \n ",
+      "*Function:* JPT.ViewFitToModel  \n*Description:* fit models to current view  \n *Input1:* None  \n *Return:* None  \n *Example:* JPT.ViewFitToModel()  \n ",
   },
   "JPT.Exec": {
     prefix: "Exec",

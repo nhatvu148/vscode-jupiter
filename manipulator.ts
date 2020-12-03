@@ -459,22 +459,27 @@ const psjUtilityCalltipsPython = async () => {
         );
 
         console.log(obj);
-        Object.keys(obj).forEach((a: any) => {
-          fs.appendFile(
-            `${__dirname}/data/Jupiter.py`,
-            `def ${obj[a].prefix}(${obj[a].params}):\n    message = "${a}(${obj[
-              a
-            ].params.map((b: string) =>
-              b.includes("_str") ? "'{}'" : "{}",
-            )})".format(${
-              obj[a].params
-            })\n    return JPT_RUN_LINE(message)\n\n`,
-            function (err: any) {
-              if (err) throw err;
-            },
-          );
-        });
 
+        (async function () {
+          for (let i = 0; i < Object.keys(obj).length; i++) {
+            const a = Object.keys(obj)[i];
+            const mdString = await readMdString(`${obj[a].prefix}`);
+            await appendFile(
+              `${__dirname}/data/Jupiter.py`,
+              `def ${obj[a].prefix}(${obj[a].params}):\n    r"""\n    ${mdString?.map((mds: string[]) => mds[0]).join("\n    ")}\n    """\n    message = "${a}(${obj[
+                a
+              ].params.map((b: string) =>
+                b.includes("_str") ? "'{}'" : "{}",
+              )})".format(${
+                obj[a].params
+              })\n    return JPT_RUN_LINE(message)\n\n`,
+              function (err: any) {
+                if (err) throw err;
+              },
+            );
+          }
+        })()
+          
         // fs.writeFile(
         //   `${__dirname}/data/psjUtilityCallTips.txt`,
         //   JSON.stringify(obj),
@@ -520,6 +525,55 @@ const getParams = (str: string): [string, string[]] => {
   }
   return [fnName, params];
 };
+
+const readMdString = async (fullFnName: string) => {
+  let filename: string = "";
+  if (fullFnName.includes(".")) {
+    const folderName = fullFnName
+      .split(".")[0]
+      .split(/(?=[A-Z][a-z])/)
+      .map((s: string) => s.toLowerCase())
+      .join("-");
+    filename = `${__dirname}/data/psj-command/${folderName}/${fullFnName}.md`;
+  } else {
+    filename = `${__dirname}/data/psj-utility/PSJ-Utility_${fullFnName}.md`;
+  }
+  if (fs.existsSync(filename)) {
+    const files = await fs.readFileSync(filename, "utf8");
+
+    let result: string[][] = [];
+
+    Papa.parse(files, {
+      complete: function (results: any) {
+        const res = results.data;
+        const descIdx = res.reduce(
+          (index: number, cur: string[], idx: number) => {
+            if (cur[0].includes("## Description")) {
+              return idx;
+            }
+            return index;
+          },
+          -1,
+        );
+
+        result = res.slice(descIdx).map((str: string[]) => {
+          if (str.length > 1) {
+            return [str.join(",")]
+          }
+          return str
+        });
+      },
+    });
+
+    return result;
+  }
+};
+// (async function () {
+//   const res = await readMdString(
+//     "RemoveEntitiesByID",
+//   );
+//   console.log(res);
+// })();
 
 const readPSJCommandsPython = async () => {
   if (fs.existsSync(`${__dirname}/data/NewPSJCommands.py`)) {
@@ -653,9 +707,10 @@ const readPSJCommandsPython = async () => {
                           const [fnName, params] = getParams(
                             res3[el3][el4][el5][el6][i7][0],
                           );
+                          const mdString = await readMdString(`${el3}.${el4}.${el5}.${el6}.${fnName}`);
                           await appendFile(
                             `${__dirname}/data/Utility.py`,
-                            `    def ${fnName}(self, ${params}):\n        message = "${el3}.${el4}.${el5}.${el6}.${fnName}(${params.map(
+                            `    def ${fnName}(self, ${params}):\n        r"""\n        ${mdString?.map((mds: string[]) => mds[0]).join("\n        ")}\n        """\n        message = "${el3}.${el4}.${el5}.${el6}.${fnName}(${params.map(
                               (p: string) => {
                                 const varName = p.split("=")[0];
                                 return varName.includes("str") ? "'{}'" : "{}";
@@ -707,9 +762,10 @@ const readPSJCommandsPython = async () => {
                           const [fnName, params] = getParams(
                             res3[el3][el4][el5][el6][i7],
                           );
+                          const mdString = await readMdString(`${el3}.${el4}.${el5}.${fnName}`);
                           await appendFile(
                             `${__dirname}/data/Utility.py`,
-                            `    def ${fnName}(self, ${params}):\n        message = "${el3}.${el4}.${el5}.${fnName}(${params.map(
+                            `    def ${fnName}(self, ${params}):\n        r"""\n        ${mdString?.map((mds: string[]) => mds[0]).join("\n        ")}\n        """\n        message = "${el3}.${el4}.${el5}.${fnName}(${params.map(
                               (p: string) => {
                                 const varName = p.split("=")[0];
                                 return varName.includes("str") ? "'{}'" : "{}";
@@ -756,9 +812,10 @@ const readPSJCommandsPython = async () => {
                       const [fnName, params] = getParams(
                         res3[el3][el4][el5][i6],
                       );
+                      const mdString = await readMdString(`${el3}.${el4}.${fnName}`);
                       await appendFile(
                         `${__dirname}/data/Utility.py`,
-                        `    def ${fnName}(self, ${params}):\n        message = "${el3}.${el4}.${fnName}(${params.map(
+                        `    def ${fnName}(self, ${params}):\n        r"""\n        ${mdString?.map((mds: string[]) => mds[0]).join("\n        ")}\n        """\n        message = "${el3}.${el4}.${fnName}(${params.map(
                           (p: string) => {
                             const varName = p.split("=")[0];
                             return varName.includes("str") ? "'{}'" : "{}";
@@ -794,9 +851,10 @@ const readPSJCommandsPython = async () => {
               if (el4 === "own") {
                 for (let i5 = 0; i5 < res3[el3][el4].length; i5++) {
                   const [fnName, params] = getParams(res3[el3][el4][i5]);
+                  const mdString = await readMdString(`${el3}.${fnName}`);
                   await appendFile(
                     `${__dirname}/data/Utility.py`,
-                    `    def ${fnName}(${params}):\n        message = "${el3}.${fnName}(${params.map(
+                    `    def ${fnName}(${params}):\n        r"""\n        ${mdString?.map((mds: string[]) => mds[0]).join("\n        ")}\n        """\n        message = "${el3}.${fnName}(${params.map(
                       (p: string) => {
                         const varName = p.split("=")[0];
                         return varName.includes("str") ? "'{}'" : "{}";
