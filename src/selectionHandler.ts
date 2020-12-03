@@ -24,14 +24,14 @@ export const COMPLETION_IMPORTS = "jupiter-completion-imports";
 export function selectionHandler(
   editor: TextEditor,
   edit: TextEditorEdit,
-  { currentCompletion, completions, position }: CompletionArguments
+  { currentCompletion, completions, position }: CompletionArguments,
 ): void {
   try {
     const eventData = eventDataOf(
       completions,
       currentCompletion,
       editor,
-      position
+      position,
     );
     void setState(eventData);
 
@@ -45,10 +45,10 @@ function eventDataOf(
   completions: ResultEntry[],
   currentCompletion: string,
   editor: TextEditor,
-  position: Position
+  position: Position,
 ) {
   const index = completions.findIndex(
-    ({ new_prefix: newPrefix }) => newPrefix === currentCompletion
+    ({ new_prefix: newPrefix }) => newPrefix === currentCompletion,
   );
 
   let numOfVanillaSuggestions = 0;
@@ -131,7 +131,7 @@ function handleImports(editor: TextEditor, completion: string) {
   const { selection } = editor;
   const completionSelection = new Selection(
     selection.active.translate(0, -completion.length),
-    selection.active
+    selection.active,
   );
   setTimeout(() => {
     void doAutoImport(editor, completionSelection, completion);
@@ -141,14 +141,14 @@ function handleImports(editor: TextEditor, completion: string) {
 async function doAutoImport(
   editor: TextEditor,
   completionSelection: Selection,
-  completion: string
+  completion: string,
 ) {
   try {
     const codeActionCommands = await commands.executeCommand<CodeAction[]>(
       "vscode.executeCodeActionProvider",
       editor.document.uri,
       completionSelection,
-      CodeActionKind.QuickFix
+      CodeActionKind.QuickFix,
     );
     const importCommand = findImports(codeActionCommands)[0];
 

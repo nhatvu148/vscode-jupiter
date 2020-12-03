@@ -10,7 +10,7 @@ export type BinaryProcessRun = {
 export function runProcess(
   command: string,
   args?: ReadonlyArray<string>,
-  options?: SpawnOptions
+  options?: SpawnOptions,
 ): BinaryProcessRun {
   // @ts-ignore
   const proc = spawn(command, args, options);

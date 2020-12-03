@@ -320,7 +320,6 @@ const readPSJCallTips = async () => {
 
 // readKeywords();
 
-
 // function* getNames() {
 //   console.log("2");
 //   yield "John";
@@ -883,21 +882,21 @@ const readPSJCommandsPython = async () => {
         //   },
         // );
 
-        (async function () {
-          for (let i = 0; i < Object.keys(res3).length; i++) {
-            await appendFile(
-              `${__dirname}/data/MainClassNames.txt`,
-              `${Object.keys(res3)[i]}, `,
-            );
-          }
-        })();
+        // (async function () {
+        //   for (let i = 0; i < Object.keys(res3).length; i++) {
+        //     await appendFile(
+        //       `${__dirname}/data/MainClassNames.txt`,
+        //       `${Object.keys(res3)[i]}, `,
+        //     );
+        //   }
+        // })();
       },
     });
   } else {
     console.log(__dirname);
   }
 };
-readPSJCommandsPython();
+// readPSJCommandsPython();
 
 // Read EntityType/UnitType
 const readEntityType = async () => {

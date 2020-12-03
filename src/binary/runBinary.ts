@@ -3,7 +3,7 @@ import { BinaryProcessRun, runProcess } from "./runProcess";
 
 export default function runBinary(
   additionalArgs: string[] = [],
-  inheritStdio = false
+  inheritStdio = false,
 ): BinaryProcessRun {
   const command = fetchBinaryPath();
 

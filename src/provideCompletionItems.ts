@@ -19,17 +19,17 @@ const INCOMPLETE = true;
 
 export default async function provideCompletionItems(
   document: vscode.TextDocument,
-  position: vscode.Position
+  position: vscode.Position,
 ): Promise<vscode.CompletionList> {
   return new vscode.CompletionList(
     await completionsListFor(document, position),
-    INCOMPLETE
+    INCOMPLETE,
   );
 }
 
 async function completionsListFor(
   document: vscode.TextDocument,
-  position: vscode.Position
+  position: vscode.Position,
 ): Promise<vscode.CompletionItem[]> {
   try {
     if (!completionIsAllowed(document, position)) {
@@ -66,7 +66,7 @@ async function completionsListFor(
         oldPrefix: response?.old_prefix,
         entry,
         results: response?.results,
-      })
+      }),
     );
   } catch (e) {
     console.error(`Error setting up request: ${e}`);
@@ -89,19 +89,21 @@ function makeCompletionItem(args: {
   results: ResultEntry[];
 }): vscode.CompletionItem {
   const item = new vscode.CompletionItem(
-    ATTRIBUTION_BRAND + args.entry.new_prefix
+    ATTRIBUTION_BRAND + args.entry.new_prefix,
   );
-  item.detail = args.entry.detail ? (BRAND_NAME + "    " + args.entry.detail) : BRAND_NAME;
+  item.detail = args.entry.detail
+    ? BRAND_NAME + "    " + args.entry.detail
+    : BRAND_NAME;
   item.sortText = String.fromCharCode(0) + String.fromCharCode(args.index);
   item.insertText = new vscode.SnippetString(
-    escapeTabStopSign(args.entry.new_prefix)
+    escapeTabStopSign(args.entry.new_prefix),
   );
   item.filterText = args.entry.new_prefix;
   item.preselect = args.index === 0;
   item.kind = args.entry.kind;
   item.range = new vscode.Range(
     args.position.translate(0, -args.oldPrefix.length),
-    args.position.translate(0, args.entry.old_suffix.length)
+    args.position.translate(0, args.entry.old_suffix.length),
   );
 
   item.command = {
@@ -142,7 +144,7 @@ function getMaxResults(): number {
 }
 
 function formatDocumentation(
-  documentation: string | MarkdownStringSpec
+  documentation: string | MarkdownStringSpec,
 ): string | vscode.MarkdownString {
   if (isMarkdownStringSpec(documentation)) {
     if (documentation.kind === "markdown") {
@@ -158,18 +160,18 @@ function escapeTabStopSign(value: string) {
 }
 
 function isMarkdownStringSpec(
-  x: string | MarkdownStringSpec
+  x: string | MarkdownStringSpec,
 ): x is MarkdownStringSpec {
   return !(typeof x === "string");
 }
 
 function completionIsAllowed(
   document: vscode.TextDocument,
-  position: vscode.Position
+  position: vscode.Position,
 ): boolean {
   const configuration = vscode.workspace.getConfiguration();
   let disableLineRegex = configuration.get<string[]>(
-    "jupiter.disable_line_regex"
+    "jupiter.disable_line_regex",
   );
   if (disableLineRegex === undefined) {
     disableLineRegex = [];
@@ -177,15 +179,15 @@ function completionIsAllowed(
   const line = document.getText(
     new vscode.Range(
       position.with({ character: 0 }),
-      position.with({ character: 500 })
-    )
+      position.with({ character: 500 }),
+    ),
   );
   if (disableLineRegex.some((r) => new RegExp(r).test(line))) {
     return false;
   }
 
   let disableFileRegex = configuration.get<string[]>(
-    "jupiter.disable_file_regex"
+    "jupiter.disable_file_regex",
   );
 
   if (disableFileRegex === undefined) {
@@ -202,7 +204,7 @@ function completionIsAllowed(
 function showFew(
   response: AutocompleteResult,
   document: vscode.TextDocument,
-  position: vscode.Position
+  position: vscode.Position,
 ): boolean {
   if (response.results.some((entry) => entry.kind || entry.documentation)) {
     return false;
@@ -210,7 +212,7 @@ function showFew(
 
   const leftPoint = position.translate(0, -response.old_prefix.length);
   const tail = document.getText(
-    new vscode.Range(document.lineAt(leftPoint).range.start, leftPoint)
+    new vscode.Range(document.lineAt(leftPoint).range.start, leftPoint),
   );
 
   return tail.endsWith(".") || tail.endsWith("::");

@@ -18,17 +18,17 @@ const importStatements = [
  in this case we will ignore and not auto import it
 */
 export default function findImports(
-  codeActionCommands: CodeAction[] = []
+  codeActionCommands: CodeAction[] = [],
 ): CodeAction[] {
   const importCommands = codeActionCommands.filter(({ title }) =>
-    importStatements.some((statement) => statement.test(title))
+    importStatements.some((statement) => statement.test(title)),
   );
 
   const importNames = importCommands.map(getImportName);
 
   return importCommands.filter(
     (command) =>
-      importNames.filter((name) => name === getImportName(command)).length <= 1
+      importNames.filter((name) => name === getImportName(command)).length <= 1,
   );
 }
 

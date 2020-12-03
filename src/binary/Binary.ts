@@ -32,7 +32,7 @@ export default class Binary {
 
   public async request<T, R = unknown>(
     request: R,
-    timeout = 1000
+    timeout = 1000,
   ): Promise<T | null | undefined> {
     const release = await this.mutex.acquire();
 
@@ -54,7 +54,7 @@ export default class Binary {
           version: API_VERSION,
           request,
         })}\n`,
-        "utf8"
+        "utf8",
       );
 
       const result = await this.readLineWithLimit(timeout);
@@ -119,7 +119,7 @@ export default class Binary {
       console.warn(
         `Binary child process exited with code ${code ?? "unknown"} signal ${
           signal ?? "unknown"
-        }`
+        }`,
       );
       this.restartChild();
     });

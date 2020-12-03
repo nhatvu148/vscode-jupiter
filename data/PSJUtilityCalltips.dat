@@ -45,7 +45,7 @@ Description: Remove all of Material in User Data Base
 Input1: None
 Return: None
 Example: JPT.RemoveAllMaterials()
-
+--------------------------------------------------------------------------
 Function: JPT.RemoveWSProperties
 Description: Remove all properties in models
 Input1: None
@@ -131,8 +131,8 @@ Input1: any kind of objects (Body, Face, Elem, Edge, Group, Node,...)
 Return: entity object (DItem class)
 Example: 
 listDbodyObject = JPT.GetAllParts() 
-dbodyObject = listDbodyObject[0]
-dentityObject = JPT.CastToDItem(dbodyObject)
+bodyObject = listDbodyObject[0]
+entityObject = JPT.CastToDItem(dbodyObject)
 --------------------------------------------------------------------------
 Function: JPT.CastDItemToDBody
 Description: cast a DItem object to Body object
@@ -140,8 +140,8 @@ Input1: DItem object (DItem class)
 Return: Body object (Body class)
 Example: 
 listEntityObject = JPT.GetAllByType(JPT.EntityType.BODY)
-dentityObject = listEntityObject[0]
-dbodyObject = JPT.CastDItemToDBody(dentityObject)
+entityObject = listEntityObject[0]
+bodyObject = JPT.CastDItemToDBody(dentityObject)
 --------------------------------------------------------------------------
 Function: JPT.CastDItemToDFace
 Description: cast a DItem object to Face object
@@ -149,8 +149,8 @@ Input1: DItem object (DItem class)
 Return: Face object (Face class)
 Example: 
 listEntityObject = JPT.GetAllByType(JPT.EntityType.FACE)
-dentityObject = listEntityObject[0]
-JPT.CastDItemToDFace(dentityObject)
+entityObject = listEntityObject[0]
+faceObject = JPT.CastDItemToDFace(dentityObject)
 --------------------------------------------------------------------------
 Function: JPT.CastDItemToDElem
 Description: cast a DItem object to Elem object
@@ -158,8 +158,8 @@ Input1: DItem object (DItem class)
 Return: Elem object (Elem class)
 Example: 
 listEntityObject = JPT.GetAllByType(JPT.EntityType.ELEM)
-dentityObject = listEntityObject[0]
-JPT.CastDItemToDElem(dentityObject)
+entityObject = listEntityObject[0]
+elemObject = JPT.CastDItemToDElem(dentityObject)
 --------------------------------------------------------------------------
 Function: JPT.CastDItemToDEdge
 Description: cast a DItem object to Edge object
@@ -167,8 +167,8 @@ Input1: DItem object (DItem class)
 Return: Edge object (Edge class)
 Example: 
 listEntityObject = JPT.GetAllByType(JPT.EntityType.EDGE)
-dentityObject = listEntityObject[0]
-JPT.CastDItemToDEdge(dentityObject)
+entityObject = listEntityObject[0]
+edgeObject = JPT.CastDItemToDEdge(dentityObject)
 --------------------------------------------------------------------------
 Function: JPT.CastDItemToDGroup
 Description: cast a DItem object to Group object
@@ -176,8 +176,8 @@ Input1: DItem object (DItem class)
 Return: Group object (Group class)
 Example: 
 listEntityObject = JPT.GetAllByType(JPT.EntityType.GROUP)
-dentityObject = listEntityObject[0]
-JPT.CastDItemToDGroup(dentityObject)
+entityObject = listEntityObject[0]
+groupObject = JPT.CastDItemToDGroup(dentityObject)
 --------------------------------------------------------------------------
 Function: JPT.CastDItemToDNode
 Description: cast a DItem object to Node object
@@ -185,8 +185,35 @@ Input1: DItem object (DItem class)
 Return: Node object (Node class)
 Example: 
 listEntityObject = JPT.GetAllByType(JPT.EntityType.NODE)
-dentityObject = listEntityObject[0]
-JPT.CastDItemToDNode(dentityObject)
+entityObject = listEntityObject[0]
+nodeObject = JPT.CastDItemToDNode(dentityObject)
+--------------------------------------------------------------------------
+Function: JPT.CastDItemToDCoord
+Description: cast a DItem object to Coordinate object
+Input1: DItem object (DItem class)
+Return: Coordinate object (DCoord class)
+Example: 
+listEntityObject = JPT.GetAllByType(JPT.EntityType.COORD)
+entityObject = listEntityObject[0]
+coordObject = JPT.CastDItemToDCoord(dentityObject)
+--------------------------------------------------------------------------
+Function: JPT.CastDItemToDConnect
+Description: cast a DItem object to Connection object
+Input1: DItem object (DItem class)
+Return: DConnect object (DConnect class)
+Example: 
+listEntityObject = JPT.GetAllByType(JPT.EntityType.CONNECT_MPC)
+entityObject = listEntityObject[0]
+connectObject= JPT.CastDItemToDConnect(dentityObject)
+--------------------------------------------------------------------------
+Function: JPT.CastDItemToDLoadBC
+Description: cast a DItem object to LBC object
+Input1: DItem object (DItem class)
+Return: LBC object (DLoadBC class)
+Example: 
+listEntityObject = JPT.GetAllByType(JPT.EntityType.LBC_FORCE)
+entityObject = listEntityObject[0]
+lbcObject = JPT.CastDItemToDLoadBC(dentityObject)
 --------------------------------------------------------------------------
 Function: JPT.DItemToMacroTCursorPair
 Description: convert pair of DItem object to cursor pair macro string  
@@ -195,15 +222,15 @@ Input2: DItem object 2 (DItem class)
 Return: cursor pair macro string (string)
 Example: 
 listNodeObject = JPT.GetAllNodes()
-dentityObject1 = JPT.CastToDItem(listNodeObject[0])
-dentityObject2 = JPT.CastToDItem(listNodeObject[1])
+entityObject1 = JPT.CastToDItem(listNodeObject[0])
+entityObject2 = JPT.CastToDItem(listNodeObject[1])
 strElemEdge = JPT.DItemToMacroTCursorPair(dentityObject1, dentityObject2) // 10:1-10:2
 --------------------------------------------------------------------------
 Function: JPT.ListDoubleToMacroVector
 Description: convert list of double value to vector3d macro string  
 Input1: value1 (double) 
 Input2: value2 (double) 
-Input3: value3 (double) 
+Input2: value3 (double) 
 Return: vector3d macro string (string) 
 Example: 
 JPT.ListDoubleToMacroVector(1.0, 1.0, 1.0) // [1.0,1.0,1.0]
@@ -277,12 +304,6 @@ Example:
 newcolor = JPT.ConvertRGBToJPTColor(255,0,0) # red color
 listbody = JPT.GetEntitiesByName(JPT.DTableType.DTABLE_BODY, "Cube_1", 1)
 JPT.CastDItemToDBody(listbody[0]).color = newcolor
---------------------------------------------------------------------------
-Function: JPT.GetJTDBVersion
-Description: Get version of documents
-Input1: None
-Return: Version values of document (build, major, minor, sub)(VersionInfo)
-Example: JPT.GetJTDBVersion()
 --------------------------------------------------------------------------
 Function: JPT.CopyToClipBoard
 Description: put a text to clipboard buffer 
@@ -372,86 +393,80 @@ Example: JPT.GetAppPathInfo()
 Function: JPT.GetSelectedNodes
 Description: Get selected node information
 Input1: None
-Return: Selected node information (typeID, id, key, pos)(DNode)
+Return: list of DNode objects contain selected node information (NodeVector)
 Example: JPT.GetSelectedNodes()
 --------------------------------------------------------------------------
 Function: JPT.GetSelectedElems
 Description: Get selected element information
 Input1: None
-Return: Selected element information (typeID, type, id, key, kind)(Elem)
+Return: list of DElem objects contain selected element information (ElemVector)
 Example: JPT.GetSelectedElems()
 --------------------------------------------------------------------------
 Function: JPT.GetSelectedFaces
 Description: Get selected face information
 Input1: None
-Return: Selected face information (typeID, id, key)(DFace)
+Return: list of DFace objects contain selected face information (FaceVector)
 Example: JPT.GetSelectedFaces()
 --------------------------------------------------------------------------
 Function: JPT.GetSelectedEdges
 Description: Get all of selected edge information
 Input1: None
-Return: Selected edge information (typeID, id, key)(DEdge)
+Return: list of DEdge objects contain selected edge information (EdgeVector)
 Example: JPT.GetSelectedEdges()
 --------------------------------------------------------------------------
 Function: JPT.GetSelectedParts
 Description: Get selected part information
 Input1: None
-Return: Selected part information (typeID, id, key, name)(DBody)
+Return: list of DBody objects contain selected part information (BodyVector)
 Example: JPT.GetSelectedParts()
 --------------------------------------------------------------------------
 Function: JPT.GetSelectedGroups
-Description: Get selected group information (DItem information inside group)
+Description: Get selected group information 
 Input1: None
-Return: Selected group information ( id, key, name, targets, typeID)(DGroup)
+Return: list of DGroup objects contain selected group information (GroupVector)
 Example: JPT.GetSelectedGroups()
 --------------------------------------------------------------------------
 Function: JPT.GetAllParts
 Description: Get information of all parts
 Input1: None
-Return: Part information (typeID, id, key, name)(DItem) 
+Return: list of DBody objects contain part information (BodyVector)
 Example: JPT.GetAllParts()
 --------------------------------------------------------------------------
 Function: JPT.GetAllFaces
 Description: Get information of faces
 Input1: None
-Return: Face information (id, key, typeID)(DFace)
+Return: list of DFace objects contain face information (FaceVector)
 Example: JPT.GetAllFaces()
 --------------------------------------------------------------------------
 Function: JPT.GetAllEdges
 Description: Get information of edges
 Input1: None
-Return: Edge information (id, key, typeID)(DEdge)
+Return: list of DEdge objects contain edge information (EdgeVector)
 Example: JPT.GetAllEdges()
 --------------------------------------------------------------------------
 Function: JPT.GetAllElems
 Description: Get information of elements
 Input1: None
-Return: Element information (id, key, type, typeID)(Elem)
+Return: list of DNode objects contain element information (NodeVector)
 Example: JPT.GetAllElems()
 --------------------------------------------------------------------------
 Function: JPT.GetAllNodes
 Description: Get information of all nodes
 Input1: None
-Return: Node information (typeID, id, key, pos)(DNode)
+Return: list of DNode objects contain node information (NodeVector)
 Example: JPT.GetAllNodes()
 --------------------------------------------------------------------------
 Function: JPT.GetAllGroups
 Description: Get all entities' information inside groups
 Input1: None
-Return: Group information (id, key, name, targets, typeID)(DGroup)
+Return: list of DGroup objects contain group information (GroupVector)
 Example: JPT.GetAllGroups()
 --------------------------------------------------------------------------
 Function: JPT.GetAllByTableTypeID
-Description: Get the information about indicated entity by type ID.
-Input1: DItem type ID input(int)
+Description: Get the information about indicated entity by type ID
+Input1: DTable type ID input(JPT.DTableType)
 Return: Type ID(DItem) 
 Example: JPT.GetAllByTableTypeID(3)
---------------------------------------------------------------------------
-Function: JPT.GetAllByTypeID
-Description: Get information of entities by inputing their typeIDs
-Input1: Type ID of entities(int)
-Return: Information of entities: id, name, info, isValid, key, masters, slaves, target, type, type ID, parent, children(DItem) 
-Example: JPT.GetAllByTypeID(3)
 --------------------------------------------------------------------------
 Function: JPT.GetAllByType
 Description: Get entities information by inputting their DItem type
@@ -461,14 +476,14 @@ Example: JPT.GetAllByType(JPT.EntityType.INST)
 --------------------------------------------------------------------------
 Function: JPT.GetCountByType
 Description: Get count of entities by type
-Input1: DItem Type BODY, VERTEX, EDGE, FACE, SOLID, ELEM,...(JPT.EntityType)
+Input1: DItem Type: BODY, VERTEX, EDGE, FACE, SOLID, ELEM,...(JPT.EntityType)
 Return: Number of entities(int)
 Example: JPT.GetCountByType(JPT.EntityType.BODY)
 --------------------------------------------------------------------------
 Function: JPT.GetAllSelected
 Description: Get entity information from the selected entity (Connections, Contacts, Parts, ...)
 Input1: None
-Return: DItem information (name, type, typeID, id, info, key, masters, slaves, targets, children, parent )(DItem) 
+Return: list of DItem objects contain selected entity information (DItem) 
 Example: JPT.GetAllSelected()
 --------------------------------------------------------------------------
 Function: JPT.GetLastCreatedCursor
@@ -506,30 +521,6 @@ Description: Get information of all loads and BCs
 Input1: None
 Return: Load information (type, type ID, id, key, name, info, targets, isValid, masters, slaves, parent, children)(DItem) 
 Example: JPT.GetAllLoadsBCs()
---------------------------------------------------------------------------
-Function: JPT.GetMaterialXML
-Description: get matertial xml as string output
-Input1: None
-Return: XML matertial (string)
-Example: JPT.GetMaterialXML()
---------------------------------------------------------------------------
-Function: JPT.GetMaterialOriginalXML
-Description: get original matertial xml as string output
-Input1: None
-Return: XML matertial (string)
-Example: JPT.GetMaterialOriginalXML()
---------------------------------------------------------------------------
-Function: JPT.GetMaxMaterialID
-Description: get max database id of matertial
-Input1: None
-Return: max id of matertial (int)
-Example: JPT.GetMaxMaterialID()
---------------------------------------------------------------------------
-Function: JPT.GetMaterialDBById
-Description: get matertial database id from id
-Input1: None
-Return: matertial database id (int)
-Example: JPT.GetMaterialDBById()
 --------------------------------------------------------------------------
 Function: JPT.GetSelectedNodesCr
 Description: get selected node as string output
@@ -616,9 +607,9 @@ Input2: entity id (int)
 Input3: show/hide option (1,0 or JPT.BoolType)
 Return: None
 Example: 
-// show a part
-JPT.ShowHideEntitiesByID(JPT.DTableType.DTABLE_BODY, 1, JPT.BoolType.TRUE_VAL)
 // hide a part
+JPT.ShowHideEntitiesByID(JPT.DTableType.DTABLE_BODY, 1, JPT.BoolType.TRUE_VAL)
+// show a part
 JPT.ShowHideEntitiesByID(JPT.DTableType.DTABLE_BODY, 1, JPT.BoolType.FALSE_VAL)
 --------------------------------------------------------------------------
 Function: JPT.ShowHideAllParts
@@ -727,7 +718,7 @@ Description: console debugger for PSJ
 Input1: any type, any argument number
 Return: None
 Example: 
-// debug list
+// debug enum type
 JPT.Debugger(JPT.EntityType.values) 
 // debug python standard type
 JPT.Debugger(1, "abcd", list, tuble, dict, ....)
@@ -820,4 +811,45 @@ Input1: message (string)
 Input2: message type (JPT.MsgBoxType)
 Return: anwser : YES, NO, OK, CANCEL (string)
 Example: anwser = JPT.MessageBoxPSJ("this is test message, JPT.MsgBoxType.MB_INFORMATION_OKCANCEL)
+--------------------------------------------------------------------------
+Function: JPT.GetProgramVersion
+Description: get jupiter version 
+Input: None
+Return: VersionInfo object (VersionInfo)
+Example: versionInfo = JPT.GetProgramVersion()
+print(versionInfo.major)
+print(versionInfo.minor)
+print(versionInfo.sub)
+print(versionInfo.build)
+--------------------------------------------------------------------------
+Function: JPT.GetMaterialFromProperty
+Description: get material from property ID
+Input: property ID (init)
+Return: DItem object (DItem)
+Example: material = JPT.GetMaterialFromProperty(1)
+--------------------------------------------------------------------------
+Function: JPT.GetAllCoordinates
+Description: get jupiter version 
+Input: None
+Return: list of DCoord object (CoordVector)
+Example: coordinate = JPT.GetAllCoordinates()
+--------------------------------------------------------------------------
+Function: JPT.GetAllConnections
+Description: get jupiter version 
+Input: None
+Return: list of DConnect object (ConnectVector)
+Example: connection = JPT.GetAllConnections()
+--------------------------------------------------------------------------
+Function: JPT.GetAllLoadBoundaryConditions
+Description: get jupiter version 
+Input: None
+Return: list of DLoadBC object (LoadBCVector)
+Example: lbcs = JPT.GetAllLoadBoundaryConditions()
+--------------------------------------------------------------------------
+Function: JPT.GetThicknessOfEntity
+Description: get thickness of body or face or element 
+Input1: only DItem Body/Face/Element type (JPT.EntityType)
+Input2: id entity (int)  
+Return: double thickness of entity
+Example: dThickness = JPT.GetThicknessOfEntity(JPT.EntityType.FACE, 1)
 --------------------------------------------------------------------------

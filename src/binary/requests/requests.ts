@@ -42,7 +42,7 @@ export type AutocompleteParams = {
 };
 
 export function autocomplete(
-  requestData: AutocompleteParams
+  requestData: AutocompleteParams,
 ): Promise<AutocompleteResult | undefined | null> {
   return jupiterProcess.request({
     Autocomplete: requestData,
@@ -50,18 +50,18 @@ export function autocomplete(
 }
 
 export function configuration(
-  body: { quiet?: boolean } = {}
+  body: { quiet?: boolean } = {},
 ): Promise<{ message: string } | null | undefined> {
   return jupiterProcess.request(
     {
       Configuration: body,
     },
-    5000
+    5000,
   );
 }
 
 export function getState(
-  content: Record<string | number | symbol, unknown> = {}
+  content: Record<string | number | symbol, unknown> = {},
 ): Promise<State | null | undefined> {
   return jupiterProcess.request<State>({ State: content });
 }
@@ -90,7 +90,7 @@ export async function getCapabilities(): Promise<
   try {
     const result = await jupiterProcess.request<CapabilitiesResponse>(
       { Features: {} },
-      7000
+      7000,
     );
 
     if (!Array.isArray(result?.enabled_features)) {

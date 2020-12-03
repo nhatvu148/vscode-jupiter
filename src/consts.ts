@@ -24,7 +24,7 @@ export const BINARY_STATUS_BAR_FIRST_MESSAGE_POLLING_INTERVAL = +(
 ); // 10 seconds
 
 export const STATUS_BAR_NOTIFICATION_PERIOD = +(
-  process.env.STATUS_BAR_NOTIFICATION_PERIOD ||  2 * 60 * 1_000
+  process.env.STATUS_BAR_NOTIFICATION_PERIOD || 2 * 60 * 1_000
 ); // 2 minutes
 
 export const OPEN_LP_FROM_STATUS_BAR = "jupiter:open_lp";
@@ -87,6 +87,6 @@ const MAX_SLEEP_TIME_BETWEEN_ATTEMPTS = 60 * 60 * 1000; // 1 hour
 export function restartBackoff(attempt: number): number {
   return Math.min(
     SLEEP_TIME_BETWEEN_ATTEMPTS * 2 ** Math.min(attempt, 10),
-    MAX_SLEEP_TIME_BETWEEN_ATTEMPTS
+    MAX_SLEEP_TIME_BETWEEN_ATTEMPTS,
   );
 }

@@ -3,7 +3,7 @@ import * as vscode from "vscode";
 export function withPolling(
   callback: (clear: () => void) => void,
   interval: number,
-  timeout: number
+  timeout: number,
 ): void {
   const pollingInterval = setInterval(() => callback(clearPolling), interval);
 
@@ -19,7 +19,7 @@ export function withPolling(
 
 export async function assertFirstTimeReceived(
   key: string,
-  context: vscode.ExtensionContext
+  context: vscode.ExtensionContext,
 ): Promise<string | void> {
   return new Promise((resolve, reject) => {
     if (!context.globalState.get(key)) {

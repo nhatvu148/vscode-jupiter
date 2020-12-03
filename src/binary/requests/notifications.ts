@@ -25,7 +25,7 @@ type NotificationAction = Record<string, unknown>;
 
 export async function sendNotificationAction(
   id: string,
-  selected: string | undefined
+  selected: string | undefined,
 ): Promise<NotificationAction | null | undefined> {
   return jupiterProcess.request<NotificationAction>({
     NotificationAction: { id, selected },

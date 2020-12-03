@@ -9,8 +9,8 @@ export default function fetchBinaryPath(): string {
   if (!selectedVersion) {
     throw new Error(
       `Couldn't find a TabNine binary (tried the following paths: ${versions.join(
-        ", "
-      )})`
+        ", ",
+      )})`,
     );
   }
 

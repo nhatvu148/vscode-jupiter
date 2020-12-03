@@ -21,7 +21,7 @@ function getSuffix(): string {
       return "unknown-linux-musl/TabNine";
     default:
       throw new Error(
-        `Sorry, the platform '${process.platform}' is not supported by TabNine.`
+        `Sorry, the platform '${process.platform}' is not supported by TabNine.`,
       );
   }
 }
@@ -36,6 +36,6 @@ function getArch(): string {
   }
 
   throw new Error(
-    `Sorry, the architecture '${process.arch}' is not supported by TabNine.`
+    `Sorry, the architecture '${process.arch}' is not supported by TabNine.`,
   );
 }

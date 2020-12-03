@@ -28,14 +28,14 @@ export type SetStateSuggestion = {
   origin: CompletionOrigin;
 };
 export type StatusShownRequest = {
-  StatusShown : {
+  StatusShown: {
     text: string;
-  }
+  };
 };
 export type NotificationShownRequest = {
   NotificationShown: {
     text: string;
-  }
+  };
 };
 
 export type SelectionStateRequest = {
