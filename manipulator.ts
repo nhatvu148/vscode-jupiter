@@ -501,10 +501,14 @@ const getParams = (str: string): [string, string[]] => {
         if (cur.includes("=")) {
           ib[0]++;
           ib[1].push(cur);
+          ib[2] = true;
         } else if (cur === "") {
           ib[1].push(cur);
-        } else if (ib[1][ib[0]]) {
+        } else if (ib[2] === true && ib[1][ib[0]]) {
           ib[1][ib[0]] = ib[1][ib[0]].concat("," + cur);
+        } else {
+          ib[0]++;
+          ib[1].push(cur);
         }
         if (idx === arr.length - 1) {
           return ib[1];
@@ -512,7 +516,7 @@ const getParams = (str: string): [string, string[]] => {
           return ib;
         }
       },
-      [-1, []],
+      [-1, [], false],
     );
   }
   return [fnName, params];
@@ -879,21 +883,21 @@ const readPSJCommandsPython = async () => {
         //   },
         // );
 
-        // (async function () {
-        //   for (let i = 0; i < Object.keys(res3).length; i++) {
-        //     await appendFile(
-        //       `${__dirname}/data/MainClassNames.txt`,
-        //       `${Object.keys(res3)[i]}, `,
-        //     );
-        //   }
-        // })();
+        (async function () {
+          for (let i = 0; i < Object.keys(res3).length; i++) {
+            await appendFile(
+              `${__dirname}/data/MainClassNames.txt`,
+              `${Object.keys(res3)[i]}, `,
+            );
+          }
+        })();
       },
     });
   } else {
     console.log(__dirname);
   }
 };
-// readPSJCommandsPython();
+readPSJCommandsPython();
 
 // Read EntityType/UnitType
 const readEntityType = async () => {
@@ -928,7 +932,7 @@ const readEntityType = async () => {
     console.log(__dirname);
   }
 };
-readEntityType();
+// readEntityType();
 
 //// READ PSJ FOLDER:
 const readPSJFolder = async () => {
