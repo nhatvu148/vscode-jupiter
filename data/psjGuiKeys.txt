@@ -1,1 +1,0 @@
-["pyjdg"," dlg"," generate_window"," add_button"," add_textbox"," add_label"," add_imagectrl"," on_command","add_combobox_option"," add_space"," add_combobox"," set_image_file"," add_textbox"," add_hlayout"," add_groupbox ","add_vlayout"," do_modal"," JDGCreator",""]
