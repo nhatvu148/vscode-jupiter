@@ -2,12 +2,12 @@
   "name": "jupiter",
   "displayName": "JUPITER",
   "description": "Jupiter Language Support",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "publisher": "nhatvu148",
   "license": "MIT",
   "icon": "images/logo.png",
   "engines": {
-    "vscode": "^1.51.1"
+    "vscode": "^1.62.0"
   },
   "repository": {
     "type": "git",
@@ -83,7 +83,6 @@
   },
   "dependencies": {
     "await-semaphore": "^0.1.3",
-    "papaparse": "^5.3.0",
     "semver": "^7.3.2",
     "typemoq": "^2.1.0"
   }
