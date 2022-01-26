@@ -4,6 +4,10 @@ All notable changes to the "jupiter" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.2.6]
+
+- fix reference link - only displays at function names
+
 ## [1.2.5]
 
 - fix reference link bug

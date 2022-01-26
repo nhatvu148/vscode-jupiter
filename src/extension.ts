@@ -19,12 +19,13 @@ export function activate(context: vscode.ExtensionContext) {
 
   const hover = vscode.languages.registerHoverProvider("python", {
     provideHover(document, position, token) {
-      // const wordRange = document.getWordRangeAtPosition(position);
-      // const word = document.getText(wordRange);
+      const wordRange = document.getWordRangeAtPosition(position);
+      const word = document.getText(wordRange);
       const linePrefix = document.lineAt(position).text;
       const fnName0 = linePrefix.match(/^.*(?=\()/);
+      const prefix = linePrefix.match(/(?<=\.)\w*(?=\()/);
 
-      if (fnName0 !== null) {
+      if (fnName0 !== null && prefix !== null && prefix[0] === word) {
         const fnNameArr = fnName0[0].split("=");
         const fnName1 = fnNameArr[fnNameArr.length - 1];
 
