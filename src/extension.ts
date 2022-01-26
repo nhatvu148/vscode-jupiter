@@ -12,7 +12,6 @@ import {
 import provideCompletionItems from "./provideCompletionItems";
 import { COMPLETION_TRIGGERS } from "./consts";
 import handleErrorState from "./binary/errorState";
-// import { callTips } from "./data";
 
 export function activate(context: vscode.ExtensionContext) {
   initBinary();
@@ -23,37 +22,35 @@ export function activate(context: vscode.ExtensionContext) {
       // const wordRange = document.getWordRangeAtPosition(position);
       // const word = document.getText(wordRange);
       const linePrefix = document.lineAt(position).text;
-      const fnName = linePrefix.match(/^.*(?=\()/);
+      const fnName0 = linePrefix.match(/^.*(?=\()/);
 
-      if (
-        fnName !== null
-        // && callTips[fnName[0]].prefix === word
-      ) {
-        const mdStr = new vscode.MarkdownString();
-        // mdStr.appendCodeblock("(method) " + fnName[0], "javascript");
-        // mdStr.appendMarkdown("***  \n");
-        // // @ts-ignore
-        // mdStr.appendMarkdown(callTips[fnName[0]].text);
-        // mdStr.appendMarkdown("***  \n");
+      if (fnName0 !== null) {
+        const fnNameArr = fnName0[0].split("=");
+        const fnName1 = fnNameArr[fnNameArr.length - 1];
 
-        let link = "https://psjdoc.e-technostar.com/";
-        if (fnName[0].includes("JPT.")) {
-          link = link + "docs/psj-utility/JPT." + fnName[0].split(".")[1];
-        } else {
-          link =
-            link +
-            "docs/psj-command/" +
-            fnName[0]
-              .split(".")[0]
-              .split(/(?=[A-Z][a-z])/)
-              .map((s: string) => s.toLowerCase())
-              .join("-") +
-            "/" +
-            fnName[0];
+        if (fnName1 !== undefined) {
+          const fnName = fnName1.trim();
+          const mdStr = new vscode.MarkdownString();
+
+          let link = "https://psjdoc.e-technostar.com/";
+          if (fnName.includes("JPT.")) {
+            link = link + "docs/psj-utility/JPT." + fnName.split(".")[1];
+          } else {
+            link =
+              link +
+              "docs/psj-command/" +
+              fnName
+                .split(".")[0]
+                .split(/(?=[A-Z][a-z])/)
+                .map((s: string) => s.toLowerCase())
+                .join("-") +
+              "/" +
+              fnName;
+          }
+          mdStr.appendMarkdown(`[See reference here](${link})`);
+
+          return new vscode.Hover(mdStr);
         }
-        mdStr.appendMarkdown(`[See reference here](${link})`);
-
-        return new vscode.Hover(mdStr);
       } else {
         return undefined;
       }
