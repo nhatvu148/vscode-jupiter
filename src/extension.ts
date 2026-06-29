@@ -8,7 +8,7 @@ const PSJ_DOC_BASE = "https://psjdoc.e-technostar.com/";
  * - JPT utilities (e.g. `JPT.Foo`) live under `docs/psj-utility/`.
  * - PSJ commands live under `docs/psj-command/<kebab-category>/<FnName>`.
  */
-function buildReferenceLink(fnName: string): string {
+export function buildReferenceLink(fnName: string): string {
   if (fnName.includes("JPT.")) {
     return `${PSJ_DOC_BASE}docs/psj-utility/JPT.${fnName.split(".")[1]}`;
   }

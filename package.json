@@ -64,21 +64,22 @@
     "package": "yarn run check-types && node esbuild.js --production",
     "watch": "node esbuild.js --watch",
     "check-types": "tsc --noEmit",
+    "compile-tests": "tsc -p ./",
     "lint": "eslint src",
-    "pretest": "yarn run compile && yarn run lint",
+    "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
     "test": "vscode-test"
   },
   "devDependencies": {
+    "@eslint/js": "^9.17.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "^20.17.0",
     "@types/vscode": "^1.84.0",
-    "@typescript-eslint/eslint-plugin": "^8.18.0",
-    "@typescript-eslint/parser": "^8.18.0",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1",
     "esbuild": "^0.24.0",
     "eslint": "^9.17.0",
     "prettier": "^3.4.2",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.0"
   }
 }
