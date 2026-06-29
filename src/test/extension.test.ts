@@ -1,6 +1,7 @@
 import * as assert from "assert";
 import * as vscode from "vscode";
 import { buildReferenceLink } from "../extension";
+import { allApiEntries, lookupApi } from "../jupiterApi";
 
 const EXTENSION_ID = "nhatvu148.jupiter";
 
@@ -24,6 +25,23 @@ suite("buildReferenceLink", () => {
       buildReferenceLink("Solver.Run"),
       "https://psjdoc.e-technostar.com/docs/psj-command/solver/Solver.Run",
     );
+  });
+});
+
+suite("jupiterApi", () => {
+  test("exposes a non-empty API surface", () => {
+    assert.ok(allApiEntries().length > 100);
+  });
+
+  test("looks up a known command with its docs and leaf prefix", () => {
+    const entry = lookupApi("FileMenu.Save");
+    assert.ok(entry, "FileMenu.Save should be a known API entry");
+    assert.strictEqual(entry.prefix, "Save");
+    assert.match(entry.doc, /FileMenu\.Save/);
+  });
+
+  test("returns undefined for an unknown name", () => {
+    assert.strictEqual(lookupApi("Not.A.Real.Command"), undefined);
   });
 });
 

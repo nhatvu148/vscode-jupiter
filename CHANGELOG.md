@@ -4,6 +4,20 @@ All notable changes to the "jupiter" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.3.0]
+
+- **Removed the bundled TabNine autocompleter** (the cause of the high-CPU
+  reports) and its 54MB of native binaries. The extension is now a single
+  ~270KB esbuild bundle with no background processes — the `.vsix` dropped
+  from 27MB to ~370KB.
+- **PSJ/JPT API IntelliSense**: completion for ~700 Jupiter commands and `JPT`
+  utilities, each with its documented signature.
+- **Richer hovers**: known PSJ/JPT calls now show their full signature inline,
+  in addition to the reference link.
+- Modernized the toolchain (TypeScript 5.7, ESLint 9, `@types/vscode` 1.84),
+  added integration tests and GitHub Actions CI, and resolved the dependency
+  security advisories (88 → 0 shipped).
+
 ## [1.2.7]
 
 - fix high CPU load (#1): activate only for Jupiter/Python files and scope

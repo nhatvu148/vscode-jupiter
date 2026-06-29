@@ -1,33 +1,45 @@
-## Purpose
+# JUPITER
 
-Add language support for PSJ (Python Script in Jupiter) and JPL (Jupiter Macro) to Visual Studio Code.
+Language support for **PSJ** (Python Script in Jupiter) and **JPL** (Jupiter Macro) in Visual Studio Code — built for the CAD/CAE engineers who automate [Jupiter](https://psjdoc.e-technostar.com/) with Python.
 
-## Overview
+## Features
 
-**PSJ** (_Python Script in Jupiter_) is a set of Jupiter’s technologies enable user-customization for automation purpose.
+- **PSJ / JPT API completion** — IntelliSense for ~700 Jupiter commands and `JPT` utilities, each with a documented signature (arguments, types, return value, examples) pulled straight from the PSJ command reference.
+- **Hover docs** — hover any known PSJ/JPT call to see its full signature inline, plus a one-click link to the official reference page.
+- **Syntax highlighting** — a TextMate grammar for `.jpl` Jupiter macro files.
+- **Lightweight & fast** — no background processes, no native binaries; the whole extension is a single ~270 KB bundle.
 
-When user executes an operation via Jupiter UI, a respective macro based on Python scripting language will be generated. User can use this macro for the same model, or implement advanced Python scripting for different models/specifications. In addition, a customized Python script language is also available for user to implement necessary UI to interact with end user when needed.
+## Usage
 
-## Benefits
+Open a Python (PSJ) or `.jpl` (JPL) file and start typing a Jupiter command — completions appear automatically. Hover a call such as `FileMenu.Save(...)` or `JPT.GetVersion()` to read its documentation.
 
-- **CAD designer** wants to do simple but repeated analysis using his/her design rule.
+## About PSJ
 
-- **CAE engineer** wants to automate work, shorten modelling time, reduce workload and improve productivity.
+**PSJ** (_Python Script in Jupiter_) lets engineers customize and automate Jupiter. Operations performed in the Jupiter UI generate a Python macro that can be replayed or extended into advanced scripting across different models and specifications.
 
-- **CAE expert** with programming background wants to do advanced modelling, which required different software interaction, data read-in/written-out ability.
+Typical users:
 
-- **CAE company** with standard workflow wants to make its in-housed CAD-CAE automation system, from concept design to analysis report, through a Worksheet template or customized wizard. The company can build and maintain this system based on its own resource.
+- **CAD designers** automating simple, repeated analysis with their own design rules.
+- **CAE engineers** shortening modelling time and reducing manual workload.
+- **CAE experts** doing advanced modelling that needs software interaction and data I/O.
+- **CAE teams** building an in-house CAD–CAE automation pipeline, from concept design to analysis report.
 
-## Key features
+## Notes
 
-User can operate Jupiter with Python and develop new functions using Jupiter.
-The GUI Command Builder makes it easy to create a GUI without any knowledge of Python.
-Besides, PSJ also has supporting tools such as “Customized IDE” and “Linkage between GUI and program”
+- This is a community project maintained by [@nhatvu148](https://github.com/nhatvu148); it is not an official e-technostar product.
+- As of **v1.3.0** the bundled TabNine autocompleter was removed (it caused high CPU load). For AI completions, use a dedicated tool such as GitHub Copilot alongside this extension.
 
-## Note
+## Contributing
 
-- This extension uses [TabNine](https://tabnine.com/)'s binaries as a machine learning based autocompleter to provide responsive, reliable, and relevant suggestions.
+Issues and PRs welcome at <https://github.com/nhatvu148/vscode-jupiter>.
 
-- A note on licensing: this repo includes packaged Tabnine binaries. The MIT license only applies to the source code, not the packaged Tabnine binaries. The binaries are covered by the [Tabnine End User License Agreement](https://tabnine.com/eula).
+```bash
+yarn install
+yarn compile      # esbuild bundle -> dist/
+yarn test         # @vscode/test-cli integration tests
+yarn package      # produce a .vsix
+```
 
-- TabNine's local deep learning completion might be enabled by default. It is very CPU-intensive if your device can't handle it. You can check by typing "TabNine::config" in any buffer (your browser should then automatically open to TabNine's config page) and disable Deep TabNine Local (you will lose local deep learning completion).
+## License
+
+[MIT](LICENSE)

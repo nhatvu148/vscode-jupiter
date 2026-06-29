@@ -4,6 +4,7 @@
 .github/**
 out/**
 src/**
+snippets/**
 node_modules/**
 esbuild.js
 .gitignore
