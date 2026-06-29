@@ -1,95 +1,59 @@
 import * as vscode from "vscode";
-import {
-  deactivate as requestDeactivate,
-  initBinary,
-} from "./binary/requests/requests";
-import { COMPLETION_IMPORTS, selectionHandler } from "./selectionHandler";
-import {
-  Capability,
-  fetchCapabilitiesOnFocus,
-  isCapabilityEnabled,
-} from "./capabilities";
-import provideCompletionItems from "./provideCompletionItems";
-import { COMPLETION_TRIGGERS } from "./consts";
-import handleErrorState from "./binary/errorState";
 
-export function activate(context: vscode.ExtensionContext) {
-  initBinary();
-  handleSelection(context);
+const PSJ_DOC_BASE = "https://psjdoc.e-technostar.com/";
 
-  const hover = vscode.languages.registerHoverProvider("python", {
-    provideHover(document, position, token) {
-      const wordRange = document.getWordRangeAtPosition(position);
-      const word = document.getText(wordRange);
-      const linePrefix = document.lineAt(position).text;
-      const fnName0 = linePrefix.match(/^.*(?=\()/);
-      const prefix = linePrefix.match(/(?<=\.)\w*(?=\()/);
-
-      if (fnName0 !== null && prefix !== null && prefix[0] === word) {
-        const fnNameArr = fnName0[0].split("=");
-        const fnName1 = fnNameArr[fnNameArr.length - 1];
-
-        if (fnName1 !== undefined) {
-          const fnName = fnName1.trim();
-          const mdStr = new vscode.MarkdownString();
-
-          let link = "https://psjdoc.e-technostar.com/";
-          if (fnName.includes("JPT.")) {
-            link = link + "docs/psj-utility/JPT." + fnName.split(".")[1];
-          } else {
-            link =
-              link +
-              "docs/psj-command/" +
-              fnName
-                .split(".")[0]
-                .split(/(?=[A-Z][a-z])/)
-                .map((s: string) => s.toLowerCase())
-                .join("-") +
-              "/" +
-              fnName;
-          }
-          mdStr.appendMarkdown(`[See reference here](${link})`);
-
-          return new vscode.Hover(mdStr);
-        }
-      } else {
-        return undefined;
-      }
-    },
-  });
-
-  context.subscriptions.push(hover);
-
-  void backgroundInit(context);
-  return Promise.resolve();
-}
-
-async function backgroundInit(context: vscode.ExtensionContext) {
-  // Goes to the binary to fetch what capabilities enabled:
-  await fetchCapabilitiesOnFocus();
-
-  vscode.languages.registerCompletionItemProvider(
-    [{ language: "jupiter" }, { language: "python" }],
-    {
-      provideCompletionItems,
-    },
-    ...COMPLETION_TRIGGERS,
-  );
-
-  if (isCapabilityEnabled(Capability.ON_BOARDING_CAPABILITY)) {
-    handleErrorState();
+/**
+ * Builds the documentation URL for a PSJ function reference.
+ *
+ * - JPT utilities (e.g. `JPT.Foo`) live under `docs/psj-utility/`.
+ * - PSJ commands live under `docs/psj-command/<kebab-category>/<FnName>`.
+ */
+function buildReferenceLink(fnName: string): string {
+  if (fnName.includes("JPT.")) {
+    return `${PSJ_DOC_BASE}docs/psj-utility/JPT.${fnName.split(".")[1]}`;
   }
+
+  const category = fnName
+    .split(".")[0]
+    .split(/(?=[A-Z][a-z])/)
+    .map((segment) => segment.toLowerCase())
+    .join("-");
+
+  return `${PSJ_DOC_BASE}docs/psj-command/${category}/${fnName}`;
 }
 
-export async function deactivate(): Promise<unknown> {
-  return requestDeactivate();
-}
+const hoverProvider: vscode.HoverProvider = {
+  provideHover(document, position) {
+    const wordRange = document.getWordRangeAtPosition(position);
+    const word = document.getText(wordRange);
+    const linePrefix = document.lineAt(position).text;
+    const fnNameMatch = linePrefix.match(/^.*(?=\()/);
+    const prefixMatch = linePrefix.match(/(?<=\.)\w*(?=\()/);
 
-function handleSelection(context: vscode.ExtensionContext) {
+    if (fnNameMatch === null || prefixMatch === null || prefixMatch[0] !== word) {
+      return undefined;
+    }
+
+    const fnNameParts = fnNameMatch[0].split("=");
+    const rawFnName = fnNameParts[fnNameParts.length - 1];
+    if (rawFnName === undefined) {
+      return undefined;
+    }
+
+    const fnName = rawFnName.trim();
+    const markdown = new vscode.MarkdownString();
+    markdown.appendMarkdown(`[See reference here](${buildReferenceLink(fnName)})`);
+
+    return new vscode.Hover(markdown);
+  },
+};
+
+export function activate(context: vscode.ExtensionContext): void {
   context.subscriptions.push(
-    vscode.commands.registerTextEditorCommand(
-      COMPLETION_IMPORTS,
-      selectionHandler,
-    ),
+    vscode.languages.registerHoverProvider("python", hoverProvider),
   );
+}
+
+export function deactivate(): void {
+  // Nothing to clean up.
 }
