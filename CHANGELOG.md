@@ -4,6 +4,11 @@ All notable changes to the "jupiter" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.2.7]
+
+- fix high CPU load (#1): activate only for Jupiter/Python files and scope
+  completions to those languages instead of running on every file/keystroke
+
 ## [1.2.6]
 
 - fix reference link - only displays at function names

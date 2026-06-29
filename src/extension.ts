@@ -69,7 +69,7 @@ async function backgroundInit(context: vscode.ExtensionContext) {
   await fetchCapabilitiesOnFocus();
 
   vscode.languages.registerCompletionItemProvider(
-    { pattern: "**" },
+    [{ language: "jupiter" }, { language: "python" }],
     {
       provideCompletionItems,
     },
