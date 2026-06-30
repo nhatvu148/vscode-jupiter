@@ -1,95 +1,191 @@
 import * as vscode from "vscode";
-import {
-  deactivate as requestDeactivate,
-  initBinary,
-} from "./binary/requests/requests";
-import { COMPLETION_IMPORTS, selectionHandler } from "./selectionHandler";
-import {
-  Capability,
-  fetchCapabilitiesOnFocus,
-  isCapabilityEnabled,
-} from "./capabilities";
-import provideCompletionItems from "./provideCompletionItems";
-import { COMPLETION_TRIGGERS } from "./consts";
-import handleErrorState from "./binary/errorState";
+import { allApiEntries, allKeywords, lookupApi } from "./jupiterApi";
 
-export function activate(context: vscode.ExtensionContext) {
-  initBinary();
-  handleSelection(context);
+const PSJ_DOC_BASE = "https://psjdoc.e-technostar.com/";
+const LANGUAGES = ["python", "jupiter"];
 
-  const hover = vscode.languages.registerHoverProvider("python", {
-    provideHover(document, position, token) {
-      const wordRange = document.getWordRangeAtPosition(position);
-      const word = document.getText(wordRange);
-      const linePrefix = document.lineAt(position).text;
-      const fnName0 = linePrefix.match(/^.*(?=\()/);
-      const prefix = linePrefix.match(/(?<=\.)\w*(?=\()/);
+/**
+ * Builds the documentation URL for a PSJ function reference.
+ *
+ * - JPT utilities (e.g. `JPT.Foo`) live under `docs/psj-utility/`.
+ * - PSJ commands live under `docs/psj-command/<kebab-category>/<FnName>`.
+ */
+export function buildReferenceLink(fnName: string): string {
+  if (fnName.includes("JPT.")) {
+    return `${PSJ_DOC_BASE}docs/psj-utility/JPT.${fnName.split(".")[1]}`;
+  }
 
-      if (fnName0 !== null && prefix !== null && prefix[0] === word) {
-        const fnNameArr = fnName0[0].split("=");
-        const fnName1 = fnNameArr[fnNameArr.length - 1];
+  const category = fnName
+    .split(".")[0]
+    .split(/(?=[A-Z][a-z])/)
+    .map((segment) => segment.toLowerCase())
+    .join("-");
 
-        if (fnName1 !== undefined) {
-          const fnName = fnName1.trim();
-          const mdStr = new vscode.MarkdownString();
-
-          let link = "https://psjdoc.e-technostar.com/";
-          if (fnName.includes("JPT.")) {
-            link = link + "docs/psj-utility/JPT." + fnName.split(".")[1];
-          } else {
-            link =
-              link +
-              "docs/psj-command/" +
-              fnName
-                .split(".")[0]
-                .split(/(?=[A-Z][a-z])/)
-                .map((s: string) => s.toLowerCase())
-                .join("-") +
-              "/" +
-              fnName;
-          }
-          mdStr.appendMarkdown(`[See reference here](${link})`);
-
-          return new vscode.Hover(mdStr);
-        }
-      } else {
-        return undefined;
-      }
-    },
-  });
-
-  context.subscriptions.push(hover);
-
-  void backgroundInit(context);
-  return Promise.resolve();
+  return `${PSJ_DOC_BASE}docs/psj-command/${category}/${fnName}`;
 }
 
-async function backgroundInit(context: vscode.ExtensionContext) {
-  // Goes to the binary to fetch what capabilities enabled:
-  await fetchCapabilitiesOnFocus();
+/** Extracts the fully-qualified function name being called on the hovered line. */
+function functionNameAt(
+  document: vscode.TextDocument,
+  position: vscode.Position,
+): string | undefined {
+  const word = document.getText(document.getWordRangeAtPosition(position));
+  const linePrefix = document.lineAt(position).text;
+  const fnNameMatch = linePrefix.match(/^.*(?=\()/);
+  const prefixMatch = linePrefix.match(/(?<=\.)\w*(?=\()/);
 
-  vscode.languages.registerCompletionItemProvider(
-    [{ language: "jupiter" }, { language: "python" }],
-    {
-      provideCompletionItems,
-    },
-    ...COMPLETION_TRIGGERS,
-  );
+  if (fnNameMatch === null || prefixMatch === null || prefixMatch[0] !== word) {
+    return undefined;
+  }
 
-  if (isCapabilityEnabled(Capability.ON_BOARDING_CAPABILITY)) {
-    handleErrorState();
+  const fnNameParts = fnNameMatch[0].split("=");
+  const rawFnName = fnNameParts[fnNameParts.length - 1];
+  return rawFnName === undefined ? undefined : rawFnName.trim();
+}
+
+const hoverProvider: vscode.HoverProvider = {
+  provideHover(document, position) {
+    const fnName = functionNameAt(document, position);
+    if (fnName === undefined) {
+      return undefined;
+    }
+
+    const markdown = new vscode.MarkdownString();
+    const api = lookupApi(fnName);
+    if (api) {
+      markdown.appendMarkdown(`${api.doc}\n\n`);
+    }
+    markdown.appendMarkdown(
+      `[See reference here](${buildReferenceLink(fnName)})`,
+    );
+
+    return new vscode.Hover(markdown);
+  },
+};
+
+/** Pre-built completion items for every known PSJ/JPT API entry. */
+const apiCompletionItems: vscode.CompletionItem[] = allApiEntries().map(
+  (entry) => {
+    const item = new vscode.CompletionItem(
+      entry.prefix,
+      vscode.CompletionItemKind.Method,
+    );
+    item.detail = entry.name;
+    item.documentation = new vscode.MarkdownString(entry.doc);
+    return item;
+  },
+);
+
+/** PSJ utility constants + GUI keywords, ranked below the documented methods. */
+const keywordCompletionItems: vscode.CompletionItem[] = allKeywords().map(
+  (keyword) => {
+    const item = new vscode.CompletionItem(
+      keyword.label,
+      vscode.CompletionItemKind.Constant,
+    );
+    item.detail = `Jupiter ${keyword.group}`;
+    item.sortText = `zz${keyword.label}`;
+    return item;
+  },
+);
+
+const allCompletionItems = [...apiCompletionItems, ...keywordCompletionItems];
+
+const completionProvider: vscode.CompletionItemProvider = {
+  provideCompletionItems() {
+    return allCompletionItems;
+  },
+};
+
+/**
+ * Finds the call the cursor is inside: walks back to the unmatched "(" and
+ * returns the function name before it and how many top-level commas precede
+ * the cursor (the active parameter index).
+ */
+export function findEnclosingCall(
+  text: string,
+): { name: string; activeParam: number } | undefined {
+  let depth = 0;
+  for (let i = text.length - 1; i >= 0; i--) {
+    const ch = text[i];
+    if (ch === ")" || ch === "]" || ch === "}") {
+      depth++;
+    } else if (ch === "(" || ch === "[" || ch === "{") {
+      if (depth > 0) {
+        depth--;
+        continue;
+      }
+      if (ch !== "(") {
+        return undefined;
+      }
+      const name = text.slice(0, i).match(/([A-Za-z_][A-Za-z0-9_.]*)$/);
+      if (!name) {
+        return undefined;
+      }
+      let argDepth = 0;
+      let commas = 0;
+      for (const c of text.slice(i + 1)) {
+        if ("([{".includes(c)) {
+          argDepth++;
+        } else if (")]}".includes(c)) {
+          argDepth--;
+        } else if (c === "," && argDepth === 0) {
+          commas++;
+        }
+      }
+      return { name: name[1], activeParam: commas };
+    }
+  }
+  return undefined;
+}
+
+const signatureProvider: vscode.SignatureHelpProvider = {
+  provideSignatureHelp(document, position) {
+    const prefix = document
+      .lineAt(position.line)
+      .text.slice(0, position.character);
+    const call = findEnclosingCall(prefix);
+    if (!call) {
+      return undefined;
+    }
+
+    const api = lookupApi(call.name);
+    if (!api || api.params.length === 0) {
+      return undefined;
+    }
+
+    const info = new vscode.SignatureInformation(
+      api.signature,
+      new vscode.MarkdownString(api.doc),
+    );
+    info.parameters = api.params.map((p) => new vscode.ParameterInformation(p));
+
+    const help = new vscode.SignatureHelp();
+    help.signatures = [info];
+    help.activeSignature = 0;
+    help.activeParameter = Math.min(call.activeParam, api.params.length - 1);
+    return help;
+  },
+};
+
+export function activate(context: vscode.ExtensionContext): void {
+  for (const language of LANGUAGES) {
+    context.subscriptions.push(
+      vscode.languages.registerHoverProvider(language, hoverProvider),
+      vscode.languages.registerCompletionItemProvider(
+        language,
+        completionProvider,
+      ),
+      vscode.languages.registerSignatureHelpProvider(
+        language,
+        signatureProvider,
+        "(",
+        ",",
+      ),
+    );
   }
 }
 
-export async function deactivate(): Promise<unknown> {
-  return requestDeactivate();
-}
-
-function handleSelection(context: vscode.ExtensionContext) {
-  context.subscriptions.push(
-    vscode.commands.registerTextEditorCommand(
-      COMPLETION_IMPORTS,
-      selectionHandler,
-    ),
-  );
+export function deactivate(): void {
+  // Nothing to clean up.
 }

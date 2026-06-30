@@ -4,6 +4,48 @@ All notable changes to the "jupiter" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.6.0]
+
+- **Signature help**: typing `(` after a PSJ/JPT call shows the parameter hints,
+  with the active argument highlighted as you type commas — powered by the real
+  signatures from jupiterutils.
+- **GUI dialog completions**: parsed `pyjdg.py` (the `JDGCreator` builder), adding
+  184 documented GUI methods (`add_button`, `add_combobox`, …) with signatures
+  and docstrings. Instance-style calls like `dlg.add_button(` resolve in hovers
+  and signature help via a leaf-name lookup.
+
+## [1.5.0]
+
+- Regenerated the API data directly from the **jupiterutils** package via a new
+  `yarn generate` script. Every command now carries its **accurate signature**
+  (real parameter names, defaults, and types inferred from Hungarian prefixes),
+  and ~960 commands/utilities include their full `## Description` docstring
+  (description, inputs, examples). Stale/renamed commands are dropped.
+- `src/data.ts` is now generated, not hand-maintained — refreshing it when the
+  PSJ docs change is a single command.
+
+## [1.4.0]
+
+- Refreshed the PSJ/JPT data against the latest `psj-editor` sources: command
+  coverage grew to **1,983** entries (+1,255 commands). Existing rich docs are
+  preserved; newly added commands link to the reference.
+- Added **PSJ utility constants and PSJ-GUI keyword** completions (~980 tokens
+  such as `ELEMTYPE_HEX8`, `add_button`), ranked below the documented methods.
+
+## [1.3.0]
+
+- **Removed the bundled TabNine autocompleter** (the cause of the high-CPU
+  reports) and its 54MB of native binaries. The extension is now a single
+  ~270KB esbuild bundle with no background processes — the `.vsix` dropped
+  from 27MB to ~370KB.
+- **PSJ/JPT API IntelliSense**: completion for ~700 Jupiter commands and `JPT`
+  utilities, each with its documented signature.
+- **Richer hovers**: known PSJ/JPT calls now show their full signature inline,
+  in addition to the reference link.
+- Modernized the toolchain (TypeScript 5.7, ESLint 9, `@types/vscode` 1.84),
+  added integration tests and GitHub Actions CI, and resolved the dependency
+  security advisories (88 → 0 shipped).
+
 ## [1.2.7]
 
 - fix high CPU load (#1): activate only for Jupiter/Python files and scope
