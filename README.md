@@ -4,14 +4,16 @@ Language support for **PSJ** (Python Script in Jupiter) and **JPL** (Jupiter Mac
 
 ## Features
 
-- **PSJ / JPT API completion** — IntelliSense for ~700 Jupiter commands and `JPT` utilities, each with a documented signature (arguments, types, return value, examples) pulled straight from the PSJ command reference.
-- **Hover docs** — hover any known PSJ/JPT call to see its full signature inline, plus a one-click link to the official reference page.
+- **PSJ / JPT / GUI completion** — IntelliSense for 2,200+ Jupiter commands, `JPT` utilities, and `JDGCreator` GUI-builder methods, each with an accurate signature (real parameter names, defaults, and types).
+- **Signature help** — parameter hints appear as you type a call, with the active argument highlighted.
+- **Hover docs** — hover any known PSJ/JPT call for its full signature, description, and inputs, plus a one-click link to the official reference page.
+- **Keyword completions** — PSJ utility constants (`ELEMTYPE_HEX8`, …) and PSJ-GUI keywords.
 - **Syntax highlighting** — a TextMate grammar for `.jpl` Jupiter macro files.
-- **Lightweight & fast** — no background processes, no native binaries; the whole extension is a single ~270 KB bundle.
+- **Lightweight & fast** — no background processes and no native binaries; just static, in-editor data.
 
 ## Usage
 
-Open a Python (PSJ) or `.jpl` (JPL) file and start typing a Jupiter command — completions appear automatically. Hover a call such as `FileMenu.Save(...)` or `JPT.GetVersion()` to read its documentation.
+Open a Python (PSJ) or `.jpl` (JPL) file and start typing a Jupiter command — completions appear automatically. Type `(` after a call such as `FileMenu.AddJTDB(` to see signature hints, or hover `JPT.GetThicknessOfEntity(...)` to read its documentation.
 
 ## About PSJ
 
