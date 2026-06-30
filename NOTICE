@@ -1,0 +1,24 @@
+NOTICE — License scope and attribution
+=======================================
+
+The MIT license in the LICENSE file covers the SOURCE CODE of this extension
+authored by the maintainer: the TypeScript sources, build and generation
+scripts, configuration, and the `.jpl` syntax grammar.
+
+It does NOT cover, and the maintainer claims no rights to, the PSJ / JPT /
+Jupiter application programming interface — including command and utility
+names, function signatures, parameter names, and the descriptive documentation
+text — which are the property of e-technostar (TechnoStar Co., Ltd.).
+
+That material (bundled in `src/data.ts`) is included solely to provide editor
+assistance — completions, signature help, and documentation links — for
+interoperability with the Jupiter product. It is NOT licensed under MIT.
+
+"Jupiter", "PSJ", "JPT", and "e-technostar" are names and/or marks of
+e-technostar (TechnoStar Co., Ltd.). This extension is an unofficial,
+community-maintained tool and is not affiliated with, endorsed by, or supported
+by e-technostar.
+
+If you are a rights holder and have any concern about this material, please
+open an issue at https://github.com/nhatvu148/vscode-jupiter and it will be
+addressed promptly.

@@ -49,6 +49,13 @@ sources via `yarn generate`, so signatures, defaults and docstrings stay
 accurate. Regenerating it requires access to those internal sources and is a
 maintainer-only task — see `scripts/generate.mjs`.
 
-## License
+## License & attribution
 
-[MIT](LICENSE)
+The extension's **source code** is licensed under the [MIT License](LICENSE).
+
+The PSJ / JPT / Jupiter API names, signatures, and documentation text bundled
+in this extension are the property of **e-technostar (TechnoStar Co., Ltd.)**,
+included for interoperability and **not covered by the MIT license**.
+"Jupiter", "PSJ", "JPT", and "e-technostar" are names/marks of e-technostar.
+This is an unofficial, community-maintained tool and is not affiliated with or
+endorsed by e-technostar. See [NOTICE](NOTICE) for details.
