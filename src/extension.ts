@@ -1,28 +1,7 @@
 import * as vscode from "vscode";
 import { allApiEntries, allKeywords, lookupApi } from "./jupiterApi";
 
-const PSJ_DOC_BASE = "https://psjdoc.e-technostar.com/";
 const LANGUAGES = ["python", "jupiter"];
-
-/**
- * Builds the documentation URL for a PSJ function reference.
- *
- * - JPT utilities (e.g. `JPT.Foo`) live under `docs/psj-utility/`.
- * - PSJ commands live under `docs/psj-command/<kebab-category>/<FnName>`.
- */
-export function buildReferenceLink(fnName: string): string {
-  if (fnName.includes("JPT.")) {
-    return `${PSJ_DOC_BASE}docs/psj-utility/JPT.${fnName.split(".")[1]}`;
-  }
-
-  const category = fnName
-    .split(".")[0]
-    .split(/(?=[A-Z][a-z])/)
-    .map((segment) => segment.toLowerCase())
-    .join("-");
-
-  return `${PSJ_DOC_BASE}docs/psj-command/${category}/${fnName}`;
-}
 
 /** Extracts the fully-qualified function name being called on the hovered line. */
 function functionNameAt(
@@ -50,16 +29,12 @@ const hoverProvider: vscode.HoverProvider = {
       return undefined;
     }
 
-    const markdown = new vscode.MarkdownString();
     const api = lookupApi(fnName);
-    if (api) {
-      markdown.appendMarkdown(`${api.doc}\n\n`);
+    if (!api) {
+      return undefined;
     }
-    markdown.appendMarkdown(
-      `[See reference here](${buildReferenceLink(fnName)})`,
-    );
 
-    return new vscode.Hover(markdown);
+    return new vscode.Hover(new vscode.MarkdownString(api.doc));
   },
 };
 

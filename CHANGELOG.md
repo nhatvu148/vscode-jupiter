@@ -4,6 +4,16 @@ All notable changes to the "jupiter" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.6.1]
+
+- Removed the "See reference here" hover link. The documentation site
+  (`psjdoc.e-technostar.com`) is now entirely behind authentication, so the
+  link returned 401 for everyone. Hovers keep their inline signature +
+  description, which is the useful part.
+- Added a `NOTICE` clarifying that the MIT license covers the extension's source
+  code only; the bundled PSJ/JPT API names and documentation are the property of
+  e-technostar.
+
 ## [1.6.0]
 
 - **Signature help**: typing `(` after a PSJ/JPT call shows the parameter hints,

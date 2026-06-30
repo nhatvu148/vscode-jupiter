@@ -1,32 +1,9 @@
 import * as assert from "assert";
 import * as vscode from "vscode";
-import { buildReferenceLink, findEnclosingCall } from "../extension";
+import { findEnclosingCall } from "../extension";
 import { allApiEntries, allKeywords, lookupApi } from "../jupiterApi";
 
 const EXTENSION_ID = "nhatvu148.jupiter";
-
-suite("buildReferenceLink", () => {
-  test("maps a JPT utility to the psj-utility docs path", () => {
-    assert.strictEqual(
-      buildReferenceLink("JPT.GetVersion"),
-      "https://psjdoc.e-technostar.com/docs/psj-utility/JPT.GetVersion",
-    );
-  });
-
-  test("maps a PSJ command to a kebab-cased category path", () => {
-    assert.strictEqual(
-      buildReferenceLink("MeshControl.SetSize"),
-      "https://psjdoc.e-technostar.com/docs/psj-command/mesh-control/MeshControl.SetSize",
-    );
-  });
-
-  test("handles a single-word command category", () => {
-    assert.strictEqual(
-      buildReferenceLink("Solver.Run"),
-      "https://psjdoc.e-technostar.com/docs/psj-command/solver/Solver.Run",
-    );
-  });
-});
 
 suite("jupiterApi", () => {
   test("exposes the merged API surface (~1800+ entries)", () => {
