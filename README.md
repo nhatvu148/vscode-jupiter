@@ -6,14 +6,14 @@ Language support for **PSJ** (Python Script in Jupiter) and **JPL** (Jupiter Mac
 
 - **PSJ / JPT / GUI completion** — IntelliSense for 2,200+ Jupiter commands, `JPT` utilities, and `JDGCreator` GUI-builder methods, each with an accurate signature (real parameter names, defaults, and types).
 - **Signature help** — parameter hints appear as you type a call, with the active argument highlighted.
-- **Hover docs** — hover any known PSJ/JPT call for its full signature, description, and inputs.
+- **Hover docs** — hover any known PSJ/JPT call for its full signature and typed parameter list.
 - **Keyword completions** — PSJ utility constants (`ELEMTYPE_HEX8`, …) and PSJ-GUI keywords.
 - **Syntax highlighting** — a TextMate grammar for `.jpl` Jupiter macro files.
 - **Lightweight & fast** — no background processes and no native binaries; just static, in-editor data.
 
 ## Usage
 
-Open a Python (PSJ) or `.jpl` (JPL) file and start typing a Jupiter command — completions appear automatically. Type `(` after a call such as `FileMenu.AddJTDB(` to see signature hints, or hover `JPT.GetThicknessOfEntity(...)` to read its signature and documentation inline.
+Open a Python (PSJ) or `.jpl` (JPL) file and start typing a Jupiter command — completions appear automatically. Type `(` after a call such as `FileMenu.AddJTDB(` to see signature hints, or hover `JPT.GetThicknessOfEntity(...)` to read its signature and typed parameters inline.
 
 ## About PSJ
 
@@ -53,9 +53,11 @@ maintainer-only task — see `scripts/generate.mjs`.
 
 The extension's **source code** is licensed under the [MIT License](LICENSE).
 
-The PSJ / JPT / Jupiter API names, signatures, and documentation text bundled
-in this extension are the property of **e-technostar (TechnoStar Co., Ltd.)**,
-included for interoperability and **not covered by the MIT license**.
+The PSJ / JPT / Jupiter API names and signatures referenced by this extension
+are the terminology of **e-technostar (TechnoStar Co., Ltd.)**, used here only
+to provide editor assistance for interoperability. The extension bundles only
+these interface facts (names, signatures, parameter names) — it does **not**
+include e-technostar's documentation prose, descriptions, or examples.
 "Jupiter", "PSJ", "JPT", and "e-technostar" are names/marks of e-technostar.
 This is an unofficial, community-maintained tool and is not affiliated with or
 endorsed by e-technostar. See [NOTICE](NOTICE) for details.

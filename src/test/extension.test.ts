@@ -13,18 +13,20 @@ suite("jupiterApi", () => {
     );
   });
 
-  test("provides a real signature + docs for a known command", () => {
+  test("provides an accurate signature + typed params for a known command", () => {
     const entry = lookupApi("FileMenu.AddJTDB");
     assert.ok(entry, "FileMenu.AddJTDB should be a known API entry");
     assert.strictEqual(entry.prefix, "AddJTDB");
-    assert.match(entry.doc, /strFileName/); // accurate signature from jupiterutils
-    assert.match(entry.doc, /Add jtdb into model/i); // description from docstring
+    assert.match(entry.signature, /^FileMenu\.AddJTDB\(strFileName/); // real signature
+    assert.match(entry.doc, /strFileName/); // shown in the param table
+    assert.match(entry.doc, /\(String\)/); // inferred type, our own derivation
+    assert.doesNotMatch(entry.doc, /## Description/); // no bundled vendor prose
   });
 
-  test("documents a JPT utility from Utility.py", () => {
+  test("knows a JPT utility from Utility.py", () => {
     const entry = lookupApi("JPT.GetThicknessOfEntity");
     assert.ok(entry, "JPT.GetThicknessOfEntity should be known");
-    assert.match(entry.doc, /thickness/i);
+    assert.match(entry.signature, /^JPT\.GetThicknessOfEntity\(/);
   });
 
   test("returns undefined for an unknown name", () => {

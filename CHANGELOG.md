@@ -4,6 +4,19 @@ All notable changes to the "jupiter" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.7.0]
+
+- The bundled data is now **interface-facts only**: command/utility/GUI names,
+  accurate signatures, and a typed parameter list (types inferred locally from
+  the parameter names). e-technostar's documentation prose, descriptions, and
+  examples are **no longer bundled**. Completions and signature help are
+  unchanged; hovers show the signature + typed parameters instead of prose.
+- `data.ts` shrank ~40% (3.4 MB → 2.1 MB). Regenerate with
+  `yarn generate --src <path>` (interface-facts-only is the default; pass
+  `--with-prose` to include docstrings).
+- Updated NOTICE / attribution to reflect that only interface facts are
+  included.
+
 ## [1.6.1]
 
 - Removed the "See reference here" hover link. The documentation site

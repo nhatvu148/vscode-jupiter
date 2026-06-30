@@ -26,6 +26,9 @@ const srcRoot =
   flag("src", process.env.JUPITER_API_SRC) ?? join(REPO, "..", "jupiter-api-src");
 const utilsPkg = flag("utils", join(srcRoot, "jupiter_utils", "jupiterutils"));
 const keywordsDat = join(srcRoot, "IDEData", "Keywords.dat");
+// Default: interface facts only (no vendor prose). Pass --with-prose to bundle
+// the docstring descriptions/examples instead.
+const namesOnly = !process.argv.includes("--with-prose");
 
 if (!existsSync(utilsPkg)) {
   console.error(
@@ -216,9 +219,12 @@ function toCallTip(name, entry) {
   );
   const signature = `${name}(${params.join(", ")})`;
   const sig = "```python\n" + signature + "\n```";
-  const desc = entry.doc
-    ? stripSection(entry.doc, "Syntax")
-    : paramTable(entry.params);
+  // --names-only ships interface facts only (signature + inferred-type param
+  // table) and omits the vendor's prose docstrings.
+  const desc =
+    !namesOnly && entry.doc
+      ? stripSection(entry.doc, "Syntax")
+      : paramTable(entry.params);
   return {
     prefix: entry.prefix,
     signature,

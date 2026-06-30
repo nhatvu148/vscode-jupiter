@@ -6,13 +6,15 @@ authored by the maintainer: the TypeScript sources, build and generation
 scripts, configuration, and the `.jpl` syntax grammar.
 
 It does NOT cover, and the maintainer claims no rights to, the PSJ / JPT /
-Jupiter application programming interface — including command and utility
-names, function signatures, parameter names, and the descriptive documentation
-text — which are the property of e-technostar (TechnoStar Co., Ltd.).
+Jupiter application programming interface — the command and utility names,
+function signatures, and parameter names — which are the terminology of
+e-technostar (TechnoStar Co., Ltd.).
 
-That material (bundled in `src/data.ts`) is included solely to provide editor
-assistance — completions, signature help, and documentation links — for
-interoperability with the Jupiter product. It is NOT licensed under MIT.
+The extension bundles only these interface facts (in `src/data.ts`) to provide
+editor assistance — completions and signature help — for interoperability with
+the Jupiter product. It does NOT bundle e-technostar's documentation prose,
+parameter descriptions, return-value text, or sample code. The interface facts
+are used for interoperability and are not licensed under MIT.
 
 "Jupiter", "PSJ", "JPT", and "e-technostar" are names and/or marks of
 e-technostar (TechnoStar Co., Ltd.). This extension is an unofficial,
