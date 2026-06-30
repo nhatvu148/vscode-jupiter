@@ -24,4 +24,8 @@ lbcs = JPT.GetAllLoadBoundaryConditions()
 
 
 # --- Try completion here: type a command name on the next line ---
-# e.g. start typing:  Save    /    FindEntities    /    GetThickness
+# e.g. start typing:  AddJTDB  /  FindEntities  /  GetThickness  /  add_button
+
+# --- Try SIGNATURE HELP: type the "(" and watch the parameter hints ---
+# FileMenu.AddJTDB(
+# dlg.add_button(

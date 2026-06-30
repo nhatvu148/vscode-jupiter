@@ -4,6 +4,16 @@ All notable changes to the "jupiter" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.6.0]
+
+- **Signature help**: typing `(` after a PSJ/JPT call shows the parameter hints,
+  with the active argument highlighted as you type commas — powered by the real
+  signatures from jupiterutils.
+- **GUI dialog completions**: parsed `pyjdg.py` (the `JDGCreator` builder), adding
+  184 documented GUI methods (`add_button`, `add_combobox`, …) with signatures
+  and docstrings. Instance-style calls like `dlg.add_button(` resolve in hovers
+  and signature help via a leaf-name lookup.
+
 ## [1.5.0]
 
 - Regenerated the API data directly from the **jupiterutils** package via a new
