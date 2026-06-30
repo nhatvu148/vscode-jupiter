@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { allApiEntries, lookupApi } from "./jupiterApi";
+import { allApiEntries, allKeywords, lookupApi } from "./jupiterApi";
 
 const PSJ_DOC_BASE = "https://psjdoc.e-technostar.com/";
 const LANGUAGES = ["python", "jupiter"];
@@ -74,9 +74,24 @@ const apiCompletionItems: vscode.CompletionItem[] = allApiEntries().map(
   },
 );
 
+/** PSJ utility constants + GUI keywords, ranked below the documented methods. */
+const keywordCompletionItems: vscode.CompletionItem[] = allKeywords().map(
+  (keyword) => {
+    const item = new vscode.CompletionItem(
+      keyword.label,
+      vscode.CompletionItemKind.Constant,
+    );
+    item.detail = `Jupiter ${keyword.group}`;
+    item.sortText = `zz${keyword.label}`;
+    return item;
+  },
+);
+
+const allCompletionItems = [...apiCompletionItems, ...keywordCompletionItems];
+
 const completionProvider: vscode.CompletionItemProvider = {
   provideCompletionItems() {
-    return apiCompletionItems;
+    return allCompletionItems;
   },
 };
 

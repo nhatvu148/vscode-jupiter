@@ -1,4 +1,4 @@
-import { callTips } from "./data";
+import { callTips, keywordGroups } from "./data";
 
 export interface JupiterApiEntry {
   /** Fully-qualified command/utility name, e.g. "FileMenu.Save" or "JPT.GetVersion". */
@@ -7,6 +7,13 @@ export interface JupiterApiEntry {
   prefix: string;
   /** Rich Markdown documentation: signature, args, return, examples. */
   doc: string;
+}
+
+export interface JupiterKeyword {
+  /** The keyword/constant token, e.g. "ELEMTYPE_HEX8" or "add_button". */
+  label: string;
+  /** Human-readable origin shown in the completion detail. */
+  group: string;
 }
 
 const entries: JupiterApiEntry[] = Object.entries(callTips).map(
@@ -25,4 +32,14 @@ export function allApiEntries(): readonly JupiterApiEntry[] {
 /** Look up an API entry by its fully-qualified name, e.g. "FileMenu.Save". */
 export function lookupApi(name: string): JupiterApiEntry | undefined {
   return byName.get(name);
+}
+
+const keywords: JupiterKeyword[] = [
+  ...keywordGroups.psjUtility.map((label) => ({ label, group: "PSJ Utility" })),
+  ...keywordGroups.psjGui.map((label) => ({ label, group: "PSJ GUI" })),
+];
+
+/** PSJ utility constants and GUI-builder keywords offered as completions. */
+export function allKeywords(): readonly JupiterKeyword[] {
+  return keywords;
 }

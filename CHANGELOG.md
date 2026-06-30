@@ -4,6 +4,14 @@ All notable changes to the "jupiter" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.4.0]
+
+- Refreshed the PSJ/JPT data against the latest `psj-editor` sources: command
+  coverage grew to **1,983** entries (+1,255 commands). Existing rich docs are
+  preserved; newly added commands link to the reference.
+- Added **PSJ utility constants and PSJ-GUI keyword** completions (~980 tokens
+  such as `ELEMTYPE_HEX8`, `add_button`), ranked below the documented methods.
+
 ## [1.3.0]
 
 - **Removed the bundled TabNine autocompleter** (the cause of the high-CPU

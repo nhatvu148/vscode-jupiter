@@ -1,7 +1,7 @@
 import * as assert from "assert";
 import * as vscode from "vscode";
 import { buildReferenceLink } from "../extension";
-import { allApiEntries, lookupApi } from "../jupiterApi";
+import { allApiEntries, allKeywords, lookupApi } from "../jupiterApi";
 
 const EXTENSION_ID = "nhatvu148.jupiter";
 
@@ -29,19 +29,28 @@ suite("buildReferenceLink", () => {
 });
 
 suite("jupiterApi", () => {
-  test("exposes a non-empty API surface", () => {
-    assert.ok(allApiEntries().length > 100);
+  test("exposes the merged API surface (~1800+ entries)", () => {
+    assert.ok(
+      allApiEntries().length > 1800,
+      `expected >1800 entries, got ${allApiEntries().length}`,
+    );
   });
 
-  test("looks up a known command with its docs and leaf prefix", () => {
+  test("preserves rich docs for an existing command", () => {
     const entry = lookupApi("FileMenu.Save");
     assert.ok(entry, "FileMenu.Save should be a known API entry");
     assert.strictEqual(entry.prefix, "Save");
-    assert.match(entry.doc, /FileMenu\.Save/);
+    assert.match(entry.doc, /Save file JTDB/); // rich text preserved, not a stub
   });
 
   test("returns undefined for an unknown name", () => {
     assert.strictEqual(lookupApi("Not.A.Real.Command"), undefined);
+  });
+
+  test("exposes PSJ utility + GUI keywords", () => {
+    const labels = new Set(allKeywords().map((k) => k.label));
+    assert.ok(labels.has("add_button"), "GUI keyword add_button missing");
+    assert.ok(allKeywords().length > 500);
   });
 });
 
