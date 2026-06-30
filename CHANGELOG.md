@@ -4,6 +4,16 @@ All notable changes to the "jupiter" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.5.0]
+
+- Regenerated the API data directly from the **jupiterutils** package via a new
+  `yarn generate` script. Every command now carries its **accurate signature**
+  (real parameter names, defaults, and types inferred from Hungarian prefixes),
+  and ~960 commands/utilities include their full `## Description` docstring
+  (description, inputs, examples). Stale/renamed commands are dropped.
+- `src/data.ts` is now generated, not hand-maintained — refreshing it when the
+  PSJ docs change is a single command.
+
 ## [1.4.0]
 
 - Refreshed the PSJ/JPT data against the latest `psj-editor` sources: command

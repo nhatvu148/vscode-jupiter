@@ -36,11 +36,18 @@ suite("jupiterApi", () => {
     );
   });
 
-  test("preserves rich docs for an existing command", () => {
-    const entry = lookupApi("FileMenu.Save");
-    assert.ok(entry, "FileMenu.Save should be a known API entry");
-    assert.strictEqual(entry.prefix, "Save");
-    assert.match(entry.doc, /Save file JTDB/); // rich text preserved, not a stub
+  test("provides a real signature + docs for a known command", () => {
+    const entry = lookupApi("FileMenu.AddJTDB");
+    assert.ok(entry, "FileMenu.AddJTDB should be a known API entry");
+    assert.strictEqual(entry.prefix, "AddJTDB");
+    assert.match(entry.doc, /strFileName/); // accurate signature from jupiterutils
+    assert.match(entry.doc, /Add jtdb into model/i); // description from docstring
+  });
+
+  test("documents a JPT utility from Utility.py", () => {
+    const entry = lookupApi("JPT.GetThicknessOfEntity");
+    assert.ok(entry, "JPT.GetThicknessOfEntity should be known");
+    assert.match(entry.doc, /thickness/i);
   });
 
   test("returns undefined for an unknown name", () => {

@@ -40,6 +40,22 @@ yarn test         # @vscode/test-cli integration tests
 yarn package      # produce a .vsix
 ```
 
+### Regenerating the API data
+
+`src/data.ts` is generated from the **jupiterutils** package (the library PSJ
+scripts import), so signatures, defaults and docstrings stay accurate. Clone
+[`psj-editor`](https://github.com/nhatvu148/psj-editor) next to this repo with
+its `jupiter_utils` submodule, then:
+
+```bash
+yarn generate --psj-editor ../psj-editor
+yarn check-types && yarn lint && yarn test
+```
+
+It parses `PSJ_Classes.py` (PSJ commands) and `Utility.py` (JPT utilities) for
+signatures + `## Description` docstrings, and `IDEData/Keywords.dat` for the
+PSJ-utility / PSJ-GUI keyword completions.
+
 ## License
 
 [MIT](LICENSE)
